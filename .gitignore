@@ -32,6 +32,7 @@ proguard/
 
 # Android Studio Navigation editor temp files
 .navigation/
+.idea
 
 # Android Studio captures folder
 captures/
@@ -44,5 +45,7 @@ captures/
 # Keystore files
 *.jks
 
+
 ### Android Patch ###
 gen-external-apklibs -
+.idea
