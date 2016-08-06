@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <LinearLayout
+        android:id="@+id/dashboard_header_linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="#fff"
+        android:orientation="horizontal"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="100%"/>
+
+    <RelativeLayout android:id="@+id/dashboard_historyItem_RelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/dashboard_header_linearLayout"
+                    android:gravity="end"
+                    app:layout_heightPercent="20%"
+                    app:layout_widthPercent="45%">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/grid_item_dark_purple"
+            android:padding="10dp"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="50%"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/setting"
+                android:contentDescription="@string/lable_dashboard_imageDescription"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:id="@+id/dashboard_companyPagesItem_RelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/dashboard_header_linearLayout"
+                    android:gravity="start"
+                    app:layout_heightPercent="20%"
+                    app:layout_widthPercent="45%">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/grid_item_orange"
+            android:padding="10dp"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="50%"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/setting"
+                android:contentDescription="@string/lable_dashboard_imageDescription"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:id="@+id/dashboard_profileItem_RelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/dashboard_historyItem_RelativeLayout"
+                    android:gravity="end"
+                    app:layout_heightPercent="20%"
+                    app:layout_widthPercent="45%">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/grid_item_purple"
+            android:padding="10dp"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="50%"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/setting"
+                android:contentDescription="@string/lable_dashboard_imageDescription"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:id="@+id/dashboard_reminderItem_RelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/dashboard_companyPagesItem_RelativeLayout"
+                    android:gravity="start"
+                    app:layout_heightPercent="20%"
+                    app:layout_widthPercent="45%"
+    >
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/grid_item_red"
+            android:padding="10dp"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="50%"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/setting"
+                android:contentDescription="@string/lable_dashboard_imageDescription"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/dashboard_settingItem_RelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/dashboard_profileItem_RelativeLayout"
+                    android:gravity="end"
+                    app:layout_heightPercent="20%"
+                    app:layout_widthPercent="45%">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/grid_item_green"
+            android:padding="10dp"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="50%"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/setting"
+                android:contentDescription="@string/lable_dashboard_imageDescription"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:id="@+id/dashboard_feedbackItem_RelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/dashboard_reminderItem_RelativeLayout"
+                    android:gravity="start"
+                    app:layout_heightPercent="20%"
+                    app:layout_widthPercent="45%"
+    >
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/grid_item_blue"
+            android:padding="10dp"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="50%"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/setting"
+                android:contentDescription="@string/lable_dashboard_imageDescription"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="100%"
+    />
+
+</android.support.percent.PercentRelativeLayout>

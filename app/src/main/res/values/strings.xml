@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MSc Final Project</string>
+    <string name="lable_dashboard_imageDescription">Dashboard Menu Icon</string>
 </resources>
