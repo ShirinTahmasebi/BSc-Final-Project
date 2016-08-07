@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/colorPrimaryDark"
+    android:elevation="4dp"
+    android:gravity="center" tools:targetApi="lollipop">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:gravity="right|center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:customFont="IRAN-Sans-Bold.ttf"
+            app:layout_heightPercent="100%"
+            app:layout_widthPercent="60%"/>
+
+        <LinearLayout android:id="@+id/toolbar_info_linearLayout"
+                      android:layout_width="0dp"
+                      android:layout_height="0dp"
+                      android:gravity="center_vertical"
+                      app:layout_heightPercent="100%"
+                      app:layout_widthPercent="12%">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/toolbar_info_icon"
+            />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/toolbar_help_linearLayout"
+                      android:layout_width="0dp"
+                      android:layout_height="0dp"
+                      android:layout_toRightOf="@id/toolbar_info_linearLayout"
+                      android:gravity="center_vertical"
+                      app:layout_heightPercent="100%"
+                      app:layout_widthPercent="12%">
+            <ImageView android:id="@+id/toolbar_help_imageview"
+                       android:layout_width="40dp"
+                       android:layout_height="40dp"
+                       android:background="@drawable/toolbar_help_icon"/>
+
+        </LinearLayout>
+    </android.support.percent.PercentRelativeLayout>
+</android.support.v7.widget.Toolbar>
