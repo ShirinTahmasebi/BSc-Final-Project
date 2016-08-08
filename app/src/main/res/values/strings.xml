@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MSc Final Project</string>
+    <string name="app_name">عریضه نویس</string>
     <string name="lable_dashboard_imageDescription">Dashboard Menu Icon</string>
     <string name="title_activity_dashboard">داشبورد کاربر</string>
 </resources>
