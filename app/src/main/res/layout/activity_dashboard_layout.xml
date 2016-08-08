@@ -20,7 +20,7 @@
         app:layout_heightPercent="25%"
         app:layout_widthPercent="100%"/>
 
-    <RelativeLayout android:id="@+id/dashboard_historyItem_RelativeLayout"
+    <RelativeLayout android:id="@+id/dashboard_historyItemContainer_RelativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_alignParentLeft="true"
@@ -30,6 +30,7 @@
                     app:layout_heightPercent="20%"
                     app:layout_widthPercent="45%">
         <RelativeLayout
+            android:id="@+id/dashboard_historyItem_RelativeLayout"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/grid_item_red"
@@ -49,7 +50,7 @@
     </RelativeLayout>
 
 
-    <RelativeLayout android:id="@+id/dashboard_companyPagesItem_RelativeLayout"
+    <RelativeLayout android:id="@+id/dashboard_companyPagesItemContainer_RelativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_alignParentEnd="true"
@@ -59,6 +60,7 @@
                     app:layout_heightPercent="20%"
                     app:layout_widthPercent="45%">
         <RelativeLayout
+            android:id="@+id/dashboard_companyPagesItem_RelativeLayout"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/grid_item_dark_purple"
@@ -77,16 +79,17 @@
     </RelativeLayout>
 
 
-    <RelativeLayout android:id="@+id/dashboard_profileItem_RelativeLayout"
+    <RelativeLayout android:id="@+id/dashboard_profileItemContainer_RelativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/dashboard_historyItem_RelativeLayout"
+                    android:layout_below="@+id/dashboard_historyItemContainer_RelativeLayout"
                     android:gravity="end"
                     app:layout_heightPercent="20%"
                     app:layout_widthPercent="45%">
         <RelativeLayout
+            android:id="@+id/dashboard_profileItem_RelativeLayout"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/grid_item_green"
@@ -105,17 +108,17 @@
     </RelativeLayout>
 
 
-    <RelativeLayout android:id="@+id/dashboard_reminderItem_RelativeLayout"
+    <RelativeLayout android:id="@+id/dashboard_reminderItemContainer_RelativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_below="@+id/dashboard_companyPagesItem_RelativeLayout"
+                    android:layout_below="@+id/dashboard_companyPagesItemContainer_RelativeLayout"
                     android:gravity="start"
                     app:layout_heightPercent="20%"
-                    app:layout_widthPercent="45%"
-    >
+                    app:layout_widthPercent="45%">
         <RelativeLayout
+            android:id="@+id/dashboard_reminderItem_RelativeLayout"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/grid_item_orange"
@@ -133,16 +136,17 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout android:id="@+id/dashboard_settingItem_RelativeLayout"
+    <RelativeLayout android:id="@+id/dashboard_settingItemContainer_RelativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/dashboard_profileItem_RelativeLayout"
+                    android:layout_below="@+id/dashboard_profileItemContainer_RelativeLayout"
                     android:gravity="end"
                     app:layout_heightPercent="20%"
                     app:layout_widthPercent="45%">
         <RelativeLayout
+            android:id="@+id/dashboard_settingItem_RelativeLayout"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/grid_item_blue"
@@ -161,17 +165,17 @@
     </RelativeLayout>
 
 
-    <RelativeLayout android:id="@+id/dashboard_feedbackItem_RelativeLayout"
+    <RelativeLayout android:id="@+id/dashboard_feedbackItemContainer_RelativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_below="@+id/dashboard_reminderItem_RelativeLayout"
+                    android:layout_below="@+id/dashboard_reminderItemContainer_RelativeLayout"
                     android:gravity="start"
                     app:layout_heightPercent="20%"
-                    app:layout_widthPercent="45%"
-    >
+                    app:layout_widthPercent="45%">
         <RelativeLayout
+            android:id="@+id/dashboard_feedbackItem_RelativeLayout"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/grid_item_purple"

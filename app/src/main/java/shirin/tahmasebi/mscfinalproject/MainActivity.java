@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+
 public abstract class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         setupToolbar();
+        ButterKnife.bind(this);
     }
 
     protected abstract int getLayoutId();
