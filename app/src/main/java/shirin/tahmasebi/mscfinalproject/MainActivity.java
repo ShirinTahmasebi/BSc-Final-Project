@@ -20,7 +20,11 @@ public abstract class MainActivity extends Activity {
     private void setupToolbar() {
         TextView toolbarTitle;
         toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
-        toolbarTitle.setText(getActivityTitle());
+        if (toolbarTitle != null) {
+            toolbarTitle.setText(getActivityTitle());
+        }else {
+           // TODO:  این حالت معمولا زمانی پیش میاد که صفحه‌ای که باز شده اصلا تولبار دیفالت اکتیویتی رو نداره
+        }
     }
 
     private String getActivityTitle() {
