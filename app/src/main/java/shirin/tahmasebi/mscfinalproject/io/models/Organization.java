@@ -6,7 +6,7 @@ package shirin.tahmasebi.mscfinalproject.io.models;
  */
 public class Organization {
 
-    private long id;
+    private Long id;
     /** Not-null value. */
     private String name;
     /** Not-null value. */
@@ -17,22 +17,22 @@ public class Organization {
     public Organization() {
     }
 
-    public Organization(long id) {
+    public Organization(Long id) {
         this.id = id;
     }
 
-    public Organization(long id, String name, String description, String website) {
+    public Organization(Long id, String name, String description, String website) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.website = website;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

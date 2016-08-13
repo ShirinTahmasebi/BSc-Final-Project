@@ -23,7 +23,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
      * Can be used for QueryBuilder and for referencing column names.
     */
     public static class Properties {
-        public final static Property Id = new Property(0, long.class, "id", true, "_id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
         public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
         public final static Property Website = new Property(3, String.class, "website", false, "WEBSITE");
@@ -42,10 +42,10 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'ORGANIZATION' (" + //
-                "'_id' INTEGER PRIMARY KEY NOT NULL ," + // 0: id
+                "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'NAME' TEXT NOT NULL ," + // 1: name
                 "'DESCRIPTION' TEXT NOT NULL ," + // 2: description
-                "'WEBSITE' TEXT NOT NULL );"); // 3: website
+                "'WEBSITE' TEXT NOT NULL UNIQUE );"); // 3: website
     }
 
     /** Drops the underlying database table. */
@@ -58,7 +58,11 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
     @Override
     protected void bindValues(SQLiteStatement stmt, Organization entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
         stmt.bindString(2, entity.getName());
         stmt.bindString(3, entity.getDescription());
         stmt.bindString(4, entity.getWebsite());
@@ -67,14 +71,14 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
     /** @inheritdoc */
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     /** @inheritdoc */
     @Override
     public Organization readEntity(Cursor cursor, int offset) {
         Organization entity = new Organization( //
-            cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // name
             cursor.getString(offset + 2), // description
             cursor.getString(offset + 3) // website
@@ -85,7 +89,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
     /** @inheritdoc */
     @Override
     public void readEntity(Cursor cursor, Organization entity, int offset) {
-        entity.setId(cursor.getLong(offset + 0));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setName(cursor.getString(offset + 1));
         entity.setDescription(cursor.getString(offset + 2));
         entity.setWebsite(cursor.getString(offset + 3));

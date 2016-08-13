@@ -9,12 +9,12 @@ public class OrganizationPresenter implements OrganizationInteractor.Organizatio
         mInteractor = new OrganizationInteractor(this);
     }
 
-    public void openOrganizationDetails(int organizationId) {
+    public void openOrganizationDetails(long organizationId) {
         mView.showOrganizationDetails(organizationId);
 
     }
 
     public interface OrganizationView {
-        void showOrganizationDetails(int organizationId);
+        void showOrganizationDetails(long organizationId);
     }
 }

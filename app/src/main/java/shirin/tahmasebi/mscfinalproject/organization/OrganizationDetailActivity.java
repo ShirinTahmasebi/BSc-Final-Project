@@ -6,19 +6,30 @@ import android.support.design.widget.CollapsingToolbarLayout;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class OrganizationDetailActivity extends MainActivity {
-    private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
+    private final static String EXTRA_ORGANIZATION_ID = "organizationid";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        mCollapsingToolbarLayout.setTitle(getString(R.string.title_activity_organizationDetail));
-        mCollapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+        CollapsingToolbarLayout collapsingToolbarLayout =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle(getString(R.string.title_activity_organizationDetail));
+        collapsingToolbarLayout.setExpandedTitleColor(
+                getResources().getColor(android.R.color.transparent));
         final Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/IRAN-Sans-Bold.ttf");
-        mCollapsingToolbarLayout.setCollapsedTitleTypeface(tf);
-        mCollapsingToolbarLayout.setExpandedTitleTypeface(tf);
+        collapsingToolbarLayout.setCollapsedTitleTypeface(tf);
+        collapsingToolbarLayout.setExpandedTitleTypeface(tf);
+
+        long id = getIntent().getLongExtra(EXTRA_ORGANIZATION_ID, -1);
+        if (id != -1) {
+            Organization organization = daoSession.getOrganizationDao().load(id);
+            ((FontableTextView) findViewById(R.id.description)).setText(
+                    organization.getDescription());
+        }
     }
 
     @Override

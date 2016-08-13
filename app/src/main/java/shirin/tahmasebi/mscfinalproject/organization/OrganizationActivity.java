@@ -8,7 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 
-public class OrganizationActivity extends MainActivity implements OrganizationPresenter.OrganizationView {
+public class OrganizationActivity extends MainActivity implements
+        OrganizationPresenter.OrganizationView {
+
+    private final static String EXTRA_ORGANIZATION_ID = "organizationid";
 
     OrganizationPresenter mPresenter;
 
@@ -18,11 +21,18 @@ public class OrganizationActivity extends MainActivity implements OrganizationPr
 
         mPresenter = new OrganizationPresenter(this);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.organization_organizationList_recyclerView);
+        RecyclerView recyclerView = (RecyclerView)
+                findViewById(R.id.organization_organizationList_recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new OrganizationAdapter(this, mPresenter));
+        recyclerView.setAdapter(
+                new OrganizationAdapter(
+                        this,
+                        mPresenter,
+                        daoSession.getOrganizationDao().loadAll()
+                )
+        );
     }
 
     @Override
@@ -36,8 +46,9 @@ public class OrganizationActivity extends MainActivity implements OrganizationPr
     }
 
     @Override
-    public void showOrganizationDetails(int organizationId) {
+    public void showOrganizationDetails(long organizationId) {
         Intent organizationDetail = new Intent(this, OrganizationDetailActivity.class);
+        organizationDetail.putExtra(EXTRA_ORGANIZATION_ID, organizationId);
         startActivity(organizationDetail);
     }
 }

@@ -17,10 +17,10 @@ public class SchemaV1 extends Schema {
     private Entity createOrganization(Schema schema) {
         Entity organization;
         organization = schema.addEntity("Organization");
-        organization.addIdProperty().notNull().primaryKey();
+        organization.addIdProperty().autoincrement();
         organization.addStringProperty("name").notNull();
         organization.addStringProperty("description").notNull();
-        organization.addStringProperty("website").notNull();
+        organization.addStringProperty("website").notNull().unique();
         return organization;
     }
 }
