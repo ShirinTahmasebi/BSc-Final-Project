@@ -4,6 +4,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
@@ -50,7 +53,19 @@ public class OrganizationDetailActivity extends MainActivity
 
     @Override
     public void showOrganizationDetail(Organization org) {
+
+        if (org == null) {
+            return;
+        }
+
         ((FontableTextView) findViewById(R.id.description)).setText(org.getDescription());
+
+        Picasso.with(this)
+                .load(org.getImage())
+                .placeholder(R.drawable.logo)
+                .error(R.drawable.logo)
+                .noFade()
+                .into(((ImageView) findViewById(R.id.image)));
         initializeCollapsingLayoutToolbar(org.getName());
     }
 }
