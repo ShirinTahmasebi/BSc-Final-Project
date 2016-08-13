@@ -13,6 +13,8 @@ public class Organization {
     private String description;
     /** Not-null value. */
     private String website;
+    /** Not-null value. */
+    private String image;
 
     public Organization() {
     }
@@ -21,11 +23,12 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, String description, String website) {
+    public Organization(Long id, String name, String description, String website, String image) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.website = website;
+        this.image = image;
     }
 
     public Long getId() {
@@ -64,6 +67,16 @@ public class Organization {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    /** Not-null value. */
+    public String getImage() {
+        return image;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }

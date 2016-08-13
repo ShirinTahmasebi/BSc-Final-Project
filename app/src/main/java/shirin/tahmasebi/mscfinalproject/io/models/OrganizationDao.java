@@ -27,6 +27,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
         public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
         public final static Property Website = new Property(3, String.class, "website", false, "WEBSITE");
+        public final static Property Image = new Property(4, String.class, "image", false, "IMAGE");
     };
 
 
@@ -45,7 +46,8 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'NAME' TEXT NOT NULL ," + // 1: name
                 "'DESCRIPTION' TEXT NOT NULL ," + // 2: description
-                "'WEBSITE' TEXT NOT NULL UNIQUE );"); // 3: website
+                "'WEBSITE' TEXT NOT NULL UNIQUE ," + // 3: website
+                "'IMAGE' TEXT NOT NULL );"); // 4: image
     }
 
     /** Drops the underlying database table. */
@@ -66,6 +68,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         stmt.bindString(2, entity.getName());
         stmt.bindString(3, entity.getDescription());
         stmt.bindString(4, entity.getWebsite());
+        stmt.bindString(5, entity.getImage());
     }
 
     /** @inheritdoc */
@@ -81,7 +84,8 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // name
             cursor.getString(offset + 2), // description
-            cursor.getString(offset + 3) // website
+            cursor.getString(offset + 3), // website
+            cursor.getString(offset + 4) // image
         );
         return entity;
     }
@@ -93,6 +97,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         entity.setName(cursor.getString(offset + 1));
         entity.setDescription(cursor.getString(offset + 2));
         entity.setWebsite(cursor.getString(offset + 3));
+        entity.setImage(cursor.getString(offset + 4));
      }
     
     /** @inheritdoc */

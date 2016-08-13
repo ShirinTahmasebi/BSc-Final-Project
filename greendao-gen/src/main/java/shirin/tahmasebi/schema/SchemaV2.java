@@ -4,12 +4,12 @@ import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
 
-public class SchemaV1 extends Schema {
+public class SchemaV2 extends Schema {
 
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
     private static final String PACKAGE = "shirin.tahmasebi.mscfinalproject.io.models";
 
-    public SchemaV1() {
+    public SchemaV2() {
         super(VERSION, PACKAGE);
         createOrganization(this);
     }
@@ -21,6 +21,7 @@ public class SchemaV1 extends Schema {
         organization.addStringProperty("name").notNull();
         organization.addStringProperty("description").notNull();
         organization.addStringProperty("website").notNull().unique();
+        organization.addStringProperty("image").notNull();
         return organization;
     }
 }
