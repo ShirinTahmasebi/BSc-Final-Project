@@ -2,11 +2,12 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="#FFF">
 
-    <include layout="@layout/toolbar"
+    <include android:id="@+id/dashboard_toolbar"
+             layout="@layout/toolbar"
              app:layout_heightPercent="12%"
              app:layout_widthPercent="100%"/>
 
@@ -14,8 +15,8 @@
         android:id="@+id/dashboard_header_linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_alignParentTop="true"
-        android:background="#fff"
+        android:layout_alignTop="@+id/dashboard_toolbar"
+        android:background="#00FFFFFF"
         android:orientation="horizontal"
         app:layout_heightPercent="25%"
         app:layout_widthPercent="100%"/>
