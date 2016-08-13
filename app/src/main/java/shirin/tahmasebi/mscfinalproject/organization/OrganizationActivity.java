@@ -5,14 +5,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.util.List;
+
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 
-public class OrganizationActivity extends MainActivity implements
-        OrganizationPresenter.OrganizationView {
+public class OrganizationActivity extends MainActivity
+        implements OrganizationPresenter.OrganizationView {
 
     private final static String EXTRA_ORGANIZATION_ID = "organizationid";
-
     OrganizationPresenter mPresenter;
 
     @Override
@@ -20,19 +22,7 @@ public class OrganizationActivity extends MainActivity implements
         super.onCreate(savedInstanceState);
 
         mPresenter = new OrganizationPresenter(this);
-
-        RecyclerView recyclerView = (RecyclerView)
-                findViewById(R.id.organization_organizationList_recyclerView);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(
-                new OrganizationAdapter(
-                        this,
-                        mPresenter,
-                        daoSession.getOrganizationDao().loadAll()
-                )
-        );
+        mPresenter.getOrganizationsList(this);
     }
 
     @Override
@@ -51,4 +41,15 @@ public class OrganizationActivity extends MainActivity implements
         organizationDetail.putExtra(EXTRA_ORGANIZATION_ID, organizationId);
         startActivity(organizationDetail);
     }
+
+    @Override
+    public void showOrganizationsList(List<Organization> list) {
+        RecyclerView recyclerView = (RecyclerView)
+                findViewById(R.id.organization_organizationList_recyclerView);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(new OrganizationAdapter(mPresenter, list));
+    }
 }
+

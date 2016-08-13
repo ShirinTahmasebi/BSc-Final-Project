@@ -1,5 +1,11 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
+import android.content.Context;
+
+import java.util.List;
+
+import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+
 public class OrganizationPresenter implements OrganizationInteractor.OrganizationListener {
     private OrganizationView mView;
     OrganizationInteractor mInteractor;
@@ -11,10 +17,20 @@ public class OrganizationPresenter implements OrganizationInteractor.Organizatio
 
     public void openOrganizationDetails(long organizationId) {
         mView.showOrganizationDetails(organizationId);
+    }
 
+    public void getOrganizationsList(Context context) {
+        mInteractor.retrieveOrganizationsList(context);
+    }
+
+    @Override
+    public void onOrganizationListRetrieved(List<Organization> list) {
+        mView.showOrganizationsList(list);
     }
 
     public interface OrganizationView {
         void showOrganizationDetails(long organizationId);
+
+        void showOrganizationsList(List<Organization> list);
     }
 }
