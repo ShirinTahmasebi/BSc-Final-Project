@@ -33,26 +33,33 @@ public class BaseApplication extends Application {
         Organization organization3 = new Organization();
 
         organization1.setId(null);
-        organization1.setName("نام سازمان اول");
-        organization1.setDescription("توضیحات سازمان اول");
-        organization1.setWebsite("www.example.com");
-        organization1.setImage("http://www.leader.ir/assets/images/logo.png");
+        organization1.setName(
+                getResources().getString(R.string.organization_name_one)
+        );
+        organization1.setDescription(
+                getResources().getString(R.string.organization_description_one)
+        );
+        organization1.setWebsite(
+                getResources().getString(R.string.organization_website_one)
+        );
+        organization1.setImage(
+                getResources().getString(R.string.organization_logo_one)
+        );
 
         organization2.setId(null);
-        organization2.setName("نام سازمان دوم");
-        organization2.setDescription("توضیحات سازمان دوم");
-        organization2.setWebsite("www.example2.com");
-        organization2.setImage("http://parliran.ir/UploadedData/1/FavIcone/636037634735026912.png");
+        organization2.setName(getResources().getString(R.string.organization_name_two));
+        organization2.setDescription(getResources().getString(R.string.organization_description_two));
+        organization2.setWebsite(getResources().getString(R.string.organization_website_two));
+        organization2.setImage(getResources().getString(R.string.organization_logo_two));
 
         organization3.setId(null);
-        organization3.setName("نام سازمان سوم");
-        organization3.setDescription("توضیحات سازمان سوم");
-        organization3.setWebsite("www.example3.com");
-        organization3.setImage("http://www.leader.ir/assets/images/logo1.png");
+        organization3.setName(getResources().getString(R.string.organization_name_three));
+        organization3.setDescription(getResources().getString(R.string.organization_description_three));
+        organization3.setWebsite(getResources().getString(R.string.organization_website_three));
+        organization3.setImage(getResources().getString(R.string.organization_logo_three));
 
         daoSession.getOrganizationDao().insert(organization1);
         daoSession.getOrganizationDao().insert(organization2);
         daoSession.getOrganizationDao().insert(organization3);
     }
-
 }
