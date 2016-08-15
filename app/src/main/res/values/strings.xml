@@ -3,10 +3,10 @@
     <string name="lable_dashboard_imageDescription">Dashboard Menu Icon</string>
 
     <string name="title_activity_dashboard">داشبورد کاربر</string>
-    <string name="title_activity_history">تاریخچه پیشنهادات</string>
+    <string name="title_activity_history">تاریخچه </string>
     <string name="title_activity_feedback">بازخورد</string>
-    <string name="title_activity_organizations">لیست سازمانها</string>
-    <string name="title_activity_profile">مشخصات کاربر</string>
+    <string name="title_activity_organizations"> سازمانها</string>
+    <string name="title_activity_profile"> کاربر</string>
     <string name="title_activity_reminder">یادآور</string>
     <string name="title_activity_setting">تنظیمات</string>
     <string name="title_activity_organizationDetail">توصیف سازمان</string>
