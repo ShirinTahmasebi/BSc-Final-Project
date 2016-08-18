@@ -28,6 +28,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
         public final static Property Website = new Property(3, String.class, "website", false, "WEBSITE");
         public final static Property Image = new Property(4, String.class, "image", false, "IMAGE");
+        public final static Property IsFavorite = new Property(5, Boolean.class, "isFavorite", false, "IS_FAVORITE");
     };
 
 
@@ -47,7 +48,8 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
                 "'NAME' TEXT NOT NULL ," + // 1: name
                 "'DESCRIPTION' TEXT NOT NULL ," + // 2: description
                 "'WEBSITE' TEXT NOT NULL UNIQUE ," + // 3: website
-                "'IMAGE' TEXT NOT NULL );"); // 4: image
+                "'IMAGE' TEXT NOT NULL ," + // 4: image
+                "'IS_FAVORITE' INTEGER);"); // 5: isFavorite
     }
 
     /** Drops the underlying database table. */
@@ -69,6 +71,11 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         stmt.bindString(3, entity.getDescription());
         stmt.bindString(4, entity.getWebsite());
         stmt.bindString(5, entity.getImage());
+ 
+        Boolean isFavorite = entity.getIsFavorite();
+        if (isFavorite != null) {
+            stmt.bindLong(6, isFavorite ? 1l: 0l);
+        }
     }
 
     /** @inheritdoc */
@@ -85,7 +92,8 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
             cursor.getString(offset + 1), // name
             cursor.getString(offset + 2), // description
             cursor.getString(offset + 3), // website
-            cursor.getString(offset + 4) // image
+            cursor.getString(offset + 4), // image
+            cursor.isNull(offset + 5) ? null : cursor.getShort(offset + 5) != 0 // isFavorite
         );
         return entity;
     }
@@ -98,6 +106,7 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         entity.setDescription(cursor.getString(offset + 2));
         entity.setWebsite(cursor.getString(offset + 3));
         entity.setImage(cursor.getString(offset + 4));
+        entity.setIsFavorite(cursor.isNull(offset + 5) ? null : cursor.getShort(offset + 5) != 0);
      }
     
     /** @inheritdoc */

@@ -22,6 +22,7 @@ public class SchemaV2 extends Schema {
         organization.addStringProperty("description").notNull();
         organization.addStringProperty("website").notNull().unique();
         organization.addStringProperty("image").notNull();
+        organization.addBooleanProperty("isFavorite");
         return organization;
     }
 }

@@ -15,6 +15,7 @@ public class Organization {
     private String website;
     /** Not-null value. */
     private String image;
+    private Boolean isFavorite;
 
     public Organization() {
     }
@@ -23,12 +24,13 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, String description, String website, String image) {
+    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.website = website;
         this.image = image;
+        this.isFavorite = isFavorite;
     }
 
     public Long getId() {
@@ -77,6 +79,14 @@ public class Organization {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Boolean getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(Boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
 }

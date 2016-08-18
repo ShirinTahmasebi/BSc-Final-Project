@@ -45,18 +45,21 @@ public class BaseApplication extends Application {
         organization1.setImage(
                 getResources().getString(R.string.organization_logo_one)
         );
+        organization1.setIsFavorite(false);
 
         organization2.setId(null);
         organization2.setName(getResources().getString(R.string.organization_name_two));
         organization2.setDescription(getResources().getString(R.string.organization_description_two));
         organization2.setWebsite(getResources().getString(R.string.organization_website_two));
         organization2.setImage(getResources().getString(R.string.organization_logo_two));
+        organization2.setIsFavorite(false);
 
         organization3.setId(null);
         organization3.setName(getResources().getString(R.string.organization_name_three));
         organization3.setDescription(getResources().getString(R.string.organization_description_three));
         organization3.setWebsite(getResources().getString(R.string.organization_website_three));
         organization3.setImage(getResources().getString(R.string.organization_logo_three));
+        organization3.setIsFavorite(false);
 
         daoSession.getOrganizationDao().insert(organization1);
         daoSession.getOrganizationDao().insert(organization2);
