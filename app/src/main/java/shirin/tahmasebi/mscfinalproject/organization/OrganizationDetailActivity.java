@@ -28,6 +28,12 @@ public class OrganizationDetailActivity extends MainActivity
         super.onCreate(savedInstanceState);
 
         mPresenter = new OrganizationDetailPresenter(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         mPresenter.showOrganizationDetail(this);
     }
 
