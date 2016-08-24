@@ -3,8 +3,10 @@ package shirin.tahmasebi.mscfinalproject.organization;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -71,7 +73,7 @@ public class OrganizationDetailActivity extends MainActivity
     }
 
     @Override
-    public void showOrganizationDetail(Organization org) {
+    public void showOrganizationDetail(final Organization org) {
 
         if (org == null) {
             return;
@@ -115,5 +117,28 @@ public class OrganizationDetailActivity extends MainActivity
                         }
                 );
 
+        //ستاره‌دار بودن یا نبودن سازمان را نمایش بده
+        showOrganizationFavorite(org);
+
+        //با کلیک بر روی ستاره هر سازمان فیلد مربوطه را toggle  کن
+        findViewById(R.id.organizationDetail_favorite_fab)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mPresenter.toggleFavorite(OrganizationDetailActivity.this);
+                    }
+                });
+    }
+
+    @Override
+    public void showOrganizationFavorite(Organization org) {
+
+        if (org.getIsFavorite()) {
+            ((FloatingActionButton) findViewById(R.id.organizationDetail_favorite_fab))
+                    .setImageDrawable(getResources().getDrawable(R.drawable.favorite_enable_icon));
+        } else {
+            ((FloatingActionButton) findViewById(R.id.organizationDetail_favorite_fab))
+                    .setImageDrawable(getResources().getDrawable(R.drawable.favorite_disable_icon));
+        }
     }
 }

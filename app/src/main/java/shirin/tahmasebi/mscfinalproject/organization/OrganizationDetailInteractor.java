@@ -18,7 +18,18 @@ public class OrganizationDetailInteractor {
         mListener.onRetrieveOrganizationFinished(org);
     }
 
+    public void toggleFavoriteOrganization(long id, Context context) {
+        Organization org = ((BaseApplication) context.getApplicationContext())
+                .daoSession.getOrganizationDao().load(id);
+        org.setIsFavorite(!org.getIsFavorite());
+        ((BaseApplication) context.getApplicationContext())
+                .daoSession.getOrganizationDao().insertOrReplace(org);
+        mListener.onToggleFavoriteOrganizationFinished(org);
+    }
+
     public interface OrganizationDetailListener {
         void onRetrieveOrganizationFinished(Organization org);
+
+        void onToggleFavoriteOrganizationFinished(Organization org);
     }
 }

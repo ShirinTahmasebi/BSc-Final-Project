@@ -33,7 +33,24 @@ public class OrganizationDetailPresenter
         mView.showOrganizationDetail(org);
     }
 
+    @Override
+    public void onToggleFavoriteOrganizationFinished(Organization org) {
+        mView.showOrganizationFavorite(org);
+    }
+
+    public void toggleFavorite(Context context) {
+        Intent intent = ((OrganizationDetailActivity) context).getIntent();
+        long id = intent.getLongExtra(EXTRA_ORGANIZATION_ID, -1);
+        if (id != -1) {
+            mInteractor.toggleFavoriteOrganization(id, context);
+        } else {
+            Log.w("mscFinalProject", "کلید سطر مربوط به این سازمان یافت نشد.");
+        }
+    }
+
     public interface OrganizationDetailView {
         void showOrganizationDetail(Organization org);
+
+        void showOrganizationFavorite(Organization org);
     }
 }
