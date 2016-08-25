@@ -1,5 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
+import android.app.FragmentManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -16,7 +17,9 @@ import com.squareup.picasso.Picasso;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.feedback.FeedbackActivity;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class OrganizationDetailActivity extends MainActivity
@@ -128,6 +131,14 @@ public class OrganizationDetailActivity extends MainActivity
                         mPresenter.toggleFavorite(OrganizationDetailActivity.this);
                     }
                 });
+
+        findViewById(R.id.organizationDetail_writeMenu_fab)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mPresenter.showWriteOptions();
+                    }
+                });
     }
 
     @Override
@@ -140,5 +151,24 @@ public class OrganizationDetailActivity extends MainActivity
             ((FloatingActionButton) findViewById(R.id.organizationDetail_favorite_fab))
                     .setImageDrawable(getResources().getDrawable(R.drawable.favorite_disable_icon));
         }
+    }
+
+    @Override
+    public void showWriteOptionDialog(OrganizationDetailPresenter presenter) {
+        FragmentManager fragmentManager = getFragmentManager();
+        SelectWriteModeDialog yesnoDialog = new SelectWriteModeDialog(presenter);
+        yesnoDialog.setCancelable(false);
+        yesnoDialog.show(fragmentManager, "Dialog_WriteOption");
+    }
+
+    @Override
+    public void openEmailActivity(SelectWriteModeDialog dialog) {
+        Helper.startActivity(this, FeedbackActivity.class);
+        dialog.dismiss();
+    }
+
+    @Override
+    public void cancelDialog(SelectWriteModeDialog dialog) {
+        dialog.dismiss();
     }
 }

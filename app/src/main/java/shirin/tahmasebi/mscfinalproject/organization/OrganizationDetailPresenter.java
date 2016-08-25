@@ -1,5 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -7,7 +8,8 @@ import android.util.Log;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 
 public class OrganizationDetailPresenter
-        implements OrganizationDetailInteractor.OrganizationDetailListener {
+        implements OrganizationDetailInteractor.OrganizationDetailListener ,
+        SelectWriteModeDialog.SelectWriteModeDialogListener{
 
     private final static String EXTRA_ORGANIZATION_ID = "organizationid";
     private OrganizationDetailView mView;
@@ -16,6 +18,7 @@ public class OrganizationDetailPresenter
     public OrganizationDetailPresenter(OrganizationDetailView view) {
         mView = view;
         mInteractor = new OrganizationDetailInteractor(this);
+
     }
 
     public void showOrganizationDetail(Context context) {
@@ -48,9 +51,29 @@ public class OrganizationDetailPresenter
         }
     }
 
+    public void showWriteOptions() {
+        mView.showWriteOptionDialog(this);
+    }
+
+    @Override
+    public void onWriteEmailClicked(SelectWriteModeDialog dialog) {
+        mView.openEmailActivity(dialog);
+    }
+
+    @Override
+    public void onCancelDialogClicked(SelectWriteModeDialog dialog) {
+        mView.cancelDialog(dialog);
+    }
+
     public interface OrganizationDetailView {
         void showOrganizationDetail(Organization org);
 
         void showOrganizationFavorite(Organization org);
+
+        void showWriteOptionDialog(OrganizationDetailPresenter presenter);
+
+        void openEmailActivity(SelectWriteModeDialog dialog);
+
+        void cancelDialog(SelectWriteModeDialog dialog);
     }
 }
