@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <include android:id="@+id/dashboard_toolbar"
+             layout="@layout/toolbar"
+             app:layout_heightPercent="12%"
+             app:layout_widthPercent="100%"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/dashboard_toolbar"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_padding_comfort"
+        android:paddingRight="@dimen/activity_padding_comfort"
+        android:paddingTop="@dimen/activity_padding_normal">
+
+        <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
+            android:id="@+id/writeEmail_userEmail_attractiveTextInputLayout"
+            style="@style/FieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorTextAppearance="@style/FieldHintErrorStyle"
+            app:hintTextAppearance="@style/FieldHintDefaultStyle">
+
+            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+                android:id="@+id/writeEmail_userEmail_editText"
+                style="@style/EditTextBottomLineStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lable_writeEmail_enterEmailAddress"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                app:customFont="IRAN-Sans-Bold.ttf">
+                <requestFocus/>
+            </shirin.tahmasebi.mscfinalproject.view.FontableEditText>
+        </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
+
+        <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
+            android:id="@+id/writeEmail_emailSubject_attractiveTextInputLayout"
+            style="@style/FieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorTextAppearance="@style/FieldHintErrorStyle"
+            app:hintTextAppearance="@style/FieldHintDefaultStyle">
+
+            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+                android:id="@+id/writeEmail_emailSubject_editText"
+                style="@style/EditTextBottomLineStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lable_writeEmail_enterEmailSubject"
+                android:inputType="textEmailSubject"
+                android:singleLine="true"
+                app:customFont="IRAN-Sans-Bold.ttf">
+            </shirin.tahmasebi.mscfinalproject.view.FontableEditText>
+        </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
+
+        <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
+            android:id="@+id/writeEmail_emailText_attractiveTextInputLayout"
+            style="@style/FieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            app:errorTextAppearance="@style/FieldHintErrorStyle"
+            app:hintTextAppearance="@style/FieldHintDefaultStyle">
+
+            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+                android:id="@+id/writeEmail_emailText_editText"
+                style="@style/EditTextBottomLineStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/lable_writeEmail_enterEmailText"
+                android:inputType="textMultiLine"
+                app:customFont="IRAN-Sans-Bold.ttf"/>
+        </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="100%"
+    />
+
+</android.support.percent.PercentRelativeLayout>

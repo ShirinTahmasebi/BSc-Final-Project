@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FF0000"/>
+        </shape>
+    </item>
+
+    <item android:bottom="1.5dp">
+        <shape android:shape="rectangle">
+
+            <solid android:color="#ffffff"/>
+            <padding
+                android:bottom="@dimen/component_default_padding"
+                android:left="@dimen/component_default_padding"
+                android:right="@dimen/component_default_padding"
+                android:top="@dimen/component_default_padding">
+            </padding>
+        </shape>
+    </item>
+
+</layer-list>

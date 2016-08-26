@@ -36,4 +36,26 @@
         <item name="android:background">@drawable/fab_label_background</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="FieldHintDefaultStyle">
+        <item name="android:textSize">@dimen/txt_small</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="FieldHintErrorStyle">
+        <item name="android:textSize">@dimen/txt_small</item>
+        <item name="android:textColor">#FF0000</item>
+    </style>
+
+    <style name="FieldStyle">
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <style name="EditTextBottomLineStyle">
+        <item name="android:background">@drawable/bg_bottom_line_edit_text</item>
+        <item name="android:textSize">@dimen/txt_medium</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginBottom">@dimen/component_default_margin</item>
+    </style>
+
 </resources>

@@ -17,7 +17,6 @@ import com.squareup.picasso.Picasso;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
-import shirin.tahmasebi.mscfinalproject.feedback.FeedbackActivity;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
@@ -163,7 +162,7 @@ public class OrganizationDetailActivity extends MainActivity
 
     @Override
     public void openEmailActivity(SelectWriteModeDialog dialog) {
-        Helper.startActivity(this, FeedbackActivity.class);
+        Helper.startActivity(this, WriteEmailActivity.class);
         dialog.dismiss();
     }
 
