@@ -16,6 +16,9 @@ public class Organization {
     /** Not-null value. */
     private String image;
     private Boolean isFavorite;
+    private String siteUrl;
+    private String phoneNumber;
+    private String emailAddress;
 
     public Organization() {
     }
@@ -24,13 +27,16 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite) {
+    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite, String siteUrl, String phoneNumber, String emailAddress) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.website = website;
         this.image = image;
         this.isFavorite = isFavorite;
+        this.siteUrl = siteUrl;
+        this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
     }
 
     public Long getId() {
@@ -87,6 +93,30 @@ public class Organization {
 
     public void setIsFavorite(Boolean isFavorite) {
         this.isFavorite = isFavorite;
+    }
+
+    public String getSiteUrl() {
+        return siteUrl;
+    }
+
+    public void setSiteUrl(String siteUrl) {
+        this.siteUrl = siteUrl;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
 }

@@ -46,6 +46,8 @@ public class BaseApplication extends Application {
                 getResources().getString(R.string.organization_logo_one)
         );
         organization1.setIsFavorite(false);
+        organization1.setPhoneNumber("02164411");
+        organization1.setSiteUrl("www.leader.ir/fa/contact");
 
         organization2.setId(null);
         organization2.setName(getResources().getString(R.string.organization_name_two));
@@ -53,6 +55,10 @@ public class BaseApplication extends Application {
         organization2.setWebsite(getResources().getString(R.string.organization_website_two));
         organization2.setImage(getResources().getString(R.string.organization_logo_two));
         organization2.setIsFavorite(false);
+        organization2.setPhoneNumber("02188114150");
+        organization2.setSiteUrl("https://www.ict.gov.ir/fa/companies/offices/complaints/" +
+                "shekayat-%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87-%D8%B1%D8%B3%DB%8C%D8%AF%DA%AF%D" +
+                "B%8C-%D8%B4%DA%A9%D8%A7%DB%8C%D8%AA");
 
         organization3.setId(null);
         organization3.setName(getResources().getString(R.string.organization_name_three));
@@ -60,6 +66,10 @@ public class BaseApplication extends Application {
         organization3.setWebsite(getResources().getString(R.string.organization_website_three));
         organization3.setImage(getResources().getString(R.string.organization_logo_three));
         organization3.setIsFavorite(false);
+        organization3.setEmailAddress("info@mfa.gov.ir");
+        organization3.setSiteUrl("http://comment.mfa.gov.ir/index.aspx?fkeyid=&" +
+                "siteid=453&pageid=22691");
+        organization3.setPhoneNumber("02161156115");
 
         daoSession.getOrganizationDao().insert(organization1);
         daoSession.getOrganizationDao().insert(organization2);
