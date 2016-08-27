@@ -3,8 +3,10 @@ package shirin.tahmasebi.mscfinalproject.organization;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +31,7 @@ import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 public class OrganizationDetailActivity extends MainActivity
         implements OrganizationDetailPresenter.OrganizationDetailView {
 
+    private static final int PERMISION_REQUEST_PHONECALL = 1234;
     private OrganizationDetailPresenter mPresenter;
 
 
@@ -176,9 +179,20 @@ public class OrganizationDetailActivity extends MainActivity
             dialog.dismiss();
         } else if (type == WriteOptionEnum.CALL.getIntValue()) {
             String phone = org.getPhoneNumber();
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:" + phone));
             try {
-                startActivity(intent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkSelfPermission("android.permission.CALL_PHONE") ==
+                            PackageManager.PERMISSION_GRANTED) {
+                        startActivityForResult(intent, 123);
+                    } else {
+                        requestPermissions(new String[]{"android.permission.CALL_PHONE"},
+                                PERMISION_REQUEST_PHONECALL);
+                    }
+                } else {
+                    startActivity(intent);
+                }
             } catch (ActivityNotFoundException ex) {
                 Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
             }
@@ -197,5 +211,15 @@ public class OrganizationDetailActivity extends MainActivity
     @Override
     public void cancelDialog(SelectWriteModeDialog dialog) {
         dialog.dismiss();
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == PERMISION_REQUEST_PHONECALL) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+        }
     }
 }
