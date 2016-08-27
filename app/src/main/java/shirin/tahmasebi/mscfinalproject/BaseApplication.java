@@ -47,7 +47,7 @@ public class BaseApplication extends Application {
         );
         organization1.setIsFavorite(false);
         organization1.setPhoneNumber("02164411");
-        organization1.setSiteUrl("www.leader.ir/fa/contact");
+        organization1.setSiteUrl("http://www.leader.ir/fa/contact");
 
         organization2.setId(null);
         organization2.setName(getResources().getString(R.string.organization_name_two));

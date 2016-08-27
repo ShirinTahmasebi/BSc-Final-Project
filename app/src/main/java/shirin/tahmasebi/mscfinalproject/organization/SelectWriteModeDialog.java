@@ -18,7 +18,7 @@ public class SelectWriteModeDialog extends DialogFragment {
 
     public interface SelectWriteModeDialogListener {
 
-        void onWriteEmailClicked(SelectWriteModeDialog dialog);
+        void onWriteOptionClicked(SelectWriteModeDialog dialog, int type, Organization organization);
 
         void onCancelDialogClicked(SelectWriteModeDialog selectWriteModeDialog);
     }
@@ -52,7 +52,12 @@ public class SelectWriteModeDialog extends DialogFragment {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+                            int tag = Integer.parseInt(view.getTag().toString());
+                            mListener.onWriteOptionClicked(
+                                    SelectWriteModeDialog.this,
+                                    tag,
+                                    mOrganization
+                            );
                         }
                     }
             );
@@ -66,7 +71,12 @@ public class SelectWriteModeDialog extends DialogFragment {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+                            int tag = Integer.parseInt(view.getTag().toString());
+                            mListener.onWriteOptionClicked(
+                                    SelectWriteModeDialog.this,
+                                    tag,
+                                    mOrganization
+                            );
                         }
                     }
             );
@@ -80,7 +90,12 @@ public class SelectWriteModeDialog extends DialogFragment {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+                            int tag = Integer.parseInt(view.getTag().toString());
+                            mListener.onWriteOptionClicked(
+                                    SelectWriteModeDialog.this,
+                                    tag,
+                                    mOrganization
+                            );
                         }
                     }
             );

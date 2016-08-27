@@ -1,7 +1,10 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
 import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -19,6 +23,7 @@ import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
+import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class OrganizationDetailActivity extends MainActivity
@@ -161,9 +166,28 @@ public class OrganizationDetailActivity extends MainActivity
     }
 
     @Override
-    public void openEmailActivity(SelectWriteModeDialog dialog) {
-        Helper.startActivity(this, WriteEmailActivity.class);
-        dialog.dismiss();
+    public void openWriteActivity(SelectWriteModeDialog dialog, int type, Organization org) {
+        if (type == WriteOptionEnum.EMAIL.getIntValue()) {
+            Helper.startActivity(this, WriteEmailActivity.class);
+            dialog.dismiss();
+        } else if (type == WriteOptionEnum.CALL.getIntValue()) {
+            String phone = org.getPhoneNumber();
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException ex) {
+                Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
+            }
+        } else if (type == WriteOptionEnum.WEBSITE.getIntValue()) {
+            String url = org.getSiteUrl();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException ex) {
+                Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override

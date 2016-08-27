@@ -1,6 +1,5 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -56,8 +55,8 @@ public class OrganizationDetailPresenter
     }
 
     @Override
-    public void onWriteEmailClicked(SelectWriteModeDialog dialog) {
-        mView.openEmailActivity(dialog);
+    public void onWriteOptionClicked(SelectWriteModeDialog dialog, int type, Organization org) {
+        mView.openWriteActivity(dialog, type, org);
     }
 
     @Override
@@ -72,7 +71,7 @@ public class OrganizationDetailPresenter
 
         void showWriteOptionDialog(OrganizationDetailPresenter presenter, Organization org);
 
-        void openEmailActivity(SelectWriteModeDialog dialog);
+        void openWriteActivity(SelectWriteModeDialog dialog, int type, Organization organization);
 
         void cancelDialog(SelectWriteModeDialog dialog);
     }
