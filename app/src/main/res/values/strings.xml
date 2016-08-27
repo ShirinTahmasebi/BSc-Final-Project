@@ -43,4 +43,8 @@
     <string name="lable_writeEmail_enterEmailSubject">موضوع ایمیل خود را وارد نمایید</string>
     <string name="lable_writeEmail_sendEmail">ارسال</string>
     <string name="lable_writeEmail_cancelEmail">لغو</string>
+    <string name="error_writeEmail_emailAddress">آدرس ایمیل وارد شده معتبر نمیباشد</string>
+    <string name="error_writeEmail_emptyEmailSubject">موضوع ایمیل نمیتواند خالی باشد</string>
+    <string name="error_writeEmail_emptyEmailText">متن ایمیل نمیتواند خالی باشد</string>
+    <string name="lable_writeEmail_sendEmailTitle">برنامه‌ای برای ارسال ایمیل انتخاب کنید:</string>
 </resources>

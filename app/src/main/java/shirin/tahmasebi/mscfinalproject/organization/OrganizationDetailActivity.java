@@ -168,7 +168,11 @@ public class OrganizationDetailActivity extends MainActivity
     @Override
     public void openWriteActivity(SelectWriteModeDialog dialog, int type, Organization org) {
         if (type == WriteOptionEnum.EMAIL.getIntValue()) {
-            Helper.startActivity(this, WriteEmailActivity.class);
+            Helper.startActivityWithExtraString(
+                    this,
+                    WriteEmailActivity.class,
+                    org.getId().toString(),
+                    "ORGANIZATION_ID");
             dialog.dismiss();
         } else if (type == WriteOptionEnum.CALL.getIntValue()) {
             String phone = org.getPhoneNumber();

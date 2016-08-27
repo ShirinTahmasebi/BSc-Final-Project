@@ -18,30 +18,10 @@
         android:layout_above="@+id/writeEmail_buttonContainer_linearLayout"
         android:layout_below="@id/dashboard_toolbar"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/activity_padding_comfort"
-        android:paddingRight="@dimen/activity_padding_comfort"
-        android:paddingTop="@dimen/activity_padding_normal">
-
-        <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
-            android:id="@+id/writeEmail_userEmail_attractiveTextInputLayout"
-            style="@style/FieldStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorTextAppearance="@style/FieldHintErrorStyle"
-            app:hintTextAppearance="@style/FieldHintDefaultStyle">
-
-            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
-                android:id="@+id/writeEmail_userEmail_editText"
-                style="@style/EditTextBottomLineStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/lable_writeEmail_enterEmailAddress"
-                android:inputType="textEmailAddress"
-                android:singleLine="true"
-                app:customFont="IRAN-Sans-Bold.ttf">
-                <requestFocus/>
-            </shirin.tahmasebi.mscfinalproject.view.FontableEditText>
-        </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
+        android:paddingLeft="@dimen/activity_padding_normal"
+        android:paddingRight="@dimen/activity_padding_normal"
+        android:paddingTop="@dimen/activity_padding_normal"
+        android:paddingBottom="@dimen/activity_padding_normal">
 
         <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
             android:id="@+id/writeEmail_emailSubject_attractiveTextInputLayout"
@@ -60,6 +40,7 @@
                 android:inputType="textEmailSubject"
                 android:singleLine="true"
                 app:customFont="IRAN-Sans-Bold.ttf">
+                <requestFocus/>
             </shirin.tahmasebi.mscfinalproject.view.FontableEditText>
         </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
 
@@ -91,11 +72,12 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/activity_padding_normal"
-        android:paddingLeft="@dimen/activity_padding_comfort"
-        android:paddingRight="@dimen/activity_padding_comfort"
+        android:paddingLeft="@dimen/activity_padding_normal"
+        android:paddingRight="@dimen/activity_padding_normal"
         android:weightSum="3">
 
         <shirin.tahmasebi.mscfinalproject.view.FontableButton
+            android:id="@+id/writeEmail_sendEmail_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/component_default_margin"
@@ -104,17 +86,17 @@
             android:background="@drawable/bg_primary_button"
             android:text="@string/lable_writeEmail_sendEmail"
             android:textColor="#fff"
-            android:textSize="15sp"
+            android:textSize="@dimen/txt_small"
             app:customFont="IRAN-Sans-Bold.ttf"/>
 
         <shirin.tahmasebi.mscfinalproject.view.FontableButton
+            android:id="@+id/writeEmail_cancelEmail_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="wrap_content" android:layout_weight="1"
             android:background="@drawable/bg_accent_button"
             android:text="@string/lable_writeEmail_cancelEmail"
             android:textColor="#fff"
-            android:textSize="15sp"
+            android:textSize="@dimen/txt_small"
             app:customFont="IRAN-Sans-Bold.ttf"/>
 
     </LinearLayout>
