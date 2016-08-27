@@ -41,4 +41,6 @@
     <string name="lable_writeEmail_enterEmailAddress">آدرس ایمیل خود را وارد نمایید</string>
     <string name="lable_writeEmail_enterEmailText">متن پیام خود را وارد نمایید</string>
     <string name="lable_writeEmail_enterEmailSubject">موضوع ایمیل خود را وارد نمایید</string>
+    <string name="lable_writeEmail_sendEmail">ارسال</string>
+    <string name="lable_writeEmail_cancelEmail">لغو</string>
 </resources>
