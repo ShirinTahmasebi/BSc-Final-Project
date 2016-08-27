@@ -135,7 +135,7 @@ public class OrganizationDetailActivity extends MainActivity
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        mPresenter.showWriteOptions();
+                        mPresenter.showWriteOptions(org);
                     }
                 });
     }
@@ -153,9 +153,9 @@ public class OrganizationDetailActivity extends MainActivity
     }
 
     @Override
-    public void showWriteOptionDialog(OrganizationDetailPresenter presenter) {
+    public void showWriteOptionDialog(OrganizationDetailPresenter presenter, Organization org) {
         FragmentManager fragmentManager = getFragmentManager();
-        SelectWriteModeDialog yesnoDialog = new SelectWriteModeDialog(presenter);
+        SelectWriteModeDialog yesnoDialog = new SelectWriteModeDialog(presenter, org);
         yesnoDialog.setCancelable(false);
         yesnoDialog.show(fragmentManager, "Dialog_WriteOption");
     }

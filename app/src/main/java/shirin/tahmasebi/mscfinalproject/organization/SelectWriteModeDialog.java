@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 
 public class SelectWriteModeDialog extends DialogFragment {
     SelectWriteModeDialogListener mListener;
+    Organization mOrganization;
 
     public interface SelectWriteModeDialogListener {
 
@@ -26,8 +28,9 @@ public class SelectWriteModeDialog extends DialogFragment {
     }
 
     @SuppressLint("ValidFragment")
-    public SelectWriteModeDialog(SelectWriteModeDialogListener listener) {
+    public SelectWriteModeDialog(SelectWriteModeDialogListener listener, Organization org) {
         mListener = listener;
+        mOrganization = org;
     }
 
     @Nullable
@@ -44,32 +47,47 @@ public class SelectWriteModeDialog extends DialogFragment {
                 Window.FEATURE_NO_TITLE
         );
 
-        view.findViewById(R.id.organizationDetail_writeEmail_linearLayout).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+        if (mOrganization.getEmailAddress() != null) {
+            view.findViewById(R.id.organizationDetail_writeEmail_linearLayout).setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+                        }
                     }
-                }
-        );
+            );
+        } else {
+            view.findViewById(R.id.organizationDetail_writeEmail_linearLayout)
+                    .setVisibility(View.GONE);
+        }
 
-        view.findViewById(R.id.organizationDetail_writeCall_linearLayout).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+        if (mOrganization.getPhoneNumber() != null) {
+            view.findViewById(R.id.organizationDetail_writeCall_linearLayout).setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+                        }
                     }
-                }
-        );
+            );
+        } else {
+            view.findViewById(R.id.organizationDetail_writeCall_linearLayout)
+                    .setVisibility(View.GONE);
+        }
 
-        view.findViewById(R.id.organizationDetail_writeSms_linearLayout).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+        if (mOrganization.getSiteUrl() != null) {
+            view.findViewById(R.id.organizationDetail_visitSite_linearLayout).setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mListener.onWriteEmailClicked(SelectWriteModeDialog.this);
+                        }
                     }
-                }
-        );
+            );
+        } else {
+            view.findViewById(R.id.organizationDetail_visitSite_linearLayout)
+                    .setVisibility(View.GONE);
+        }
 
         view.findViewById(R.id.organizationDetail_cancelDialog_imageView).setOnClickListener(
                 new View.OnClickListener() {

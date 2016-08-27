@@ -51,8 +51,8 @@ public class OrganizationDetailPresenter
         }
     }
 
-    public void showWriteOptions() {
-        mView.showWriteOptionDialog(this);
+    public void showWriteOptions(Organization org) {
+        mView.showWriteOptionDialog(this, org);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class OrganizationDetailPresenter
 
         void showOrganizationFavorite(Organization org);
 
-        void showWriteOptionDialog(OrganizationDetailPresenter presenter);
+        void showWriteOptionDialog(OrganizationDetailPresenter presenter, Organization org);
 
         void openEmailActivity(SelectWriteModeDialog dialog);
 

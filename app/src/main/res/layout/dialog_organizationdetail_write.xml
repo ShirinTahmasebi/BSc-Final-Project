@@ -64,7 +64,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/organizationDetail_writeSms_linearLayout"
+        android:id="@+id/organizationDetail_visitSite_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end|right"
