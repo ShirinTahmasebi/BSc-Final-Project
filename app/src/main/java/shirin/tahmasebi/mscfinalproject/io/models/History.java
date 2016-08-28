@@ -8,10 +8,10 @@ public class History {
 
     private Long id;
     /** Not-null value. */
-    private java.util.Date date;
+    private String date;
     /** Not-null value. */
     private String organizationName;
-    private Boolean type;
+    private Integer type;
     private String emailText;
 
     public History() {
@@ -21,7 +21,7 @@ public class History {
         this.id = id;
     }
 
-    public History(Long id, java.util.Date date, String organizationName, Boolean type, String emailText) {
+    public History(Long id, String date, String organizationName, Integer type, String emailText) {
         this.id = id;
         this.date = date;
         this.organizationName = organizationName;
@@ -38,12 +38,12 @@ public class History {
     }
 
     /** Not-null value. */
-    public java.util.Date getDate() {
+    public String getDate() {
         return date;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setDate(java.util.Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -57,11 +57,11 @@ public class History {
         this.organizationName = organizationName;
     }
 
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

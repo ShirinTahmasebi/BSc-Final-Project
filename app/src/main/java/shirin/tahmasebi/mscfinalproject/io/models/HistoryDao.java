@@ -24,9 +24,9 @@ public class HistoryDao extends AbstractDao<History, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Date = new Property(1, java.util.Date.class, "date", false, "DATE");
+        public final static Property Date = new Property(1, String.class, "date", false, "DATE");
         public final static Property OrganizationName = new Property(2, String.class, "organizationName", false, "ORGANIZATION_NAME");
-        public final static Property Type = new Property(3, Boolean.class, "type", false, "TYPE");
+        public final static Property Type = new Property(3, Integer.class, "type", false, "TYPE");
         public final static Property EmailText = new Property(4, String.class, "emailText", false, "EMAIL_TEXT");
     };
 
@@ -44,7 +44,7 @@ public class HistoryDao extends AbstractDao<History, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'HISTORY' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
-                "'DATE' INTEGER NOT NULL ," + // 1: date
+                "'DATE' TEXT NOT NULL ," + // 1: date
                 "'ORGANIZATION_NAME' TEXT NOT NULL ," + // 2: organizationName
                 "'TYPE' INTEGER," + // 3: type
                 "'EMAIL_TEXT' TEXT);"); // 4: emailText
@@ -65,12 +65,12 @@ public class HistoryDao extends AbstractDao<History, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindLong(2, entity.getDate().getTime());
+        stmt.bindString(2, entity.getDate());
         stmt.bindString(3, entity.getOrganizationName());
  
-        Boolean type = entity.getType();
+        Integer type = entity.getType();
         if (type != null) {
-            stmt.bindLong(4, type ? 1l: 0l);
+            stmt.bindLong(4, type);
         }
  
         String emailText = entity.getEmailText();
@@ -90,9 +90,9 @@ public class HistoryDao extends AbstractDao<History, Long> {
     public History readEntity(Cursor cursor, int offset) {
         History entity = new History( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            new java.util.Date(cursor.getLong(offset + 1)), // date
+            cursor.getString(offset + 1), // date
             cursor.getString(offset + 2), // organizationName
-            cursor.isNull(offset + 3) ? null : cursor.getShort(offset + 3) != 0, // type
+            cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // type
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // emailText
         );
         return entity;
@@ -102,9 +102,9 @@ public class HistoryDao extends AbstractDao<History, Long> {
     @Override
     public void readEntity(Cursor cursor, History entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setDate(new java.util.Date(cursor.getLong(offset + 1)));
+        entity.setDate(cursor.getString(offset + 1));
         entity.setOrganizationName(cursor.getString(offset + 2));
-        entity.setType(cursor.isNull(offset + 3) ? null : cursor.getShort(offset + 3) != 0);
+        entity.setType(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
         entity.setEmailText(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
      }
     

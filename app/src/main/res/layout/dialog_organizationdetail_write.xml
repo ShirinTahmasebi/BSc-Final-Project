@@ -12,7 +12,7 @@
     <LinearLayout android:id="@+id/toolbar"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:background="@color/colorPrimaryDark"
+                  android:background="@color/primaryDark"
                   android:gravity="end|right"
                   android:orientation="horizontal"
                   android:padding="10dp">
@@ -60,7 +60,7 @@
         <ImageView android:layout_width="30dp"
                    android:layout_height="match_parent"
                    android:gravity="center_vertical"
-                   android:src="@drawable/write_email_icon" tools:ignore="ContentDescription"/>
+                   android:src="@drawable/write_email_black_icon" tools:ignore="ContentDescription"/>
     </LinearLayout>
 
     <LinearLayout
@@ -112,7 +112,7 @@
         <ImageView android:layout_width="30dp"
                    android:layout_height="match_parent"
                    android:gravity="center_vertical"
-                   android:src="@drawable/write_call_icon"
+                   android:src="@drawable/write_call_primarydark_icon"
                    tools:ignore="ContentDescription"/>
     </LinearLayout>
 

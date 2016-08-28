@@ -35,9 +35,9 @@ public class SchemaV4 extends Schema {
         Entity history;
         history = schema.addEntity("History");
         history.addIdProperty();
-        history.addDateProperty("date").notNull();
+        history.addStringProperty("date").notNull();
         history.addStringProperty("organizationName").notNull();
-        history.addBooleanProperty("type"); // 0 -> call 1 -> email
+        history.addIntProperty("type"); // 0 -> call 1 -> email
         history.addStringProperty("emailText");
         return history;
     }

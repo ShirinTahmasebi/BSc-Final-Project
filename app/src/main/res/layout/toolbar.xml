@@ -6,7 +6,7 @@
     android:id="@+id/tool_bar"
     android:layout_width="match_parent"
     android:layout_height="40dp"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/primaryDark"
     android:elevation="4dp"
     android:gravity="center" tools:targetApi="lollipop">
 
