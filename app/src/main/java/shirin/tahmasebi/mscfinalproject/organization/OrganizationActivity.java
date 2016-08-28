@@ -1,12 +1,18 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -64,6 +70,62 @@ public class OrganizationActivity extends MainActivity
 
     @Override
     public void init() {
+        initSpinner();
+        initSearchLayout();
+    }
+
+    @Override
+    public void closeKeyboard() {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (this.getCurrentFocus() != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
+    private void initSearchLayout() {
+        findViewById(R.id.organization_searchButton_linearLayout).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String searchText =
+                                ((EditText) findViewById(R.id.organization_search_editText))
+                                        .getText().toString();
+
+                        mPresenter.searchOrganization(
+                                OrganizationActivity.this,
+                                searchText
+                        );
+                    }
+                }
+        );
+
+
+        ((EditText) findViewById(R.id.organization_search_editText)).setOnEditorActionListener(
+                new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView,
+                                                  int actionId, KeyEvent keyEvent) {
+                        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                            String searchText =
+                                    ((EditText) findViewById(R.id.organization_search_editText))
+                                            .getText().toString();
+
+                            mPresenter.searchOrganization(
+                                    OrganizationActivity.this,
+                                    searchText
+                            );
+
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+        );
+    }
+
+    private void initSpinner() {
         Spinner spinner = (Spinner) findViewById(R.id.organization_filter_spinner);
         SpinnerAdapter adapter = new SpinnerAdapter(
                 this,
@@ -89,7 +151,7 @@ public class OrganizationActivity extends MainActivity
                     );
                 }
                 //سازمانهای نشانه گذاری نشده را نمایش بده
-                else if (position == 2){
+                else if (position == 2) {
                     mPresenter.getOrganizationsListByFavoriteProperty(
                             OrganizationActivity.this,
                             false

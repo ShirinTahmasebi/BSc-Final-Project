@@ -33,6 +33,17 @@ public class OrganizationInteractor {
         mListener.onOrganizationListRetrieved(list);
     }
 
+    public void searchOrganizationByName(Context context, String searchText) {
+        List<Organization> list =
+                ((BaseApplication) context.getApplicationContext())
+                        .daoSession
+                        .getOrganizationDao()
+                        .queryBuilder()
+                        .where(OrganizationDao.Properties.Name.like("%" + searchText + "%"))
+                        .list();
+        mListener.onOrganizationListRetrieved(list);
+    }
+
     public interface OrganizationListener {
         void onOrganizationListRetrieved(List<Organization> list);
     }

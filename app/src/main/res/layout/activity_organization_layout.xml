@@ -12,28 +12,26 @@
 
     <LinearLayout
         android:id="@+id/organization_filter_linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/tool_bar"
         android:layout_margin="@dimen/component_default_margin"
         android:elevation="4dp"
         android:gravity="center_vertical|end"
-        android:orientation="horizontal"
-        app:layout_heightPercent="8%"
-        app:layout_widthPercent="100%" tools:targetApi="lollipop">
+        android:orientation="horizontal" tools:targetApi="lollipop">
 
         <Spinner
             android:id="@+id/organization_filter_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_filter_stroke_rounded"
+            android:gravity="end"
             android:paddingEnd="@dimen/component_default_padding"
-            android:paddingRight="@dimen/component_default_padding"
             android:paddingLeft="@dimen/component_default_padding"
-            android:paddingStart="@dimen/component_default_padding"
-            android:gravity="end"/>
+            android:paddingRight="@dimen/component_default_padding"
+            android:paddingStart="@dimen/component_default_padding"/>
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
             android:layout_width="wrap_content"
@@ -46,11 +44,72 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/organization_search_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/organization_filter_linearLayout"
+        android:layout_margin="@dimen/component_default_margin"
+        android:elevation="4dp"
+        android:gravity="center_vertical|end"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/component_comfort_padding"
+        android:paddingLeft="@dimen/component_default_padding"
+        android:paddingRight="@dimen/component_comfort_padding"
+        android:paddingStart="@dimen/component_default_padding"
+        android:weightSum="6" tools:targetApi="lollipop">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/component_default_margin"
+            android:layout_weight="5"
+            android:background="@drawable/bg_filter_stroke_rounded">
+
+            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+                android:id="@+id/organization_search_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="right"
+                android:hint="@string/lable_organization_searchHint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:padding="@dimen/component_default_padding"
+                android:paddingRight="@dimen/component_comfort_padding"
+                android:singleLine="true"
+                android:textColorHint="@color/primaryDark"
+                android:textSize="@dimen/txt_small"
+                app:customFont="IRAN-Sans-Bold.ttf"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/organization_searchButton_linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_filter_stroke_rounded"
+            android:gravity="center"
+            android:paddingLeft="@dimen/component_default_padding"
+            android:paddingRight="@dimen/component_default_padding"
+            android:paddingTop="@dimen/component_default_padding">
+
+            <ImageView android:layout_width="@dimen/image_default_width"
+                       android:layout_height="@dimen/image_default_height"
+                       android:src="@drawable/organization_search_icon"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/organization_organizationList_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/organization_filter_linearLayout"
+        android:layout_below="@+id/organization_search_linearLayout"
         android:scrollbars="vertical"
         tools:ignore="UnknownIdInLayout"/>
 

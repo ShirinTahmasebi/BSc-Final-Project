@@ -36,11 +36,18 @@ public class OrganizationPresenter implements OrganizationInteractor.Organizatio
         mInteractor.retrieveOrganizationsListByFavoriteProperty(context, isFav);
     }
 
+    public void searchOrganization(Context context, String searchText) {
+        mInteractor.searchOrganizationByName(context, searchText);
+        mView.closeKeyboard();
+    }
+
     public interface OrganizationView {
         void showOrganizationDetails(long organizationId);
 
         void showOrganizationsList(List<Organization> list);
 
         void init();
+
+        void closeKeyboard();
     }
 }
