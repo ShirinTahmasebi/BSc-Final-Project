@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_history_mail, parent, false);
         }
-        return new HistoryViewHolder(view);
+        return new HistoryViewHolder(view, viewType);
     }
 
     @Override
@@ -48,11 +49,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
                 Helper.convertToPersianDigits(
                         mList.get(holder.getAdapterPosition()).getOrganizationName()
                 ));
-        holder.historyWriteDate.setText(
-                Helper.convertToPersianDigits(
-                        mList.get(holder.getAdapterPosition()).getDate()
-                ));
-        // TODO: Inja onclick ro ezafe kon
+        if (holder.viewType == WriteOptionEnum.CALL.getIntValue()) {
+            holder.historyWriteDate.setText(
+                    Helper.convertToPersianDigits(
+                            mList.get(holder.getAdapterPosition()).getDate()
+                    ));
+        } else if (holder.viewType == WriteOptionEnum.EMAIL.getIntValue()) {
+            holder.historyEmailMoreDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mPresenter.openEmailDetail(mList.get(holder.getAdapterPosition()).getDate(),
+                            mList.get(holder.getAdapterPosition()).getEmailText());
+                }
+            });
+        }
     }
 
     @Override
@@ -63,13 +73,23 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public static class HistoryViewHolder extends RecyclerView.ViewHolder {
         FontableTextView historyOrganizationName;
         FontableTextView historyWriteDate;
+        LinearLayout historyEmailMoreDetail;
+        int viewType;
 
-        public HistoryViewHolder(View itemView) {
+        public HistoryViewHolder(View itemView, int viewType) {
             super(itemView);
+            this.viewType = viewType;
+
             historyOrganizationName = (FontableTextView) itemView.findViewById(
                     R.id.history_organizationName_textView);
-            historyWriteDate = (FontableTextView) itemView.findViewById(
-                    R.id.history_writeDate_textView);
+
+            if (viewType == WriteOptionEnum.CALL.getIntValue()) {
+                historyWriteDate = (FontableTextView) itemView.findViewById(
+                        R.id.history_writeDate_textView);
+            } else if (viewType == WriteOptionEnum.EMAIL.getIntValue()) {
+                historyEmailMoreDetail = (LinearLayout) itemView.findViewById(
+                        R.id.history_moreDetails_linearLayout);
+            }
         }
     }
 }

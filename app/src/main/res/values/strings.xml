@@ -53,4 +53,8 @@
     </string>
     <string name="lable_organization_selectFilter">دسته‌بندی کردن سازمان بر اساس:</string>
     <string name="lable_organization_searchHint">نام سازمان را جستجو کنید</string>
+    <string name="lable_history_moreDetails">مشاهده جزئیات بیشتر</string>
+    <string name="lable_emailDetail_date">تاریخ:</string>
+    <string name="lable_emailDetail_text">متن ایمیل:</string>
+    <string name="title_activity_emailDetails">جزییات ایمیل</string>
 </resources>

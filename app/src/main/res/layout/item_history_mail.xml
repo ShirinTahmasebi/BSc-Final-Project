@@ -8,7 +8,6 @@
     android:background="@drawable/bg_card_rounded_primarydark"
     android:padding="@dimen/activity_padding_normal">
 
-
     <shirin.tahmasebi.mscfinalproject.view.FontableTextView
         android:id="@+id/history_organizationName_textView"
         android:layout_width="wrap_content"
@@ -21,17 +20,31 @@
         android:textSize="@dimen/txt_medium"
         app:customFont="IRAN-Sans-Bold.ttf" tools:ignore="RelativeOverlap"/>
 
-    <shirin.tahmasebi.mscfinalproject.view.FontableTextView
-        android:id="@+id/history_writeDate_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/history_organizationName_textView"
-        android:background="#00FFFFFF"
-        android:paddingBottom="@dimen/component_default_padding"
-        android:textSize="@dimen/txt_small"
-        app:customFont="IRAN-Sans-Bold.ttf"/>
+    <LinearLayout android:id="@+id/history_moreDetails_linearLayout"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_alignParentEnd="true"
+                  android:layout_alignParentRight="true"
+                  android:layout_below="@+id/history_organizationName_textView"
+                  android:orientation="horizontal"
+                  android:paddingBottom="@dimen/component_default_padding">
+
+        <ImageView android:layout_width="15dp"
+                   android:layout_height="15dp"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginRight="@dimen/component_default_margin"
+                   android:src="@drawable/more_detail_icon"/>
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="@string/lable_history_moreDetails"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+
+    </LinearLayout>
+
 
     <RelativeLayout android:layout_width="wrap_content"
                     android:layout_height="match_parent"

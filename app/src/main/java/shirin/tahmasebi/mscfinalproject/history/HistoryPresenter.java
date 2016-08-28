@@ -36,8 +36,15 @@ public class HistoryPresenter implements HistoryInteractor.HistoryListener {
         }
     }
 
+
+    public void openEmailDetail(String date, String emailText) {
+        mView.showEmailDetailActivity(date, emailText);
+    }
+
     public interface HistoryView {
 
         void showHistoryList(List<History> list);
+
+        void showEmailDetailActivity(String date, String emailText);
     }
 }

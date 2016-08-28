@@ -1,5 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.history;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,5 +43,15 @@ public class HistoryActivity extends MainActivity implements HistoryPresenter.Hi
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new HistoryAdapter(mPresenter, list));
+    }
+
+    @Override
+    public void showEmailDetailActivity(String date, String emailText) {
+        final String EXTRA_DATE = "emaildate";
+        final String EXTRA_TEXT = "emailtext";
+        Intent intent = new Intent(this, EmailDetailActivity.class);
+        intent.putExtra(EXTRA_DATE, date);
+        intent.putExtra(EXTRA_TEXT, emailText);
+        startActivity(intent);
     }
 }

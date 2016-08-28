@@ -42,6 +42,8 @@
         </activity>
         <activity android:name=".inlineBrowser.InlineBrowserActivity">
         </activity>
+        <activity android:name=".history.EmailDetailActivity">
+        </activity>
     </application>
 
 </manifest>
