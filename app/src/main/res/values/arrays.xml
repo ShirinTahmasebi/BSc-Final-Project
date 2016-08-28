@@ -44,4 +44,9 @@
         <item>Beagle</item>
 
     </string-array>
+    <string-array name="lable_organizationFilter">
+        <item>همه</item>
+        <item>نشانه‌گذاری شده</item>
+        <item>نشانه‌گذاری نشده</item>
+    </string-array>
 </resources>

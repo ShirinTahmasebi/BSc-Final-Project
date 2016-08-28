@@ -10,11 +10,47 @@
              app:layout_heightPercent="12%"
              app:layout_widthPercent="100%"/>
 
+    <LinearLayout
+        android:id="@+id/organization_filter_linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tool_bar"
+        android:layout_margin="@dimen/component_default_margin"
+        android:elevation="4dp"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%" tools:targetApi="lollipop">
+
+        <Spinner
+            android:id="@+id/organization_filter_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_filter_stroke_rounded"
+            android:paddingEnd="@dimen/component_default_padding"
+            android:paddingRight="@dimen/component_default_padding"
+            android:paddingLeft="@dimen/component_default_padding"
+            android:paddingStart="@dimen/component_default_padding"
+            android:gravity="end"/>
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_organization_selectFilter"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/organization_organizationList_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tool_bar"
+        android:layout_below="@+id/organization_filter_linearLayout"
         android:scrollbars="vertical"
         tools:ignore="UnknownIdInLayout"/>
 

@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 
+import java.util.Arrays;
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
@@ -23,6 +27,12 @@ public class OrganizationActivity extends MainActivity
 
         mPresenter = new OrganizationPresenter(this);
         mPresenter.getOrganizationsList(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.onStart();
     }
 
     @Override
@@ -50,6 +60,48 @@ public class OrganizationActivity extends MainActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new OrganizationAdapter(mPresenter, list));
+    }
+
+    @Override
+    public void init() {
+        Spinner spinner = (Spinner) findViewById(R.id.organization_filter_spinner);
+        SpinnerAdapter adapter = new SpinnerAdapter(
+                this,
+                R.layout.item_organization_filter,
+                Arrays.asList(getResources().getStringArray(
+                        R.array.lable_organizationFilter
+                ))
+        );
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView,
+                                       View view, int position, long id) {
+                //همه سازمان ها را نمایش بده
+                if (position == 0) {
+                    mPresenter.getOrganizationsList(OrganizationActivity.this);
+                }
+                //سازمانهای نشانه گذاری شده را نمایش بده
+                else if (position == 1) {
+                    mPresenter.getOrganizationsListByFavoriteProperty(
+                            OrganizationActivity.this,
+                            true
+                    );
+                }
+                //سازمانهای نشانه گذاری نشده را نمایش بده
+                else if (position == 2){
+                    mPresenter.getOrganizationsListByFavoriteProperty(
+                            OrganizationActivity.this,
+                            false
+                    );
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }
 

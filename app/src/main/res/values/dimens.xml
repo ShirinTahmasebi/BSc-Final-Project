@@ -13,4 +13,5 @@
     <dimen name="radius_default">3dp</dimen>
     <dimen name="image_default_width">30dp</dimen>
     <dimen name="image_default_height">30dp</dimen>
+    <dimen name="filterBackground_default_radius">5dp</dimen>
 </resources>

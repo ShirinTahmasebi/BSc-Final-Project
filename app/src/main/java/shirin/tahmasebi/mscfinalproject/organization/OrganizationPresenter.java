@@ -28,9 +28,19 @@ public class OrganizationPresenter implements OrganizationInteractor.Organizatio
         mView.showOrganizationsList(list);
     }
 
+    public void onStart() {
+        mView.init();
+    }
+
+    public void getOrganizationsListByFavoriteProperty(Context context, Boolean isFav) {
+        mInteractor.retrieveOrganizationsListByFavoriteProperty(context, isFav);
+    }
+
     public interface OrganizationView {
         void showOrganizationDetails(long organizationId);
 
         void showOrganizationsList(List<Organization> list);
+
+        void init();
     }
 }

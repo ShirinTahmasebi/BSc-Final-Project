@@ -51,4 +51,5 @@
          تاکنون پیامی ارسال نشده است. \nبرای ارسال پیام میتوانید به قسمت سازمانها مراجعه
         کنید
     </string>
+    <string name="lable_organization_selectFilter">دسته‌بندی کردن سازمان بر اساس:</string>
 </resources>
