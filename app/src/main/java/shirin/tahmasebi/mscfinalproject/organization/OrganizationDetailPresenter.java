@@ -1,6 +1,5 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
@@ -20,7 +19,7 @@ public class OrganizationDetailPresenter
 
     }
 
-    public void showOrganizationDetail(Context context) {
+    public void showOrganizationDetail(android.content.Context context) {
         Intent intent = ((OrganizationDetailActivity) context).getIntent();
         long id = intent.getLongExtra(EXTRA_ORGANIZATION_ID, -1);
         if (id != -1) {
@@ -40,7 +39,7 @@ public class OrganizationDetailPresenter
         mView.showOrganizationFavorite(org);
     }
 
-    public void toggleFavorite(Context context) {
+    public void toggleFavorite(android.content.Context context) {
         Intent intent = ((OrganizationDetailActivity) context).getIntent();
         long id = intent.getLongExtra(EXTRA_ORGANIZATION_ID, -1);
         if (id != -1) {
@@ -62,6 +61,10 @@ public class OrganizationDetailPresenter
     @Override
     public void onCancelDialogClicked(SelectWriteModeDialog dialog) {
         mView.cancelDialog(dialog);
+    }
+
+    public void onNumberDialed(OrganizationDetailActivity context, Organization org) {
+        mInteractor.saveDialedNumber(context, org);
     }
 
     public interface OrganizationDetailView {

@@ -22,6 +22,17 @@ public class HistoryInteractor {
         mListener.onHistoryListRetrieved(list);
     }
 
+    public boolean isHistoryListEmpty(Context context) {
+        long count = ((BaseApplication) context.getApplicationContext())
+                .daoSession.getHistoryDao().count();
+
+        if (count == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public interface HistoryListener {
 
         void onHistoryListRetrieved(List<History> list);

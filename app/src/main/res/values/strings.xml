@@ -47,4 +47,8 @@
     <string name="error_writeEmail_emptyEmailSubject">موضوع ایمیل نمیتواند خالی باشد</string>
     <string name="error_writeEmail_emptyEmailText">متن ایمیل نمیتواند خالی باشد</string>
     <string name="lable_writeEmail_sendEmailTitle">برنامه‌ای برای ارسال ایمیل انتخاب کنید:</string>
+    <string name="lable_history_emptyList">
+         تاکنون پیامی ارسال نشده است. \nبرای ارسال پیام میتوانید به قسمت سازمانها مراجعه
+        کنید
+    </string>
 </resources>

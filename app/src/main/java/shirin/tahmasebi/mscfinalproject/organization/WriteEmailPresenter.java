@@ -52,6 +52,10 @@ public class WriteEmailPresenter implements WriteEmailInteractor.WriteEmailListe
         );
     }
 
+    public void onEmailSent(Context context, Organization org, String subject, String text) {
+        mInteractor.saveSentMail(context, org, text);
+    }
+
     public interface WriteEmailView {
         void init();
 

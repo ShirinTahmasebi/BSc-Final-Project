@@ -105,6 +105,7 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
 
         try {
             startActivity(intent);
+            mPresenter.onEmailSent(this, org, subject, text);
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(
                     this,

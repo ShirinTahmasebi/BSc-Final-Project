@@ -5,10 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import shirin.tahmasebi.mscfinalproject.io.models.DaoMaster;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
-import shirin.tahmasebi.mscfinalproject.io.models.History;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
-import shirin.tahmasebi.mscfinalproject.util.ShamsiConverter;
-import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
 
 public class BaseApplication extends Application {
     public DaoSession daoSession;
@@ -78,25 +75,25 @@ public class BaseApplication extends Application {
         daoSession.getOrganizationDao().insert(organization2);
         daoSession.getOrganizationDao().insert(organization3);
 
-        History history1 = new History();
-        history1.setOrganizationName(organization1.getName());
-        history1.setDate(ShamsiConverter.getCurrentShamsidate());
-        history1.setType(WriteOptionEnum.CALL.getIntValue());
-
-        History history2 = new History();
-        history2.setOrganizationName(organization1.getName());
-        history2.setDate(ShamsiConverter.getCurrentShamsidate());
-        history2.setType(WriteOptionEnum.CALL.getIntValue());
-
-        History history3 = new History();
-        history3.setOrganizationName(organization2.getName());
-        history3.setDate(ShamsiConverter.getCurrentShamsidate());
-        history3.setType(WriteOptionEnum.EMAIL.getIntValue());
-        history3.setEmailText("dfgddfjkrgmfdlkjfmndasjkfdslfanmdsljfmdslfjdsnkfjafnakjfndsf");
-
-        daoSession.getHistoryDao().insert(history1);
-        daoSession.getHistoryDao().insert(history2);
-        daoSession.getHistoryDao().insert(history3);
+//        History history1 = new History();
+//        history1.setOrganizationName(organization1.getName());
+//        history1.setDate(ShamsiConverter.getCurrentShamsidate());
+//        history1.setType(WriteOptionEnum.CALL.getIntValue());
+//
+//        History history2 = new History();
+//        history2.setOrganizationName(organization1.getName());
+//        history2.setDate(ShamsiConverter.getCurrentShamsidate());
+//        history2.setType(WriteOptionEnum.CALL.getIntValue());
+//
+//        History history3 = new History();
+//        history3.setOrganizationName(organization2.getName());
+//        history3.setDate(ShamsiConverter.getCurrentShamsidate());
+//        history3.setType(WriteOptionEnum.EMAIL.getIntValue());
+//        history3.setEmailText("dfgddfjkrgmfdlkjfmndasjkfdslfanmdsljfmdslfjdsnkfjafnakjfndsf");
+//
+//        daoSession.getHistoryDao().insert(history1);
+//        daoSession.getHistoryDao().insert(history2);
+//        daoSession.getHistoryDao().insert(history3);
 
     }
 }

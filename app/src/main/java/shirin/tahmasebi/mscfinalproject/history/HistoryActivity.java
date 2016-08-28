@@ -25,7 +25,8 @@ public class HistoryActivity extends MainActivity implements HistoryPresenter.Hi
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_history_layout;
+        mPresenter = new HistoryPresenter(this);
+        return mPresenter.selectLayoutToView(this);
     }
 
     @Override

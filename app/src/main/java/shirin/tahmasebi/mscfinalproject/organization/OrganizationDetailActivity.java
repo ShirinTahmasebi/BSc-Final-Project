@@ -185,13 +185,15 @@ public class OrganizationDetailActivity extends MainActivity
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (checkSelfPermission("android.permission.CALL_PHONE") ==
                             PackageManager.PERMISSION_GRANTED) {
-                        startActivityForResult(intent, 123);
+                        startActivity(intent);
+                        mPresenter.onNumberDialed(this, org);
                     } else {
                         requestPermissions(new String[]{"android.permission.CALL_PHONE"},
                                 PERMISION_REQUEST_PHONECALL);
                     }
                 } else {
                     startActivity(intent);
+                    mPresenter.onNumberDialed(this, org);
                 }
             } catch (ActivityNotFoundException ex) {
                 Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
@@ -218,7 +220,6 @@ public class OrganizationDetailActivity extends MainActivity
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == PERMISION_REQUEST_PHONECALL) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                return;
             }
         }
     }
