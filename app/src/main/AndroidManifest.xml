@@ -40,6 +40,8 @@
         </activity>
         <activity android:name=".organization.WriteEmailActivity">
         </activity>
+        <activity android:name=".inlineBrowser.InlineBrowserActivity">
+        </activity>
     </application>
 
 </manifest>

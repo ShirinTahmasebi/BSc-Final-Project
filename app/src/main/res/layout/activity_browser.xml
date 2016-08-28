@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+
+        android:id="@+id/inlineBrowser_browser_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_padding_normal"
+        tools:context="shirin.tahmasebi.mscfinalproject.inlineBrowser.InlineBrowserActivity"/>
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:id="@+id/inlineBrowser_loadingBar_circularProgressView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cpv_color="@color/accent"
+        app:cpv_thickness="10dp"
+        android:layout_centerInParent="true"
+        app:cpv_animAutostart="true"
+        app:cpv_indeterminate="true"/>
+
+</RelativeLayout>

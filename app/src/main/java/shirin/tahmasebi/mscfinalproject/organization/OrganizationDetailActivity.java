@@ -23,6 +23,7 @@ import com.squareup.picasso.Picasso;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.inlineBrowser.InlineBrowserActivity;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
@@ -200,13 +201,10 @@ public class OrganizationDetailActivity extends MainActivity
             }
         } else if (type == WriteOptionEnum.WEBSITE.getIntValue()) {
             String url = org.getSiteUrl();
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            try {
-                startActivity(intent);
-            } catch (ActivityNotFoundException ex) {
-                Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
-            }
+            final String EXTRA_URL = "customurl";
+            Intent intent = new Intent(this, InlineBrowserActivity.class);
+            intent.putExtra(EXTRA_URL, url);
+            startActivity(intent);
         }
     }
 
