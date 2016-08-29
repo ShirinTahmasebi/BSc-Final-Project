@@ -43,7 +43,7 @@
         android:id="@+id/toolbar_hint_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/component_default_padding"
+        android:padding="@dimen/component_comfort_padding"
         android:textSize="@dimen/txt_medium"
         app:customFont="IRAN-Sans-Bold.ttf"/>
 

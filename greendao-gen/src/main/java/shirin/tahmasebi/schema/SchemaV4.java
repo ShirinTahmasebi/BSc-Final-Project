@@ -18,7 +18,7 @@ public class SchemaV4 extends Schema {
     private Entity createOrganization(Schema schema) {
         Entity organization;
         organization = schema.addEntity("Organization");
-        organization.addIdProperty().autoincrement();
+        organization.addIdProperty();
         organization.addStringProperty("name").notNull();
         organization.addStringProperty("description").notNull();
         organization.addStringProperty("website").notNull().unique();
