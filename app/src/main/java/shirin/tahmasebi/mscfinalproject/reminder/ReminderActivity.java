@@ -19,6 +19,11 @@ public class ReminderActivity extends MainActivity {
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_reminder;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_reminder;
     }

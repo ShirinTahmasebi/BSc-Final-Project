@@ -1,6 +1,8 @@
 package shirin.tahmasebi.mscfinalproject.util;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 
 public class Helper {
@@ -30,5 +32,12 @@ public class Helper {
                 .replace('۴', '4').replace('۵', '5').replace('۶', '6')
                 .replace('۷', '7').replace('۸', '8').replace('۹', '9')
                 .replace('۰', '0');
+    }
+
+    public static void makeDialog(Context context, String text) {
+        FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
+        TextDialog dialog = new TextDialog(text);
+        dialog.setCancelable(false);
+        dialog.show(fragmentManager, "Dialog_Text");
     }
 }

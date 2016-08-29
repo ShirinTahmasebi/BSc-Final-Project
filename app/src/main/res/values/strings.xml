@@ -57,4 +57,31 @@
     <string name="lable_emailDetail_date">تاریخ:</string>
     <string name="lable_emailDetail_text">متن ایمیل:</string>
     <string name="title_activity_emailDetails">جزییات ایمیل</string>
+    <string name="toolbar_diologTitle">راهنما:</string>
+    <string name="helpHint_activity_dashboard">این صفحه امکان دسترسی به سایر قسمت‌های برنامه را
+        فراهم میکند.
+    </string>
+    <string name="helpHint_activity_feedback">از این قسمت میتوانید مشکلات و باگهای برنامه را گزارش
+        دهید.
+    </string>
+    <string name="helpHint_activity_emailDetail">این صفحه برای نمایش کامل اطلاعات ایمیل ارسال شده
+        برای سازمان مورد نظر میباشد.
+    </string>
+    <string name="helpHint_activity_history">این صفحه برای نمایش تاریخچه‌ای از پیامها و ایمیلهای
+        ارسال شده و همچنین تماسهای انجام شده با سازمان مورد نظر میباشد.
+    </string>
+    <string name="helpHint_activity_organization">در اینجا لیست سازمانها را مشاهده میکنید و با
+        مراجعه به صفحه مربوط به هر سازمان میتوانید از راه‌های مختلف با آن ارتباط برقرار کنید.
+    </string>
+    <string name="helpHint_activity_writeEmail">از این صفحه میتوانید برای سازمان مورد نظر خود پیامی
+        را در قالب ایمیل ارسال نمایید.
+    </string>
+    <string name="helpHint_activity_profile">در این صفحه میتوانید به مدیریت حساب کاربری خود
+        بپردازید.
+    </string>
+    <string name="helpHint_activity_reminder">از این صفحه میتوانید برای تنظیم یاداور استفاده کنید.
+    </string>
+    <string name="helpHint_activity_setting">در این صفحه میتوانید تنظیمات مربوط به برنامه را مدیریت
+        کنید.
+    </string>
 </resources>

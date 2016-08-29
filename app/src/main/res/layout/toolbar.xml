@@ -28,25 +28,10 @@
             app:layout_heightPercent="100%"
             app:layout_widthPercent="60%"/>
 
-        <LinearLayout android:id="@+id/toolbar_info_linearLayout"
-                      android:layout_width="0dp"
-                      android:layout_height="0dp"
-                      android:gravity="center_vertical"
-                      app:layout_heightPercent="100%"
-                      app:layout_widthPercent="12%">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/toolbar_info_icon"
-            />
-        </LinearLayout>
 
         <LinearLayout android:id="@+id/toolbar_help_linearLayout"
                       android:layout_width="0dp"
                       android:layout_height="0dp"
-                      android:layout_toRightOf="@id/toolbar_info_linearLayout"
                       android:gravity="center_vertical"
                       app:layout_heightPercent="100%"
                       app:layout_widthPercent="12%">

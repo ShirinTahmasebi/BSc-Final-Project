@@ -38,6 +38,11 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_writeEmail;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_writeEmail;
     }

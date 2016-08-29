@@ -31,6 +31,11 @@ public class HistoryActivity extends MainActivity implements HistoryPresenter.Hi
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_history;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_history;
     }

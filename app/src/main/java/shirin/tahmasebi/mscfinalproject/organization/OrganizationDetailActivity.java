@@ -79,6 +79,11 @@ public class OrganizationDetailActivity extends MainActivity
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return 0;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_organizationDetail;
     }
@@ -164,9 +169,9 @@ public class OrganizationDetailActivity extends MainActivity
     @Override
     public void showWriteOptionDialog(OrganizationDetailPresenter presenter, Organization org) {
         FragmentManager fragmentManager = getFragmentManager();
-        SelectWriteModeDialog yesnoDialog = new SelectWriteModeDialog(presenter, org);
-        yesnoDialog.setCancelable(false);
-        yesnoDialog.show(fragmentManager, "Dialog_WriteOption");
+        SelectWriteModeDialog writeModeDialog = new SelectWriteModeDialog(presenter, org);
+        writeModeDialog.setCancelable(false);
+        writeModeDialog.show(fragmentManager, "Dialog_WriteOption");
     }
 
     @Override

@@ -37,6 +37,11 @@ public class FeedbackActivity extends MainActivity implements FeedbackPresenter.
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_feedback;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_feedback;
     }

@@ -24,6 +24,11 @@ public class EmailDetailActivity extends MainActivity
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_emailDetail;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_emailDetails;
     }

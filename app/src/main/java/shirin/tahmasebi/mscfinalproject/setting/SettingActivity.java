@@ -18,6 +18,11 @@ public class SettingActivity extends MainActivity {
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_setting;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_setting;
     }

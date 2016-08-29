@@ -35,6 +35,11 @@ public class DashboardActivity extends MainActivity implements DashboardPresente
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_dashboard;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_dashboard;
     }

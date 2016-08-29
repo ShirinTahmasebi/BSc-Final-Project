@@ -31,6 +31,11 @@ public class InlineBrowserActivity extends MainActivity
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return 0;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return 0;
     }

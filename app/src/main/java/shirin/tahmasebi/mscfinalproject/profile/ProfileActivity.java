@@ -18,6 +18,11 @@ public class ProfileActivity extends MainActivity {
     }
 
     @Override
+    protected int getActivityHelpHint() {
+        return R.string.helpHint_activity_profile;
+    }
+
+    @Override
     protected int getActivityTitleResourceId() {
         return R.string.title_activity_profile;
     }
