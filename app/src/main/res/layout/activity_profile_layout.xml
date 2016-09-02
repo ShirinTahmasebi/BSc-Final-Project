@@ -2,7 +2,7 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
 
@@ -11,12 +11,28 @@
              app:layout_widthPercent="100%"/>
 
     <LinearLayout
-        android:id="@+id/dashboard_header_linearLayout"
+        android:id="@+id/profile_header_linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_alignParentTop="true"
+        android:layout_below="@+id/tool_bar"
         android:background="#fff"
         android:orientation="horizontal"
-        app:layout_heightPercent="25%"
-        app:layout_widthPercent="100%"/>
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="100%"
+        tools:ignore="UnknownIdInLayout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_header_linearLayout"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </android.support.percent.PercentRelativeLayout>

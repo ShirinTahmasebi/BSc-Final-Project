@@ -3,9 +3,12 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="shirin.tahmasebi.mscfinalproject">
 
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
-
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
