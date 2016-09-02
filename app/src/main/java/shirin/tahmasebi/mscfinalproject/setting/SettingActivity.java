@@ -5,11 +5,16 @@ import android.os.Bundle;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 
-public class SettingActivity extends MainActivity {
+public class SettingActivity extends MainActivity implements SettingPresenter.SettingView {
+
+    private SettingPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mPresenter = new SettingPresenter(this);
+
     }
 
     @Override
