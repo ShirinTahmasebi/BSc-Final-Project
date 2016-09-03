@@ -22,7 +22,6 @@ android {
 }
 
 dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:percent:24.0.0'
 
@@ -41,6 +40,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     // [View Animations](https://github.com/daimajia/AndroidViewAnimations)
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:1.0.1@aar'
     compile 'com.daimajia.androidanimations:library:1.1.3@aar'
 
     // [Loading Progress Bar](https://github.com/rahatarmanahmed/CircularProgressView)
@@ -48,6 +49,4 @@ dependencies {
 
     //noinspection GradleDependency
     compile 'com.google.android.gms:play-services-auth:9.0.0'
-//    compile 'com.google.firebase:firebase:9.0.0'
-
 }
