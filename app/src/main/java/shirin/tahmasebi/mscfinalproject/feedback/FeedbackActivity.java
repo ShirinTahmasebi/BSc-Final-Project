@@ -10,10 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import butterknife.Bind;
-import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 
-public class FeedbackActivity extends MainActivity implements FeedbackPresenter.FeedbackView {
+public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActivity implements FeedbackPresenter.FeedbackView {
 
     FeedbackPresenter mPresenter;
 
@@ -28,7 +29,7 @@ public class FeedbackActivity extends MainActivity implements FeedbackPresenter.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new FeedbackPresenter(this);
-        mPresenter.onStart();
+        mPresenter.onStart(this);
     }
 
     @Override
@@ -115,5 +116,12 @@ public class FeedbackActivity extends MainActivity implements FeedbackPresenter.
                     Toast.LENGTH_LONG
             ).show();
         }
+    }
+
+    @Override
+    public void showCompleteProfileDialog() {
+        Helper.makeConfirmDialog(FeedbackActivity.this,
+                getString(R.string.error_writeEmail_shouldCompleteProfile),
+                ProfileActivity.class);
     }
 }

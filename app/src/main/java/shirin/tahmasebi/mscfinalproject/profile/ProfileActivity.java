@@ -7,11 +7,7 @@ import android.accounts.AccountManagerFuture;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import shirin.tahmasebi.mscfinalproject.MainFragmentActivity;
 import shirin.tahmasebi.mscfinalproject.R;
@@ -19,9 +15,9 @@ import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
 import shirin.tahmasebi.mscfinalproject.util.Constant;
 import shirin.tahmasebi.mscfinalproject.util.GMailSender;
 
-public class ProfileActivity extends MainFragmentActivity implements
-        GoogleApiClient.OnConnectionFailedListener {
+public class ProfileActivity extends MainFragmentActivity implements ProfilePresenter.ProfileView {
 
+    private ProfilePresenter mPresenter;
     private static final int AUTHORIZATION_CODE = 1993;
     private static final int ACCOUNT_CODE = 1601;
     private AuthPreferences authPreferences;
@@ -35,6 +31,8 @@ public class ProfileActivity extends MainFragmentActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mPresenter = new ProfilePresenter(this);
 
         accountManager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
         authPreferences = new AuthPreferences(this);
@@ -181,8 +179,4 @@ public class ProfileActivity extends MainFragmentActivity implements
         return R.string.title_activity_profile;
     }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
 }

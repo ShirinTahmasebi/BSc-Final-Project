@@ -84,4 +84,8 @@
     <string name="helpHint_activity_setting">در این صفحه میتوانید تنظیمات مربوط به برنامه را مدیریت
         کنید.
     </string>
+    <string name="error_writeEmail_shouldCompleteProfile">برای ارسال ایمیل باید حساب کاربری خود را
+        تکمیل کنید. لطفا با مراجعه به قسمت پروفایل، اقدام به تکمیل اطلاعات خود بفرمایید.
+    </string>
+    <string name="lable_dialogConfirm">تکمیل پروفایل</string>
 </resources>

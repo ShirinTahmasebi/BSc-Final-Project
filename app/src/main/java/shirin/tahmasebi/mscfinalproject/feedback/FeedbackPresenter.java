@@ -1,5 +1,9 @@
 package shirin.tahmasebi.mscfinalproject.feedback;
 
+import android.content.Context;
+
+import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
+
 public class FeedbackPresenter implements FeedbackInteractor.FeedbackListener {
     FeedbackInteractor mInteractor;
     FeedbackView mView;
@@ -9,8 +13,15 @@ public class FeedbackPresenter implements FeedbackInteractor.FeedbackListener {
         mInteractor = new FeedbackInteractor(this);
     }
 
-    public void onStart() {
-        mView.init();
+    public void onStart(Context context) {
+        AuthPreferences authPreferences = new AuthPreferences(context);
+        if (authPreferences.getUser() != null
+                && authPreferences.getToken() != null) {
+            mView.init();
+        } else {
+            mView.showCompleteProfileDialog();
+        }
+
     }
 
     public void sendEmail(String subject, String text) {
@@ -48,6 +59,8 @@ public class FeedbackPresenter implements FeedbackInteractor.FeedbackListener {
         void clearInputEmailTextError();
 
         void openSendingMailIntent(String subject, String text);
+
+        void showCompleteProfileDialog();
     }
 }
 

@@ -29,7 +29,7 @@ public abstract class MainActivity extends Activity {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Helper.makeDialog(MainActivity.this,
+                            Helper.makeTextDialog(MainActivity.this,
                                     getString(getActivityHelpHint()));
                         }
                     }

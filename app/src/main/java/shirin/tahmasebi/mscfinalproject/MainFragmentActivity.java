@@ -1,6 +1,5 @@
 package shirin.tahmasebi.mscfinalproject;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -30,7 +29,7 @@ public abstract class MainFragmentActivity extends FragmentActivity {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Helper.makeDialog(MainFragmentActivity.this,
+                            Helper.makeTextDialog(MainFragmentActivity.this,
                                     getString(getActivityHelpHint()));
                         }
                     }

@@ -5,6 +5,9 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 
+import shirin.tahmasebi.mscfinalproject.MainActivity;
+import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
+
 public class Helper {
     public static void startActivity(Activity activity, Class aClass) {
         activity.startActivity(new Intent(activity, aClass));
@@ -34,9 +37,18 @@ public class Helper {
                 .replace('۰', '0');
     }
 
-    public static void makeDialog(Context context, String text) {
+    public static void makeTextDialog(Context context, String text) {
         FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
         TextDialog dialog = new TextDialog(text);
+        dialog.setCancelable(false);
+        dialog.show(fragmentManager, "Dialog_Text");
+    }
+
+
+    public static void makeConfirmDialog(Context context, String text,
+                                         Class destinationActivity) {
+        FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
+        WarningDialog dialog = new WarningDialog(text, (Activity) context, destinationActivity);
         dialog.setCancelable(false);
         dialog.show(fragmentManager, "Dialog_Text");
     }
