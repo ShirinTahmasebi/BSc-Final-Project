@@ -19,11 +19,12 @@ public class FeedbackPresenter extends MailPresenter
 
     public void onStart(Context context) {
         AuthPreferences authPreferences = new AuthPreferences(context);
-        if (!authPreferences.getKeyAccountType().equals(
-                AccountTypeEnum.NothingSelected.toString())) {
-            mView.init();
-        } else {
+        if (authPreferences.getKeyAccountType() == null ||
+                authPreferences.getKeyAccountType().equals(
+                        AccountTypeEnum.NothingSelected.toString())) {
             mView.showCompleteProfileDialog();
+        } else {
+            mView.init();
         }
     }
 

@@ -22,7 +22,7 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new ProfilePresenter(this);
+        mPresenter = new ProfilePresenter(this, this);
         mPresenter.onStart();
     }
 
@@ -31,22 +31,21 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-//            if (requestCode == AUTHORIZATION_CODE) {
-////                requestToken();
-//            } else
-            if (requestCode == ACCOUNT_CODE) {
-                // کاربر اکانت گوگل را انتخاب کرده
-                // نام کاربری را بگیر و ذخیره کن
-                // توکن را بروز کن
+            if (requestCode != AUTHORIZATION_CODE) {
+                if (requestCode == ACCOUNT_CODE) {
+                    // کاربر اکانت گوگل را انتخاب کرده
+                    // نام کاربری را بگیر و ذخیره کن
+                    // توکن را بروز کن
 
-                mPresenter.googleAccountSelected(data);
+                    mPresenter.googleAccountSelected(data);
+                }
             }
         }
     }
 
     @Override
-    public void init() {
-        initSpinner();
+    public void init(int position) {
+        initSpinner(position);
     }
 
     @Override
@@ -64,7 +63,7 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
         return R.string.title_activity_profile;
     }
 
-    private void initSpinner() {
+    private void initSpinner(int pos) {
         Spinner spinner = (Spinner) findViewById(R.id.profile_accountType_spinner);
         SpinnerAdapter adapter = new SpinnerAdapter(
                 this,
@@ -74,6 +73,7 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
                 ))
         );
         spinner.setAdapter(adapter);
+        spinner.setSelection(pos);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView,

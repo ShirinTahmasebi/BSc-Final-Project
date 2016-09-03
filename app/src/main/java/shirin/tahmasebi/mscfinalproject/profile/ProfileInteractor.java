@@ -8,12 +8,10 @@ import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
 import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
 
 public class ProfileInteractor {
-    private ProfileListener mListener;
 
     private static final int ACCOUNT_CODE = 1601;
 
-    public ProfileInteractor(ProfileListener listener) {
-        mListener = listener;
+    public ProfileInteractor() {
     }
 
     public void saveAccountTypeSelected(Activity activity, int position,

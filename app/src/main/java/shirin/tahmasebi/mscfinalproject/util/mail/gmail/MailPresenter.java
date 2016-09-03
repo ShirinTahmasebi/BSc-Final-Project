@@ -48,7 +48,8 @@ public class MailPresenter implements MailInteractor.MailListener {
     }
 
     public boolean isGoogleType() {
-        return mAuthPreferences.getKeyAccountType().equals(AccountTypeEnum.Google.toString());
+        return mAuthPreferences.getKeyAccountType() != null &&
+                AccountTypeEnum.Google.toString().equals(mAuthPreferences.getKeyAccountType());
     }
 
     public interface MailView {
