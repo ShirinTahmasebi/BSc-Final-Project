@@ -41,6 +41,8 @@ public class ProfileActivity extends MainFragmentActivity implements
 
         if (authPreferences.getUser() != null
                 && authPreferences.getToken() != null) {
+            invalidateToken();
+            requestToken();
             doCoolAuthenticatedStuff();
         } else {
             chooseAccount();
@@ -136,8 +138,8 @@ public class ProfileActivity extends MainFragmentActivity implements
         @Override
         protected Void doInBackground(Void... params) {
             GMailSender gMailSender = new GMailSender();
-            gMailSender.sendMail("hi", "hi", authPreferences.getUser(), authPreferences.getToken(),
-                    "shirin_tahmasebi94@yahoo.com");
+            gMailSender.sendMail("salam", "salam", authPreferences.getUser(), authPreferences.getToken(),
+                    "shirin.tahmasebi2013@gmail.com");
             Log.v("ranjapp", "sent mail " + authPreferences.getUser() + "  " + authPreferences.getToken());
             return null;
         }

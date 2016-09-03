@@ -67,7 +67,7 @@ public class GMailSender {
             smtpTransport.sendMessage(message, message.getAllRecipients());
 
         } catch (Exception e) {
-            Log.v("ranjith", e.toString());
+            Log.e("ranjith", e.toString());
         }
 
     }
