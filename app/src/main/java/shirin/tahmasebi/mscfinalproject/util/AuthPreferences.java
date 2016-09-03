@@ -3,7 +3,6 @@ package shirin.tahmasebi.mscfinalproject.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.util.Log;
 
 public class AuthPreferences {
 
@@ -19,14 +18,12 @@ public class AuthPreferences {
     public void setUser(String user) {
         Editor editor = preferences.edit();
         editor.putString(KEY_USER, user);
-        Log.v("ranjapp", "User is " + user);
         editor.apply();
     }
 
     public void setToken(String password) {
         Editor editor = preferences.edit();
         editor.putString(KEY_TOKEN, password);
-        Log.v("ranjapp", "Password is " + password);
         editor.apply();
     }
 
