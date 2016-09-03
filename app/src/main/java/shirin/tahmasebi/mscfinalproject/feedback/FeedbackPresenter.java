@@ -1,30 +1,33 @@
 package shirin.tahmasebi.mscfinalproject.feedback;
 
+import android.app.Activity;
 import android.content.Context;
 
+import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
 import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
+import shirin.tahmasebi.mscfinalproject.util.mail.gmail.MailPresenter;
 
-public class FeedbackPresenter implements FeedbackInteractor.FeedbackListener {
-    FeedbackInteractor mInteractor;
+public class FeedbackPresenter extends MailPresenter
+        implements FeedbackInteractor.FeedbackListener {
     FeedbackView mView;
 
-    public FeedbackPresenter(FeedbackView view) {
+
+    public FeedbackPresenter(FeedbackView view, Activity activity) {
+        super(view, activity);
         mView = view;
-        mInteractor = new FeedbackInteractor(this);
     }
 
     public void onStart(Context context) {
         AuthPreferences authPreferences = new AuthPreferences(context);
-        if (authPreferences.getUser() != null
-                && authPreferences.getToken() != null) {
+        if (!authPreferences.getKeyAccountType().equals(
+                AccountTypeEnum.NothingSelected.toString())) {
             mView.init();
         } else {
             mView.showCompleteProfileDialog();
         }
-
     }
 
-    public void sendEmail(String subject, String text) {
+    public void sendEmail(String subject, String text, String developerEmail) {
         boolean validatedMailData = true;
         if ("".equals(subject)) {
             mView.showInputEmailSubjectError();
@@ -40,14 +43,18 @@ public class FeedbackPresenter implements FeedbackInteractor.FeedbackListener {
         }
 
         if (validatedMailData) {
-            mView.openSendingMailIntent(
-                    subject,
-                    text
-            );
+            if (isGoogleType()) {
+                super.sendEmail(subject, text, developerEmail);
+            } else {
+                mView.openSendingMailIntent(
+                        subject,
+                        text
+                );
+            }
         }
     }
 
-    public interface FeedbackView {
+    public interface FeedbackView extends MailView {
         void init();
 
         void showInputEmailSubjectError();

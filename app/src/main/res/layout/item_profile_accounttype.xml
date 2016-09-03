@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shirin.tahmasebi.mscfinalproject.view.FontableTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_accountType_textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/component_default_padding"
+    android:textColor="@color/black"
+    android:textSize="@dimen/txt_medium"
+    app:customFont="IRAN-Sans-Bold.ttf"/>

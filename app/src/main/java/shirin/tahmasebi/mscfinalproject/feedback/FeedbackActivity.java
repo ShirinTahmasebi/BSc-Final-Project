@@ -14,21 +14,23 @@ import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 
-public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActivity implements FeedbackPresenter.FeedbackView {
+public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActivity
+        implements FeedbackPresenter.FeedbackView {
 
     FeedbackPresenter mPresenter;
+
+    private final static String DEVELOPER_EMAIL = "tahmasebi_shirin@yahoo.com";
 
     @Bind(R.id.writeEmail_emailSubject_attractiveTextInputLayout)
     TextInputLayout mSubjectTextInputLayout;
 
     @Bind(R.id.writeEmail_emailText_attractiveTextInputLayout)
     TextInputLayout mMailTextTextInputLayout;
-    private final static String DEVELOPER_EMAIL = "tahmasebi_shirin@yahoo.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new FeedbackPresenter(this);
+        mPresenter = new FeedbackPresenter(this, this);
         mPresenter.onStart(this);
     }
 
@@ -68,7 +70,8 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
                                         .getText().toString().trim();
                         mPresenter.sendEmail(
                                 subject,
-                                text);
+                                text,
+                                DEVELOPER_EMAIL);
                     }
                 }
         );
@@ -123,5 +126,24 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
         Helper.makeConfirmDialog(FeedbackActivity.this,
                 getString(R.string.error_writeEmail_shouldCompleteProfile),
                 ProfileActivity.class);
+    }
+
+    @Override
+    public void showEmailSendingResult(int messageID) {
+        Toast.makeText(
+                this,
+                getString(messageID),
+                Toast.LENGTH_LONG
+        ).show();
+    }
+
+    @Override
+    public void closeActivity(int messageID) {
+        Toast.makeText(
+                this,
+                getString(messageID),
+                Toast.LENGTH_SHORT
+        ).show();
+        finish();
     }
 }

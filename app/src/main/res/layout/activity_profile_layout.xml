@@ -6,33 +6,44 @@
     android:layout_height="match_parent"
     android:background="#FFF">
 
+
     <include layout="@layout/toolbar"
              app:layout_heightPercent="12%"
              app:layout_widthPercent="100%"/>
 
     <LinearLayout
-        android:id="@+id/profile_header_linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_below="@+id/tool_bar"
-        android:background="#fff"
-        android:orientation="horizontal"
-        app:layout_heightPercent="20%"
-        app:layout_widthPercent="100%"
-        tools:ignore="UnknownIdInLayout"/>
-
-    <LinearLayout
+        android:id="@+id/profile_accountType_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_header_linearLayout"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tool_bar"
+        android:layout_margin="@dimen/component_default_margin"
+        android:elevation="4dp"
+        android:gravity="center_vertical|end"
+        android:orientation="vertical" tools:targetApi="lollipop">
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_profile_selectAccount"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+        <Spinner
+            android:id="@+id/profile_accountType_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_filter_stroke_rounded"
+            android:gravity="end"
+            android:paddingEnd="@dimen/component_default_padding"
+            android:paddingLeft="@dimen/component_default_padding"
+            android:paddingRight="@dimen/component_default_padding"
+            android:paddingStart="@dimen/component_default_padding"/>
+
 
     </LinearLayout>
 </android.support.percent.PercentRelativeLayout>

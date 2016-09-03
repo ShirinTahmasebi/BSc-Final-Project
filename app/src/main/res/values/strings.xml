@@ -88,4 +88,8 @@
         تکمیل کنید. لطفا با مراجعه به قسمت پروفایل، اقدام به تکمیل اطلاعات خود بفرمایید.
     </string>
     <string name="lable_dialogConfirm">تکمیل پروفایل</string>
+    <string name="lable_profile_selectAccount">حساب کاربری خود را انتخاب کنید:</string>
+    <string name="toast_mail_success">پیام شما با موفقیت ارسال شد</string>
+    <string name="toast_mail_error">ارسال پیام با شکست مواجه شد</string>
+    <string name="toast_mail_queueToSend">پیام شما ارسال خواهد شد</string>
 </resources>

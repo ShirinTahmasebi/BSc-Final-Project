@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
-
-import shirin.tahmasebi.mscfinalproject.MainActivity;
-import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
+import android.support.annotation.NonNull;
 
 public class Helper {
     public static void startActivity(Activity activity, Class aClass) {
@@ -20,6 +18,7 @@ public class Helper {
         activity.startActivity(intent);
     }
 
+    @NonNull
     public static String convertToPersianDigits(String value) {
         return value.replace('1', '١').replace('2', '٢').replace('3', '۳')
                 .replace('4', '٤').replace('5', '٥').replace('6', '٦')
@@ -27,6 +26,7 @@ public class Helper {
                 .replace('0', '٠');
     }
 
+    @NonNull
     public static String convertToEnglishDigits(String value) {
         return value.replace('١', '1').replace('٢', '2').replace('۳', '3')
                 .replace('٤', '4').replace('٥', '5').replace('٦', '6')

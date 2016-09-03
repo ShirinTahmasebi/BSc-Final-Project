@@ -8,6 +8,7 @@ public class AuthPreferences {
 
     private static final String KEY_USER = "userid";
     private static final String KEY_TOKEN = "mytoken";
+    private static final String KEY_ACCOUNT_TYPE = "accountType";
 
     private SharedPreferences preferences;
 
@@ -27,11 +28,27 @@ public class AuthPreferences {
         editor.apply();
     }
 
+    public void setKeyAccountType(String accountType) {
+        Editor editor = preferences.edit();
+        editor.putString(KEY_ACCOUNT_TYPE, accountType);
+        editor.apply();
+    }
+
     public String getUser() {
         return preferences.getString(KEY_USER, null);
     }
 
     public String getToken() {
         return preferences.getString(KEY_TOKEN, null);
+    }
+
+    public String getKeyAccountType() {
+        return preferences.getString(KEY_ACCOUNT_TYPE, null);
+    }
+
+    public void clearAuthPrefs() {
+        String type = getKeyAccountType();
+        preferences.getAll().clear();
+        setKeyAccountType(type);
     }
 }

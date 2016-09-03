@@ -1,4 +1,4 @@
-package shirin.tahmasebi.mscfinalproject.util;
+package shirin.tahmasebi.mscfinalproject.util.mail.gmail;
 
 
 import android.util.Log;

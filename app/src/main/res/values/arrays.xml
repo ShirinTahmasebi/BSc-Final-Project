@@ -49,4 +49,9 @@
         <item>نشانه‌گذاری شده</item>
         <item>نشانه‌گذاری نشده</item>
     </string-array>
+    <string-array name="lable_profileAccountType">
+        <item>انتخاب نشده</item>
+        <item>ورود با گوگل</item>
+        <item>ورود با سایر حسابها</item>
+    </string-array>
 </resources>
