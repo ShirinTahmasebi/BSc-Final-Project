@@ -4,19 +4,31 @@ import android.app.Activity;
 import android.content.Context;
 
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
+import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
+import shirin.tahmasebi.mscfinalproject.util.mail.gmail.MailPresenter;
 
-public class WriteEmailPresenter implements WriteEmailInteractor.WriteEmailListener {
+public class WriteEmailPresenter extends MailPresenter
+        implements WriteEmailInteractor.WriteEmailListener {
 
     private WriteEmailView mView;
     private WriteEmailInteractor mInteractor;
 
-    public WriteEmailPresenter(WriteEmailView view) {
+    public WriteEmailPresenter(WriteEmailView view, Activity context) {
+        super((WriteEmailView) context, context);
         mView = view;
         mInteractor = new WriteEmailInteractor(this);
     }
 
-    public void onStart() {
-        mView.init();
+    public void onStart(Context context) {
+        AuthPreferences authPreferences = new AuthPreferences(context);
+        if (authPreferences.getKeyAccountType() == null ||
+                authPreferences.getKeyAccountType().equals(
+                        AccountTypeEnum.NothingSelected.toString())) {
+            mView.showCompleteProfileDialog();
+        } else {
+            mView.init();
+        }
     }
 
     public void sendEmail(Context context, String subject, String text) {
@@ -36,7 +48,8 @@ public class WriteEmailPresenter implements WriteEmailInteractor.WriteEmailListe
 
         if (validatedMailData) {
             mInteractor.retrieveOrganization(
-                    Long.parseLong(((Activity) context).getIntent().getStringExtra("ORGANIZATION_ID")),
+                    Long.parseLong(
+                            ((Activity) context).getIntent().getStringExtra("ORGANIZATION_ID")),
                     context,
                     subject,
                     text
@@ -46,17 +59,22 @@ public class WriteEmailPresenter implements WriteEmailInteractor.WriteEmailListe
 
     @Override
     public void onRetrieveOrganizationFinished(Organization org, String subject, String text) {
-        mView.openSendingMailIntent(org,
-                subject,
-                text
-        );
+        if (isGoogleType()) {
+            super.sendEmail(subject, text, org.getEmailAddress());
+        } else {
+            mView.openSendingMailIntent(org,
+                    subject,
+                    text
+            );
+        }
+
     }
 
-    public void onEmailSent(Context context, Organization org, String subject, String text) {
+    public void onEmailSent(Context context, Organization org, String text) {
         mInteractor.saveSentMail(context, org, text);
     }
 
-    public interface WriteEmailView {
+    public interface WriteEmailView extends MailPresenter.MailView {
         void init();
 
         void showInputEmailSubjectError();
@@ -68,5 +86,7 @@ public class WriteEmailPresenter implements WriteEmailInteractor.WriteEmailListe
         void clearInputEmailTextError();
 
         void openSendingMailIntent(Organization org, String subject, String text);
+
+        void showCompleteProfileDialog();
     }
 }

@@ -99,7 +99,9 @@ public class MailInteractor {
                     );
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                Log.w("mscFinalProject",
+                        "بازیابی توکن با شکست مواجه شد /n اتصال به اینترنت بررسی شود");
+                mListener.onEmailSendingFinished(false);
             }
         }
     }

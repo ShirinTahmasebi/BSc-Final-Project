@@ -13,6 +13,8 @@ import butterknife.Bind;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 
 public class WriteEmailActivity extends MainActivity implements WriteEmailPresenter.WriteEmailView {
 
@@ -28,8 +30,8 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPresenter = new WriteEmailPresenter(this);
-        mPresenter.onStart();
+        mPresenter = new WriteEmailPresenter(this, this);
+        mPresenter.onStart(this);
     }
 
     @Override
@@ -110,7 +112,7 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
 
         try {
             startActivity(intent);
-            mPresenter.onEmailSent(this, org, subject, text);
+            mPresenter.onEmailSent(this, org, text);
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(
                     this,
@@ -118,5 +120,31 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
                     Toast.LENGTH_LONG
             ).show();
         }
+    }
+
+    @Override
+    public void showCompleteProfileDialog() {
+        Helper.makeConfirmDialog(WriteEmailActivity.this,
+                getString(R.string.error_writeEmail_shouldCompleteProfile),
+                ProfileActivity.class);
+    }
+
+    @Override
+    public void showEmailSendingResult(int messageID) {
+        Toast.makeText(
+                this,
+                getString(messageID),
+                Toast.LENGTH_LONG
+        ).show();
+    }
+
+    @Override
+    public void closeActivity(int messageID) {
+        Toast.makeText(
+                this,
+                getString(messageID),
+                Toast.LENGTH_SHORT
+        ).show();
+        finish();
     }
 }

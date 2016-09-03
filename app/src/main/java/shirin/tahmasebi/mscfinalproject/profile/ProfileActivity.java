@@ -36,7 +36,6 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
                     // کاربر اکانت گوگل را انتخاب کرده
                     // نام کاربری را بگیر و ذخیره کن
                     // توکن را بروز کن
-
                     mPresenter.googleAccountSelected(data);
                 }
             }
