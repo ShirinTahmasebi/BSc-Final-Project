@@ -10,8 +10,10 @@ import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
 public class ProfileInteractor {
 
     private static final int ACCOUNT_CODE = 1601;
+    private ProfileListener mListener;
 
-    public ProfileInteractor() {
+    public ProfileInteractor(ProfileListener listener) {
+        mListener = listener;
     }
 
     public void saveAccountTypeSelected(Activity activity, int position,
@@ -29,7 +31,7 @@ public class ProfileInteractor {
             mAuthPreferences.setKeyAccountType(
                     AccountTypeEnum.Google.toString()
             );
-            chooseAccount(activity);
+            mListener.onGoogleAccountSelected();
         } else if (position == AccountTypeEnum.Other.getIntValue()) {
             mAuthPreferences.setKeyAccountType(
                     AccountTypeEnum.Other.toString()
@@ -41,15 +43,6 @@ public class ProfileInteractor {
         }
     }
 
-    @SuppressWarnings("deprecation")
-    private void chooseAccount(Activity context) {
-        // اکانت گوگل را انتخاب کن
-        Intent intent;
-        intent = AccountManager.newChooseAccountIntent(null, null,
-                new String[]{"com.google"}, true, null, null, null, null);
-        context.startActivityForResult(intent, ACCOUNT_CODE);
-    }
-
     public void saveUser(Intent data, AuthPreferences mAuthPreferences) {
         String accountName = data
                 .getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
@@ -58,5 +51,6 @@ public class ProfileInteractor {
 
     public interface ProfileListener {
 
+        void onGoogleAccountSelected();
     }
 }

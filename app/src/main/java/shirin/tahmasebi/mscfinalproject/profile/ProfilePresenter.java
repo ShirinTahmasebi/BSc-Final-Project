@@ -14,7 +14,7 @@ public class ProfilePresenter implements ProfileInteractor.ProfileListener {
 
     public ProfilePresenter(Activity context, ProfileView view) {
         mView = view;
-        mInteractor = new ProfileInteractor();
+        mInteractor = new ProfileInteractor(this);
         mAuthPreferences = new AuthPreferences(context);
     }
 
@@ -37,8 +37,15 @@ public class ProfilePresenter implements ProfileInteractor.ProfileListener {
         mInteractor.saveUser(data, mAuthPreferences);
     }
 
+    @Override
+    public void onGoogleAccountSelected() {
+        mView.showGoogleAccountChooser();
+    }
+
 
     public interface ProfileView {
         void init(int pos);
+
+        void showGoogleAccountChooser();
     }
 }

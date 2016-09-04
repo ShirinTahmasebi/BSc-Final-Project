@@ -1,10 +1,16 @@
 package shirin.tahmasebi.mscfinalproject.profile;
 
+import android.accounts.AccountManager;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -14,6 +20,7 @@ import shirin.tahmasebi.mscfinalproject.organization.SpinnerAdapter;
 
 public class ProfileActivity extends MainFragmentActivity implements ProfilePresenter.ProfileView {
 
+    private static final int PERMISION_REQUEST_GETACCOUNTS = 1234;
     private ProfilePresenter mPresenter;
     private static final int AUTHORIZATION_CODE = 1993;
     private static final int ACCOUNT_CODE = 1601;
@@ -45,6 +52,31 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
     @Override
     public void init(int position) {
         initSpinner(position);
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void showGoogleAccountChooser() {
+        // اکانت گوگل را انتخاب کن
+        Intent intent;
+        intent = AccountManager.newChooseAccountIntent(null, null,
+                new String[]{"com.google"}, true, null, null, null, null);
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission("android.permission.GET_ACCOUNTS") ==
+                        PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(intent, ACCOUNT_CODE);
+                } else {
+                    requestPermissions(new String[]{"android.permission.GET_ACCOUNTS"},
+                            PERMISION_REQUEST_GETACCOUNTS);
+                }
+            } else {
+                startActivityForResult(intent, ACCOUNT_CODE);
+            }
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
@@ -85,6 +117,20 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
 
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == PERMISION_REQUEST_GETACCOUNTS) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent intent;
+                intent = AccountManager.newChooseAccountIntent(null, null,
+                        new String[]{"com.google"}, true, null, null, null, null);
+                startActivityForResult(intent, ACCOUNT_CODE);
+            }
+        }
     }
 }
 
