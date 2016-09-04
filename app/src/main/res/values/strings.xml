@@ -97,4 +97,10 @@
         باید یک حساب کاربری گوگل را انتخاب کنید. لطفا با مراجعه به قسمت پروفایل اقدام به تکمیل و
         انتخاب حساب کاربری خود نمایید.
     </string>
+    <string name="error_writeEmail_noEmailApplication">برنامه‌ای برای ارسال ایمیل روی گوشی شما نصب
+        نیست
+    </string>
+    <string name="error_writeEmail_noCallApplication">برنامه‌ای برای برقراری تماس بر روی گوشی شما
+        نصب نیست
+    </string>
 </resources>

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import butterknife.Bind;
 import shirin.tahmasebi.mscfinalproject.R;
@@ -114,11 +113,7 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
         try {
             startActivity(intent);
         } catch (ActivityNotFoundException ex) {
-            Toast.makeText(
-                    this,
-                    "برنامه‌ای برای ارسال ایمیل روی گوشی شما نصب نیست",
-                    Toast.LENGTH_LONG
-            ).show();
+            Helper.showToast(this, R.string.error_writeEmail_noEmailApplication);
         }
     }
 
@@ -138,20 +133,12 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
 
     @Override
     public void showEmailSendingResult(int messageID) {
-        Toast.makeText(
-                this,
-                getString(messageID),
-                Toast.LENGTH_LONG
-        ).show();
+        Helper.showToast(this, messageID);
     }
 
     @Override
     public void closeActivity(int messageID) {
-        Toast.makeText(
-                this,
-                getString(messageID),
-                Toast.LENGTH_SHORT
-        ).show();
+        Helper.showToast(this, messageID);
         finish();
     }
 

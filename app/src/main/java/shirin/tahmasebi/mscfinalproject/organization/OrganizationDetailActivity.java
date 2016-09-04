@@ -197,7 +197,7 @@ public class OrganizationDetailActivity extends MainActivity
                     mPresenter.onNumberDialed(this, org);
                 }
             } catch (ActivityNotFoundException ex) {
-                Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
+                Helper.showToast(this, R.string.error_writeEmail_noCallApplication);
             }
         } else if (type == WriteOptionEnum.WEBSITE.getIntValue()) {
             String url = org.getSiteUrl();

@@ -1,7 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.profile;
 
 import android.accounts.AccountManager;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -10,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -61,22 +59,17 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
         Intent intent;
         intent = AccountManager.newChooseAccountIntent(null, null,
                 new String[]{"com.google"}, true, null, null, null, null);
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (checkSelfPermission("android.permission.GET_ACCOUNTS") ==
-                        PackageManager.PERMISSION_GRANTED) {
-                    startActivityForResult(intent, ACCOUNT_CODE);
-                } else {
-                    requestPermissions(new String[]{"android.permission.GET_ACCOUNTS"},
-                            PERMISION_REQUEST_GETACCOUNTS);
-                }
-            } else {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission("android.permission.GET_ACCOUNTS") ==
+                    PackageManager.PERMISSION_GRANTED) {
                 startActivityForResult(intent, ACCOUNT_CODE);
+            } else {
+                requestPermissions(new String[]{"android.permission.GET_ACCOUNTS"},
+                        PERMISION_REQUEST_GETACCOUNTS);
             }
-        } catch (ActivityNotFoundException ex) {
-            Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
+        } else {
+            startActivityForResult(intent, ACCOUNT_CODE);
         }
-
     }
 
     @Override
