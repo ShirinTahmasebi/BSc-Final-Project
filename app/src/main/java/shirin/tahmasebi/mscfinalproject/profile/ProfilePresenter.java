@@ -35,7 +35,6 @@ public class ProfilePresenter implements ProfileInteractor.ProfileListener {
 
     public void googleAccountSelected(Intent data) {
         mInteractor.saveUser(data, mAuthPreferences);
-
     }
 
 

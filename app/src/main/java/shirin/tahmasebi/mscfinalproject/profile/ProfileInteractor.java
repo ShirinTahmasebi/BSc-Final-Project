@@ -16,6 +16,13 @@ public class ProfileInteractor {
 
     public void saveAccountTypeSelected(Activity activity, int position,
                                         AuthPreferences mAuthPreferences) {
+        if (position == AccountTypeEnum.Google.getIntValue()
+                && mAuthPreferences.getKeyAccountType() != null
+                && AccountTypeEnum.Google.toString().equals(
+                mAuthPreferences.getKeyAccountType()
+        )) {
+            return;
+        }
         mAuthPreferences.clearAuthPrefs();
 
         if (position == AccountTypeEnum.Google.getIntValue()) {
@@ -39,7 +46,7 @@ public class ProfileInteractor {
         // اکانت گوگل را انتخاب کن
         Intent intent;
         intent = AccountManager.newChooseAccountIntent(null, null,
-                new String[]{"com.google"}, false, null, null, null, null);
+                new String[]{"com.google"}, true, null, null, null, null);
         context.startActivityForResult(intent, ACCOUNT_CODE);
     }
 
