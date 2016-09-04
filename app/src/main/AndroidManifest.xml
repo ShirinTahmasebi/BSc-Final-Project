@@ -3,8 +3,10 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="shirin.tahmasebi.mscfinalproject">
 
+    <!-- Dangerous Permission -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Dangerous Permission -->
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
