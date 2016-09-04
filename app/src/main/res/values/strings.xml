@@ -92,4 +92,9 @@
     <string name="toast_mail_success">پیام شما با موفقیت ارسال شد</string>
     <string name="toast_mail_error">ارسال پیام با شکست مواجه شد</string>
     <string name="toast_mail_queueToSend">پیام شما ارسال خواهد شد</string>
+    <string name="error_connection">خطا در اتصال به اینترنت</string>
+    <string name="error_writeEmail_shouldChooseAccount">برای ارسال ایمیل از طریق حساب کاربری گوگل،
+        باید یک حساب کاربری گوگل را انتخاب کنید. لطفا با مراجعه به قسمت پروفایل اقدام به تکمیل و
+        انتخاب حساب کاربری خود نمایید.
+    </string>
 </resources>

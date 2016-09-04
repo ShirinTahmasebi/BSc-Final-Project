@@ -177,12 +177,7 @@ public class OrganizationDetailActivity extends MainActivity
     @Override
     public void openWriteActivity(SelectWriteModeDialog dialog, int type, Organization org) {
         if (type == WriteOptionEnum.EMAIL.getIntValue()) {
-            Helper.startActivityWithExtraString(
-                    this,
-                    WriteEmailActivity.class,
-                    org.getId().toString(),
-                    "ORGANIZATION_ID");
-            dialog.dismiss();
+            mPresenter.emailSelected(dialog, org, this);
         } else if (type == WriteOptionEnum.CALL.getIntValue()) {
             String phone = org.getPhoneNumber();
             Intent intent = new Intent(Intent.ACTION_CALL);
@@ -216,6 +211,21 @@ public class OrganizationDetailActivity extends MainActivity
     @Override
     public void cancelDialog(SelectWriteModeDialog dialog) {
         dialog.dismiss();
+    }
+
+    @Override
+    public void openEmailActivity(SelectWriteModeDialog dialog, Organization org) {
+        Helper.startActivityWithExtraString(
+                this,
+                WriteEmailActivity.class,
+                org.getId().toString(),
+                "ORGANIZATION_ID");
+        dialog.dismiss();
+    }
+
+    @Override
+    public void showNetworkProblemMessage() {
+        Helper.showToast(this, R.string.error_connection);
     }
 
 

@@ -129,6 +129,20 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
                 ProfileActivity.class);
     }
 
+
+    @Override
+    public void showChooseAccountDialog() {
+        Helper.makeConfirmDialog(WriteEmailActivity.this,
+                getString(R.string.error_writeEmail_shouldChooseAccount),
+                ProfileActivity.class);
+    }
+
+    @Override
+    public void showNetworkProblemMessage() {
+        Helper.showToast(this, R.string.error_connection);
+    }
+
+
     @Override
     public void showEmailSendingResult(int messageID) {
         Toast.makeText(

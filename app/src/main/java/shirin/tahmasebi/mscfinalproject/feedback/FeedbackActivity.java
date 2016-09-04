@@ -71,7 +71,8 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
                         mPresenter.sendEmail(
                                 subject,
                                 text,
-                                DEVELOPER_EMAIL);
+                                DEVELOPER_EMAIL,
+                                FeedbackActivity.this);
                     }
                 }
         );
@@ -129,6 +130,13 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
     }
 
     @Override
+    public void showChooseAccountDialog() {
+        Helper.makeConfirmDialog(FeedbackActivity.this,
+                getString(R.string.error_writeEmail_shouldChooseAccount),
+                ProfileActivity.class);
+    }
+
+    @Override
     public void showEmailSendingResult(int messageID) {
         Toast.makeText(
                 this,
@@ -145,5 +153,10 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
                 Toast.LENGTH_SHORT
         ).show();
         finish();
+    }
+
+    @Override
+    public void showNetworkProblemMessage() {
+        Helper.showToast(this, R.string.error_connection);
     }
 }

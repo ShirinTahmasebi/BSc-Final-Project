@@ -4,7 +4,16 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class Helper {
     public static void startActivity(Activity activity, Class aClass) {
@@ -51,5 +60,29 @@ public class Helper {
         WarningDialog dialog = new WarningDialog(text, (Activity) context, destinationActivity);
         dialog.setCancelable(false);
         dialog.show(fragmentManager, "Dialog_Text");
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))
+                .getActiveNetworkInfo() != null;
+    }
+
+    public static void showToast(Context context, int stringId) {
+        String toastText = context.getString(stringId);
+
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View layout = inflater.inflate(
+                R.layout.toast,
+                (ViewGroup) ((Activity) context).findViewById(R.id.toast_root_lineatLayout)
+        );
+
+        FontableTextView txt = (FontableTextView) layout.findViewById(R.id.toast_text_textView);
+        txt.setText(toastText);
+
+        Toast toast = new Toast(context.getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.BOTTOM, 0, 80);
+        toast.setView(layout);
+        toast.show();
     }
 }

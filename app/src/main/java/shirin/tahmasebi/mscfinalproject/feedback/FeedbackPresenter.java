@@ -5,6 +5,7 @@ import android.content.Context;
 
 import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
 import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.mail.gmail.MailPresenter;
 
 public class FeedbackPresenter extends MailPresenter
@@ -23,12 +24,17 @@ public class FeedbackPresenter extends MailPresenter
                 authPreferences.getKeyAccountType().equals(
                         AccountTypeEnum.NothingSelected.toString())) {
             mView.showCompleteProfileDialog();
+        } else if (((authPreferences.getKeyAccountType().equals(
+                AccountTypeEnum.Google.toString()))
+                && (authPreferences.getUser() == null))
+                ) {
+            mView.showChooseAccountDialog();
         } else {
             mView.init();
         }
     }
 
-    public void sendEmail(String subject, String text, String developerEmail) {
+    public void sendEmail(String subject, String text, String developerEmail, Context context) {
         boolean validatedMailData = true;
         if ("".equals(subject)) {
             mView.showInputEmailSubjectError();
@@ -44,13 +50,17 @@ public class FeedbackPresenter extends MailPresenter
         }
 
         if (validatedMailData) {
-            if (isGoogleType()) {
-                super.sendEmail(subject, text, developerEmail);
+            if (!Helper.isNetworkAvailable(context)) {
+                mView.showNetworkProblemMessage();
             } else {
-                mView.openSendingMailIntent(
-                        subject,
-                        text
-                );
+                if (isGoogleType()) {
+                    super.sendEmail(subject, text, developerEmail);
+                } else {
+                    mView.openSendingMailIntent(
+                            subject,
+                            text
+                    );
+                }
             }
         }
     }
@@ -69,6 +79,10 @@ public class FeedbackPresenter extends MailPresenter
         void openSendingMailIntent(String subject, String text);
 
         void showCompleteProfileDialog();
+
+        void showChooseAccountDialog();
+
+        void showNetworkProblemMessage();
     }
 }
 

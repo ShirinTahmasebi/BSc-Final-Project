@@ -1,13 +1,15 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 
 public class OrganizationDetailPresenter
-        implements OrganizationDetailInteractor.OrganizationDetailListener ,
-        SelectWriteModeDialog.SelectWriteModeDialogListener{
+        implements OrganizationDetailInteractor.OrganizationDetailListener,
+        SelectWriteModeDialog.SelectWriteModeDialogListener {
 
     private final static String EXTRA_ORGANIZATION_ID = "organizationid";
     private OrganizationDetailView mView;
@@ -67,6 +69,14 @@ public class OrganizationDetailPresenter
         mInteractor.saveDialedNumber(context, org);
     }
 
+    public void emailSelected(SelectWriteModeDialog dialog, Organization org, Context context) {
+        if (!Helper.isNetworkAvailable(context)) {
+            mView.showNetworkProblemMessage();
+        } else {
+            mView.openEmailActivity(dialog, org);
+        }
+    }
+
     public interface OrganizationDetailView {
         void showOrganizationDetail(Organization org);
 
@@ -77,5 +87,9 @@ public class OrganizationDetailPresenter
         void openWriteActivity(SelectWriteModeDialog dialog, int type, Organization organization);
 
         void cancelDialog(SelectWriteModeDialog dialog);
+
+        void openEmailActivity(SelectWriteModeDialog dialog, Organization org);
+
+        void showNetworkProblemMessage();
     }
 }

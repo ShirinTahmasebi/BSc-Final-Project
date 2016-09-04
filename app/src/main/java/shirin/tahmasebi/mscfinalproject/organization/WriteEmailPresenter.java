@@ -6,6 +6,7 @@ import android.content.Context;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
 import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.mail.gmail.MailPresenter;
 
 public class WriteEmailPresenter extends MailPresenter
@@ -26,6 +27,11 @@ public class WriteEmailPresenter extends MailPresenter
                 authPreferences.getKeyAccountType().equals(
                         AccountTypeEnum.NothingSelected.toString())) {
             mView.showCompleteProfileDialog();
+        } else if (((authPreferences.getKeyAccountType().equals(
+                AccountTypeEnum.Google.toString()))
+                && (authPreferences.getUser() == null))
+                ) {
+            mView.showChooseAccountDialog();
         } else {
             mView.init();
         }
@@ -47,13 +53,17 @@ public class WriteEmailPresenter extends MailPresenter
         }
 
         if (validatedMailData) {
-            mInteractor.retrieveOrganization(
-                    Long.parseLong(
-                            ((Activity) context).getIntent().getStringExtra("ORGANIZATION_ID")),
-                    context,
-                    subject,
-                    text
-            );
+            if (!Helper.isNetworkAvailable(context)) {
+                mView.showNetworkProblemMessage();
+            } else {
+                mInteractor.retrieveOrganization(
+                        Long.parseLong(
+                                ((Activity) context).getIntent().getStringExtra("ORGANIZATION_ID")),
+                        context,
+                        subject,
+                        text
+                );
+            }
         }
     }
 
@@ -88,5 +98,9 @@ public class WriteEmailPresenter extends MailPresenter
         void openSendingMailIntent(Organization org, String subject, String text);
 
         void showCompleteProfileDialog();
+
+        void showChooseAccountDialog();
+
+        void showNetworkProblemMessage();
     }
 }
