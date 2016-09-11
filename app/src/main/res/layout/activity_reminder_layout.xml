@@ -10,13 +10,20 @@
              app:layout_heightPercent="12%"
              app:layout_widthPercent="100%"/>
 
-    <LinearLayout
-        android:id="@+id/dashboard_header_linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_alignParentTop="true"
-        android:background="#fff"
-        android:orientation="horizontal"
-        app:layout_heightPercent="25%"
-        app:layout_widthPercent="100%"/>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tool_bar"
+                    android:id="@+id/reminder_createNewReminder_relativeLayout"
+                    android:gravity="center">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableButton
+            android:id="@+id/reminder_createNewReminder_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ایجاد یادآور"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+    </RelativeLayout>
+
+
 </android.support.percent.PercentRelativeLayout>

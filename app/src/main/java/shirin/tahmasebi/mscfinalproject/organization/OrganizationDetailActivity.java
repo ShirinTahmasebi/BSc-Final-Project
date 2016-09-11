@@ -118,6 +118,7 @@ public class OrganizationDetailActivity extends MainActivity
                 .load(org.getImage())
                 .placeholder(R.anim.loading_animation)
                 .noFade()
+                .fit()
                 .into(((ImageView) findViewById(R.id.image)), new Callback() {
                             @Override
                             public void onSuccess() {

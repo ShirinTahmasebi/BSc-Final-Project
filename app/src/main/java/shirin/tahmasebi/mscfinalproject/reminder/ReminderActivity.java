@@ -1,16 +1,29 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 
-public class ReminderActivity extends MainActivity {
+public class ReminderActivity extends MainActivity implements ReminderPresenter.ReminderView {
+
+    private ReminderPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mPresenter = new ReminderPresenter(this);
+
+        findViewById(R.id.reminder_createNewReminder_button).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mPresenter.createReminderClicked(ReminderActivity.this);
+                    }
+                }
+        );
     }
 
     @Override
