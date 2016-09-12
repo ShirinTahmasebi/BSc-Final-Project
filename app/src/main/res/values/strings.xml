@@ -103,4 +103,5 @@
     <string name="error_writeEmail_noCallApplication">برنامه‌ای برای برقراری تماس بر روی گوشی شما
         نصب نیست
     </string>
+    <string name="lable_reminderItem_deletedSuccessful">یادآور مورد نظر حذف شد.</string>
 </resources>

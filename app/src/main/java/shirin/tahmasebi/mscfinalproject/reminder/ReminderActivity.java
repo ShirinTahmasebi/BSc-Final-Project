@@ -46,6 +46,6 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new ReminderAdapter(list));
+        recyclerView.setAdapter(new ReminderAdapter(mPresenter, list, this));
     }
 }

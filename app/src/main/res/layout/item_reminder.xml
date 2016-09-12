@@ -48,12 +48,14 @@
         app:customFont="IRAN-Sans-Bold.ttf" tools:ignore="RelativeOverlap"/>
 
 
-    <RelativeLayout android:layout_width="wrap_content"
+    <RelativeLayout android:id="@+id/reminder_deleteItem_relativeLayout"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:gravity="center"
                     android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:gravity="center"
                     android:paddingBottom="@dimen/component_default_padding"
                     android:paddingTop="@dimen/component_default_padding">
 

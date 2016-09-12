@@ -1,9 +1,11 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +17,14 @@ import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class ReminderAdapter extends RecyclerView.Adapter
         <ReminderAdapter.ReminderViewHolder> {
-    List<Reminder> list = new ArrayList<>();
+    private List<Reminder> list = new ArrayList<>();
+    private ReminderPresenter mPresenter;
+    private Context mContext;
 
-    public ReminderAdapter(List<Reminder> reminders) {
+    public ReminderAdapter(ReminderPresenter presenter, List<Reminder> reminders, Context context) {
         list = reminders;
+        mPresenter = presenter;
+        mContext = context;
     }
 
     @Override
@@ -36,6 +42,19 @@ public class ReminderAdapter extends RecyclerView.Adapter
                 list.get(holder.getAdapterPosition()).getTime()));
         holder.reminderDateTextView.setText(Helper.convertToPersianDigits(
                 list.get(holder.getAdapterPosition()).getDate()));
+        holder.reminderDeleteItemRelativeLayout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mPresenter.removeReminderItem(
+                                mContext,
+                                list.get(position).getId());
+                        list.remove(position);
+                        notifyItemRemoved(position);
+                        notifyItemRangeRemoved(position, list.size());
+                    }
+                }
+        );
     }
 
     @Override
@@ -47,6 +66,7 @@ public class ReminderAdapter extends RecyclerView.Adapter
         FontableTextView reminderOrganizationNameTextView;
         FontableTextView reminderDateTextView;
         FontableTextView reminderTimeTextView;
+        RelativeLayout reminderDeleteItemRelativeLayout;
 
         public ReminderViewHolder(View itemView) {
             super(itemView);
@@ -56,6 +76,8 @@ public class ReminderAdapter extends RecyclerView.Adapter
                     R.id.reminder_date_textView);
             reminderTimeTextView = (FontableTextView) itemView.findViewById(
                     R.id.reminder_time_textView);
+            reminderDeleteItemRelativeLayout = (RelativeLayout) itemView.findViewById(
+                    R.id.reminder_deleteItem_relativeLayout);
         }
     }
 }
