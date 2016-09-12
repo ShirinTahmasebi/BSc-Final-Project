@@ -49,4 +49,7 @@ dependencies {
 
     //noinspection GradleDependency
     compile 'com.google.android.gms:play-services-auth:9.0.0'
+
+    // [PersianDateTimePicker](https://github.com/mohamad-amin/PersianMaterialDateTimePicker)
+    compile 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
 }
