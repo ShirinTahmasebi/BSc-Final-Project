@@ -4,15 +4,16 @@ import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
 
-public class SchemaV4 extends Schema {
+public class SchemaV5 extends Schema {
 
-    private static final int VERSION = 2;
+    private static final int VERSION = 5;
     private static final String PACKAGE = "shirin.tahmasebi.mscfinalproject.io.models";
 
-    public SchemaV4() {
+    public SchemaV5() {
         super(VERSION, PACKAGE);
         createOrganization(this);
         createHistory(this);
+        createReminder(this);
     }
 
     private Entity createOrganization(Schema schema) {
@@ -40,6 +41,17 @@ public class SchemaV4 extends Schema {
         history.addIntProperty("type"); // 0 -> call 1 -> email
         history.addStringProperty("emailText");
         return history;
+    }
+
+    private Entity createReminder(Schema schema) {
+        Entity reminder;
+        reminder = schema.addEntity("Reminder");
+        reminder.addIdProperty();
+        reminder.addStringProperty("date").notNull();
+        reminder.addStringProperty("time").notNull();
+        reminder.addStringProperty("organizationName").notNull();
+        reminder.addStringProperty("text");
+        return reminder;
     }
 
 }
