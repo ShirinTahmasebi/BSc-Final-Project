@@ -7,7 +7,11 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
+import java.util.List;
+
+import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
 
 public class ReminderInteractor {
 
@@ -59,7 +63,16 @@ public class ReminderInteractor {
         notificationmanager.notify(0, builder.build());
     }
 
+    public void retrieveReminderList(Context context) {
+        List<Reminder> list =
+                ((BaseApplication) context.getApplicationContext())
+                        .daoSession.getReminderDao().loadAll();
+        mListener.onReminderListRetrieved(list);
+
+    }
+
     public interface ReminderListener {
 
+        void onReminderListRetrieved(List<Reminder> list);
     }
 }

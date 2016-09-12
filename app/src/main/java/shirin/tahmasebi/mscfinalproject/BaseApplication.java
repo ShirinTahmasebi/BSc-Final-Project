@@ -7,6 +7,8 @@ import shirin.tahmasebi.mscfinalproject.io.models.DaoMaster;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
+import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+import shirin.tahmasebi.mscfinalproject.util.ShamsiConverter;
 
 public class BaseApplication extends Application {
     public DaoSession daoSession;
@@ -16,7 +18,47 @@ public class BaseApplication extends Application {
         super.onCreate();
         initialDaoSession();
         initialOrganizatoinDatabase();
+        initialReminderDatabase();
+    }
 
+    private void initialReminderDatabase() {
+        Reminder reminder1 = new Reminder();
+        reminder1.setOrganizationName(getResources().getString(R.string.organization_name_one));
+        reminder1.setDate(ShamsiConverter.getCurrentShamsidate());
+        reminder1.setText("متن ریماندر اول");
+        reminder1.setTime("12:12:12");
+        Reminder reminder2 = new Reminder();
+        reminder2.setOrganizationName(getResources().getString(R.string.organization_name_two));
+        reminder2.setDate(ShamsiConverter.getCurrentShamsidate());
+        reminder2.setText("متن ریماندر دوم");
+        reminder2.setTime("12:12:12");
+        Reminder reminder3 = new Reminder();
+        reminder3.setOrganizationName(getResources().getString(R.string.organization_name_three));
+        reminder3.setDate(ShamsiConverter.getCurrentShamsidate());
+        reminder3.setText("متن ریماندر سوم");
+        reminder3.setTime("12:12:12");
+        Reminder reminder4 = new Reminder();
+        reminder4.setOrganizationName(getResources().getString(R.string.organization_name_one));
+        reminder4.setDate(ShamsiConverter.getCurrentShamsidate());
+        reminder4.setText("متن ریماندر اول");
+        reminder4.setTime("12:12:12");
+        Reminder reminder5 = new Reminder();
+        reminder5.setOrganizationName(getResources().getString(R.string.organization_name_two));
+        reminder5.setDate(ShamsiConverter.getCurrentShamsidate());
+        reminder5.setText("متن ریماندر دوم");
+        reminder5.setTime("12:12:12");
+        Reminder reminder6 = new Reminder();
+        reminder6.setOrganizationName(getResources().getString(R.string.organization_name_three));
+        reminder6.setDate(ShamsiConverter.getCurrentShamsidate());
+        reminder6.setText("متن ریماندر سوم");
+        reminder6.setTime("12:12:12");
+
+        daoSession.getReminderDao().insertOrReplace(reminder1);
+        daoSession.getReminderDao().insertOrReplace(reminder2);
+        daoSession.getReminderDao().insertOrReplace(reminder3);
+        daoSession.getReminderDao().insertOrReplace(reminder4);
+        daoSession.getReminderDao().insertOrReplace(reminder5);
+        daoSession.getReminderDao().insertOrReplace(reminder6);
     }
 
     private void initialDaoSession() {

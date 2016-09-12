@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF">
+    android:background="@color/background">
 
     <include layout="@layout/toolbar"
              app:layout_heightPercent="12%"
@@ -22,18 +22,19 @@
             android:layout_height="match_parent"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/component_comfort_margin"
             android:padding="@dimen/component_default_padding"
+            app:backgroundTint="@color/primaryDark"
             android:src="@drawable/reminder_add_icon"
             app:layout_anchor="@id/reminder_reminderList_recyclerView"
             android:clickable="true"
             app:layout_anchorGravity="bottom|right|end"
             app:layout_behavior="shirin.tahmasebi.mscfinalproject.view.ScrollAwareFABBehavior"
             app:pressedTranslationZ="12dp"
-            app:rippleColor="@color/primaryDark"
+            app:rippleColor="@color/accent"
             tools:ignore="RtlHardcoded"/>
 
     </android.support.design.widget.CoordinatorLayout>

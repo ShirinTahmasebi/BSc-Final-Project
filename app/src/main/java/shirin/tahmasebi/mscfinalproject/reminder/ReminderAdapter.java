@@ -9,28 +9,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.R;
-import shirin.tahmasebi.mscfinalproject.io.models.Organization;
-import shirin.tahmasebi.mscfinalproject.organization.OrganizationPresenter;
+import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class ReminderAdapter extends RecyclerView.Adapter
-        <ReminderAdapter.OrganizationViewHolder> {
-    List<String> list = new ArrayList<>();
+        <ReminderAdapter.ReminderViewHolder> {
+    List<Reminder> list = new ArrayList<>();
 
-    public ReminderAdapter(List<String> organizations) {
-        list = organizations;
+    public ReminderAdapter(List<Reminder> reminders) {
+        list = reminders;
     }
 
     @Override
-    public OrganizationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ReminderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_organization, parent, false);
-        return new OrganizationViewHolder(view);
+                .inflate(R.layout.item_reminder, parent, false);
+        return new ReminderViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final OrganizationViewHolder holder, final int position) {
-        holder.organizationTextView.setText(list.get(holder.getAdapterPosition()));
+    public void onBindViewHolder(final ReminderViewHolder holder, final int position) {
+        holder.reminderOrganizationNameTextView.setText(
+                list.get(holder.getAdapterPosition()).getOrganizationName());
+        holder.reminderTimeTextView.setText(Helper.convertToPersianDigits(
+                list.get(holder.getAdapterPosition()).getTime()));
+        holder.reminderDateTextView.setText(Helper.convertToPersianDigits(
+                list.get(holder.getAdapterPosition()).getDate()));
     }
 
     @Override
@@ -38,13 +43,19 @@ public class ReminderAdapter extends RecyclerView.Adapter
         return list.size();
     }
 
-    public static class OrganizationViewHolder extends RecyclerView.ViewHolder {
-        FontableTextView organizationTextView;
+    public static class ReminderViewHolder extends RecyclerView.ViewHolder {
+        FontableTextView reminderOrganizationNameTextView;
+        FontableTextView reminderDateTextView;
+        FontableTextView reminderTimeTextView;
 
-        public OrganizationViewHolder(View itemView) {
+        public ReminderViewHolder(View itemView) {
             super(itemView);
-            organizationTextView = (FontableTextView) itemView.findViewById(
-                    R.id.organization_item_textview);
+            reminderOrganizationNameTextView = (FontableTextView) itemView.findViewById(
+                    R.id.reminder_organizationName_textView);
+            reminderDateTextView = (FontableTextView) itemView.findViewById(
+                    R.id.reminder_date_textView);
+            reminderTimeTextView = (FontableTextView) itemView.findViewById(
+                    R.id.reminder_time_textView);
         }
     }
 }
