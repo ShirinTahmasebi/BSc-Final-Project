@@ -4,7 +4,7 @@
               android:id="@+id/toast_root_lineatLayout"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_margin="@dimen/component_comfort_margin"
+              android:layout_margin="@dimen/component_default_margin"
               android:background="@color/black"
               android:gravity="center_horizontal"
               android:orientation="horizontal">

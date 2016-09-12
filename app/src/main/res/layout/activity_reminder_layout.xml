@@ -2,6 +2,7 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
@@ -10,20 +11,31 @@
              app:layout_heightPercent="12%"
              app:layout_widthPercent="100%"/>
 
-    <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tool_bar"
-                    android:id="@+id/reminder_createNewReminder_relativeLayout"
-                    android:gravity="center">
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar">
 
-        <shirin.tahmasebi.mscfinalproject.view.FontableButton
-            android:id="@+id/reminder_createNewReminder_button"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/reminder_reminderList_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ایجاد یادآور"
-            app:customFont="IRAN-Sans-Bold.ttf"/>
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/component_comfort_margin"
+            android:padding="@dimen/component_default_padding"
+            android:src="@drawable/reminder_add_icon"
+            app:layout_anchor="@id/reminder_reminderList_recyclerView"
+            android:clickable="true"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_behavior="shirin.tahmasebi.mscfinalproject.view.ScrollAwareFABBehavior"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="@color/primaryDark"
+            tools:ignore="RtlHardcoded"/>
 
-    </RelativeLayout>
-
+    </android.support.design.widget.CoordinatorLayout>
 
 </android.support.percent.PercentRelativeLayout>
