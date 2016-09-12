@@ -43,8 +43,20 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
         mInteractor.removeReminderItemById(mContext, id);
     }
 
+    public void onStart() {
+        mView.init();
+    }
+
+    public void onCreateReminderClicked() {
+        mView.openAddReminderActivity();
+    }
+
     public interface ReminderView {
 
         void showHistoryList(List<Reminder> list);
+
+        void init();
+
+        void openAddReminderActivity();
     }
 }

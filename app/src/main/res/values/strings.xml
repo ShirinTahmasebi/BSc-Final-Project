@@ -104,4 +104,9 @@
         نصب نیست
     </string>
     <string name="lable_reminderItem_deletedSuccessful">یادآور مورد نظر حذف شد.</string>
+    <string name="helpHint_activity_reminderAdd">برای ایجاد یادآور میتوانید از این صفحه استفاده
+        کنید
+    </string>
+    <string name="title_activity_reminderAdd">ایجاد یادآور</string>
+    <string name="lable_reminder_selectOrganization">نام سازمان مورد نظر را انتخاب کنید:</string>
 </resources>

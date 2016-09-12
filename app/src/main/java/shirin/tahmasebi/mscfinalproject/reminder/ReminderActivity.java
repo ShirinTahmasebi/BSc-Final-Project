@@ -1,10 +1,11 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
@@ -14,13 +15,13 @@ import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
 public class ReminderActivity extends MainActivity implements ReminderPresenter.ReminderView {
 
     private ReminderPresenter mPresenter;
-    ArrayList<String> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mPresenter = new ReminderPresenter(this);
+        mPresenter.onStart();
         mPresenter.getRemindersList(this);
     }
 
@@ -47,5 +48,23 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new ReminderAdapter(mPresenter, list, this));
+    }
+
+    @Override
+    public void init() {
+        findViewById(R.id.reminder_addReminder_FAB).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mPresenter.onCreateReminderClicked();
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void openAddReminderActivity() {
+        Intent intent = new Intent(this, ReminderAddActivity.class);
+        startActivity(intent);
     }
 }

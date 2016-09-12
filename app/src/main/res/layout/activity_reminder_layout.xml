@@ -27,6 +27,7 @@
             android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/component_comfort_margin"
             android:padding="@dimen/component_default_padding"
+            android:id="@+id/reminder_addReminder_FAB"
             app:backgroundTint="@color/primaryDark"
             android:src="@drawable/reminder_add_icon"
             app:layout_anchor="@id/reminder_reminderList_recyclerView"

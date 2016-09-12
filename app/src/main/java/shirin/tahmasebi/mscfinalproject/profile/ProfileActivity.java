@@ -91,7 +91,7 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
         Spinner spinner = (Spinner) findViewById(R.id.profile_accountType_spinner);
         SpinnerAdapter adapter = new SpinnerAdapter(
                 this,
-                R.layout.item_profile_accounttype,
+                R.layout.item_spinner,
                 Arrays.asList(getResources().getStringArray(
                         R.array.lable_profileAccountType
                 ))
