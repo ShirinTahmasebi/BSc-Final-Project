@@ -19,6 +19,7 @@ import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.organization.SpinnerAdapter;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
+import shirin.tahmasebi.mscfinalproject.util.JalaliCalendar;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class ReminderAddActivity extends MainActivity implements
@@ -68,7 +69,7 @@ public class ReminderAddActivity extends MainActivity implements
                 now.getPersianMonth(),
                 now.getPersianDay()
         );
-        findViewById(R.id.reminder_date_textView).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.reminder_date_linearLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dpd.show(getFragmentManager(), DATEPICKER);
@@ -90,7 +91,7 @@ public class ReminderAddActivity extends MainActivity implements
                 Log.d(TIMEPICKER, "Dialog was cancelled");
             }
         });
-        findViewById(R.id.reminder_time_textView).setOnClickListener(
+        findViewById(R.id.reminder_time_linearLayout).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -127,16 +128,28 @@ public class ReminderAddActivity extends MainActivity implements
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
         String hourString = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
         String minuteString = minute < 10 ? "0" + minute : "" + minute;
-        String time = hourString + ":" + minuteString;
-        ((FontableTextView) findViewById(R.id.reminder_time_textView)).setText(
-                Helper.convertToPersianDigits(time));
+
+        ((FontableTextView) findViewById(R.id.reminder_timeHour_textView)).setText(
+                Helper.convertToPersianDigits(hourString));
+        ((FontableTextView) findViewById(R.id.reminder_timeMin_textView)).setText(
+                Helper.convertToPersianDigits(minuteString));
     }
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         // Note: monthOfYear is 0-indexed
-        String date = year + "/" + (monthOfYear + 1) + "/" + dayOfMonth;
-        ((FontableTextView) findViewById(R.id.reminder_date_textView)).setText(
-                Helper.convertToPersianDigits(date));
+        ((FontableTextView) findViewById(R.id.reminder_dateDay_textView)).setText(
+                Helper.convertToPersianDigits(dayOfMonth + "")
+        );
+        ((FontableTextView) findViewById(R.id.reminder_dateMonth_textView)).setText(
+                Helper.convertToPersianDigits((monthOfYear + 1) + "")
+        );
+        ((FontableTextView) findViewById(R.id.reminder_dateYear_textView)).setText(
+                Helper.convertToPersianDigits(year + "")
+        );
+        JalaliCalendar.YearMonthDate yearMonthDate = JalaliCalendar.jalaliToGregorian(
+                new JalaliCalendar.YearMonthDate(year, monthOfYear, dayOfMonth));
+        Helper.showToast(this, yearMonthDate.getYear() + "   "
+                + (yearMonthDate.getMonth() + 1) + "   " + yearMonthDate.getDate() + "   ");
     }
 }

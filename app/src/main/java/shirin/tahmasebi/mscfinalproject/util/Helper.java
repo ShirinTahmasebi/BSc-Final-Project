@@ -85,4 +85,21 @@ public class Helper {
         toast.setView(layout);
         toast.show();
     }
+
+    public static void showToast(Context context, String toastText) {
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View layout = inflater.inflate(
+                R.layout.toast,
+                (ViewGroup) ((Activity) context).findViewById(R.id.toast_root_lineatLayout)
+        );
+
+        FontableTextView txt = (FontableTextView) layout.findViewById(R.id.toast_text_textView);
+        txt.setText(toastText);
+
+        Toast toast = new Toast(context.getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.BOTTOM, 0, 80);
+        toast.setView(layout);
+        toast.show();
+    }
 }
