@@ -20,6 +20,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/tool_bar"
         android:layout_margin="@dimen/component_default_margin"
+        android:background="@android:color/white"
         android:elevation="4dp"
         android:gravity="center_vertical|end"
         android:orientation="vertical" tools:targetApi="lollipop">
@@ -45,6 +46,160 @@
             android:paddingRight="@dimen/component_default_padding"
             android:paddingStart="@dimen/component_default_padding"/>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reminder_date_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/reminder_organizationName_linearLayout"
+        android:layout_margin="@dimen/component_default_margin"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:gravity="center_vertical|end"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal" tools:targetApi="lollipop">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_reminder_selectDate"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:id="@+id/reminder_date_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="right"
+            android:padding="@dimen/component_comfort_padding"
+            android:text="@string/lable_reminder_noTimeSelected"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reminder_time_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/reminder_date_linearLayout"
+        android:layout_margin="@dimen/component_default_margin"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:gravity="center_vertical|end"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal" tools:targetApi="lollipop">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_reminder_selectTime"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:id="@+id/reminder_time_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="right"
+            android:padding="@dimen/component_comfort_padding"
+            android:text="@string/lable_reminder_noTimeSelected"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reminder_customText_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/reminder_buttonContainer_linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/reminder_time_linearLayout"
+        android:layout_marginBottom="@dimen/component_comfort_margin"
+        android:layout_marginLeft="@dimen/component_default_margin"
+        android:layout_marginRight="@dimen/component_default_margin"
+        android:layout_marginTop="@dimen/component_default_margin"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:gravity="center_vertical|end"
+        android:orientation="vertical" tools:targetApi="lollipop">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_reminder_selectText"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+            android:id="@+id/reminder_customText_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/component_comfort_padding"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/reminder_buttonContainer_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_padding_normal"
+        android:paddingLeft="@dimen/activity_padding_normal"
+        android:paddingRight="@dimen/activity_padding_normal"
+        android:weightSum="3">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableButton
+            android:id="@+id/reminder_createReminder_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/component_default_margin"
+            android:layout_marginRight="@dimen/component_default_margin"
+            android:layout_weight="1"
+            android:background="@drawable/bg_primary_button"
+            android:text="@string/lable_reminder_createReminder"
+            android:textColor="#fff"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableButton
+            android:id="@+id/reminder_cancelReminder_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:background="@drawable/bg_accent_button"
+            android:text="@string/lable_reminder_cancelReminder"
+            android:textColor="#fff"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
 
     </LinearLayout>
 

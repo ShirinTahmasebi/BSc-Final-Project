@@ -22,4 +22,8 @@
 
     <color name="blue_semi_transparent">#805677fc</color>
     <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
+    <color name="mdtp_button_color">@color/primaryDark</color>
+    <color name="mdtp_accent_color">@color/primary</color>
+    <color name="mdtp_accent_color_dark">@color/primaryDark</color>
 </resources>

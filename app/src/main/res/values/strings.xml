@@ -109,4 +109,12 @@
     </string>
     <string name="title_activity_reminderAdd">ایجاد یادآور</string>
     <string name="lable_reminder_selectOrganization">نام سازمان مورد نظر را انتخاب کنید:</string>
+    <string name="lable_reminder_selectDate">تاریخ مورد نظر خود را انتخاب کنید:</string>
+    <string name="lable_reminder_selectTime">زمان مورد نظر خود را انتخاب کنید:</string>
+    <string name="lable_reminder_noTimeSelected">انتخاب نشده</string>
+    <string name="lable_reminder_selectText">متن مورد نظر خود را وارد کنید:</string>
+    <string name="lable_reminder_cancelReminder">لغو</string>
+    <string name="lable_reminder_createReminder">ایجاد یادآور</string>
+    <string name="mdtp_ok">تایید</string>
+    <string name="mdtp_cancel">لغو</string>
 </resources>
