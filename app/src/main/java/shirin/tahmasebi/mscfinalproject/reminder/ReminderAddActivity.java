@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
@@ -19,7 +21,6 @@ import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.organization.SpinnerAdapter;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
-import shirin.tahmasebi.mscfinalproject.util.JalaliCalendar;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class ReminderAddActivity extends MainActivity implements
@@ -59,6 +60,45 @@ public class ReminderAddActivity extends MainActivity implements
         initSpinner(organizationName);
         initTimePicker();
         initDatePicker();
+        intiButtons();
+    }
+
+    @Override
+    public void showError(int stringId) {
+        Helper.showToast(this, stringId);
+    }
+
+    @Override
+    public void closeCreateReminderActivity() {
+        finish();
+    }
+
+    private void intiButtons() {
+        findViewById(R.id.reminder_createReminder_button).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mPresenter.createReminderClicked(
+                                ((TextView) findViewById(R.id.reminder_timeHour_textView))
+                                        .getText().toString(),
+                                ((TextView) findViewById(R.id.reminder_timeMin_textView))
+                                        .getText().toString(),
+                                ((TextView) findViewById(R.id.reminder_dateYear_textView))
+                                        .getText().toString(),
+                                (Integer.parseInt(
+                                        ((TextView) findViewById(R.id.reminder_dateMonth_textView))
+                                                .getText().toString())) + "",
+                                ((TextView) findViewById(R.id.reminder_dateDay_textView))
+                                        .getText().toString(),
+                                ((EditText) findViewById(R.id.reminder_customText_editText))
+                                        .getText().toString(),
+                                ((Spinner) findViewById(R.id.reminder_organizationName_spinner))
+                                        .getSelectedItem().toString(),
+                                ReminderAddActivity.this
+                        );
+                    }
+                }
+        );
     }
 
     private void initDatePicker() {
@@ -69,12 +109,13 @@ public class ReminderAddActivity extends MainActivity implements
                 now.getPersianMonth(),
                 now.getPersianDay()
         );
-        findViewById(R.id.reminder_date_linearLayout).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dpd.show(getFragmentManager(), DATEPICKER);
-            }
-        });
+        findViewById(R.id.reminder_date_linearLayout)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dpd.show(getFragmentManager(), DATEPICKER);
+                    }
+                });
     }
 
     private void initTimePicker() {
@@ -128,7 +169,6 @@ public class ReminderAddActivity extends MainActivity implements
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
         String hourString = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
         String minuteString = minute < 10 ? "0" + minute : "" + minute;
-
         ((FontableTextView) findViewById(R.id.reminder_timeHour_textView)).setText(
                 Helper.convertToPersianDigits(hourString));
         ((FontableTextView) findViewById(R.id.reminder_timeMin_textView)).setText(
@@ -147,9 +187,6 @@ public class ReminderAddActivity extends MainActivity implements
         ((FontableTextView) findViewById(R.id.reminder_dateYear_textView)).setText(
                 Helper.convertToPersianDigits(year + "")
         );
-        JalaliCalendar.YearMonthDate yearMonthDate = JalaliCalendar.jalaliToGregorian(
-                new JalaliCalendar.YearMonthDate(year, monthOfYear, dayOfMonth));
-        Helper.showToast(this, yearMonthDate.getYear() + "   "
-                + (yearMonthDate.getMonth() + 1) + "   " + yearMonthDate.getDate() + "   ");
     }
 }
+

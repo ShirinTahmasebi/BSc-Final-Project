@@ -26,6 +26,14 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (mPresenter != null) {
+            mPresenter.getRemindersList(this);
+        }
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.activity_reminder_layout;
     }

@@ -1,5 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -11,6 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
@@ -101,5 +108,69 @@ public class Helper {
         toast.setGravity(Gravity.BOTTOM, 0, 80);
         toast.setView(layout);
         toast.show();
+    }
+
+    public static Date convertSolarToGregorianDateFormat(int year, int monthOfYear, int dayOfMonth,
+                                                         boolean zeroBasedMonth) {
+        if (!zeroBasedMonth) {
+            monthOfYear--;
+        }
+        JalaliCalendar.YearMonthDate yearMonthDate = JalaliCalendar.jalaliToGregorian(
+                new JalaliCalendar.YearMonthDate(year, monthOfYear, dayOfMonth));
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd");
+        Date date = null;
+        try {
+            date = sdf.parse(
+                    yearMonthDate.getYear() + ":"
+                            + yearMonthDate.getMonth() + 1 + ":"
+                            + yearMonthDate.getDate()
+            );
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public static Date convertSolarToGregorianTimeDateFormat(
+            int hour,
+            int minuteOfHour,
+            int year,
+            int monthOfYear,
+            int dayOfMonth,
+            boolean isPm, boolean zeroBasedMonth) {
+        if (!zeroBasedMonth) {
+            monthOfYear--;
+        }
+        JalaliCalendar.YearMonthDate yearMonthDate = JalaliCalendar.jalaliToGregorian(
+                new JalaliCalendar.YearMonthDate(year, monthOfYear, dayOfMonth));
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd hh:mm aa", Locale.US);
+        Date date = null;
+        try {
+            String dateString =
+                    yearMonthDate.getYear() + ":"
+                            + ((yearMonthDate.getMonth() < 9) ? "0" : "")
+                            + (yearMonthDate.getMonth() + 1) + ":"
+                            + yearMonthDate.getDate() + " "
+                            + (hour - (isPm ? 12 : 0)) + ":"
+                            + minuteOfHour + " "
+                            + (isPm ? "PM" : "AM");
+            date = sdf.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public static Date currentGregorianTimeDateFormat() {
+        Calendar currentDate = Calendar.getInstance();
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd hh:mm aa", Locale.US);
+        String strDate = sdf.format(currentDate.getTime());
+        try {
+            return sdf.parse(strDate);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 }

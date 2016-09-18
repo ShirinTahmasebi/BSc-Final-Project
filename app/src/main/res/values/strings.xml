@@ -119,4 +119,15 @@
     <string name="mdtp_cancel">لغو</string>
     <string name="lable_reminder_dateDivider">/</string>
     <string name="lable_reminder_timeDivider">:</string>
+    <string name="error_reminder_timeNotSelected">زمان برای ایجاد یادآور باید انتخاب شود.</string>
+    <string name="error_reminder_dateNotSelected">تاریخ برای ایجاد یادآور باید انتخاب شود</string>
+    <string name="error_reminder_timeMoreThanWeek">زمانی که برای یادآور انتخاب میکنید باید از یک
+        هفته کمتر باشد.
+    </string>
+    <string name="error_reminder_selectedTimeBeforeNow">زمانی که برای یادآور انتخاب میکنید نمیتواند
+        برای گذشته باشد.
+    </string>
+    <string name="error_reminder_errorWhileCreatingReminder">در ایجاد یادآور مشکلی بوجود آمده است.
+        لطفا روز و زمان مورد نظر را انتخاب کنید و مجددا تلاش کنید.
+    </string>
 </resources>

@@ -220,7 +220,7 @@
             app:customFont="IRAN-Sans-Bold.ttf"/>
 
         <shirin.tahmasebi.mscfinalproject.view.FontableEditText
-            android:id="@+id/reminder_customText_textView"
+            android:id="@+id/reminder_customText_editText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="end"
