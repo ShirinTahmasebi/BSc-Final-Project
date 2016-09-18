@@ -13,7 +13,7 @@ import shirin.tahmasebi.mscfinalproject.util.Helper;
 public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddListener {
     ReminderAddInteractor mInteractor;
     ReminderAddView mView;
-    private final static int WEEK_IN_MILISECOND = 7 * 24 * 60 * 1000;
+    private final static int WEEK_IN_MILISECOND = 7 * 24 * 60 * 60 * 1000;
 
     public ReminderAddPresenter(ReminderAddView view) {
         mView = view;

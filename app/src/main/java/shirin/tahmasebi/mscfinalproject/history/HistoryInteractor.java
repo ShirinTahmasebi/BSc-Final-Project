@@ -26,11 +26,7 @@ public class HistoryInteractor {
         long count = ((BaseApplication) context.getApplicationContext())
                 .daoSession.getHistoryDao().count();
 
-        if (count == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return count == 0;
     }
 
     public interface HistoryListener {

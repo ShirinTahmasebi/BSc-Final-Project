@@ -13,7 +13,9 @@ public abstract class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
+        if (getLayoutId() != -1) {
+            setContentView(getLayoutId());
+        }
         setupToolbar();
         ButterKnife.bind(this);
     }

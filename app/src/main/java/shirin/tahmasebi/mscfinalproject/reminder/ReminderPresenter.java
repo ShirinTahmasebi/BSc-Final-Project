@@ -1,12 +1,13 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
-import shirin.tahmasebi.mscfinalproject.util.Helper;
 
 public class ReminderPresenter implements ReminderInteractor.ReminderListener {
 
@@ -36,7 +37,7 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
 
     @Override
     public void onReminderRemoved(Context context) {
-        Helper.showToast(context, R.string.lable_reminderItem_deletedSuccessful);
+        mView.updateViewAfterReminderRemove();
     }
 
     public void removeReminderItem(Context mContext, Long id) {
@@ -51,6 +52,19 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
         mView.openAddReminderActivity();
     }
 
+    public View selectLayoutToView(Context context) {
+        if (mInteractor.isReminderListEmpty(context)) {
+            return ((Activity) context).getLayoutInflater().inflate(
+                    R.layout.activity_reminder_empty_layout,
+                    null);
+        } else {
+            return ((Activity) context).getLayoutInflater().inflate(
+                    R.layout.activity_reminder_layout,
+                    null);
+        }
+
+    }
+
     public interface ReminderView {
 
         void showHistoryList(List<Reminder> list);
@@ -58,5 +72,7 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
         void init();
 
         void openAddReminderActivity();
+
+        void updateViewAfterReminderRemove();
     }
 }

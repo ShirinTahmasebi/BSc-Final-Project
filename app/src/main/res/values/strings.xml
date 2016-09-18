@@ -130,4 +130,7 @@
     <string name="error_reminder_errorWhileCreatingReminder">در ایجاد یادآور مشکلی بوجود آمده است.
         لطفا روز و زمان مورد نظر را انتخاب کنید و مجددا تلاش کنید.
     </string>
+    <string name="lable_reminder_emptyList">یادآوری ایجاد نشده است. میتوانید با استفاده از دکمه در
+        پایین صفحه اقدام به ایجاد یادآور کنید.
+    </string>
 </resources>

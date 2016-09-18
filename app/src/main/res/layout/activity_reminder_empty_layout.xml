@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"
+             app:layout_heightPercent="12%"
+             app:layout_widthPercent="100%"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:id="@+id/reminder_reminderEmptyList_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_reminder_emptyList" android:textSize="@dimen/txt_medium"
+            app:customFont="IRAN-Sans-Bold.ttf"
+        />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/reminder_addReminder_FAB"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/component_comfort_margin"
+            android:clickable="true"
+            android:padding="@dimen/component_default_padding"
+            android:src="@drawable/reminder_add_icon"
+            app:backgroundTint="@color/primaryDark"
+            app:layout_anchor="@id/reminder_reminderEmptyList_textView"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_behavior="shirin.tahmasebi.mscfinalproject.view.ScrollAwareFABBehavior"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="@color/accent"
+            tools:ignore="RtlHardcoded"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</android.support.percent.PercentRelativeLayout>

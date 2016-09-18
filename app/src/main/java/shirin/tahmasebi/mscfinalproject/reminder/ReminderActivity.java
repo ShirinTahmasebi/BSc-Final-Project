@@ -11,6 +11,7 @@ import java.util.List;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 
 public class ReminderActivity extends MainActivity implements ReminderPresenter.ReminderView {
 
@@ -19,23 +20,21 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mPresenter = new ReminderPresenter(this);
-        mPresenter.onStart();
-        mPresenter.getRemindersList(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (mPresenter != null) {
-            mPresenter.getRemindersList(this);
-        }
+
+        mPresenter = new ReminderPresenter(this);
+        setContentView(mPresenter.selectLayoutToView(this));
+        mPresenter.onStart();
+        mPresenter.getRemindersList(this);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_reminder_layout;
+        return -1;
     }
 
     @Override
@@ -74,5 +73,17 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
     public void openAddReminderActivity() {
         Intent intent = new Intent(this, ReminderAddActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void updateViewAfterReminderRemove() {
+
+        Helper.showToast(this, R.string.lable_reminderItem_deletedSuccessful);
+
+        mPresenter = new ReminderPresenter(this);
+        setContentView(mPresenter.selectLayoutToView(this));
+        mPresenter.onStart();
+        mPresenter.getRemindersList(this);
+
     }
 }

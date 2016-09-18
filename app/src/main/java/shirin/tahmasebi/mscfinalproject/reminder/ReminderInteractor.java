@@ -78,6 +78,13 @@ public class ReminderInteractor {
 
     }
 
+    public boolean isReminderListEmpty(Context context) {
+        long count = ((BaseApplication) context.getApplicationContext())
+                .daoSession.getReminderDao().count();
+
+        return count == 0;
+    }
+
     public interface ReminderListener {
 
         void onReminderListRetrieved(List<Reminder> list);
