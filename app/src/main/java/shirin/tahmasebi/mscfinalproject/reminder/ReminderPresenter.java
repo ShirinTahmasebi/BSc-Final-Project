@@ -1,5 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
@@ -19,8 +20,9 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
         mView = view;
     }
 
-    public void createReminderClicked(Context context) {
+    public void showNotification(Context context, SerializableReminder reminder) {
         mInteractor.createNotification(context);
+        mInteractor.removeReminderItemById(context, reminder.getId());
     }
 
     public void getRemindersList(Context context) {
@@ -36,8 +38,12 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
     }
 
     @Override
-    public void onReminderRemoved(Context context) {
-        mView.updateViewAfterReminderRemove();
+    public void onReminderRemoved(Context context, Reminder reminder) {
+        // برای اینکه چک کنه که برای اکتیویتی هست یا نه
+        if (!context.isRestricted()) {
+            mView.updateViewAfterReminderRemove();
+        }
+        Alarm.cancelAlarm(context, reminder.getId().intValue());
     }
 
     public void removeReminderItem(Context mContext, Long id) {
@@ -52,6 +58,7 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
         mView.openAddReminderActivity();
     }
 
+    @SuppressLint("InflateParams")
     public View selectLayoutToView(Context context) {
         if (mInteractor.isReminderListEmpty(context)) {
             return ((Activity) context).getLayoutInflater().inflate(

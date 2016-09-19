@@ -72,9 +72,11 @@ public class ReminderInteractor {
     }
 
     public void removeReminderItemById(Context context, Long id) {
+        Reminder reminder = ((BaseApplication) context.getApplicationContext())
+                .daoSession.getReminderDao().load(id);
         ((BaseApplication) context.getApplicationContext())
                 .daoSession.getReminderDao().deleteByKey(id);
-        mListener.onReminderRemoved(context);
+        mListener.onReminderRemoved(context, reminder);
 
     }
 
@@ -89,6 +91,6 @@ public class ReminderInteractor {
 
         void onReminderListRetrieved(List<Reminder> list);
 
-        void onReminderRemoved(Context context);
+        void onReminderRemoved(Context context, Reminder reminder);
     }
 }

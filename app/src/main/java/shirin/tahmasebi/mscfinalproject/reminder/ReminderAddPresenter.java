@@ -8,12 +8,13 @@ import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 
 public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddListener {
     ReminderAddInteractor mInteractor;
     ReminderAddView mView;
-    private final static int WEEK_IN_MILISECOND = 7 * 24 * 60 * 60 * 1000;
+    private final static int WEEK_IN_MILLISECONDS = 7 * 24 * 60 * 60 * 1000;
 
     public ReminderAddPresenter(ReminderAddView view) {
         mView = view;
@@ -37,8 +38,15 @@ public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddLi
     }
 
     @Override
-    public void onSaveFinished() {
+    public void onSaveFinished(Context context, Reminder reminder) {
         mView.closeCreateReminderActivity();
+        SerializableReminder serializableReminder =
+                new SerializableReminder(reminder.getId(),
+                        reminder.getDate(),
+                        reminder.getTime(),
+                        reminder.getOrganizationName(),
+                        reminder.getText());
+        Alarm.setAlarm(context, reminder.getId().intValue(), serializableReminder);
     }
 
     public void createReminderClicked(String timeHour, String timeMin,
@@ -77,7 +85,7 @@ public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddLi
             mView.showError(R.string.error_reminder_errorWhileCreatingReminder);
             return;
         } else if (selectedDate.after(currentDate)) {
-            if (selectedDate.getTime() - currentDate.getTime() >= WEEK_IN_MILISECOND) {
+            if (selectedDate.getTime() - currentDate.getTime() >= WEEK_IN_MILLISECONDS) {
                 mView.showError(R.string.error_reminder_timeMoreThanWeek);
                 return;
             }

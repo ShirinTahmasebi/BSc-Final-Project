@@ -22,16 +22,16 @@
             android:layout_height="match_parent"/>
 
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/reminder_addReminder_FAB"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/component_comfort_margin"
-            android:padding="@dimen/component_default_padding"
-            android:id="@+id/reminder_addReminder_FAB"
-            app:backgroundTint="@color/primaryDark"
-            android:src="@drawable/reminder_add_icon"
-            app:layout_anchor="@id/reminder_reminderList_recyclerView"
             android:clickable="true"
+            android:padding="@dimen/component_default_padding"
+            android:src="@drawable/reminder_add_icon"
+            app:backgroundTint="@color/primaryDark"
+            app:layout_anchor="@id/reminder_reminderList_recyclerView"
             app:layout_anchorGravity="bottom|right|end"
             app:layout_behavior="shirin.tahmasebi.mscfinalproject.view.ScrollAwareFABBehavior"
             app:pressedTranslationZ="12dp"

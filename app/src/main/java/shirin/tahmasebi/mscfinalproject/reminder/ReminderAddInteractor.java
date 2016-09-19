@@ -46,14 +46,14 @@ public class ReminderAddInteractor {
 
         ((BaseApplication) context.getApplicationContext())
                 .daoSession.getReminderDao().insert(reminder);
-        mListener.onSaveFinished();
+        mListener.onSaveFinished(context, reminder);
     }
 
     public interface ReminderAddListener {
 
         void onOrganizationListRetrieved(List<Organization> list);
 
-        void onSaveFinished();
+        void onSaveFinished(Context context, Reminder reminder);
     }
 }
 

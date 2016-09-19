@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <!-- Avoid processor from sleeping -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:name=".BaseApplication"
@@ -53,6 +55,7 @@
         </activity>
         <activity android:name=".reminder.ReminderAddActivity">
         </activity>
+        <receiver android:name=".reminder.Alarm"/>
     </application>
 
 </manifest>

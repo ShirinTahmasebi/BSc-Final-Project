@@ -75,6 +75,9 @@ public class Helper {
     }
 
     public static void showToast(Context context, int stringId) {
+        if (context == null) {
+            return;
+        }
         String toastText = context.getString(stringId);
 
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
