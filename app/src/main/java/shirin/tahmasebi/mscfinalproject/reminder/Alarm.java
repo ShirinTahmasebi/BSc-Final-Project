@@ -27,20 +27,20 @@ public class Alarm extends BroadcastReceiver {
         wl.release();
     }
 
-    public static void setAlarm(Context context, int alarmId, Reminder reminder) {
+    public static void setAlarm(Context context, Reminder reminder) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(context, Alarm.class);
         SerializableReminder serializableReminder =
                 new SerializableReminder(reminder.getId(),
                         reminder.getDate(),
-                        reminder.getTime(),
                         reminder.getOrganizationName(),
                         reminder.getText());
         Bundle bundle = new Bundle();
         bundle.putSerializable("reminder", serializableReminder);
         i.putExtras(bundle);
-        PendingIntent pi = PendingIntent.getBroadcast(context, alarmId, i, 0);
-        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000 * 60 * 2, pi); // Millisec * Second * Minute
+        long triggerTime = reminder.getDate().getTime() - System.currentTimeMillis();
+        PendingIntent pi = PendingIntent.getBroadcast(context, reminder.getId().intValue(), i, 0);
+        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + triggerTime, pi);
     }
 
     public static void cancelAlarm(Context context, int alarmId) {

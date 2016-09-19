@@ -8,9 +8,7 @@ public class Reminder {
 
     private Long id;
     /** Not-null value. */
-    private String date;
-    /** Not-null value. */
-    private String time;
+    private java.util.Date date;
     /** Not-null value. */
     private String organizationName;
     private String text;
@@ -22,10 +20,9 @@ public class Reminder {
         this.id = id;
     }
 
-    public Reminder(Long id, String date, String time, String organizationName, String text) {
+    public Reminder(Long id, java.util.Date date, String organizationName, String text) {
         this.id = id;
         this.date = date;
-        this.time = time;
         this.organizationName = organizationName;
         this.text = text;
     }
@@ -39,23 +36,13 @@ public class Reminder {
     }
 
     /** Not-null value. */
-    public String getDate() {
+    public java.util.Date getDate() {
         return date;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setDate(String date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
-    }
-
-    /** Not-null value. */
-    public String getTime() {
-        return time;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setTime(String time) {
-        this.time = time;
     }
 
     /** Not-null value. */

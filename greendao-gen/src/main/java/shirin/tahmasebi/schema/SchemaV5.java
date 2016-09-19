@@ -47,8 +47,7 @@ public class SchemaV5 extends Schema {
         Entity reminder;
         reminder = schema.addEntity("Reminder");
         reminder.addIdProperty();
-        reminder.addStringProperty("date").notNull();
-        reminder.addStringProperty("time").notNull();
+        reminder.addDateProperty("date").notNull();
         reminder.addStringProperty("organizationName").notNull();
         reminder.addStringProperty("text");
         return reminder;

@@ -39,9 +39,10 @@ public class ReminderAdapter extends RecyclerView.Adapter
         holder.reminderOrganizationNameTextView.setText(
                 list.get(holder.getAdapterPosition()).getOrganizationName());
         holder.reminderTimeTextView.setText(Helper.convertToPersianDigits(
-                list.get(holder.getAdapterPosition()).getTime()));
+                list.get(holder.getAdapterPosition()).getDate().getHours() + ":"
+                        + list.get(holder.getAdapterPosition()).getDate().getMinutes()));
         holder.reminderDateTextView.setText(Helper.convertToPersianDigits(
-                list.get(holder.getAdapterPosition()).getDate()));
+                list.get(holder.getAdapterPosition()).getDate().getDate() + ""));
         holder.reminderDeleteItemRelativeLayout.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

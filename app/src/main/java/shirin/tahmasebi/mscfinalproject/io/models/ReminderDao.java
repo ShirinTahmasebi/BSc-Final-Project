@@ -24,10 +24,9 @@ public class ReminderDao extends AbstractDao<Reminder, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Date = new Property(1, String.class, "date", false, "DATE");
-        public final static Property Time = new Property(2, String.class, "time", false, "TIME");
-        public final static Property OrganizationName = new Property(3, String.class, "organizationName", false, "ORGANIZATION_NAME");
-        public final static Property Text = new Property(4, String.class, "text", false, "TEXT");
+        public final static Property Date = new Property(1, java.util.Date.class, "date", false, "DATE");
+        public final static Property OrganizationName = new Property(2, String.class, "organizationName", false, "ORGANIZATION_NAME");
+        public final static Property Text = new Property(3, String.class, "text", false, "TEXT");
     };
 
 
@@ -44,10 +43,9 @@ public class ReminderDao extends AbstractDao<Reminder, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'REMINDER' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
-                "'DATE' TEXT NOT NULL ," + // 1: date
-                "'TIME' TEXT NOT NULL ," + // 2: time
-                "'ORGANIZATION_NAME' TEXT NOT NULL ," + // 3: organizationName
-                "'TEXT' TEXT);"); // 4: text
+                "'DATE' INTEGER NOT NULL ," + // 1: date
+                "'ORGANIZATION_NAME' TEXT NOT NULL ," + // 2: organizationName
+                "'TEXT' TEXT);"); // 3: text
     }
 
     /** Drops the underlying database table. */
@@ -65,13 +63,12 @@ public class ReminderDao extends AbstractDao<Reminder, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindString(2, entity.getDate());
-        stmt.bindString(3, entity.getTime());
-        stmt.bindString(4, entity.getOrganizationName());
+        stmt.bindLong(2, entity.getDate().getTime());
+        stmt.bindString(3, entity.getOrganizationName());
  
         String text = entity.getText();
         if (text != null) {
-            stmt.bindString(5, text);
+            stmt.bindString(4, text);
         }
     }
 
@@ -86,10 +83,9 @@ public class ReminderDao extends AbstractDao<Reminder, Long> {
     public Reminder readEntity(Cursor cursor, int offset) {
         Reminder entity = new Reminder( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getString(offset + 1), // date
-            cursor.getString(offset + 2), // time
-            cursor.getString(offset + 3), // organizationName
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // text
+            new java.util.Date(cursor.getLong(offset + 1)), // date
+            cursor.getString(offset + 2), // organizationName
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // text
         );
         return entity;
     }
@@ -98,10 +94,9 @@ public class ReminderDao extends AbstractDao<Reminder, Long> {
     @Override
     public void readEntity(Cursor cursor, Reminder entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setDate(cursor.getString(offset + 1));
-        entity.setTime(cursor.getString(offset + 2));
-        entity.setOrganizationName(cursor.getString(offset + 3));
-        entity.setText(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setDate(new java.util.Date(cursor.getLong(offset + 1)));
+        entity.setOrganizationName(cursor.getString(offset + 2));
+        entity.setText(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
      }
     
     /** @inheritdoc */

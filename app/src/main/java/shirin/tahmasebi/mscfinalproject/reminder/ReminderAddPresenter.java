@@ -40,7 +40,7 @@ public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddLi
     @Override
     public void onSaveFinished(Context context, Reminder reminder) {
         mView.closeCreateReminderActivity();
-        Alarm.setAlarm(context, reminder.getId().intValue(), reminder);
+        Alarm.setAlarm(context, reminder);
     }
 
     public void createReminderClicked(String timeHour, String timeMin,
@@ -88,9 +88,10 @@ public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddLi
             return;
         }
 
-        mInteractor.saveReminder(timeHour, timeMin,
-                dateYear, dateMonth, dateDay,
-                customText, organizationName,
+        mInteractor.saveReminder(
+                selectedDate,
+                customText,
+                organizationName,
                 context);
     }
 

@@ -1,17 +1,14 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class SerializableReminder implements Serializable {
     private Long id;
     /**
      * Not-null value.
      */
-    private String date;
-    /**
-     * Not-null value.
-     */
-    private String time;
+    private Date date;
     /**
      * Not-null value.
      */
@@ -22,12 +19,8 @@ public class SerializableReminder implements Serializable {
         return id;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
-    }
-
-    public String getTime() {
-        return time;
     }
 
     public String getOrganizationName() {
@@ -39,11 +32,9 @@ public class SerializableReminder implements Serializable {
     }
 
 
-    public SerializableReminder(Long id, String date, String time, String organizationName,
-                                String text) {
+    public SerializableReminder(Long id, Date date, String organizationName, String text) {
         this.id = id;
         this.date = date;
-        this.time = time;
         this.organizationName = organizationName;
         this.text = text;
     }

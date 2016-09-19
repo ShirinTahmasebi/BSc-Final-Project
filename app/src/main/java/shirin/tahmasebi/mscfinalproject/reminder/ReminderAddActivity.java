@@ -27,7 +27,6 @@ public class ReminderAddActivity extends MainActivity implements
         DatePickerDialog.OnDateSetListener {
 
     private ReminderAddPresenter mPresenter;
-    private Spinner spinner;
     private static final String TIMEPICKER = "TimePickerDialog",
             DATEPICKER = "DatePickerDialog";
 
@@ -141,7 +140,7 @@ public class ReminderAddActivity extends MainActivity implements
     }
 
     private void initSpinner(final List<String> list) {
-        spinner = (Spinner) findViewById(R.id.reminder_organizationName_spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.reminder_organizationName_spinner);
         SpinnerAdapter adapter = new SpinnerAdapter(
                 this,
                 R.layout.item_spinner,
