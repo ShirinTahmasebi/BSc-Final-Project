@@ -1,49 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="query_suggestions">
-        <item>A very very long suggestion that would span multiple lines.</item>
-        <item>Android</item>
-        <item>iOS</item>
-        <item>SCALA</item>
-        <item>Ruby</item>
-        <item>JavaScript</item>
-        <item>C#</item>
-        <item>Python</item>
-        <item>C</item>
-        <item>C++</item>
-        <item>PHP</item>
-        <item>Go</item>
-        <item>Perl</item>
-        <item>Bash</item>
-        <item>Lua</item>
-        <item>R</item>
-        <item>TCL</item>
-        <item>Haskell</item>
-        <item>Objective C</item>
-        <item>Swift</item>
-        <item>Kotlin</item>
-        <item>jQuery</item>
-        <item>Development</item>
-        <item>Web</item>
-        <item>Ajax</item>
-        <item>Test</item>
-        <item>Testing</item>
-        <item>CookBook</item>
-        <item>Beagle</item>
-        <item>VMware</item>
-        <item>Less.js</item>
-        <item>IDE</item>
-        <item>Arduino</item>
-        <item>Xamarin</item>
-        <item>UI</item>
-        <item>Microsoft</item>
-        <item>Application</item>
-        <item>Development</item>
-        <item>JUnit</item>
-        <item>SQL</item>
-        <item>Beagle</item>
-    
-    </string-array>
     <string-array name="lable_organizationFilter">
         <item>همه</item>
         <item>نشانه‌گذاری شده</item>
@@ -210,8 +166,120 @@
 </div>
            ]]></item>
         <item name="site_url">http://www.parliran.ir/majles/fa/home</item>
-        <item name="phone_number">88623591</item>
+        <item name="phone_number">02188623591</item>
         <item name="email_address">NULL</item>
+    </string-array>
+
+    <string-array name="organization9">
+        <item name="name">وزارت دادگستری</item>
+        <item name="website">http://62.193.12.10/complaint</item>
+        <item name="logo">http://hanifzadegan.com/files/Icon/ghove-ghazaee.png</item>
+
+        <item name="description">
+            <![CDATA[ <div class="borderleftb-titlebar">سامانه دريافت و رسيدگي به شكايات</div><div class="borderleft"><div style="text-align: center;"><table style="border-collapse: collapse;border: medium none;" dir="rtl" border="1" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="padding-bottom: 0in; background-color: transparent; padding-left: 5.4pt;"><p style="text-align: center;" dir="rtl"><span style="font-size: 12px;"><br /><br />
+            بسمه تعالي<br /><br /><br /></span><b><span style="color: #037c7f; font-size: 14px;">"شيوه نامه" استفاده از سامانه&nbsp;دريافت و رسيدگي به&nbsp;شكايات وزارت دادگستري</span></b></p><p style="text-align: justify;" dir="rtl">&nbsp;</p><p style="text-align: justify;" dir="rtl"><span style="font-size: 13px;">مراجعه كننده گرامي<br /></span></p><p style="text-align: justify;" dir="rtl">وزارت دادگستري صرفاً موظف به پاسخگويي به درخواست ها، شكايات، پيشنهادها و گزارش هايي&nbsp;&nbsp;مي باشد كه در حيطه شرح وظايف اين وزارتخانه باشد.<br /><br /><span style="font-size: 13px;"><strong>به منظور استفاده هرچه بهتر از اين سامانه، توجه شما را به مطالب ذيل جلب مي نمايد؛</strong></span></p><ol><li><div style="text-align: justify;"><span style="font-size: 14px;">ابتدا بر اساس نوع نياز و ضرورت مراجعه، يكي از گزينه هاي ثبت درخواست، شكايت، پيشنهاد&nbsp;و&nbsp;گزارش را انتخاب نماييد.</span></div></li><li><div style="text-align: justify;"><span style="font-size: 14px;">نام و نام خانوادگي و ديگر اطلاعات ستاره دار خواسته شده را به دقت و صحت تكميل نماييد.</span></div></li><li><div style="text-align: justify;"><span style="font-size: 14px;">در پايان پس از ارائه مطالب مورد نظر و در صورت لزوم افزودن فايل پيوستي، براي ثبت نهايي بر روي گزينه ثبت در پايين صفحه كليك نماييد و كد پيگيري دريافت نماييد.</span></div></li><li><div style="text-align: justify;"><span style="font-size: 14px;">تقاضاي شما توسط همكاران ما بررسي شده و پاسخ آن را مي توانيد پس از گذشت حداكثر يك ماه، از طريق قسمت پيگيري مشاهده نماييد.</span></div></li></ol><p style="text-align: justify;" dir="rtl">&nbsp;</p><p style="text-align: justify;" dir="rtl">&nbsp;</p><p style="text-align: justify;" dir="rtl"><span style="font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 11px;">&nbsp;<span style="font-size: 11px;">دفتر بازرسي و&nbsp;مديريت عملكرد</span></span></span></p><p style="text-align: justify;" dir="rtl"><span style="font-family: b lotus; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-family: tahoma; font-size: 11px;">وزارت دادگستري</span></span></p><p style="text-align: center;" dir="rtl">&nbsp;</p></td></tr></tbody></table></div></div>
+    <span id="ctl00_BodyPlaceHolder_ctl00_Dock_68852ee1_c578_4356_bc0d_b305c6cf4562_C_Control_6311f16a_61cc_4852_8e3d_d39c55823d48_0_lbMessage" class="validation"></span>
+
+]]></item>
+        <item name="site_url">http://justice.ir/home</item>
+        <item name="phone_number">02188893621</item>
+        <item name="email_address">info@justice.ir</item>
+    </string-array>
+    <string-array name="organization10">
+        <item name="name">وزارت راه و شهرسازی</item>
+        <item name="website">
+            http://www.mrud.ir/Portal/Home/Default.aspx?CategoryID=e49089b2-53ab-41d9-af89-62f1c45e0731
+        </item>
+        <item name="logo">http://farjamco.com/images/logoNew/3.png</item>
+        <item name="description">
+            <![CDATA[
+<div style="text-align: justify; line-height: 20px"><span style="font-size: x-small"><span style="font-family: Tahoma"><strong>وظايف اساسي<br />
+</strong></span></span></div>
+<ul>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">اتخاذ و اعمال سياستها و تنظيم برنامه هاي جامع و هماهنگ براي ايجاد تعادل مطلوب بين جمعيت و وسعت شهرها در سطح كشور.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تعيين محل شهرها و مراكز جمعيت آينده .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">بررسي ارتباط شهرهاي فعلي و آينده در سطح منطقه و كشور.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تهيه و تنظيم سياست ها و خط مشي هاي اجرايي و ضوابط لازم براي هدايت و كنترل شهرنشيني در جهت تحقق طرح جامع سرزمين.بالحاظ اولويت هاي آمايشي .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">مشخص نمودن شهرها&zwnj;و شهركها ازنظر فعاليت هاي&zwnj;صنعتي،كشاورزي،جهانگردي،تاريخي، خدماتي وغيره. </span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تعيين حدود توسعه و ظرفيت شهرهاي آينده با توجه به شرايط فرهنگي ، اقتصادي و اجتماعي و طرح و تنظيم نقشه توزيع جمعيت (تهيه طرح جامع براي هريك از شهرها با توجه به ضوابط و استانداردهاي مصوب و تعيين ضوابط و استانداردها براي تهيه نقشه&zwnj;هاي هادي و اعلام آن به وزارت كشور).</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تهيه معيارها ، ضوابط و آئين نامه هاي شهرسازي و ابلاغ مصوبات شوراي عالي شهرسازي و معماري ايران به وزارتخانه ها و سازمان هاي مسئول و ارشاد و راهنمايي دستگاه هاي مربوط در مورد مسائل ناشي از اجراي طرحهاي جامع شهري.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">اعتلاي هنر معماري ايران و رعايت سبك هاي مختلف معماري سنتي و ملي و تقويت و توسعه فرهنگ و ارزشهاي اسلامي در معماري و شهرسازي.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">پيشنهاد ايجاد شهر و شهرك غير روستايي در خارج از محدوده قانوني و حريم شهرها جهت تصويب به شورايعالي شهرسازي.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">نظارت بر فعاليتهاي شهرسازي بخش خصوصي از حيث رعايت معيارها و ضوابط شهرسازي.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">نظارت بر تهيه طرح هاي جامع و تفصيلي و جلب نظر شوراي شهر و شهرداري مربوط در حين تهيه طرحهاي تفصيلي و همچنين نظارت بر اجراي مراحل مختلف طرح هاي مذكور.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">سياست گذاري در مورد طرح ريزي شهري و نحوة مديريت مجموعه هاي شهري.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">راهبري تعيين استانداردها براي مسكن ، ساختمان هاي دولتي و تاسيسات شهري و همچنين تهيه و اجراي طرحهاي عمراني شهري در چارچوب نظام فني و اجرايي كشور.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">نظارت عاليه بر اجراي ضوابط و مقررات شهرسازي و مقررات ملي ساختمان در طراحي و اجراي تمامي ساختمانها و طرح هاي شهرسازي و عمراني شهري با هدف ايمن سازي و مقاوم سازي ساختمانها و شهرها و در چارچوب نظام فني و اجرايي كشور با رعايت اصول پدافند غيرعامل.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">راهبري و ساماندهي طرح هاي بهسازي ، نوسازي و بازسازي محلات قديمي ، فرسوده و ناكارآمد شهري و سكونتگاههاي غير رسمي با هدف توانمند سازي ساكنين و ارتقا محيط زندگي شهري .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">اعمال سيا ست هاي دولت بر اراضي شهري اعم از خالصه و موات ، باير ، داير و ساير رقبات شهري و اجراي قانون زمين شهري و آئين نامه اجرايي آن.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">برنامه&zwnj;ريزي&zwnj; و مديريت &zwnj;عمران &zwnj;زمينهاي شهري &zwnj;و نظارت درزمينه &zwnj;استفاده بهينه از زمين در محدوده&zwnj;هاي شهري.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">راهبري تدوين موازين ، استاندارد ها و مشخصات فني و مقررات ملي براي ساختمان ها و مسكن در چارچوب برنامه و راهبري تحقيق و بررسي مسائل مربوط به ساختمان و مصالح ساختماني و نيزراهبري تهيه استانداردهاي لازم براي مصالح ساختماني با همكاري موسسه استاندارد و تحقيقات صنعتي ايران و حمايت از توليد كنندگان آنها.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">اتخاذ تصميم و تعيين خط مشي برنامه هاي اجرايي زمين ، مسكن ، شهرسازي ، ساختمانهاي دولتي و عمران شهري.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تهيه و اجراي طرح هاي ساختمان هاي دولتي و تامين ساختمان ها و تاسيسات دولتي و عمومي مورد نياز جامعه از طريق مهندسين مشاور و پيمانكاران تائيد صلاحيت شده و در چارچوب نظام فني و اجرايي كشور .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تعيين سيا ست هاي دولت در زمينه توليد وعرضه مسكن در كشور و توسعه و بهبود ا ستاندارد هاي كمي و كيفي مسكن .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">ارائه خط مشي و نظارت بر چگونگي تامين نيازهاي اقشار مختلف به مسكن به ويژه مسكن گروههاي كم&zwnj;درآمد و روستائيان .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">ايجاد تعادل بين عرضه و تقاضا در بازار مسكن و تامين و توسعه مسكن مناسب. </span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تامين مسكن و عرضه آن به صورت اجاره اي.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">سيا ستگذاري در مورد خانه هاي سازماني .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تعيين &zwnj;سياستهاي مربوط به نحوه واگذاري زمين مورد نياز به كاركنان دولت و تهيه آئين نامة اجرائي آن .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">بازنگري در ضوابط و مقررات شهرسازي در جهت تسهيل عبور و مرور معلولين.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">سيا ست گذاري در خصوص ارتقاء دانش فني ، فناوري ساختمان و كيفيت خدمات مهندسي در كشور و ايجاد زمينه براي جلب مشاركت حرفه اي در صنعت ساختمان.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">بررسي صلاحيت حرفه&zwnj;اي ، آموزش و آزمون به منظور صدور پروانه اشتغال اشخاص حقيقي و حقوقي در رشته&zwnzwnj;هاي اصلي مهندسي ساختمان و همچنين پروانه اشتغال به كار كاردان هاي فني و تجربي و تعيين محلهايي كه اشتغال اشخاص به امور فني در بخش هاي ساختمان و شهرسازي مستلزم داشتن صلاحيت حرفه&zwnj;اي است.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">نظارت بر تشكيل و عملكرد سازمان نظام مهندسي ساختمان و اركان آن و رسيدگي به تخلفات حرفه اي صاحبان حرف مهندسي.</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">راهبري تدوين اصول و قواعد فني مقررات ملي ساختمان .</span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">تعيين مدير دولتي براي شركت هاي ساختماني بي سرپرست و رها شده . </span></span></li>
+    <li style="text-align: justify"><span style="font-size: x-small"><span style="font-family: Tahoma">اجراي وظايفي كه طي لوايح قانوني ، آئين نامه ها يا تصويب نامه هاي مختلف به وزارتخانه ارجاع شده يا ميشود.</span></span></li>
+</ul>
+
+        ]]></item>
+        <item name="site_url">
+            http://www.mrud.ir/Portal/Home/Default.aspx?CategoryID=8bc34018-a03b-43a6-94c6-9f10d1e6f5e3
+        </item>
+        <item name="phone_number">02188646064</item>
+        <item name="email_address">public_relation@mrt.ir</item>
+    </string-array>
+    <string-array name="organization11">
+        <item name="name">وزارت صنعت معدن وتجارت</item>
+        <item name="website">
+            http://www.mimt.gov.ir/general_content/295948-%D9%81%D8%B1%D9%85-%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%D9%88%D9%86%D9%8A%DA%A9%D9%8A-%D8%AB%D8%A8%D8%AA-%D8%B4%DA%A9%D8%A7%D9%8A%D8%A7%D8%AA.html?t=%D9%85%D8%AD%D8%AA%D9%88%D8%A7%D9%8A-%D8%B9%D9%85%D9%88%D9%85%D9%8A
+        </item>
+        <item name="logo">http://evazzadeh.com/dl/2013/12/Iran-Mimt.png</item>
+        <item name="description">
+            <![CDATA[&nbsp;از مهمترین شرح وظایف وزارت صنعت، معدن و تجارت به موارد زییر می توان اشاره نمود :<br />
+1- تدوین و ابلاغ راهبردهای توسعه صنعتی، معدنی و تجاری کشور و تعیین اهداف، سیاست ها،&nbsp; <br />
+برنامه ها، استاندردها، نظامها، آیین نامه ها و ضوابط کلی بخش های صنعت، معدن و تجارت هماهنگ باسیاست های کلان کشور با جلب مشارکت تشکلها و سازمانهای غیر دولتی و مردم نهاد مرتبط و نظارت براجرا و تحقق آنها.<br />
+2- تعیین سیاستهای توسعه صادرات غیرنفتی، محصولات صنعتی، فرآورده های معدنی و خدمات فنی و مهندسی و تجاری و تنظیم و اجرای مقررات مربوط به حمایت های صادراتی.<br />
+3- مدیریت و تسهیل فرایند تولید و تجارت داخلی و خارجی.<br />
+4- برنامه ریزی ، هدایت، و حمایت از ایجاد و توسعه زیرساخت ها و واحدهای&nbsp; صنعتی، معدنی و تجاری و شهرکهای صنعتی مشترک با کشورهای هدف براساس راهبردهای توسعه صنعتی، معدنی و تجاری کشور و متناسب با توازن منطقه ای، آمایش سرزمین و ملاحظات زیست محیطی<br />
+5- تنظیم و توسعه روابط تجاری ، صنعتی و معدنی و تهیه یادداشت های تفاهم و موافقت نامه های مرتبط و انعقاد و اجرای قراردادها با سایر کشورها و نهادها و سازمانهای تخصصی&nbsp; و مجامع منطقه ای و بین المللی ذیربط با هماهنگی وزارت امور خارجه و در چارچوب سیاست خارجی جمهوری اسلامی ایران و قوانین مربوط.<br />
+6- مدیریت الحاق جمهوری اسلامی ایران به سازمان جهانی تجارت .<br />
+7- قبول عضویت و&nbsp; نمایندگی دولت جمهوری اسلامی ایران در نهادها و سازمانهای تخصصی و مجامع منطقه ای و بین المللی مربوط به امور صنعت، معدن و تجارت در چارچوب قوانین.<br />
+8-&nbsp; مدیریت رویدادهای تجاری ،صنعتی و معدنی اعم از اعزام و پذیرش هیات ها و کمیسیون ها، برگزاری و شرکت در نمایشگاه ها و همایش های داخلی و خارجی وتعیین و اعزام رایزن های مورد نیاز به منظور توسعه صادرات غیر نفتی و جذب سرمایه و&nbsp; فناوری.<br />
+9- برنامه ریزی، هدایت و حمایت از توسعه و جذب سرمایه گذاری های داخلی و خارجی برای توسعه صنعت، معدن ، تجارت و انتقال فناوری و همچنین سرمایه گذاری برای ایجاد و توسعه صنایع مبتنی بر فناوری های پیشرفته&nbsp; و خطر پذیر در موارد ضروری و در مناطق کمتر توسعه یافته.<br />
+10- برنامه ریزی و ایجاد شرایط لازم برای حفظ، صیانت و افزایش ظرفیت های تولیدی واحدهای صنعتی و معدنی و بازسازی ، نوسازی و گسترش فعالیت آنها.<br />
+11- سیاستگذاری و برنامه ریزی برای ایجاد و توسعه مجتمع ها و شهرک های صنفی ، صنعتی و معدنی و نیز پشتیبانی از ایجاد و توسعه واحدهای صنعتی و معدنی و توانمندسازی بنگاه های کوچک و متوسط <br />
+12- ساماندهی، حمایت و نظارت بر ایجاد، توسعه و فعالیت&nbsp; انجمن ها و تشکل های صنفی، صنعتی ومعدنی، شبکه ها و خوشه ها و سازمان های غیردولتی و مردم نهاد مرتبط با بخشهای&nbsp; صنعت، معدن و تجارت و صدور مجوز های تاسیس و فعالیت آنها.<br />
+13- برنامه ریزی برای بهبود فضای کسب و کار و افزایش بازدهی ، بهره وری ، رقابت پذیری و توسعه کار آفرینی بخش های صنعت،معدن و تجارت <br />
+14- حمایت از توسعه و تقویت نام ها وعلائم تجاری، تجاری سازی آثار مالکیت فکری و معنوی اعم از اختراعات، اکتشافات و نوآوری ها.<br />
+15- برنامه ریزی، هدایت ، حمایت و مدیریت تولید صادرات محور با ارزش افزوده بالا و فناوری های&nbsp; پیشرفته و هدایت و حمایت از مدیریت واردات مبتنی بر تولید صادرات گرا <br />
+16- سیاستگذاری و برنامه ریزی جهت&nbsp; بهبود نظام تولید، تامین و توزیع ، نظارت بر شبکه های توزیع کالا و خدمات ، توسعه رقابت و جلوگیری از انحصار در بازار .<br />
+17-&nbsp; ساماندهی زنجیره های تأمین و توزیع کالا و خدمات و مدیریت تنظیم و کنترل بازار.<br />
+18- نظارت و حمایت از حقوق تولیدکنندگان و مصرف کنندگان. <br />
+19- تعیین سیاست ها و ضوابط قیمت کالا و خدمات و ضوابط خدمات پس از فروش و نظارت بر اجرای آنها.<br />
+20-&nbsp; سیاستگذاری و برنامه ریزی در حوزه تجارت الکترونیکی کشور و توسعه و حمایت از کاربردهای فناوری اطلاعات و ارتباطات در بخش های صنعت، معدن و تجارت.<br />
+21- ساماندهی، استقرار و بکارگیری نظام یکپارچه آمار و اطلاعات و شبکه جامع اطلاع رسانی و تولید، تحلیل و ارائه آمارها و گزارشهای تخصصی در بخشهای صنعت، معدن و تجارت.<br />
+22- حمایت از توسعه آموزش و پژوهش، &quot;تحقیق و توسعه(R&amp;D)، ترویج و انتشار یافته ها و نتایج تحقیقات وهدایت و بهره گیری ازتوانمندی های مراکز آموزشی و پژوهشی و فناوری جهت توسعه بخشهای صنعت، معدن و تجارت.<br />
+23- همکاری و مشارکت با دستگاه ها در زمینه سیاستگذاری و برنامه ریزی برای تربیت و تامین نیروهای متخصص بخش های صنعت، معدن و تجارت در دانشگاهها و مراکز آموزش عالی و برنامه ریزی و همچنین آموزش، توسعه مدیریت و توانمندسازی شاغلین بخش های مذکور.<br />
+24- سیاستگذاری، برنامه ریزی،نظارت، صیانت و حمایت از توسعه زیر بناها، اکتشاف، استخراج و بهره برداری از معادن و فراوری معدنی با بکارگیری علوم، فنون و فناوریهای پیشرفته<br />
+25- سیاستگذاری و برنامه ریزی و انجام مطالعات و بررسی های زمین شناسی و شناسایی مخاطرات زمین شناختی و تهیه نقشه های مربوط، تهیه اطلاعات پایه شناسایی، پی جویی و اکتشاف عمومی منابع و ذخایر معدنی و تهیه گزارش های فنی و اقتصادی و ایجاد و گسترش پایگاه داده ها و اطلاع رسانی جامع علوم زمین برای بهره برداری از مزیت های زمین و ظرفیتهای معدنی کشور.<br />
+<br />
+<br />
+ ]]></item>
+        <item name="site_url">
+            http://www.mimt.gov.ir/index.php
+        </item>
+        <item name="phone_number">02143606</item>
+        <item name="email_address">info@mimt.gov.ir</item>
     </string-array>
     
     <array name="organizations">
@@ -223,5 +291,8 @@
         <item>@array/organization6</item>
         <item>@array/organization7</item>
         <item>@array/organization8</item>
+        <item>@array/organization9</item>
+        <item>@array/organization10</item>
+        <item>@array/organization11</item>
     </array>
 </resources>
