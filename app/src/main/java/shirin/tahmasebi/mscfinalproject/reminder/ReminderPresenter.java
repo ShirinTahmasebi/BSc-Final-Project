@@ -21,8 +21,7 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
     }
 
     public void showNotification(Context context, SerializableReminder reminder) {
-        mInteractor.createNotification(context);
-        mInteractor.removeReminderItemById(context, reminder.getId());
+        mInteractor.createNotification(context, reminder);
     }
 
     public void getRemindersList(Context context) {

@@ -40,13 +40,7 @@ public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddLi
     @Override
     public void onSaveFinished(Context context, Reminder reminder) {
         mView.closeCreateReminderActivity();
-        SerializableReminder serializableReminder =
-                new SerializableReminder(reminder.getId(),
-                        reminder.getDate(),
-                        reminder.getTime(),
-                        reminder.getOrganizationName(),
-                        reminder.getText());
-        Alarm.setAlarm(context, reminder.getId().intValue(), serializableReminder);
+        Alarm.setAlarm(context, reminder.getId().intValue(), reminder);
     }
 
     public void createReminderClicked(String timeHour, String timeMin,

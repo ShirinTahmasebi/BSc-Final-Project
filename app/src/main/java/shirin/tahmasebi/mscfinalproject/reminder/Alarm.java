@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
 
+import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+
 public class Alarm extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -25,11 +27,17 @@ public class Alarm extends BroadcastReceiver {
         wl.release();
     }
 
-    public static void setAlarm(Context context, int alarmId, SerializableReminder reminder) {
+    public static void setAlarm(Context context, int alarmId, Reminder reminder) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(context, Alarm.class);
+        SerializableReminder serializableReminder =
+                new SerializableReminder(reminder.getId(),
+                        reminder.getDate(),
+                        reminder.getTime(),
+                        reminder.getOrganizationName(),
+                        reminder.getText());
         Bundle bundle = new Bundle();
-        bundle.putSerializable("reminder", reminder);
+        bundle.putSerializable("reminder", serializableReminder);
         i.putExtras(bundle);
         PendingIntent pi = PendingIntent.getBroadcast(context, alarmId, i, 0);
         am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000 * 60 * 2, pi); // Millisec * Second * Minute

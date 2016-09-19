@@ -21,7 +21,7 @@ public class ReminderInteractor {
         mListener = listener;
     }
 
-    public void createNotification(Context context) {
+    public void createNotification(Context context, SerializableReminder reminder) {
         // Using RemoteViews to bind custom layouts into Notification
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
                 R.layout.reminder_notification);
