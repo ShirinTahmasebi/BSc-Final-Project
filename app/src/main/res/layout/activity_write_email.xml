@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorTextAppearance="@style/FieldHintErrorStyle"
-            app:hintTextAppearance="@style/FieldHintDefaultStyle">
+            app:hintTextAppearance="@style/FieldHintDefaultAccentStyle">
 
             <shirin.tahmasebi.mscfinalproject.view.FontableEditText
                 android:id="@+id/writeEmail_emailSubject_editText"
@@ -51,7 +51,7 @@
             android:layout_height="match_parent"
             android:paddingBottom="10dp"
             app:errorTextAppearance="@style/FieldHintErrorStyle"
-            app:hintTextAppearance="@style/FieldHintDefaultStyle">
+            app:hintTextAppearance="@style/FieldHintDefaultAccentStyle">
 
             <shirin.tahmasebi.mscfinalproject.view.FontableEditText
                 android:id="@+id/writeEmail_emailText_editText"

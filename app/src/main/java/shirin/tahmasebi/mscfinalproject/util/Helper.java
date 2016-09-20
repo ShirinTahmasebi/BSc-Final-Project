@@ -113,27 +113,6 @@ public class Helper {
         toast.show();
     }
 
-    public static Date convertSolarToGregorianDateFormat(int year, int monthOfYear, int dayOfMonth,
-                                                         boolean zeroBasedMonth) {
-        if (!zeroBasedMonth) {
-            monthOfYear--;
-        }
-        JalaliCalendar.YearMonthDate yearMonthDate = JalaliCalendar.jalaliToGregorian(
-                new JalaliCalendar.YearMonthDate(year, monthOfYear, dayOfMonth));
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd");
-        Date date = null;
-        try {
-            date = sdf.parse(
-                    yearMonthDate.getYear() + ":"
-                            + yearMonthDate.getMonth() + 1 + ":"
-                            + yearMonthDate.getDate()
-            );
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
-
     public static Date convertSolarToGregorianTimeDateFormat(
             int hour,
             int minuteOfHour,

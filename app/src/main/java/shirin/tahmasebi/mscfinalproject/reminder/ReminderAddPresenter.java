@@ -70,7 +70,7 @@ public class ReminderAddPresenter implements ReminderAddInteractor.ReminderAddLi
                 Integer.parseInt(dateYear),
                 Integer.parseInt(dateMonth),
                 Integer.parseInt(dateDay),
-                (Integer.parseInt(timeHour) > 12),
+                (Integer.parseInt(timeHour) >= 12),
                 false
         );
 

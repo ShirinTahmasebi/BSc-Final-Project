@@ -209,26 +209,25 @@
         android:gravity="center_vertical|end"
         android:orientation="vertical" tools:targetApi="lollipop">
 
-        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:padding="@dimen/component_default_padding"
-            android:text="@string/lable_reminder_selectText"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_small"
-            app:customFont="IRAN-Sans-Bold.ttf"/>
-
-        <shirin.tahmasebi.mscfinalproject.view.FontableEditText
-            android:id="@+id/reminder_customText_editText"
+        <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
+            android:id="@+id/reminder_customText_attractiveTextInputLayout"
+            style="@style/FieldStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="end"
-            android:inputType="textMultiLine"
-            android:padding="@dimen/component_comfort_padding"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_small"
-            app:customFont="IRAN-Sans-Bold.ttf"/>
+            android:paddingBottom="10dp"
+            app:errorTextAppearance="@style/FieldHintErrorStyle"
+            app:hintTextAppearance="@style/FieldHintDefaultBlackStyle">
+
+            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+                android:id="@+id/reminder_customText_editText"
+                style="@style/EditTextBottomLineStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/lable_reminder_selectText"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                app:customFont="IRAN-Sans-Bold.ttf"/>
+        </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
 
     </LinearLayout>
 
