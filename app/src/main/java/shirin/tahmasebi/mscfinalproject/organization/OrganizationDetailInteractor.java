@@ -34,7 +34,7 @@ public class OrganizationDetailInteractor {
         History history = new History();
         history.setType(WriteOptionEnum.CALL.getIntValue());
         history.setOrganizationName(org.getName());
-        history.setDate(ShamsiConverter.getCurrentShamsidate());
+        history.setDate(ShamsiConverter.getCurrentShamsiDate());
         ((BaseApplication) context.getApplicationContext()).daoSession
                 .getHistoryDao().insert(history);
     }

@@ -12,6 +12,7 @@ import java.util.List;
 import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 
 public class ReminderInteractor {
 
@@ -27,15 +28,23 @@ public class ReminderInteractor {
                 R.layout.reminder_notification);
 
         // Set Notification Title
-        String strtitle = "نوتیفیکیشن جدید";
+        String title = null;
+        if (reminder != null) {
+            title = reminder.getOrganizationName();
+        }
         // Set Notification Text
-        String strtext = "متن نوتیفیکیشن جدید";
+        String text = context.getResources().getString(R.string.lable_reminder_notifCustomText);
+        if (reminder != null) {
+            if (!("".equals(reminder.getText()))) {
+                text = reminder.getText();
+            }
+        }
 
         // Open NotificationView Class on Notification Click
-        Intent intent = new Intent(context, ReminderActivity.class);
+        Intent intent = new Intent(context, OrganizationActivity.class);
         // Send data to NotificationView Class
-        intent.putExtra("title", strtitle);
-        intent.putExtra("text", strtext);
+        intent.putExtra("title", title);
+        intent.putExtra("text", text);
         // Open NotificationView.java Activity
         PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
@@ -52,15 +61,20 @@ public class ReminderInteractor {
                 // Set RemoteViews into Notification
                 .setContent(remoteViews);
 
-        // Locate and set the Text into customnotificationtext.xml TextViews
-        remoteViews.setTextViewText(R.id.title, strtitle);
-        remoteViews.setTextViewText(R.id.text, strtext);
+        // Locate and set the Text into reminder_notification.xml TextViews
+        remoteViews.setTextViewText(R.id.customNotification_title_textView, title);
+        remoteViews.setTextViewText(R.id.customNotification_text_textView, text);
 
         // Create Notification Manager
         NotificationManager notificationmanager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         // Build Notification with Notification Manager
-        notificationmanager.notify(0, builder.build());
+        if (reminder != null) {
+            notificationmanager.notify(reminder.getId().intValue(), builder.build());
+        } else {
+            notificationmanager.notify(0, builder.build());
+
+        }
     }
 
     public void retrieveReminderList(Context context) {

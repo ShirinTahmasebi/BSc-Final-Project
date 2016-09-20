@@ -36,13 +36,12 @@ public class ReminderAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(final ReminderViewHolder holder, final int position) {
+        String time = mPresenter.timeToShow(list.get(holder.getAdapterPosition()).getDate());
+        String date = mPresenter.dateToShow(list.get(holder.getAdapterPosition()).getDate());
         holder.reminderOrganizationNameTextView.setText(
                 list.get(holder.getAdapterPosition()).getOrganizationName());
-        holder.reminderTimeTextView.setText(Helper.convertToPersianDigits(
-                list.get(holder.getAdapterPosition()).getDate().getHours() + ":"
-                        + list.get(holder.getAdapterPosition()).getDate().getMinutes()));
-        holder.reminderDateTextView.setText(Helper.convertToPersianDigits(
-                list.get(holder.getAdapterPosition()).getDate().getDate() + ""));
+        holder.reminderTimeTextView.setText(Helper.convertToPersianDigits(time));
+        holder.reminderDateTextView.setText(Helper.convertToPersianDigits(date));
         holder.reminderDeleteItemRelativeLayout.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

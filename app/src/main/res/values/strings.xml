@@ -133,4 +133,6 @@
     <string name="lable_reminder_emptyList">یادآوری ایجاد نشده است. میتوانید با استفاده از دکمه در
         پایین صفحه اقدام به ایجاد یادآور کنید.
     </string>
+    <string name="lable_reminder_notifCustomText">پیام خود را به سازمان مورد نظر ارسال نمایید
+    </string>
 </resources>

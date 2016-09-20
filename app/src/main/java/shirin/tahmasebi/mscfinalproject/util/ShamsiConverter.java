@@ -216,10 +216,18 @@ public class ShamsiConverter {
         }
     }
 
-    public static String getCurrentShamsidate() {
+    public static String getCurrentShamsiDate() {
         Locale loc = new Locale("en_US");
         ShamsiConverter util = new ShamsiConverter();
         SolarCalendar sc = util.new SolarCalendar();
+        return String.valueOf(sc.year) +
+                "/" + String.format(loc, "%02d", sc.month) +
+                "/" + String.format(loc, "%02d", sc.date);
+    }
+    public static String getShamsiDate(Date date) {
+        Locale loc = new Locale("en_US");
+        ShamsiConverter util = new ShamsiConverter();
+        SolarCalendar sc = util.new SolarCalendar(date);
         return String.valueOf(sc.year) +
                 "/" + String.format(loc, "%02d", sc.month) +
                 "/" + String.format(loc, "%02d", sc.date);

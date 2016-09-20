@@ -27,7 +27,7 @@ public class WriteEmailInteractor {
         history.setType(WriteOptionEnum.EMAIL.getIntValue());
         history.setEmailText(text);
         history.setOrganizationName(org.getName());
-        history.setDate(ShamsiConverter.getCurrentShamsidate());
+        history.setDate(ShamsiConverter.getCurrentShamsiDate());
         ((BaseApplication) context.getApplicationContext()).daoSession
                 .getHistoryDao().insert(history);
     }

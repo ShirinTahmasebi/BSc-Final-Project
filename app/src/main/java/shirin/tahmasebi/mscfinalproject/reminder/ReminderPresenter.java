@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
+import java.util.Date;
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+import shirin.tahmasebi.mscfinalproject.util.ShamsiConverter;
 
 public class ReminderPresenter implements ReminderInteractor.ReminderListener {
 
@@ -69,6 +71,22 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
                     null);
         }
 
+    }
+
+    public String timeToShow(Date date) {
+        if (date != null) {
+            return date.getHours() + ":" +
+                    ((date.getMinutes() < 10) ? "0" : "")
+                    + date.getMinutes();
+        }
+        return "";
+    }
+
+    public String dateToShow(Date date) {
+        if (date != null) {
+            return ShamsiConverter.getShamsiDate(date);
+        }
+        return "";
     }
 
     public interface ReminderView {

@@ -6,27 +6,42 @@
                 android:gravity="center_vertical"
                 android:layoutDirection="rtl">
 
-    <ImageView
-        android:id="@+id/imagenotileft"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerVertical="true"
-        android:src="@drawable/logo"/>
-
-    <TextView
-        android:id="@+id/title"
+    <LinearLayout
+        android:id="@+id/customNotifitcation_imageContainer_linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="dfsgs"
-        android:textColor="@color/black"/>
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/component_comfort_margin"
+        android:layout_marginRight="@dimen/component_comfort_margin"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:text="dafsgdhfsdfzgxhc"
-        android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/customNotifitcation_image_imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo"/>
 
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="@dimen/component_default_margin"
+                  android:layout_toLeftOf="@+id/customNotifitcation_imageContainer_linearLayout"
+                  android:gravity="center_vertical"
+                  android:orientation="vertical">
+        <TextView
+            android:id="@+id/customNotification_title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/customNotification_text_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
 
@@ -20,9 +19,9 @@ public class Alarm extends BroadcastReceiver {
 
         ReminderActivity activity = new ReminderActivity();
         ReminderPresenter presenter = new ReminderPresenter(activity);
-        Bundle bundle = intent.getExtras();
-        presenter.showNotification(context,
-                (SerializableReminder) bundle.getSerializable("reminder"));
+        SerializableReminder reminder = (SerializableReminder)
+                intent.getSerializableExtra("reminder");
+        presenter.showNotification(context, reminder);
 
         wl.release();
     }
@@ -35,12 +34,13 @@ public class Alarm extends BroadcastReceiver {
                         reminder.getDate(),
                         reminder.getOrganizationName(),
                         reminder.getText());
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("reminder", serializableReminder);
-        i.putExtras(bundle);
+        i.putExtra("reminder", serializableReminder);
         long triggerTime = reminder.getDate().getTime() - System.currentTimeMillis();
         PendingIntent pi = PendingIntent.getBroadcast(context, reminder.getId().intValue(), i, 0);
-        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + triggerTime, pi);
+        am.set(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + triggerTime,
+                pi);
     }
 
     public static void cancelAlarm(Context context, int alarmId) {
