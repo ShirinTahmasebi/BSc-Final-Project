@@ -2,7 +2,6 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <include layout="@layout/toolbar"
@@ -29,7 +28,7 @@
             android:id="@+id/reminder_addReminder_FAB"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_gravity="bottom|right"
+            android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/component_comfort_margin"
             android:clickable="true"
             android:padding="@dimen/component_default_padding"
@@ -39,8 +38,7 @@
             app:layout_anchorGravity="bottom|right|end"
             app:layout_behavior="shirin.tahmasebi.mscfinalproject.view.ScrollAwareFABBehavior"
             app:pressedTranslationZ="12dp"
-            app:rippleColor="@color/accent"
-            tools:ignore="RtlHardcoded"/>
+            app:rippleColor="@color/accent"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

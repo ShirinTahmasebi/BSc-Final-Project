@@ -5,6 +5,6 @@
     android:id="@+id/organization_filterItem_textView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="right"
+    android:gravity="end"
     android:padding="@dimen/component_default_padding"
     app:customFont="IRAN-Sans-Bold.ttf"/>

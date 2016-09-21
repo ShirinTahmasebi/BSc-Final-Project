@@ -12,7 +12,7 @@ public class EmailDetailActivity extends MainActivity
     EmailDetailPresenter mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new EmailDetailPresenter(this);
         mPresenter.getEmailDetail(this);

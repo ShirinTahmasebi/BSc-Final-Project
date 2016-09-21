@@ -83,7 +83,7 @@ public class Helper {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View layout = inflater.inflate(
                 R.layout.toast,
-                (ViewGroup) ((Activity) context).findViewById(R.id.toast_root_lineatLayout)
+                (ViewGroup) ((Activity) context).findViewById(R.id.toast_root_linearLayout)
         );
 
         FontableTextView txt = (FontableTextView) layout.findViewById(R.id.toast_text_textView);
@@ -100,7 +100,7 @@ public class Helper {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View layout = inflater.inflate(
                 R.layout.toast,
-                (ViewGroup) ((Activity) context).findViewById(R.id.toast_root_lineatLayout)
+                (ViewGroup) ((Activity) context).findViewById(R.id.toast_root_linearLayout)
         );
 
         FontableTextView txt = (FontableTextView) layout.findViewById(R.id.toast_text_textView);

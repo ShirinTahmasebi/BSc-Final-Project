@@ -15,7 +15,8 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:padding="@dimen/component_default_padding"
-        android:text="@string/lable_history_emptyList" android:textSize="@dimen/txt_medium"
+        android:text="@string/lable_history_emptyList"
+        android:textSize="@dimen/txt_medium"
         app:customFont="IRAN-Sans-Bold.ttf"
     />
 

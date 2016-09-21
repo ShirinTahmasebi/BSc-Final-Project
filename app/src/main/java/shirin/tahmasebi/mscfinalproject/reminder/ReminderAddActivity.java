@@ -31,7 +31,7 @@ public class ReminderAddActivity extends MainActivity implements
             DATEPICKER = "DatePickerDialog";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new ReminderAddPresenter(this);
         mPresenter.onStart(this);

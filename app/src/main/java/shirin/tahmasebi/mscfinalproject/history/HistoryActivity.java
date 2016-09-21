@@ -16,7 +16,7 @@ public class HistoryActivity extends MainActivity implements HistoryPresenter.Hi
     HistoryPresenter mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mPresenter = new HistoryPresenter(this);

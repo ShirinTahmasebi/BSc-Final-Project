@@ -18,12 +18,12 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
     private ReminderPresenter mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
 
         mPresenter = new ReminderPresenter(this);

@@ -18,12 +18,12 @@ public class DashboardActivity extends MainActivity implements DashboardPresente
     private DashboardPresenter mPresenter;
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new DashboardPresenter(this);
         mPresenter.onStart();

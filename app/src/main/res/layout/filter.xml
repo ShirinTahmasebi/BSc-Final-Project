@@ -10,10 +10,8 @@
     android:elevation="4dp"
     android:gravity="center" tools:targetApi="lollipop">
 
-    <Spinner android:id="@+id/organization_filter_spinner" android:layout_width="wrap_content"
-             android:layout_height="match_parent">
-
-    </Spinner>
-
+    <Spinner android:id="@+id/organization_filter_spinner"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -32,8 +32,9 @@
         <ImageView android:layout_width="15dp"
                    android:layout_height="15dp"
                    android:layout_gravity="center_vertical"
+                   android:layout_marginEnd="@dimen/component_default_margin"
                    android:layout_marginRight="@dimen/component_default_margin"
-                   android:src="@drawable/more_detail_icon"/>
+                   android:src="@drawable/more_detail_icon" tools:ignore="ContentDescription"/>
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

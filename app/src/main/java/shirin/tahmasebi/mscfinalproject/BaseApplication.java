@@ -3,18 +3,24 @@ package shirin.tahmasebi.mscfinalproject;
 import android.app.Application;
 import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 
 import shirin.tahmasebi.mscfinalproject.io.models.DaoMaster;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
+import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
 public class BaseApplication extends Application {
     public DaoSession daoSession;
 
     @Override
     public void onCreate() {
+
+        // ماژول SharedData را تعریف کن
+        SharedData.init(PreferenceManager.getDefaultSharedPreferences(this));
         super.onCreate();
+        SharedData.getInstance().put("locale", "fa");
         initialDaoSession();
         initialOrganizatoinDatabase();
     }

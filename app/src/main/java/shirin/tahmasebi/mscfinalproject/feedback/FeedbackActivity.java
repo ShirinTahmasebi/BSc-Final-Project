@@ -27,7 +27,7 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
     TextInputLayout mMailTextTextInputLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new FeedbackPresenter(this, this);
         mPresenter.onStart(this);

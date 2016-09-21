@@ -60,13 +60,14 @@
         android:paddingLeft="@dimen/component_default_padding"
         android:paddingRight="@dimen/component_comfort_padding"
         android:paddingStart="@dimen/component_default_padding"
-        android:weightSum="6" tools:targetApi="lollipop">
+        android:weightSum="6" tools:ignore="DisableBaselineAlignment" tools:targetApi="lollipop">
 
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/component_default_margin"
+            android:layout_marginStart="@dimen/component_default_margin"
             android:layout_weight="5"
             android:background="@drawable/bg_filter_stroke_rounded">
 
@@ -75,11 +76,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:gravity="right"
+                android:gravity="end"
                 android:hint="@string/lable_organization_searchHint"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:padding="@dimen/component_default_padding"
+                android:paddingEnd="@dimen/component_comfort_padding"
                 android:paddingRight="@dimen/component_comfort_padding"
                 android:singleLine="true"
                 android:textColorHint="@color/primaryDark"
@@ -100,7 +102,8 @@
 
             <ImageView android:layout_width="@dimen/image_default_width"
                        android:layout_height="@dimen/image_default_height"
-                       android:src="@drawable/organization_search_icon"/>
+                       android:src="@drawable/organization_search_icon"
+                       tools:ignore="ContentDescription"/>
         </LinearLayout>
 
     </LinearLayout>

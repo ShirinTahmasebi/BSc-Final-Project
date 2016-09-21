@@ -52,4 +52,6 @@ dependencies {
 
     // [PersianDateTimePicker](https://github.com/mohamad-amin/PersianMaterialDateTimePicker)
     compile 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
+
+    compile 'com.akexorcist:localizationactivity:1.1.1'
 }

@@ -2,10 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="180dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="180dp"
     android:layout_height="match_parent"
     android:background="#FFF"
-    android:gravity="end|right"
+    android:gravity="end"
     android:orientation="vertical">
 
 
@@ -13,7 +14,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:background="@color/primaryDark"
-                  android:gravity="end|right"
+                  android:gravity="end"
                   android:orientation="horizontal"
                   android:padding="10dp">
 
@@ -41,10 +42,12 @@
     <LinearLayout android:id="@+id/organizationDetail_writeEmail_linearLayout"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:gravity="end|right"
+                  android:gravity="end"
                   android:padding="10dp"
+                  android:paddingEnd="20dp"
                   android:paddingLeft="20dp"
                   android:paddingRight="20dp"
+                  android:paddingStart="20dp"
                   android:tag="1">
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
@@ -68,10 +71,12 @@
         android:id="@+id/organizationDetail_visitSite_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end|right"
+        android:gravity="end"
         android:padding="10dp"
+        android:paddingEnd="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:paddingStart="20dp"
         android:tag="2">
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
@@ -87,17 +92,20 @@
         <ImageView android:layout_width="30dp"
                    android:layout_height="match_parent"
                    android:gravity="center_vertical"
-                   android:src="@drawable/visit_site_icon" tools:ignore="ContentDescription"/>
+                   android:src="@drawable/visit_site_icon"
+                   tools:ignore="ContentDescription"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/organizationDetail_writeCall_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end|right"
+        android:gravity="end"
         android:padding="10dp"
+        android:paddingEnd="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:paddingStart="20dp"
         android:tag="3">
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView

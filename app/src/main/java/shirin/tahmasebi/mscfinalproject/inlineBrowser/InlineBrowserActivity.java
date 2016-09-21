@@ -18,7 +18,7 @@ public class InlineBrowserActivity extends MainActivity
     private WebView mWebView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mWebView = (WebView) findViewById(R.id.inlineBrowser_browser_webView);
         mPresenter = new InlineBrowserPresenter(this);

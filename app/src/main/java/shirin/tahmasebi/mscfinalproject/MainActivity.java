@@ -1,21 +1,25 @@
 package shirin.tahmasebi.mscfinalproject;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.akexorcist.localizationactivity.LocalizationActivity;
+
 import butterknife.ButterKnife;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
+import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
-public abstract class MainActivity extends Activity {
+public abstract class MainActivity extends LocalizationActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getLayoutId() != -1) {
             setContentView(getLayoutId());
         }
+
+        setLanguage(SharedData.getInstance().getString("locale", "fa"));
         setupToolbar();
         ButterKnife.bind(this);
     }
@@ -23,6 +27,9 @@ public abstract class MainActivity extends Activity {
     protected abstract int getLayoutId();
 
     private void setupToolbar() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         TextView toolbarTitle;
         toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
         if (toolbarTitle != null) {

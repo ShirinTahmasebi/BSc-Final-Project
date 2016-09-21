@@ -26,7 +26,7 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
     TextInputLayout mMailTextTextInputLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mPresenter = new WriteEmailPresenter(this, this);

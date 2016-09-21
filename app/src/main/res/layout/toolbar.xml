@@ -18,15 +18,15 @@
             android:id="@+id/toolbar_title"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_alignParentRight="true"
-            android:gravity="right|center_vertical"
+            android:layout_alignParentEnd="true"
+            android:gravity="end|center_vertical"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:customFont="IRAN-Sans-Bold.ttf"
             app:layout_heightPercent="100%"
-            app:layout_widthPercent="60%"/>
+            app:layout_widthPercent="60%" android:layout_alignParentRight="true"/>
 
 
         <LinearLayout android:id="@+id/toolbar_help_linearLayout"

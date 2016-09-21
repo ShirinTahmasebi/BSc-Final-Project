@@ -28,7 +28,7 @@ public class OrganizationActivity extends MainActivity
     OrganizationPresenter mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mPresenter = new OrganizationPresenter(this);
@@ -36,7 +36,7 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         mPresenter.onStart();
     }

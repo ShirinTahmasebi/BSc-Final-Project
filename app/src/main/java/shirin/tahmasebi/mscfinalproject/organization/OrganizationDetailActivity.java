@@ -36,14 +36,14 @@ public class OrganizationDetailActivity extends MainActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mPresenter = new OrganizationDetailPresenter(this);
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
 
         mPresenter.showOrganizationDetail(this);

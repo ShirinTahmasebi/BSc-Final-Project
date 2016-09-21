@@ -19,10 +19,9 @@ import shirin.tahmasebi.mscfinalproject.organization.SpinnerAdapter;
 public class ProfileActivity extends MainFragmentActivity implements ProfilePresenter.ProfileView {
 
     private static final int PERMISION_REQUEST_GETACCOUNTS = 1234;
-    private ProfilePresenter mPresenter;
     private static final int AUTHORIZATION_CODE = 1993;
     private static final int ACCOUNT_CODE = 1601;
-
+    private ProfilePresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
