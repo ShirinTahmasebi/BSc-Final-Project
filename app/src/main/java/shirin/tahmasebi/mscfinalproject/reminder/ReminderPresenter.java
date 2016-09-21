@@ -22,7 +22,7 @@ public class ReminderPresenter implements ReminderInteractor.ReminderListener {
         mView = view;
     }
 
-    public void showNotification(Context context, SerializableReminder reminder) {
+    public void showNotification(Context context, long reminder) {
         mInteractor.createNotification(context, reminder);
     }
 

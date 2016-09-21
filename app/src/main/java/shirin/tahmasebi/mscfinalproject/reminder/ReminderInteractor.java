@@ -12,6 +12,7 @@ import java.util.List;
 import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
+import shirin.tahmasebi.mscfinalproject.io.models.ReminderDao;
 import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 
 public class ReminderInteractor {
@@ -22,11 +23,15 @@ public class ReminderInteractor {
         mListener = listener;
     }
 
-    public void createNotification(Context context, SerializableReminder reminder) {
+    public void createNotification(Context context, long reminder1) {
         // Using RemoteViews to bind custom layouts into Notification
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
                 R.layout.reminder_notification);
 
+        Reminder reminder =
+                ((BaseApplication) context.getApplicationContext())
+                        .daoSession.getReminderDao().queryBuilder()
+                        .where(ReminderDao.Properties.Id.eq(reminder1)).unique();
         // Set Notification Title
         String title = null;
         if (reminder != null) {

@@ -19,8 +19,9 @@ public class Alarm extends BroadcastReceiver {
 
         ReminderActivity activity = new ReminderActivity();
         ReminderPresenter presenter = new ReminderPresenter(activity);
-        SerializableReminder reminder = (SerializableReminder)
-                intent.getSerializableExtra("reminder");
+//        SerializableReminder reminder = (SerializableReminder)
+//                intent.getSerializableExtra("reminder");
+        long reminder = intent.getExtras().getLong("reminder");
         presenter.showNotification(context, reminder);
 
         wl.release();
@@ -34,7 +35,7 @@ public class Alarm extends BroadcastReceiver {
                         reminder.getDate(),
                         reminder.getOrganizationName(),
                         reminder.getText());
-        i.putExtra("reminder", serializableReminder);
+        i.putExtra("reminder", reminder.getId());
         long triggerTime = reminder.getDate().getTime() - System.currentTimeMillis();
         PendingIntent pi = PendingIntent.getBroadcast(context, reminder.getId().intValue(), i, 0);
         am.set(
