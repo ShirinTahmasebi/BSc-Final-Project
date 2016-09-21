@@ -1,0 +1,142 @@
+<resources>
+    <string name="app_name">عریضه نویس</string>
+    <string name="lable_dashboard_imageDescription">Dashboard Menu Icon</string>
+
+    <string name="title_activity_dashboard">داشبورد کاربر</string>
+    <string name="title_activity_history">تاریخچه</string>
+    <string name="title_activity_feedback">بازخورد</string>
+    <string name="title_activity_organizations">سازمانها</string>
+    <string name="title_activity_profile">کاربر</string>
+    <string name="title_activity_reminder">یادآور</string>
+    <string name="title_activity_setting">تنظیمات</string>
+    <string name="title_activity_organizationDetail">توصیف سازمان</string>
+    <string name="title_activity_writeEmail">ارسال ایمیل</string>
+
+    <string name="organization_name_one">دفتر مقام معظم رهبری</string>
+    <string name="organization_website_one">www.leader.ir</string>
+    <string name="organization_logo_one">http://www.leader.ir/assets/images/logo.png</string>
+    <string name="organization_description_one">
+        <![CDATA[<p style="text-align:justify;">پایگاه اطلاع رسانی دفتر مقام معظم رهبری در سال ۱۳۸۱ با هدف اطلاع رسانی سریع و بی واسطه و ایجاد منبع قابل اطمینان اخبار و مطالب مرتبط با رهبر معظم انقلاب اسلامی، فعالیت خویش را\tدر فضای مجازی آغاز نموده است. در این راستا، ارایه امکان مشاهده فیلم، صوت و تصاویر مرتبط با معظم له در مناسب ترین قالب را سرلوحه اهداف خود قرار داده، بیش از پیش در ارتقای کیفیت\tآن کوشیده است.<br><br>این پایگاه در ادامه انجام رسالت خود، به ایجاد بستر مناسب و سریع پاسخگویی به سوالات شرعی و استفتائات ملت مسلمان ایران و دنیای اسلام اقدام نموده است. همچنین در سال ۱۳۹۴ به\tدرخواست کاربران پایگاه و با هدف خدمت رسانی و ایجاد بستر امن، نسبت به ایجاد بخش پرداخت الکترونیکی وجوهات شرعی اقدام کرده است. پیاده سازی موتور جستجوی پیشرفته و کارآمد، امکان\tدیگری است که به کاربران محترم در دستیابی به نتایج مورد انتظار یاری می نماید.<br><br>در آخر انتظار می رود تا شما کاربران گرامی با ارایه نظرات و پیشنهادات گرانقدر خود، ما را در انجام این مهم یاری فرمایید.<br></p>]]></string>
+
+    <string name="organization_name_two">وزارت ارتباطات و فناوری اطلاعات</string>
+    <string name="organization_website_two">https://www.ict.gov.ir</string>
+    <string name="organization_logo_two">
+        https://www.ict.gov.ir/App_Themes/Default-fa-IR/Images/TopLogo.png
+    </string>
+    <string name="organization_description_two">
+        <![CDATA[<div class=\"bswMiddle\">         <div class=\"bswMiddleContent\"> <span class=\"content\" style=\"font-size: 11px; line-height: 18px;\"><b>&nbsp;الف – هدف  </b><p dir=\"RTL\" style=\"margin-right: -3.1pt; text-align: justify; line-height: 33.3333px; font-size: 11px;\">اعمال حاكميت برطيف فركانس و حفاظت از حقوق راديوئي كشور در سطح منطقه و بين الملل و تمركز امور سياستگذاري, تدوين ضوابط واستانداردها و نظارت بر حسن اجراي آنها در بخشهاي مختلف ارتباطات پستي و مخابراتي و فنّاوري اطلاعات نظيرخدمات جديد ومتعارف پستي, مخابراتي, فنّاوري اطلاعات, ارتباطات فضايي, ارتباطات راديوئي,انتقال داده ها,انتقال صدا وتصوير ,سنجش از دور, ارتباطات رايانه اي و ايجاد بستر مناسب براي ارتباطات و آمايش و پردازش اطلاعات و روشهاي دورسنجي و پشتيباني آنها و همچنين سياستگذاري در زمينه توسعه امكانات و خدمات ارتباطي مذكور, هماهنگ با آخرين پيشرفتهاي علمي , تجربي و فنّاوري اطلاعات در جهان .</p> <p dir=\"RTL\" style=\"margin-right: 2.5pt; text-align: justify; text-indent: -2.1pt; font-size: 11px; line-height: 18px;\"><b>&nbsp;ب – وظايف</b> </p> <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\">1-تدوين سياستها و ضوابط كلي در زمينه توسعه ارتباطات و فنّاوري اطلاعات.</p> <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>2-سياستگذاري و برنامه ريزي كلان و هدايت و نظارت بر شبكه هاي پستي, پست بانك و مخابراتي و فنّاوري اطلاعات كشور .  <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\">3- سياستگذاري براي فعاليت بخش غيردولتي در قلمرو شبكه‌هاي غيرمادربخش پست و مخابرات و صدور مجوز ايجاد شبكه‌هاي مستقل و موازي پستي و مخابراتي با رعايت اصل 44 قانون اساسي جمهوري اسلامي ايران و حسب مجوز هيأت وزيران .</p> <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>4- ايجاد, نگهداري, بهره برداري و توسعه شبكه هاي مادرپستي و مخابراتي كشور. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>5-تنظيم , مديريت و كنترل فضاي فركانسي كشور و تدوين مقررات و تصويب ضوابط و جداول و معيارهاي استفاده بهينه ازفركانس و مدارهاي ماهواره اي و نظارت و حاكميت بر طيف و جدول ملي فركانس كشور. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>6-صدور مجوز تأسيس و بهره برداري واحدهاي ارائه خدمات پستي و مخابراتي و فنّاوري اطلاعات در سطح كشور در چارچوب قوانين و مقررات و با رعايت اصل چهل و چهارم(44) قانون اساسي جمهوري اسلامي ايران. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>7-طراحي و تدوين نظام ملي فنّاوري اطلاعات كشور. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>8-توسعه و ترويج ارتباطات و فنّاوري اطلاعات در كشور و تأمين زيرساختهاي موردنياز آن به منظور دسترسي آحاد مردم به خدمات پايه ذيربط . <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>9-تصويب سياستها و هدايت امور مربوط به طرح و چاپ و انتشار تمبر و اوراق بهادار پستي و صدور اجازه ورود و استفاده و ساخت ماشين هاي نقش تمبر و اعمال نظارت بر كليه امور مربوط به آن. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>10-عضويت در اتحاديه ها و مجامع بين المللي ارتباطي و فنّاوري اطلاعات به نمايندگي از سوي دولت و اهتمام به انجام تعهدات و قراردادهاي بين المللي و دو جانبه پستي و پست بانك و مخابراتي و فنّاوري اطلاعات. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>11-تدوين و پيشنهاد استانداردهاي ملي مربوط به ارتباطات و فنّاوري اطلاعات در كشور به مراجع ذيربط. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>12-اعمال استانداردها, ضوابط و نظامهاي كنترل كيفي و تأييد نمونه تجهيزات (Type Approval) &nbsp;درارائه خدمات وتوسعه و بهره برداري از شبكه هاي مخابراتي, پستي و فنّاوري اطلاعات در كشور. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>13-تدوين ضوابط حل اختلاف و تعيين اسناد مورد قبول محاكم قضايي در اختلافات و تخلفات مربوط به ارتباطات و فنّاوري اطلاعات و ارائه به دولت جهت طي مراحل قانوني. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>14-فراهم نمودن زمينه مشاركت بخش غيردولتي در توسعه ارتباطات و فنّاوري اطلاعات. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>15-حمايت از تحقيق و توسعه براي استفاده وسيعتر فنّاوري جديد در زمينه فنّاوري اطلاعات و اشاعه فرهنگ كاربردي آنها. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p>16-حفاظت و حراست و عدم ضبط و افشاي انواع مراسلات و امانات پستي و همچنين مكالمات تلفني ومبادلات شبكه اطلاع رساني واطلاعات مربوط به اشخاص حقيقي وحقوقي طبق قانون. <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\"> </p><p style=\"font-size: 11px; line-height: 18px;\">17-نظارت كلان بر فعاليتهاي بخش غيردولتي در امور مربوط به مخابرات, پست, پست بانك, خدمات هوائي (پيام) و فنّاوري اطلاعات در چارچوب قوانين و مقررات و با رعايت اصل چهل و چهارم (44) قانون اساسي جمهوري اسلامي ايران . </p><p dir=\"RTL\" style=\"margin-right: 0.5in; text-align: justify; text-indent: -0.25in; line-height: 33.3333px; font-size: 11px;\">&nbsp;<b> </b><b>ج‌-&nbsp;&nbsp; ماموريتهاي وزارت ارتباطات و فناوري اطلاعات</b> </p><p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\">ماده 1- نظر به تحول چشمگير علوم و فنون مرتبط با صنايع الكترونيك ، مخابرات ، ارتباطات راديوئي و رايانه‎اي و نقش مهم و مؤثر خدمات پستي ، مخابراتي ، پست‎بانك  و سنجش از دور ، درامور فرهنگي و اقتصادي ، تعميق علايق و پيوستگي بين  جوامع انساني ، تحول نظام اداري ، كاهش مسافرتهاي غيرضرور، حفظ محيط زيست و  تشخيص منابع زميني ، هواشناسي، اقيانوس‎شناسي در برنامه‎ريزي توسعه و لزوم  تدوين و تعيين وظايف و اختيارات قانوني براي دستگاه متولي نظارت بر عرضه  خدمات مذكور و هماهنگ كردن نام و عنوان اين دستگاه، متناسب با ضرورتها  ونيازهاي زمان ، قانون وظايف و اختيارات وزارت ارتباطات و فناوري در چاچوب  سياستهاي كلي نظام به شرح ذيل تدوين مي‎شود :</p> <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\">ماده 2- بمنظور اعمال حاكميت بر طيف فركانس و حفاظت از حقوق راديوئي كشور درسطح منطقه و بين‎الملل  و تمركز امور سياستگذاري ، تدوين ضوابط و استانداردها و نظارت بر حسن  اجراي آنها در بخشهاي مختلف ارتباطات پستي و مخابراتي نظير خدمات جديد و  متعارف پستي ، مخابراتي ، مخابرات فضائي ، ارتباطات راديوئي ، انتقال داده‎ها ، انتقال صدا و تصوير ، سنجش از دور ، ارتباطات رايانه‎ي و ايجاد بستر مناسب براي اطلاع‎رساني  و آمايش و پردازش اطلاعات و روشهاي دورسنجي و پشتيباني آنها و همچنين  سياستگذاري ، در زمينه توسعه امكانات و خدمات ارتباطي مذكور ، هماهنگ با  آخرين پيشرفتهاي علمي ، تجربي و فنّاوري اطلاعات درجهان ، بموجب اين قانون  نام وزارت پست و تلگراف وتلفن ، به وزارت ارتباطات و فنّاوري اطلاعات تغيير  مي‎يابدو كليه وظايف، اختيارات و مسئوليتهاي وزير و وزارت پست وتلگراف وتلفن به وزير و وزارت ارتباطات و فنّاوري اطلاعات تفويض مي‎گردد.</p> <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\">&nbsp;</p> <p dir=\"RTL\" style=\"margin-right: 17pt; text-align: justify; text-indent: -17.85pt; line-height: 33.3333px; font-size: 11px;\">&nbsp;</p></span>        </div>     </div>]]></string>
+
+    <string name="organization_name_three">وزارت امور خارجه</string>
+    <string name="organization_website_three">http://mfa.gov.ir/</string>
+    <string name="organization_logo_three">http://mfa.gov.ir/uploads/Name.png</string>
+    <string name="organization_description_three">
+        <![CDATA[<p> وزارت امور خارجه یکی از ۱۸ وزارتخانهٔ دولت ایران است و در کنار شورای عالی امنیت ملی وظیفهٔ رسیدگی به امور بین‌المللی کشور را به عهده دارد. در حال حاضر دکتر محمدجواد ظریف سکان‌دار این وزارتخانه است. </p> <p>وزارت امور خارجه دارای یک قائم‌مقام، شش معاونت، یک سخنگو و یک مرکز آموزشی و پژوهشی است. در حال حاضر (مهر ۱۳۹۲) افراد ذیل در این پست‌ها شاغل هستند: </p> <ul><br/> <li>قائم‌مقام: مرتضی سرمدی</li><br/> <li>معاونت اروپا و آمریکا: مجید تخت‌روانچی</li><br/> <li>معاونت امور حقوقی و بین‌الملل: عباس عراقچی</li><br/> <li>معاونت عربی و آفریقا: صادق حسین جابر انصاری</li><br/> <li>معاونت اداری مالی: مهدی دانش‌یزدی</li><br/> <li>معاونت آسیا و اقیانوسیه: ابراهیم رحیم‌پور</li><br/> <li>معاونت کنسولی، امور مجلس و ایرانیان: حسن قشقاوی</li><br/> <li>سخنگو و رئیس مرکز دیپلماسی عمومی و رسانه‌ای: بهرام قاسمی</li><br/> <li>رئیس مرکز آموزش و پژوهش‌های بین‌المللی: سید محمدکاظم سجادپور</li><br/> </ul>]]></string>
+
+    <string name="organizationDetail_writeEmailOption_text">ارسال ایمیل</string>
+    <string name="organizationDetail_writeSmsOption_text">ارسال پیامک</string>
+    <string name="organizationDetail_writeCallOption_text">برقراری تماس</string>
+    <string name="organizationDetail_writeOptions_diologTitle">انتخاب کنید:</string>
+    <string name="organizationDetail_writeVisitSiteOption_text">مشاهده وبسایت</string>
+
+    <string name="lable_writeEmail_enterEmailAddress">آدرس ایمیل خود را وارد نمایید</string>
+    <string name="lable_writeEmail_enterEmailText">متن پیام خود را وارد نمایید</string>
+    <string name="lable_writeEmail_enterEmailSubject">موضوع ایمیل خود را وارد نمایید</string>
+    <string name="lable_writeEmail_sendEmail">ارسال</string>
+    <string name="lable_writeEmail_cancelEmail">لغو</string>
+    <string name="error_writeEmail_emailAddress">آدرس ایمیل وارد شده معتبر نمیباشد</string>
+    <string name="error_writeEmail_emptyEmailSubject">موضوع ایمیل نمیتواند خالی باشد</string>
+    <string name="error_writeEmail_emptyEmailText">متن ایمیل نمیتواند خالی باشد</string>
+    <string name="lable_writeEmail_sendEmailTitle">برنامه‌ای برای ارسال ایمیل انتخاب کنید:</string>
+    <string name="lable_history_emptyList">
+         تاکنون پیامی ارسال نشده است. \nبرای ارسال پیام میتوانید به قسمت سازمانها مراجعه
+        کنید
+    </string>
+    <string name="lable_organization_selectFilter">دسته‌بندی کردن سازمان بر اساس:</string>
+    <string name="lable_organization_searchHint">نام سازمان را جستجو کنید</string>
+    <string name="lable_history_moreDetails">مشاهده جزئیات بیشتر</string>
+    <string name="lable_emailDetail_date">تاریخ:</string>
+    <string name="lable_emailDetail_text">متن ایمیل:</string>
+    <string name="title_activity_emailDetails">جزییات ایمیل</string>
+    <string name="toolbar_diologTitle">راهنما:</string>
+    <string name="helpHint_activity_dashboard">این صفحه امکان دسترسی به سایر قسمت‌های برنامه را
+        فراهم میکند.
+    </string>
+    <string name="helpHint_activity_feedback">از این قسمت میتوانید مشکلات و باگهای برنامه را گزارش
+        دهید.
+    </string>
+    <string name="helpHint_activity_emailDetail">این صفحه برای نمایش کامل اطلاعات ایمیل ارسال شده
+        برای سازمان مورد نظر میباشد.
+    </string>
+    <string name="helpHint_activity_history">این صفحه برای نمایش تاریخچه‌ای از پیامها و ایمیلهای
+        ارسال شده و همچنین تماسهای انجام شده با سازمان مورد نظر میباشد.
+    </string>
+    <string name="helpHint_activity_organization">در اینجا لیست سازمانها را مشاهده میکنید و با
+        مراجعه به صفحه مربوط به هر سازمان میتوانید از راه‌های مختلف با آن ارتباط برقرار کنید.
+    </string>
+    <string name="helpHint_activity_writeEmail">از این صفحه میتوانید برای سازمان مورد نظر خود پیامی
+        را در قالب ایمیل ارسال نمایید.
+    </string>
+    <string name="helpHint_activity_profile">در این صفحه میتوانید به مدیریت حساب کاربری خود
+        بپردازید.
+    </string>
+    <string name="helpHint_activity_reminder">از این صفحه میتوانید برای تنظیم یاداور استفاده کنید.
+    </string>
+    <string name="helpHint_activity_setting">در این صفحه میتوانید تنظیمات مربوط به برنامه را مدیریت
+        کنید.
+    </string>
+    <string name="error_writeEmail_shouldCompleteProfile">برای ارسال ایمیل باید حساب کاربری خود را
+        تکمیل کنید. لطفا با مراجعه به قسمت پروفایل، اقدام به تکمیل اطلاعات خود بفرمایید.
+    </string>
+    <string name="lable_dialogConfirm">تکمیل پروفایل</string>
+    <string name="lable_profile_selectAccount">حساب کاربری خود را انتخاب کنید:</string>
+    <string name="toast_mail_success">پیام شما با موفقیت ارسال شد</string>
+    <string name="toast_mail_error">ارسال پیام با شکست مواجه شد</string>
+    <string name="toast_mail_queueToSend">پیام شما ارسال خواهد شد</string>
+    <string name="error_connection">خطا در اتصال به اینترنت</string>
+    <string name="error_writeEmail_shouldChooseAccount">برای ارسال ایمیل از طریق حساب کاربری گوگل،
+        باید یک حساب کاربری گوگل را انتخاب کنید. لطفا با مراجعه به قسمت پروفایل اقدام به تکمیل و
+        انتخاب حساب کاربری خود نمایید.
+    </string>
+    <string name="error_writeEmail_noEmailApplication">برنامه‌ای برای ارسال ایمیل روی گوشی شما نصب
+        نیست
+    </string>
+    <string name="error_writeEmail_noCallApplication">برنامه‌ای برای برقراری تماس بر روی گوشی شما
+        نصب نیست
+    </string>
+    <string name="lable_reminderItem_deletedSuccessful">یادآور مورد نظر حذف شد.</string>
+    <string name="helpHint_activity_reminderAdd">برای ایجاد یادآور میتوانید از این صفحه استفاده
+        کنید
+    </string>
+    <string name="title_activity_reminderAdd">ایجاد یادآور</string>
+    <string name="lable_reminder_selectOrganization">نام سازمان مورد نظر را انتخاب کنید:</string>
+    <string name="lable_reminder_selectDate">تاریخ مورد نظر خود را انتخاب کنید:</string>
+    <string name="lable_reminder_selectTime">زمان مورد نظر خود را انتخاب کنید:</string>
+    <string name="lable_reminder_noTimeSelected"> -- </string>
+    <string name="lable_reminder_selectText">متن مورد نظر خود را وارد کنید:</string>
+    <string name="lable_reminder_cancelReminder">لغو</string>
+    <string name="lable_reminder_createReminder">ایجاد یادآور</string>
+    <string name="mdtp_ok">تایید</string>
+    <string name="mdtp_cancel">لغو</string>
+    <string name="lable_reminder_dateDivider">/</string>
+    <string name="lable_reminder_timeDivider">:</string>
+    <string name="error_reminder_timeNotSelected">زمان برای ایجاد یادآور باید انتخاب شود.</string>
+    <string name="error_reminder_dateNotSelected">تاریخ برای ایجاد یادآور باید انتخاب شود</string>
+    <string name="error_reminder_timeMoreThanWeek">زمانی که برای یادآور انتخاب میکنید باید از یک
+        هفته کمتر باشد.
+    </string>
+    <string name="error_reminder_selectedTimeBeforeNow">زمانی که برای یادآور انتخاب میکنید نمیتواند
+        برای گذشته باشد.
+    </string>
+    <string name="error_reminder_errorWhileCreatingReminder">در ایجاد یادآور مشکلی بوجود آمده است.
+        لطفا روز و زمان مورد نظر را انتخاب کنید و مجددا تلاش کنید.
+    </string>
+    <string name="lable_reminder_emptyList">یادآوری ایجاد نشده است. میتوانید با استفاده از دکمه در
+        پایین صفحه اقدام به ایجاد یادآور کنید.
+    </string>
+    <string name="lable_reminder_notifCustomText">پیام خود را به سازمان مورد نظر ارسال نمایید
+    </string>
+    <string name="lable_setting_selectlanguage">زبان مورد استفاده در برنامه انگلیسی باشد:</string>
+    <string name="lable_setting_selectBrowserMode">برای نمایش صفحات سایت سازمانها از مرورگر خارج از
+        برنامه استفاده شود:
+    </string>
+</resources>
