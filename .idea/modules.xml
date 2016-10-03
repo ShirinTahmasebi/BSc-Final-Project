@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MScFinalProject.iml" filepath="$PROJECT_DIR$/MScFinalProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MSc-Final-Project.iml" filepath="$PROJECT_DIR$/MSc-Final-Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendao-gen/greendao-gen.iml" filepath="$PROJECT_DIR$/greendao-gen/greendao-gen.iml" />
     </modules>
