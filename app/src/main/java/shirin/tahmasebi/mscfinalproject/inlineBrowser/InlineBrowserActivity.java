@@ -14,14 +14,13 @@ import shirin.tahmasebi.mscfinalproject.R;
 
 public class InlineBrowserActivity extends MainActivity
         implements InlineBrowserPresenter.InlineBrowserView {
-    private InlineBrowserPresenter mPresenter;
     private WebView mWebView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mWebView = (WebView) findViewById(R.id.inlineBrowser_browser_webView);
-        mPresenter = new InlineBrowserPresenter(this);
+        InlineBrowserPresenter mPresenter = new InlineBrowserPresenter(this);
         mPresenter.loadUrl(this);
     }
 

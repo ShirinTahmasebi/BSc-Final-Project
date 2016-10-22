@@ -29,7 +29,6 @@ public class SettingPresenter implements SettingInteractor.SettingListener {
             locale = new Locale("fa");
         }
         changeLocale(((Activity) context).getBaseContext(), locale);
-//        mView.recreatePage();
     }
 
     public static void changeLocale(Context context, Locale locale) {
@@ -47,7 +46,5 @@ public class SettingPresenter implements SettingInteractor.SettingListener {
     public interface SettingView {
 
         void init();
-
-        void recreatePage(Configuration configuration);
     }
 }

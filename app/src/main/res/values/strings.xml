@@ -108,4 +108,6 @@
     </string>
     <string name="lable_reminder_notifCustomText">Send your message to the organization.
     </string>
+    <string name="lable_setting_selectLanguage">Select Persian language for the application:
+    </string>
 </resources>

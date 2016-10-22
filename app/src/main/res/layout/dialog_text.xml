@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,41 +10,46 @@
     android:orientation="vertical">
 
 
-    <LinearLayout android:id="@+id/toolbar"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@color/primaryDark"
-                  android:gravity="end"
-                  android:orientation="horizontal"
-                  android:padding="10dp">
+    <RelativeLayout android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/primaryDark"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
         <ImageView
             android:id="@+id/toolbar_cancelDialog_imageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:gravity="center_vertical"
             android:src="@drawable/cancel_icon"
             tools:ignore="ContentDescription"/>
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
             android:padding="@dimen/component_default_padding"
             android:text="@string/toolbar_diologTitle"
             android:textColor="#FFF"
-            app:customFont="IRAN-Sans-Bold.ttf"/>
+            app:customFont="IRAN-Sans-Bold.ttf" tools:ignore="RelativeOverlap"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <shirin.tahmasebi.mscfinalproject.view.FontableTextView
         android:id="@+id/toolbar_hint_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:gravity="start"
         android:padding="@dimen/component_comfort_padding"
         android:textSize="@dimen/txt_medium"
         app:customFont="IRAN-Sans-Bold.ttf"/>
 
-</LinearLayout>
+</RelativeLayout>

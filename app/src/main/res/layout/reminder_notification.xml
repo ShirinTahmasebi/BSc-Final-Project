@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:gravity="center_vertical">
@@ -17,7 +17,7 @@
             android:id="@+id/customNotifitcation_image_imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" tools:ignore="ContentDescription"/>
 
     </LinearLayout>
 
@@ -25,8 +25,8 @@
                   android:layout_height="match_parent"
                   android:layout_marginLeft="@dimen/component_default_margin"
                   android:layout_marginStart="@dimen/component_default_margin"
-                  android:layout_toLeftOf="@+id/customNotifitcation_imageContainer_linearLayout"
-                  android:layout_toStartOf="@+id/customNotifitcation_imageContainer_linearLayout"
+                  android:layout_toEndOf="@+id/customNotifitcation_imageContainer_linearLayout"
+                  android:layout_toRightOf="@+id/customNotifitcation_imageContainer_linearLayout"
                   android:gravity="center_vertical"
                   android:orientation="vertical">
         <TextView

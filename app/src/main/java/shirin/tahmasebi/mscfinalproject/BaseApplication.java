@@ -22,7 +22,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         SharedData.getInstance().put("locale", "fa");
         initialDaoSession();
-        initialOrganizatoinDatabase();
+        initialOrganizationDatabase();
     }
 
     private void initialDaoSession() {
@@ -32,7 +32,7 @@ public class BaseApplication extends Application {
         daoSession = daoMaster.newSession();
     }
 
-    private void initialOrganizatoinDatabase() {
+    private void initialOrganizationDatabase() {
         TypedArray typedArray =
                 getResources().obtainTypedArray(R.array.organizations);
         int count = typedArray.length();

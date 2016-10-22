@@ -15,8 +15,6 @@ import shirin.tahmasebi.mscfinalproject.util.Helper;
 
 public class DashboardActivity extends MainActivity implements DashboardPresenter.DashboardView {
 
-    private DashboardPresenter mPresenter;
-
     @Override
     public void onResume() {
         super.onResume();
@@ -25,7 +23,7 @@ public class DashboardActivity extends MainActivity implements DashboardPresente
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new DashboardPresenter(this);
+        DashboardPresenter mPresenter = new DashboardPresenter(this);
         mPresenter.onStart();
     }
 

@@ -111,7 +111,7 @@
     <string name="lable_reminder_selectOrganization">نام سازمان مورد نظر را انتخاب کنید:</string>
     <string name="lable_reminder_selectDate">تاریخ مورد نظر خود را انتخاب کنید:</string>
     <string name="lable_reminder_selectTime">زمان مورد نظر خود را انتخاب کنید:</string>
-    <string name="lable_reminder_noTimeSelected"> -- </string>
+    <string name="lable_reminder_noTimeSelected">--</string>
     <string name="lable_reminder_selectText">متن مورد نظر خود را وارد کنید:</string>
     <string name="lable_reminder_cancelReminder">لغو</string>
     <string name="lable_reminder_createReminder">ایجاد یادآور</string>
@@ -139,4 +139,7 @@
     <string name="lable_setting_selectBrowserMode">برای نمایش صفحات سایت سازمانها از مرورگر خارج از
         برنامه استفاده شود:
     </string>
+
+    <string name="lable_setting_selectLanguage">زبان برنامه فارسی باشد:</string>
+
 </resources>

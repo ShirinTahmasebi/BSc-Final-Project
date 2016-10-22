@@ -20,7 +20,7 @@ public class HistoryActivity extends MainActivity implements HistoryPresenter.Hi
         super.onCreate(savedInstanceState);
 
         mPresenter = new HistoryPresenter(this);
-        mPresenter.getHistorysList(this);
+        mPresenter.getHistoryList(this);
 
     }
 

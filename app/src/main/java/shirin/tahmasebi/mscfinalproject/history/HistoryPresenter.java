@@ -17,7 +17,7 @@ public class HistoryPresenter implements HistoryInteractor.HistoryListener {
         mInteractor = new HistoryInteractor(this);
     }
 
-    public void getHistorysList(Context context) {
+    public void getHistoryList(Context context) {
         mInteractor.retrieveHistoryList(context);
     }
 

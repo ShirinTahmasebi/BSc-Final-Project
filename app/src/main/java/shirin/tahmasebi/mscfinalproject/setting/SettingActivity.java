@@ -1,14 +1,11 @@
 package shirin.tahmasebi.mscfinalproject.setting;
 
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
-import shirin.tahmasebi.mscfinalproject.dashboard.DashboardActivity;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
 public class SettingActivity extends MainActivity implements SettingPresenter.SettingView {
@@ -41,7 +38,6 @@ public class SettingActivity extends MainActivity implements SettingPresenter.Se
     @Override
     public void init() {
         if (SharedData.getInstance().getString("locale", "fa").equals("fa")) {
-//            ((Switch) findViewById(R.id.setting_selectLanguage_switch)).setSelected(true);
             ((Switch) findViewById(R.id.setting_selectLanguage_switch)).setChecked(true);
         } else {
             ((Switch) findViewById(R.id.setting_selectLanguage_switch)).setChecked(false);
@@ -64,12 +60,5 @@ public class SettingActivity extends MainActivity implements SettingPresenter.Se
     public void changeLocale(String locale) {
         setLanguage(locale);
         SharedData.getInstance().put("locale", locale);
-    }
-
-    @Override
-    public void recreatePage(Configuration configuration) {
-        Intent intent = new Intent(this, DashboardActivity.class);
-        startActivity(intent);
-        getResources().updateConfiguration(configuration, null);
     }
 }
