@@ -1,9 +1,14 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +21,13 @@ public class OrganizationAdapter extends RecyclerView.Adapter
         <OrganizationAdapter.OrganizationViewHolder> {
     List<Organization> list = new ArrayList<>();
     private OrganizationPresenter mPresenter;
+    private Context context;
 
-    public OrganizationAdapter(OrganizationPresenter presenter, List<Organization> organizations) {
+    public OrganizationAdapter(OrganizationPresenter presenter, List<Organization> organizations,
+                               Context context) {
         mPresenter = presenter;
         list = organizations;
+        this.context = context;
     }
 
     @Override
@@ -38,6 +46,23 @@ public class OrganizationAdapter extends RecyclerView.Adapter
                 mPresenter.openOrganizationDetails(list.get(holder.getAdapterPosition()).getId());
             }
         });
+        Picasso.with(context)
+                .load(list.get(holder.getAdapterPosition()).getImage())
+                .placeholder(R.anim.loading_animation)
+                .noFade()
+                .into(holder.organizationImageView, new Callback() {
+                            @Override
+                            public void onSuccess() {
+
+                            }
+
+                            @Override
+                            public void onError() {
+                                (holder.organizationImageView)
+                                        .setImageResource(R.drawable.error);
+                            }
+                        }
+                );
     }
 
     @Override
@@ -47,11 +72,14 @@ public class OrganizationAdapter extends RecyclerView.Adapter
 
     public static class OrganizationViewHolder extends RecyclerView.ViewHolder {
         FontableTextView organizationTextView;
+        ImageView organizationImageView;
 
         public OrganizationViewHolder(View itemView) {
             super(itemView);
             organizationTextView = (FontableTextView) itemView.findViewById(
                     R.id.organization_item_textview);
+            organizationImageView = (ImageView) itemView.findViewById(
+                    R.id.organization_item_imageView);
         }
     }
 }

@@ -158,10 +158,10 @@ public class OrganizationDetailActivity extends MainActivity
 
         if (org.getIsFavorite()) {
             ((FloatingActionButton) findViewById(R.id.organizationDetail_favorite_fab))
-                    .setImageDrawable(getResources().getDrawable(R.drawable.favorite_enable_icon));
+                    .setImageDrawable(getResources().getDrawable(R.drawable.favorite_enable_icon_white));
         } else {
             ((FloatingActionButton) findViewById(R.id.organizationDetail_favorite_fab))
-                    .setImageDrawable(getResources().getDrawable(R.drawable.favorite_disable_icon));
+                    .setImageDrawable(getResources().getDrawable(R.drawable.favorite_disable_icon_white));
         }
     }
 

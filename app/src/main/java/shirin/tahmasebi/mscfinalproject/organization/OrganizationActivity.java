@@ -70,7 +70,7 @@ public class OrganizationActivity extends MainActivity
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new OrganizationAdapter(mPresenter, list));
+        recyclerView.setAdapter(new OrganizationAdapter(mPresenter, list, this));
     }
 
     @Override

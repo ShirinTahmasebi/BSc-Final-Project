@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
 
-    <include android:id="@+id/dashboard_toolbar"
-             layout="@layout/toolbar"
-             app:layout_heightPercent="12%"
-             app:layout_widthPercent="100%"/>
+    <include
+        android:id="@+id/dashboard_toolbar"
+        layout="@layout/toolbar"
+        app:layout_heightPercent="12%"
+        app:layout_widthPercent="100%" />
 
     <LinearLayout
         android:id="@+id/dashboard_header_linearLayout"
@@ -19,68 +19,74 @@
         android:background="#00FFFFFF"
         android:orientation="horizontal"
         app:layout_heightPercent="25%"
-        app:layout_widthPercent="100%"/>
+        app:layout_widthPercent="100%" />
 
-    <include android:id="@+id/dashboard_historyItemContainer_RelativeLayout"
-             layout="@layout/item_dashboard_history"
-             android:layout_width="0dp"
-             android:layout_height="0dp"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentStart="true"
-             android:layout_below="@+id/dashboard_header_linearLayout"
-             app:layout_heightPercent="20%"
-             app:layout_widthPercent="45%"/>
+    <include
+        android:id="@+id/dashboard_historyItemContainer_RelativeLayout"
+        layout="@layout/item_dashboard_history"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/dashboard_header_linearLayout"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="45%" />
 
-    <include android:id="@+id/dashboard_companyPagesItemContainer_RelativeLayout"
-             layout="@layout/item_dashboard_company"
-             android:layout_width="0dp"
-             android:layout_height="0dp"
-             android:layout_alignParentEnd="true"
-             android:layout_alignParentRight="true"
-             android:layout_below="@+id/dashboard_header_linearLayout"
-             app:layout_heightPercent="20%"
-             app:layout_widthPercent="45%"/>
+    <include
+        android:id="@+id/dashboard_companyPagesItemContainer_RelativeLayout"
+        layout="@layout/item_dashboard_company"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dashboard_header_linearLayout"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="45%" />
 
-    <include android:id="@+id/dashboard_profileItemContainer_RelativeLayout"
-             layout="@layout/item_dashboard_profile"
-             android:layout_width="0dp"
-             android:layout_height="0dp"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentStart="true"
-             android:layout_below="@+id/dashboard_historyItemContainer_RelativeLayout"
-             app:layout_heightPercent="20%"
-             app:layout_widthPercent="45%"/>
+    <include
+        android:id="@+id/dashboard_profileItemContainer_RelativeLayout"
+        layout="@layout/item_dashboard_profile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/dashboard_historyItemContainer_RelativeLayout"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="45%" />
 
-    <include android:id="@+id/dashboard_reminderItemContainer_RelativeLayout"
-             layout="@layout/item_dashboard_reminder"
-             android:layout_width="0dp"
-             android:layout_height="0dp"
-             android:layout_alignParentEnd="true"
-             android:layout_alignParentRight="true"
-             android:layout_below="@+id/dashboard_companyPagesItemContainer_RelativeLayout"
-             app:layout_heightPercent="20%"
-             app:layout_widthPercent="45%"/>
+    <include
+        android:id="@+id/dashboard_reminderItemContainer_RelativeLayout"
+        layout="@layout/item_dashboard_reminder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dashboard_companyPagesItemContainer_RelativeLayout"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="45%" />
 
-    <include android:id="@+id/dashboard_settingItemContainer_RelativeLayout"
-             layout="@layout/item_dashboard_setting"
-             android:layout_width="0dp"
-             android:layout_height="0dp"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentStart="true"
-             android:layout_below="@+id/dashboard_profileItemContainer_RelativeLayout"
-             android:gravity="end"
-             app:layout_heightPercent="20%"
-             app:layout_widthPercent="45%"/>
+    <include
+        android:id="@+id/dashboard_settingItemContainer_RelativeLayout"
+        layout="@layout/item_dashboard_setting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/dashboard_profileItemContainer_RelativeLayout"
+        android:gravity="end"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="45%" />
 
-    <include android:id="@+id/dashboard_feedbackItemContainer_RelativeLayout"
-             layout="@layout/item_dashboard_feedback"
-             android:layout_width="0dp"
-             android:layout_height="0dp"
-             android:layout_alignParentEnd="true"
-             android:layout_alignParentRight="true"
-             android:layout_below="@+id/dashboard_reminderItemContainer_RelativeLayout"
-             app:layout_heightPercent="20%"
-             app:layout_widthPercent="45%"/>
+    <include
+        android:id="@+id/dashboard_feedbackItemContainer_RelativeLayout"
+        layout="@layout/item_dashboard_feedback"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dashboard_reminderItemContainer_RelativeLayout"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="45%" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -88,7 +94,6 @@
         android:layout_alignParentBottom="true"
         android:background="#fff"
         app:layout_heightPercent="10%"
-        app:layout_widthPercent="100%"
-    />
+        app:layout_widthPercent="100%" />
 
 </android.support.percent.PercentRelativeLayout>

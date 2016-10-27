@@ -13,6 +13,8 @@
     <dimen name="radius_default">3dp</dimen>
     <dimen name="image_default_width">30dp</dimen>
     <dimen name="image_default_height">30dp</dimen>
+    <dimen name="logo_default_width">37dp</dimen>
+    <dimen name="logo_default_height">37dp</dimen>
     <dimen name="filterBackground_default_radius">5dp</dimen>
     <dimen name="component_comfort_padding">8dp</dimen>
     <dimen name="component_comfort_margin">15dp</dimen>

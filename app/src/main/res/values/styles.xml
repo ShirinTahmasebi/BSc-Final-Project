@@ -13,7 +13,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/activity_vertical_margin</item>
-        <item name="android:src">@drawable/write_icon</item>
+        <item name="android:src">@drawable/write_icon_white</item>
         <item name="borderWidth">0dp</item>
         <item name="elevation">6dp</item>
         <item name="pressedTranslationZ">12dp</item>
@@ -24,7 +24,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/activity_vertical_margin</item>
-        <item name="android:src">@drawable/favorite_disable_icon</item>
+        <item name="android:src">@drawable/favorite_disable_icon_white</item>
         <item name="borderWidth">0dp</item>
         <item name="elevation">6dp</item>
         <item name="pressedTranslationZ">12dp</item>
