@@ -19,10 +19,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mInteractor = new OrganizationInteractor(this);
     }
 
-    void openOrganizationDetails(long organizationId) {
-        mView.showOrganizationDetails(organizationId);
-    }
-
     void getOrganizationsList(Context context) {
         mInteractor.retrieveOrganizationsList(context);
     }
@@ -98,8 +94,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
     }
 
     interface OrganizationView {
-        void showOrganizationDetails(long organizationId);
-
         void showOrganizationsList(List<Organization> list);
 
         void init();

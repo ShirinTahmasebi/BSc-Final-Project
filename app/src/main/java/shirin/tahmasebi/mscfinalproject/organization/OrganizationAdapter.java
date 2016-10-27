@@ -50,12 +50,6 @@ class OrganizationAdapter extends RecyclerView.Adapter
             );
         }
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
-        holder.organizationTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.openOrganizationDetails(list.get(holder.getAdapterPosition()).getId());
-            }
-        });
         Picasso.with(context)
                 .load(list.get(holder.getAdapterPosition()).getImage())
                 .placeholder(R.anim.loading_animation)
@@ -93,10 +87,6 @@ class OrganizationAdapter extends RecyclerView.Adapter
                 mPresenter.showWriteOptions(context, list.get(holder.getAdapterPosition()).getId());
             }
         });
-    }
-
-    public void setData(List<Organization> list) {
-        this.list = list;
     }
 
     @Override

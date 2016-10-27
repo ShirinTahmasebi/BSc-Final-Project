@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
@@ -33,11 +34,8 @@ import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
 public class OrganizationActivity extends MainActivity
         implements OrganizationPresenter.OrganizationView {
 
-    private final static String EXTRA_ORGANIZATION_ID = "organizationid";
     private static final int PERMISION_REQUEST_PHONECALL = 1234;
-    private List<Organization> organizationList = new ArrayList<>();
     OrganizationPresenter mPresenter;
-    private RecyclerView recyclerView;
     private OrganizationAdapter organizationAdapter;
 
     @Override
@@ -70,16 +68,8 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
-    public void showOrganizationDetails(long organizationId) {
-        Intent organizationDetail = new Intent(this, OrganizationDetailActivity.class);
-        organizationDetail.putExtra(EXTRA_ORGANIZATION_ID, organizationId);
-        startActivity(organizationDetail);
-    }
-
-    @Override
     public void showOrganizationsList(List<Organization> list) {
-        organizationList = list;
-        recyclerView = (RecyclerView)
+        RecyclerView recyclerView = (RecyclerView)
                 findViewById(R.id.organization_organizationList_recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -257,9 +247,11 @@ public class OrganizationActivity extends MainActivity
 
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         if (requestCode == PERMISION_REQUEST_PHONECALL) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //
             }
         }
     }

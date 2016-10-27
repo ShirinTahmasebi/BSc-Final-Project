@@ -11,21 +11,21 @@ import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.ShamsiConverter;
 import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
 
-public class OrganizationInteractor {
+class OrganizationInteractor {
     private OrganizationListener mListener;
 
-    public OrganizationInteractor(OrganizationListener listener) {
+    OrganizationInteractor(OrganizationListener listener) {
         mListener = listener;
     }
 
-    public void retrieveOrganizationsList(Context context) {
+    void retrieveOrganizationsList(Context context) {
         List<Organization> list =
                 ((BaseApplication) context.getApplicationContext())
                         .daoSession.getOrganizationDao().loadAll();
         mListener.onOrganizationListRetrieved(list);
     }
 
-    public void retrieveOrganizationsListByFavoriteProperty(Context context, Boolean isFavorited) {
+    void retrieveOrganizationsListByFavoriteProperty(Context context, Boolean isFavorited) {
         List<Organization> list =
                 ((BaseApplication) context.getApplicationContext())
                         .daoSession
@@ -36,7 +36,7 @@ public class OrganizationInteractor {
         mListener.onOrganizationListRetrieved(list);
     }
 
-    public void searchOrganizationByName(Context context, String searchText) {
+    void searchOrganizationByName(Context context, String searchText) {
         List<Organization> list =
                 ((BaseApplication) context.getApplicationContext())
                         .daoSession
@@ -47,13 +47,13 @@ public class OrganizationInteractor {
         mListener.onOrganizationListRetrieved(list);
     }
 
-    public void retrieveOrganization(long id, Context context, int retrieveReason) {
+    void retrieveOrganization(long id, Context context, int retrieveReason) {
         Organization org = ((BaseApplication) context.getApplicationContext())
                 .daoSession.getOrganizationDao().load(id);
         mListener.onRetrieveOrganizationFinished(org, retrieveReason);
     }
 
-    public void toggleFavoriteOrganization(long id, Context context, int adapterPosition) {
+    void toggleFavoriteOrganization(long id, Context context, int adapterPosition) {
         Organization org = ((BaseApplication) context.getApplicationContext())
                 .daoSession.getOrganizationDao().load(id);
         org.setIsFavorite(!org.getIsFavorite());
@@ -62,7 +62,7 @@ public class OrganizationInteractor {
         mListener.onToggleFavoriteOrganizationFinished(org, adapterPosition);
     }
 
-    public void saveDialedNumber(Context context, Organization org) {
+    void saveDialedNumber(Context context, Organization org) {
         History history = new History();
         history.setType(WriteOptionEnum.CALL.getIntValue());
         history.setOrganizationName(org.getName());
@@ -71,12 +71,10 @@ public class OrganizationInteractor {
                 .getHistoryDao().insert(history);
     }
 
-    public interface OrganizationListener {
+    interface OrganizationListener {
         void onOrganizationListRetrieved(List<Organization> list);
 
         void onRetrieveOrganizationFinished(Organization org, int retrieveReason);
-
-        void onRetrieveOrganizationFinished(Organization org);
 
         void onToggleFavoriteOrganizationFinished(Organization org, int adapterPosition);
     }
