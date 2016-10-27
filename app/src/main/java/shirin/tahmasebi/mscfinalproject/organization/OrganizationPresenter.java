@@ -39,11 +39,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
     }
 
     @Override
-    public void onRetrieveOrganizationFinished(Organization org) {
-
-    }
-
-    @Override
     public void onToggleFavoriteOrganizationFinished(Organization org, int adapterPosition) {
         mView.showOrganizationFavorite(org, adapterPosition);
     }

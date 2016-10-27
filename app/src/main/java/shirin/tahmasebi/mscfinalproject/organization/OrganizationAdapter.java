@@ -52,7 +52,7 @@ class OrganizationAdapter extends RecyclerView.Adapter
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
         Picasso.with(context)
                 .load(list.get(holder.getAdapterPosition()).getImage())
-                .placeholder(R.anim.loading_animation)
+//                .placeholder(R.anim.loading_animation)
                 .noFade()
                 .into(holder.organizationImageView, new Callback() {
                             @Override
