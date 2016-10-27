@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/organizationItem_favorite_relativeLayout"
     android:layout_width="@dimen/logo_default_width"
     android:layout_height="@dimen/logo_default_height"
     android:layout_marginLeft="@dimen/component_default_margin"
@@ -7,6 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/organizationItem_favorite_imageView"
         android:layout_width="@dimen/logo_default_width"
         android:layout_height="@dimen/logo_default_height"
         android:layout_centerInParent="true"

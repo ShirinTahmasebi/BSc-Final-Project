@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -17,14 +18,14 @@ import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
-public class OrganizationAdapter extends RecyclerView.Adapter
+class OrganizationAdapter extends RecyclerView.Adapter
         <OrganizationAdapter.OrganizationViewHolder> {
-    List<Organization> list = new ArrayList<>();
+    private List<Organization> list = new ArrayList<>();
     private OrganizationPresenter mPresenter;
     private Context context;
 
-    public OrganizationAdapter(OrganizationPresenter presenter, List<Organization> organizations,
-                               Context context) {
+    OrganizationAdapter(OrganizationPresenter presenter, List<Organization> organizations,
+                        Context context) {
         mPresenter = presenter;
         list = organizations;
         this.context = context;
@@ -39,6 +40,15 @@ public class OrganizationAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(final OrganizationViewHolder holder, final int position) {
+        if (list.get(holder.getAdapterPosition()).getIsFavorite()) {
+            holder.organizationFavoriteImageView.setImageDrawable(
+                    context.getResources().getDrawable(R.drawable.favorite_enable_icon_primarydark)
+            );
+        } else {
+            holder.organizationFavoriteImageView.setImageDrawable(
+                    context.getResources().getDrawable(R.drawable.favorite_disable_icon_primarydark)
+            );
+        }
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
         holder.organizationTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +73,30 @@ public class OrganizationAdapter extends RecyclerView.Adapter
                             }
                         }
                 );
+        holder.organizationWriteRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.showWriteOptions(context, list.get(holder.getAdapterPosition()).getId());
+            }
+        });
+        holder.organizationFavoriteRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.toggleFavorite(context,
+                        list.get(holder.getAdapterPosition()).getId(),
+                        holder.getAdapterPosition());
+            }
+        });
+        holder.organizationGPSRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.showWriteOptions(context, list.get(holder.getAdapterPosition()).getId());
+            }
+        });
+    }
+
+    public void setData(List<Organization> list) {
+        this.list = list;
     }
 
     @Override
@@ -70,16 +104,32 @@ public class OrganizationAdapter extends RecyclerView.Adapter
         return list.size();
     }
 
-    public static class OrganizationViewHolder extends RecyclerView.ViewHolder {
+    static class OrganizationViewHolder extends RecyclerView.ViewHolder {
         FontableTextView organizationTextView;
         ImageView organizationImageView;
+        RelativeLayout organizationWriteRelativeLayout;
+        RelativeLayout organizationFavoriteRelativeLayout;
+        RelativeLayout organizationGPSRelativeLayout;
+        ImageView organizationFavoriteImageView;
 
-        public OrganizationViewHolder(View itemView) {
+        OrganizationViewHolder(View itemView) {
             super(itemView);
             organizationTextView = (FontableTextView) itemView.findViewById(
                     R.id.organization_item_textview);
             organizationImageView = (ImageView) itemView.findViewById(
                     R.id.organization_item_imageView);
+            organizationWriteRelativeLayout = (RelativeLayout) itemView.findViewById(
+                    R.id.organizationItem_write_relativeLayout
+            );
+            organizationFavoriteRelativeLayout = (RelativeLayout) itemView.findViewById(
+                    R.id.organizationItem_favorite_relativeLayout
+            );
+            organizationGPSRelativeLayout = (RelativeLayout) itemView.findViewById(
+                    R.id.organizationItem_gps_relativeLayout
+            );
+            organizationFavoriteImageView = (ImageView) itemView.findViewById(
+                    R.id.organizationItem_favorite_imageView
+            );
         }
     }
 }

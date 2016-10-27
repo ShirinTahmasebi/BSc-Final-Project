@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/logo_default_width"
     android:layout_height="@dimen/logo_default_height"
+    android:id="@+id/organizationItem_write_relativeLayout"
     android:layout_marginLeft="@dimen/component_default_margin"
     android:background="@drawable/organization_item_buttons_stroke"
     android:orientation="vertical">

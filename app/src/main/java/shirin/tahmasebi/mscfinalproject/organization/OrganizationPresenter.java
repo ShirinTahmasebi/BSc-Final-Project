@@ -5,21 +5,25 @@ import android.content.Context;
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 
-public class OrganizationPresenter implements OrganizationInteractor.OrganizationListener {
+class OrganizationPresenter implements OrganizationInteractor.OrganizationListener,
+        SelectWriteModeDialog.SelectWriteModeDialogListener {
     private OrganizationView mView;
-    OrganizationInteractor mInteractor;
+    private OrganizationInteractor mInteractor;
+    private static final int RETRIEVE_TO_OPEN_WRITE = 1;
+    private static final int RETRIEVE_TO_TOGGLE_FAV = 2;
 
-    public OrganizationPresenter(OrganizationView view) {
+    OrganizationPresenter(OrganizationView view) {
         mView = view;
         mInteractor = new OrganizationInteractor(this);
     }
 
-    public void openOrganizationDetails(long organizationId) {
+    void openOrganizationDetails(long organizationId) {
         mView.showOrganizationDetails(organizationId);
     }
 
-    public void getOrganizationsList(Context context) {
+    void getOrganizationsList(Context context) {
         mInteractor.retrieveOrganizationsList(context);
     }
 
@@ -28,20 +32,72 @@ public class OrganizationPresenter implements OrganizationInteractor.Organizatio
         mView.showOrganizationsList(list);
     }
 
+    @Override
+    public void onRetrieveOrganizationFinished(Organization org, int retrieveReason) {
+        if (retrieveReason == RETRIEVE_TO_OPEN_WRITE) {
+            // اینجا باید دیالوگ مربوط به نوشتن پیام این سازمان خاص را نمایش داد
+            mView.showWriteOptionDialog(this, org);
+        } else if (retrieveReason == RETRIEVE_TO_TOGGLE_FAV) {
+
+        }
+    }
+
+    @Override
+    public void onRetrieveOrganizationFinished(Organization org) {
+
+    }
+
+    @Override
+    public void onToggleFavoriteOrganizationFinished(Organization org, int adapterPosition) {
+        mView.showOrganizationFavorite(org, adapterPosition);
+    }
+
     public void onStart() {
         mView.init();
     }
 
-    public void getOrganizationsListByFavoriteProperty(Context context, Boolean isFav) {
+    void getOrganizationsListByFavoriteProperty(Context context, Boolean isFav) {
         mInteractor.retrieveOrganizationsListByFavoriteProperty(context, isFav);
     }
 
-    public void searchOrganization(Context context, String searchText) {
+    void searchOrganization(Context context, String searchText) {
         mInteractor.searchOrganizationByName(context, searchText);
         mView.closeKeyboard();
     }
 
-    public interface OrganizationView {
+    void showWriteOptions(Context context, Long organizationId) {
+        mInteractor.retrieveOrganization(organizationId, context, RETRIEVE_TO_OPEN_WRITE);
+    }
+
+    void toggleFavorite(Context context, Long organizationId, int adapterPosition) {
+        mInteractor.toggleFavoriteOrganization(organizationId, context, adapterPosition);
+    }
+
+
+    void onNumberDialed(OrganizationActivity context, Organization org) {
+        mInteractor.saveDialedNumber(context, org);
+    }
+
+    void emailSelected(SelectWriteModeDialog dialog, Organization org, Context context) {
+        if (!Helper.isNetworkAvailable(context)) {
+            mView.showNetworkProblemMessage();
+        } else {
+            mView.openEmailActivity(dialog, org);
+        }
+    }
+
+
+    @Override
+    public void onWriteOptionClicked(SelectWriteModeDialog dialog, int type, Organization org) {
+        mView.openWriteActivity(dialog, type, org);
+    }
+
+    @Override
+    public void onCancelDialogClicked(SelectWriteModeDialog dialog) {
+        mView.cancelDialog(dialog);
+    }
+
+    interface OrganizationView {
         void showOrganizationDetails(long organizationId);
 
         void showOrganizationsList(List<Organization> list);
@@ -49,5 +105,17 @@ public class OrganizationPresenter implements OrganizationInteractor.Organizatio
         void init();
 
         void closeKeyboard();
+
+        void showWriteOptionDialog(OrganizationPresenter presenter, Organization org);
+
+        void openWriteActivity(SelectWriteModeDialog dialog, int type, Organization organization);
+
+        void cancelDialog(SelectWriteModeDialog dialog);
+
+        void openEmailActivity(SelectWriteModeDialog dialog, Organization org);
+
+        void showNetworkProblemMessage();
+
+        void showOrganizationFavorite(Organization org, int adapterPosition);
     }
 }

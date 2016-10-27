@@ -49,28 +49,6 @@ public class OrganizationDetailActivity extends MainActivity
         mPresenter.showOrganizationDetail(this);
     }
 
-    private void initializeCollapsingLayoutToolbar(String name) {
-        CollapsingToolbarLayout collapsingToolbarLayout =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(name);
-        collapsingToolbarLayout.setExpandedTitleColor(
-                ContextCompat.getColor(
-                        this,
-                        android.R.color.transparent
-                )
-        );
-
-        collapsingToolbarLayout.setCollapsedTitleTextColor(
-                ContextCompat.getColor(
-                        this,
-                        android.R.color.white
-                )
-        );
-
-        final Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/IRAN-Sans-Bold.ttf");
-        collapsingToolbarLayout.setCollapsedTitleTypeface(tf);
-        collapsingToolbarLayout.setExpandedTitleTypeface(tf);
-    }
 
     @Override
     protected int getLayoutId() {
@@ -94,43 +72,6 @@ public class OrganizationDetailActivity extends MainActivity
             return;
         }
 
-        // توضیحات مربوط به سازمان را اضافه کن
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            ((FontableTextView) findViewById(R.id.description)).setText(
-                    Html.fromHtml(org.getDescription(), Html.FROM_HTML_MODE_LEGACY)
-            );
-        } else {
-            ((FontableTextView) findViewById(R.id.description)).setText(
-                    Html.fromHtml(org.getDescription())
-            );
-        }
-
-        // تیتر مربوط به سازمان را به هدر اضافه کن
-        initializeCollapsingLayoutToolbar(org.getName());
-
-        // انیمیشن لودینگ و آیکون ارور را به imageview اضافه کن
-        final Animation rotation = AnimationUtils.loadAnimation(this, R.anim.loading_animation);
-        rotation.setRepeatCount(Animation.INFINITE);
-        findViewById(R.id.image).startAnimation(rotation);
-
-        Picasso.with(this)
-                .load(org.getImage())
-                .placeholder(R.anim.loading_animation)
-                .noFade()
-                .into(((ImageView) findViewById(R.id.image)), new Callback() {
-                            @Override
-                            public void onSuccess() {
-                                rotation.cancel();
-                            }
-
-                            @Override
-                            public void onError() {
-                                rotation.cancel();
-                                ((ImageView) findViewById(R.id.image))
-                                        .setImageResource(R.drawable.error);
-                            }
-                        }
-                );
 
         //ستاره‌دار بودن یا نبودن سازمان را نمایش بده
         showOrganizationFavorite(org);
