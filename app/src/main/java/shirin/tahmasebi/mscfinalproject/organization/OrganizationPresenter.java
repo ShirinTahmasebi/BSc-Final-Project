@@ -51,9 +51,11 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mInteractor.retrieveOrganizationsListByFavoriteProperty(context, isFav);
     }
 
-    void searchOrganization(Context context, String searchText) {
+    void searchOrganization(Context context, String searchText, boolean closeKeyboard) {
         mInteractor.searchOrganizationByName(context, searchText);
-        mView.closeKeyboard();
+        if (closeKeyboard) {
+            mView.closeKeyboard();
+        }
     }
 
     void showWriteOptions(Context context, Long organizationId) {

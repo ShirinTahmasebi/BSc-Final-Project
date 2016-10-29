@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -104,7 +106,8 @@ public class OrganizationActivity extends MainActivity
 
                         mPresenter.searchOrganization(
                                 OrganizationActivity.this,
-                                searchText
+                                searchText,
+                                true
                         );
                     }
                 }
@@ -123,7 +126,8 @@ public class OrganizationActivity extends MainActivity
 
                             mPresenter.searchOrganization(
                                     OrganizationActivity.this,
-                                    searchText
+                                    searchText,
+                                    true
                             );
 
                             return true;
@@ -132,6 +136,28 @@ public class OrganizationActivity extends MainActivity
                     }
                 }
         );
+
+        ((EditText) findViewById(R.id.organization_search_editText)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mPresenter.searchOrganization(
+                        OrganizationActivity.this,
+                        s.toString(),
+                        false
+                );
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void initSpinner() {
