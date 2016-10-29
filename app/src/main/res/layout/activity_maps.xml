@@ -1,0 +1,21 @@
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+
+    <include
+        layout="@layout/toolbar"
+        app:layout_heightPercent="12%"
+        app:layout_widthPercent="100%" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="shirin.tahmasebi.mscfinalproject.organization.MapsActivity" />
+
+</android.support.percent.PercentRelativeLayout>

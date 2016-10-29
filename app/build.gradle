@@ -45,4 +45,6 @@ dependencies {
     compile 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
     compile 'com.akexorcist:localizationactivity:1.1.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    //noinspection GradleDependency
+    compile 'com.google.android.gms:play-services:9.0.0'
 }

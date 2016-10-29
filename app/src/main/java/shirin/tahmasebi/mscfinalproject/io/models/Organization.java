@@ -19,6 +19,9 @@ public class Organization {
     private String siteUrl;
     private String phoneNumber;
     private String emailAddress;
+    private Double lan;
+    private Double lat;
+    private String title;
 
     public Organization() {
     }
@@ -27,7 +30,7 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite, String siteUrl, String phoneNumber, String emailAddress) {
+    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite, String siteUrl, String phoneNumber, String emailAddress, Double lan, Double lat, String title) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -37,6 +40,9 @@ public class Organization {
         this.siteUrl = siteUrl;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
+        this.lan = lan;
+        this.lat = lat;
+        this.title = title;
     }
 
     public Long getId() {
@@ -117,6 +123,30 @@ public class Organization {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public Double getLan() {
+        return lan;
+    }
+
+    public void setLan(Double lan) {
+        this.lan = lan;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 }

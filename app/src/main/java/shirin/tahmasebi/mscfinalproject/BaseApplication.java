@@ -49,6 +49,7 @@ public class BaseApplication extends Application {
                 Organization organization = new Organization();
 
                 organization.setName(org[0]);
+                organization.setTitle(org[0]);
                 organization.setWebsite(org[1]);
                 organization.setImage(org[2]);
                 organization.setDescription(org[3]);
@@ -68,6 +69,11 @@ public class BaseApplication extends Application {
                 } else {
                     organization.setEmailAddress(org[6]);
                 }
+                double lan = Double.parseDouble(org[7]);
+                double lat = Double.parseDouble(org[8]);
+                organization.setLan(lan);
+                organization.setLat(lat);
+
                 daoSession.getOrganizationDao().insert(organization);
             }
         }

@@ -20,7 +20,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -245,13 +244,21 @@ public class OrganizationActivity extends MainActivity
 
     }
 
+    @Override
+    public void showMapActivity(Organization organization) {
+        startActivity(new Intent(this, MapsActivity.class)
+                .putExtra("Title", organization.getTitle())
+                .putExtra("Lng", organization.getLan())
+                .putExtra("Lat", organization.getLat())
+        );
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == PERMISION_REQUEST_PHONECALL) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                //
+                // ...
             }
         }
     }

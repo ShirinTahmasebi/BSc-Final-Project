@@ -32,6 +32,9 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         public final static Property SiteUrl = new Property(6, String.class, "siteUrl", false, "SITE_URL");
         public final static Property PhoneNumber = new Property(7, String.class, "phoneNumber", false, "PHONE_NUMBER");
         public final static Property EmailAddress = new Property(8, String.class, "emailAddress", false, "EMAIL_ADDRESS");
+        public final static Property Lan = new Property(9, Double.class, "lan", false, "LAN");
+        public final static Property Lat = new Property(10, Double.class, "lat", false, "LAT");
+        public final static Property Title = new Property(11, String.class, "title", false, "TITLE");
     };
 
 
@@ -55,7 +58,10 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
                 "'IS_FAVORITE' INTEGER," + // 5: isFavorite
                 "'SITE_URL' TEXT," + // 6: siteUrl
                 "'PHONE_NUMBER' TEXT," + // 7: phoneNumber
-                "'EMAIL_ADDRESS' TEXT);"); // 8: emailAddress
+                "'EMAIL_ADDRESS' TEXT," + // 8: emailAddress
+                "'LAN' REAL," + // 9: lan
+                "'LAT' REAL," + // 10: lat
+                "'TITLE' TEXT);"); // 11: title
     }
 
     /** Drops the underlying database table. */
@@ -97,6 +103,21 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         if (emailAddress != null) {
             stmt.bindString(9, emailAddress);
         }
+ 
+        Double lan = entity.getLan();
+        if (lan != null) {
+            stmt.bindDouble(10, lan);
+        }
+ 
+        Double lat = entity.getLat();
+        if (lat != null) {
+            stmt.bindDouble(11, lat);
+        }
+ 
+        String title = entity.getTitle();
+        if (title != null) {
+            stmt.bindString(12, title);
+        }
     }
 
     /** @inheritdoc */
@@ -117,7 +138,10 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
             cursor.isNull(offset + 5) ? null : cursor.getShort(offset + 5) != 0, // isFavorite
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // siteUrl
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // phoneNumber
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8) // emailAddress
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // emailAddress
+            cursor.isNull(offset + 9) ? null : cursor.getDouble(offset + 9), // lan
+            cursor.isNull(offset + 10) ? null : cursor.getDouble(offset + 10), // lat
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11) // title
         );
         return entity;
     }
@@ -134,6 +158,9 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         entity.setSiteUrl(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setPhoneNumber(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setEmailAddress(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setLan(cursor.isNull(offset + 9) ? null : cursor.getDouble(offset + 9));
+        entity.setLat(cursor.isNull(offset + 10) ? null : cursor.getDouble(offset + 10));
+        entity.setTitle(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
      }
     
     /** @inheritdoc */

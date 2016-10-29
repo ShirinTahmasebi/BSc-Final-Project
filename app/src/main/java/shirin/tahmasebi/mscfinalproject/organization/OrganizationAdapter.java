@@ -52,7 +52,6 @@ class OrganizationAdapter extends RecyclerView.Adapter
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
         Picasso.with(context)
                 .load(list.get(holder.getAdapterPosition()).getImage())
-//                .placeholder(R.anim.loading_animation)
                 .noFade()
                 .into(holder.organizationImageView, new Callback() {
                             @Override
@@ -84,7 +83,7 @@ class OrganizationAdapter extends RecyclerView.Adapter
         holder.organizationGPSRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.showWriteOptions(context, list.get(holder.getAdapterPosition()).getId());
+                mPresenter.showMapActivity(list.get(holder.getAdapterPosition()));
             }
         });
     }

@@ -10,7 +10,7 @@
         <item>ورود با گوگل</item>
         <item>ورود با سایر حسابها</item>
     </string-array>
-    
+
     <string-array name="organization1">
         <item name="name">دفتر مقام معظم رهبری</item>
         <item name="website">www.leader.ir</item>
@@ -20,8 +20,10 @@
         <item name="site_url">http://www.leader.ir/fa/contact</item>
         <item name="phone_number">02164411</item>
         <item name="email_address">NULL</item>
+        <item name="lan">35.693673</item>
+        <item name="lat">51.397476</item>
     </string-array>
-    
+
     <string-array name="organization2">
         <item name="name">وزارت ارتباطات و فناوری اطلاعات</item>
         <item name="website">https://www.ict.gov.ir</item>
@@ -35,8 +37,10 @@
         </item>
         <item name="phone_number">02188114150</item>
         <item name="email_address">NULL</item>
+        <item name="lan">35.737700</item>
+        <item name="lat">51.447344</item>
     </string-array>
-    
+
     <string-array name="organization3">
         <item name="name">وزارت امور خارجه</item>
         <item name="website">http://mfa.gov.ir/</item>
@@ -46,6 +50,8 @@
         <item name="site_url">http://comment.mfa.gov.ir/index.aspx?fkeyid=&amp;siteid=453&amp;pageid=22691</item>
         <item name="phone_number">02161156115</item>
         <item name="email_address">info@mfa.gov.ir</item>
+        <item name="lan">35.688400</item>
+        <item name="lat">51.416205</item>
     </string-array>
     <string-array name="organization4">
         <item name="name">سازمان بازرسی کل کشور</item>
@@ -76,12 +82,14 @@
             <p dir="RTL" style="text-align: justify; line-height: 150&#x0025;; direction: rtl; unicode-bidi: embed; margin: 6.0pt 0in 6.0pt 0in;"><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;</span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-family: 'B Yekan'; font-weight: normal;"> 8. سیستم به طور خودکار به شکایاتی که قبلا به سامانه رسیدگی به شکایات </span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;</span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-family: 'B Yekan'; font-weight: normal;">ارسال شده ترتیب اثر نخواهد داد مگر اینکه موضوع با شکایت قبلی تفاوت داشته باشد، </span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;</span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-family: 'B Yekan'; font-weight: normal;">لذا از ارسال شکایات تکراری خودداری نمایید.</span></strong></p>
             <p dir="RTL" style="text-align: justify; line-height: 150&#x0025;; direction: rtl; unicode-bidi: embed; margin: 6.0pt 0in 6.0pt 0in;"><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;&nbsp;</span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-family: 'B Yekan'; font-weight: normal;">9. چنانچه شکایتی توسط جمعی از اشخاص حقیقی مطرح گردد می بایست جهت ثبت با عنوان شکایت، فردی به نمایندگی ذینفعان ، مشخصات فردی خود را مرقوم نماید، در غیر اینصورت به عنوان اعلامیه مورد بررسی قرار خواهد گرفت.</span></strong></p>
             <p dir="RTL" style="text-align: justify; line-height: 150&#x0025;; direction: rtl; unicode-bidi: embed; margin: 6.0pt 0in 6.0pt 0in;"><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;</span></strong> <strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;</span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-family: 'B Yekan'; font-weight: normal;">*** </span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-weight: normal;">&nbsp;</span></strong><strong><span lang="AR-SA" style="font-size: 14.0pt; line-height: 150&#x0025;; font-family: 'B Yekan'; font-weight: normal;">درخصوص شرکت های حقوقی غیر دولتی (خصوصی) مدیرعامل یا فردی بعنوان نماینده شرکت مربوطه با ارایه مشخصات کامل می تواند شکایت خود را مطرح تا مورد بررسی واقع گردد.</span></strong></p>]]></item>
-        
+
         <item name="site_url">https://shekayat.bazresi.ir/index.htm</item>
         <item name="phone_number">02161361</item>
         <item name="email_address">NULL</item>
+        <item name="lan">35.706965</item>
+        <item name="lat">51.418916</item>
     </string-array>
-    
+
     <string-array name="organization5">
         <item name="name">سامانه نظارتی ارتباطات مردمی ریاست جمهوری</item>
         <item name="website">www.saamad.ir</item>
@@ -91,6 +99,8 @@
         <item name="site_url">www.saamad.ir</item>
         <item name="phone_number">0216133111</item>
         <item name="email_address">NULL</item>
+        <item name="lan">35.691751</item>
+        <item name="lat">51.392849</item>
     </string-array>
     <string-array name="organization6">
         <item name="name">وزارت آموزش و پرورش</item>
@@ -102,6 +112,8 @@
         <item name="site_url">http://shekayat.medu.ir/</item>
         <item name="phone_number">02182282221</item>
         <item name="email_address">NULL</item>
+        <item name="lan">35.704980</item>
+        <item name="lat">51.418277</item>
     </string-array>
     <string-array name="organization7">
         <item name="name">مجلس شورای اسلامی</item>
@@ -115,6 +127,8 @@
         <item name="site_url">http://www.parliran.ir/majles/fa/home</item>
         <item name="phone_number">NULL</item>
         <item name="email_address">Islamic@parliran.ir</item>
+        <item name="lan">35.691862</item>
+        <item name="lat">51.434383</item>
     </string-array>
 
     <string-array name="organization8">
@@ -168,6 +182,8 @@
         <item name="site_url">http://www.parliran.ir/majles/fa/home</item>
         <item name="phone_number">02188623591</item>
         <item name="email_address">NULL</item>
+        <item name="lan">35.701216</item>
+        <item name="lat">51.376251</item>
     </string-array>
 
     <string-array name="organization9">
@@ -184,6 +200,8 @@
         <item name="site_url">http://justice.ir/home</item>
         <item name="phone_number">02188893621</item>
         <item name="email_address">info@justice.ir</item>
+        <item name="lan">35.709956</item>
+        <item name="lat">51.406130</item>
     </string-array>
     <string-array name="organization10">
         <item name="name">وزارت راه و شهرسازی</item>
@@ -237,6 +255,8 @@
         </item>
         <item name="phone_number">02188646064</item>
         <item name="email_address">public_relation@mrt.ir</item>
+        <item name="lan">35.746992</item>
+        <item name="lat">51.420593</item>
     </string-array>
     <string-array name="organization11">
         <item name="name">وزارت صنعت معدن وتجارت</item>
@@ -280,8 +300,10 @@
         </item>
         <item name="phone_number">02143606</item>
         <item name="email_address">info@mimt.gov.ir</item>
+        <item name="lan">35.713518</item>
+        <item name="lat">51.415403</item>
     </string-array>
-    
+
     <array name="organizations">
         <item>@array/organization1</item>
         <item>@array/organization2</item>

@@ -88,6 +88,10 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mView.cancelDialog(dialog);
     }
 
+    public void showMapActivity(Organization organization) {
+        mView.showMapActivity(organization);
+    }
+
     interface OrganizationView {
         void showOrganizationsList(List<Organization> list);
 
@@ -106,5 +110,7 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         void showNetworkProblemMessage();
 
         void showOrganizationFavorite(Organization org, int adapterPosition);
+
+        void showMapActivity(Organization organization);
     }
 }

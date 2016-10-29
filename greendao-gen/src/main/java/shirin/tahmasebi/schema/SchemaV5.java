@@ -28,6 +28,9 @@ public class SchemaV5 extends Schema {
         organization.addStringProperty("siteUrl");
         organization.addStringProperty("phoneNumber");
         organization.addStringProperty("emailAddress");
+        organization.addDoubleProperty("lan");
+        organization.addDoubleProperty("lat");
+        organization.addStringProperty("title");
         return organization;
     }
 
