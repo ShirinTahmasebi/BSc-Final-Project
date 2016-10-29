@@ -3,7 +3,10 @@ package shirin.tahmasebi.mscfinalproject;
 import android.app.Application;
 import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import shirin.tahmasebi.mscfinalproject.io.models.DaoMaster;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
@@ -13,6 +16,7 @@ import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
 public class BaseApplication extends Application {
     public DaoSession daoSession;
+    public FirebaseAnalytics firebaseAnalytics;
 
     @Override
     public void onCreate() {
@@ -23,6 +27,12 @@ public class BaseApplication extends Application {
         SharedData.getInstance().put("locale", "fa");
         initialDaoSession();
         initialOrganizationDatabase();
+        // Obtain the FirebaseAnalytics instance.
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle params = new Bundle();
+        params.putString("image_name", "testName");
+        params.putString("full_text", "testText");
+        firebaseAnalytics.logEvent("share_image", params);
     }
 
     private void initialDaoSession() {

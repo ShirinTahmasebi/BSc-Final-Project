@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
+import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 
@@ -55,6 +56,7 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mInteractor.searchOrganizationByName(context, searchText);
         if (closeKeyboard) {
             mView.closeKeyboard();
+            Helper.logEvent(context, "search", searchText);
         }
     }
 

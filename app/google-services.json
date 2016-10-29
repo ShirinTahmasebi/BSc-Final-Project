@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "129919422689",
-    "project_id": "firebase-mscfinalproject"
+    "firebase_url": "https://fir-mscfinalproject.firebaseio.com",
+    "project_id": "firebase-mscfinalproject",
+    "storage_bucket": "firebase-mscfinalproject.appspot.com"
   },
   "client": [
     {
@@ -21,6 +23,10 @@
           }
         },
         {
+          "client_id": "129919422689-pjnoc28e52e3nlhbgeaar7566i05thfr.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
           "client_id": "129919422689-454h64c7b7q2uo4j9j5313ooqunibtma.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129919422689-pjnoc28e52e3nlhbgeaar7566i05thfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
