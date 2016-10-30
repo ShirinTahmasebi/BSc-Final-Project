@@ -59,4 +59,5 @@ public abstract class MainActivity extends LocalizationActivity {
     }
 
     protected abstract int getActivityTitleResourceId();
+
 }
