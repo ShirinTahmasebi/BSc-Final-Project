@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.List;
@@ -55,6 +56,22 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new ReminderAdapter(mPresenter, list, this));
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
     }
 
     @Override
@@ -71,7 +88,7 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
 
     @Override
     public void openAddReminderActivity() {
-        Intent intent = new Intent(this, ReminderAddActivity.class);
+        Intent intent = new Intent(this, ReminderAddViewPagerActivity.class);
         startActivity(intent);
     }
 

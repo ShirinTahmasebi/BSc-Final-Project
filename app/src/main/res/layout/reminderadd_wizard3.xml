@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reminder_customText_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/reminder_buttonContainer_linearLayout"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/reminder_time_linearLayout"
+    android:layout_marginBottom="@dimen/component_comfort_margin"
+    android:layout_marginLeft="@dimen/component_default_margin"
+    android:layout_marginRight="@dimen/component_default_margin"
+    android:layout_marginTop="@dimen/component_default_margin"
+    android:background="@android:color/white"
+    android:elevation="2dp"
+    android:gravity="center_vertical|end"
+    android:orientation="vertical"
+    tools:targetApi="lollipop">
+
+    <shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout
+        android:id="@+id/reminder_customText_attractiveTextInputLayout"
+        style="@style/FieldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        app:errorTextAppearance="@style/FieldHintErrorStyle"
+        app:hintTextAppearance="@style/FieldHintDefaultBlackStyle">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+            android:id="@+id/reminder_customText_editText"
+            style="@style/EditTextBottomLineStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/lable_reminder_selectText"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            app:customFont="IRAN-Sans-Bold.ttf" />
+    </shirin.tahmasebi.mscfinalproject.view.AttractiveTextInputLayout>
+
+</LinearLayout>

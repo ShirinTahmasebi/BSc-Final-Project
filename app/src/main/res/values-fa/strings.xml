@@ -141,5 +141,7 @@
     </string>
 
     <string name="lable_setting_selectLanguage">زبان برنامه فارسی باشد:</string>
+    <string name="next">بعدی</string>
+    <string name="prev">قبلی</string>
 
 </resources>

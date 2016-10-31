@@ -96,24 +96,6 @@ public class OrganizationActivity extends MainActivity
     }
 
     private void initSearchLayout() {
-        findViewById(R.id.organization_searchButton_linearLayout).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String searchText =
-                                ((EditText) findViewById(R.id.organization_search_editText))
-                                        .getText().toString();
-
-                        mPresenter.searchOrganization(
-                                OrganizationActivity.this,
-                                searchText,
-                                true
-                        );
-                    }
-                }
-        );
-
-
         ((EditText) findViewById(R.id.organization_search_editText)).setOnEditorActionListener(
                 new TextView.OnEditorActionListener() {
                     @Override

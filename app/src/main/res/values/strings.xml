@@ -111,4 +111,6 @@
     <string name="lable_setting_selectLanguage">Select Persian language for the application:
     </string>
     <string name="title_activity_map">موقعیت سازمان مورد نظر بر روی نقشه</string>
+    <string name="next">next</string>
+    <string name="prev">previous</string>
 </resources>

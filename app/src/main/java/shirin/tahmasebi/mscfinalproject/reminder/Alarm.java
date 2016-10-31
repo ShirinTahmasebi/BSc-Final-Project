@@ -19,8 +19,6 @@ public class Alarm extends BroadcastReceiver {
 
         ReminderActivity activity = new ReminderActivity();
         ReminderPresenter presenter = new ReminderPresenter(activity);
-//        SerializableReminder reminder = (SerializableReminder)
-//                intent.getSerializableExtra("reminder");
         long reminder = intent.getExtras().getLong("reminder");
         presenter.showNotification(context, reminder);
 
