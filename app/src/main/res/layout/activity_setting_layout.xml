@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar"
-             app:layout_heightPercent="12%"
-             app:layout_widthPercent="100%"/>
+    <include
+        layout="@layout/toolbar"
+        app:layout_heightPercent="12%"
+        app:layout_widthPercent="100%" />
 
 
     <RelativeLayout
+        android:id="@+id/setting_selectLanguage_relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/tool_bar"
         android:layout_margin="@dimen/component_default_margin"
-        android:padding="@dimen/component_comfort_padding"
         android:background="@android:color/white"
         android:elevation="2dp"
         android:gravity="center_vertical"
+        android:padding="@dimen/component_comfort_padding"
         tools:targetApi="lollipop">
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
@@ -33,13 +35,88 @@
             android:text="@string/lable_setting_selectLanguage"
             android:textColor="@color/black"
             android:textSize="@dimen/txt_small"
-            app:customFont="IRAN-Sans-Bold.ttf"/>
+            app:customFont="IRAN-Sans-Bold.ttf" />
 
-        <Switch android:id="@+id/setting_selectLanguage_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+        <Switch
+            android:id="@+id/setting_selectLanguage_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/setting_useInAppGPS_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/setting_selectLanguage_relativeLayout"
+        android:layout_margin="@dimen/component_default_margin"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/component_comfort_padding"
+        tools:targetApi="lollipop">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_setting_useInAppGPS"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf" />
+
+        <Switch
+            android:id="@+id/setting_useInAppGPS_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/setting_useInApp‌Browser_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/setting_useInAppGPS_relativeLayout"
+        android:layout_margin="@dimen/component_default_margin"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/component_comfort_padding"
+        tools:targetApi="lollipop">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:padding="@dimen/component_default_padding"
+            android:text="@string/lable_setting_useInAppBrowser"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf" />
+
+        <Switch
+            android:id="@+id/setting_useInAppBroweser_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>

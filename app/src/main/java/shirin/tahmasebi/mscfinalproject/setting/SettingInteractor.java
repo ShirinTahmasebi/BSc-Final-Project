@@ -1,14 +1,26 @@
 package shirin.tahmasebi.mscfinalproject.setting;
 
-public class SettingInteractor {
+import android.content.Context;
+
+import shirin.tahmasebi.mscfinalproject.util.SharedData;
+
+class SettingInteractor {
 
     private SettingListener mListener;
 
-    public SettingInteractor(SettingListener listener) {
+    SettingInteractor(SettingListener listener) {
         mListener = listener;
     }
 
-    public interface SettingListener {
+    void changeGSPSwitch(boolean isChecked) {
+        SharedData.getInstance().put("defaultGps", isChecked);
+    }
+
+    void changeBrowserSwitch(boolean isChecked) {
+        SharedData.getInstance().put("defaultBrowser", isChecked);
+    }
+
+    interface SettingListener {
 
     }
 }

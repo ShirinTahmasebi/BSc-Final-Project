@@ -143,5 +143,7 @@
     <string name="lable_setting_selectLanguage">زبان برنامه فارسی باشد:</string>
     <string name="next">بعدی</string>
     <string name="prev">قبلی</string>
+    <string name="lable_setting_useInAppGPS">برای نمایش نقشه از خود برنامه استفاده شود:</string>
+    <string name="lable_setting_useInAppBrowser">از مرورگر خود برنامه استفاده شود:</string>
 
 </resources>

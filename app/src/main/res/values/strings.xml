@@ -113,4 +113,6 @@
     <string name="title_activity_map">موقعیت سازمان مورد نظر بر روی نقشه</string>
     <string name="next">next</string>
     <string name="prev">previous</string>
+    <string name="lable_setting_useInAppGPS">Use in app Map:</string>
+    <string name="lable_setting_useInAppBrowser">Use in app Browser:</string>
 </resources>

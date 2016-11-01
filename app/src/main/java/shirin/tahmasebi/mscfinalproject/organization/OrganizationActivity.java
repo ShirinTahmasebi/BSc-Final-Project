@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,7 @@ import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.inlineBrowser.InlineBrowserActivity;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
+import shirin.tahmasebi.mscfinalproject.util.SharedData;
 import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
 
 public class OrganizationActivity extends MainActivity
@@ -218,11 +220,22 @@ public class OrganizationActivity extends MainActivity
                 Helper.showToast(this, R.string.error_writeEmail_noCallApplication);
             }
         } else if (type == WriteOptionEnum.WEBSITE.getIntValue()) {
-            String url = org.getSiteUrl();
-            final String EXTRA_URL = "customurl";
-            Intent intent = new Intent(this, InlineBrowserActivity.class);
-            intent.putExtra(EXTRA_URL, url);
-            startActivity(intent);
+            if (SharedData.getInstance().getBoolean("defaultBrowser", true)) {
+                String url = org.getSiteUrl();
+                final String EXTRA_URL = "customurl";
+                Intent intent = new Intent(this, InlineBrowserActivity.class);
+                intent.putExtra(EXTRA_URL, url);
+                startActivity(intent);
+            } else {
+                String url = org.getSiteUrl();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    Toast.makeText(this, "Activity Not Found", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 
@@ -254,11 +267,23 @@ public class OrganizationActivity extends MainActivity
 
     @Override
     public void showMapActivity(Organization organization) {
-        startActivity(new Intent(this, MapsActivity.class)
-                .putExtra("Title", organization.getTitle())
-                .putExtra("Lng", organization.getLan())
-                .putExtra("Lat", organization.getLat())
-        );
+        if (SharedData.getInstance().getBoolean("defaultGps", true)) {
+            startActivity(new Intent(this, MapsActivity.class)
+                    .putExtra("Title", organization.getTitle())
+                    .putExtra("Lng", organization.getLan())
+                    .putExtra("Lat", organization.getLat())
+            );
+        } else {
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                    Uri.parse("geo:0,0?q=" + organization.getLan() + "," + organization.getLat()
+                            + "(" + organization.getTitle() + ")"));
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException innerEx) {
+                Toast.makeText(this, "Please install a maps application", Toast.LENGTH_LONG).show();
+            }
+
+        }
     }
 
     @Override

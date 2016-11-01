@@ -7,12 +7,12 @@ import android.os.Build;
 
 import java.util.Locale;
 
-public class SettingPresenter implements SettingInteractor.SettingListener {
+class SettingPresenter implements SettingInteractor.SettingListener {
 
     private SettingView mView;
     private SettingInteractor mInteractor;
 
-    public SettingPresenter(SettingView view) {
+    SettingPresenter(SettingView view) {
         mView = view;
         mInteractor = new SettingInteractor(this);
     }
@@ -21,7 +21,7 @@ public class SettingPresenter implements SettingInteractor.SettingListener {
         mView.init();
     }
 
-    public void languageSwitchStateChanged(Context context, boolean isChecked) {
+    void languageSwitchStateChanged(Context context, boolean isChecked) {
         Locale locale;
         if (isChecked) {
             locale = Locale.ENGLISH;
@@ -31,7 +31,7 @@ public class SettingPresenter implements SettingInteractor.SettingListener {
         changeLocale(((Activity) context).getBaseContext(), locale);
     }
 
-    public static void changeLocale(Context context, Locale locale) {
+    private static void changeLocale(Context context, Locale locale) {
         Configuration conf = context.getResources().getConfiguration();
         conf.locale = locale;
         Locale.setDefault(locale);
@@ -43,7 +43,15 @@ public class SettingPresenter implements SettingInteractor.SettingListener {
         context.getResources().updateConfiguration(conf, context.getResources().getDisplayMetrics());
     }
 
-    public interface SettingView {
+    void useDefaultGpsSwitchStateChanged(boolean isChecked) {
+        mInteractor.changeGSPSwitch(isChecked);
+    }
+
+    void useDefaultBrowserSwitchStateChanged(boolean isChecked) {
+        mInteractor.changeBrowserSwitch(isChecked);
+    }
+
+    interface SettingView {
 
         void init();
     }
