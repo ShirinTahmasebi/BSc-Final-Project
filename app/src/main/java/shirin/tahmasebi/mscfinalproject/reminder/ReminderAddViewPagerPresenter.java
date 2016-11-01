@@ -45,9 +45,8 @@ class ReminderAddViewPagerPresenter implements
         dateYear = Helper.convertToEnglishDigits(dateYear);
         dateMonth = Helper.convertToEnglishDigits(dateMonth);
         dateDay = Helper.convertToEnglishDigits(dateDay);
-        if (context.getResources().getString(
-                R.string.lable_reminder_noTimeSelected).equals(timeHour)) {
-            mView.showError(R.string.error_reminder_timeNotSelected);
+        if (organizationName == null || organizationName.equals("")) {
+            mView.showError(R.string.error_reminder_organizationNotSelected);
             return;
         }
         if (context.getResources().getString(
@@ -55,6 +54,12 @@ class ReminderAddViewPagerPresenter implements
             mView.showError(R.string.error_reminder_dateNotSelected);
             return;
         }
+        if (context.getResources().getString(
+                R.string.lable_reminder_noTimeSelected).equals(timeHour)) {
+            mView.showError(R.string.error_reminder_timeNotSelected);
+            return;
+        }
+
 
         Date currentDate = Helper.currentGregorianTimeDateFormat();
         Date selectedDate = Helper.convertSolarToGregorianTimeDateFormat(
