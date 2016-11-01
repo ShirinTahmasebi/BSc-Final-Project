@@ -53,8 +53,9 @@ class OrganizationAdapter extends RecyclerView.Adapter
         }
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
         Uri uri = Uri.parse(
-                ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
-                        context.getPackageName() + "/mipmap/org" + (position + 1));
+                ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+                        + context.getPackageName() + "/mipmap/"
+                        + list.get(holder.getAdapterPosition()).getImage());
         Picasso.with(context)
                 .load(uri)
                 .resize(100, 100)
