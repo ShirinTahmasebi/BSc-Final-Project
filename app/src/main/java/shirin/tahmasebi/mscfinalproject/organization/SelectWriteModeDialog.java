@@ -85,6 +85,25 @@ public class SelectWriteModeDialog extends DialogFragment {
                     .setVisibility(View.GONE);
         }
 
+        if (mOrganization.getSmsNumber() != null) {
+            view.findViewById(R.id.organizationDetail_writeSms_linearLayout).setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int tag = Integer.parseInt(view.getTag().toString());
+                            mListener.onWriteOptionClicked(
+                                    SelectWriteModeDialog.this,
+                                    tag,
+                                    mOrganization
+                            );
+                        }
+                    }
+            );
+        } else {
+            view.findViewById(R.id.organizationDetail_writeSms_linearLayout)
+                    .setVisibility(View.GONE);
+        }
+
         if (mOrganization.getSiteUrl() != null) {
             view.findViewById(R.id.organizationDetail_visitSite_linearLayout).setOnClickListener(
                     new View.OnClickListener() {

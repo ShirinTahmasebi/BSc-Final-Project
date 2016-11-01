@@ -86,12 +86,17 @@ public class BaseApplication extends Application {
                     organization.setPhoneNumber(org[5]);
                 }
                 if ("NULL".equals(org[6])) {
+                    organization.setSmsNumber(null);
+                } else {
+                    organization.setSmsNumber(org[6]);
+                }
+                if ("NULL".equals(org[7])) {
                     organization.setEmailAddress(null);
                 } else {
-                    organization.setEmailAddress(org[6]);
+                    organization.setEmailAddress(org[7]);
                 }
-                double lan = Double.parseDouble(org[7]);
-                double lat = Double.parseDouble(org[8]);
+                double lan = Double.parseDouble(org[8]);
+                double lat = Double.parseDouble(org[9]);
                 organization.setLan(lan);
                 organization.setLat(lat);
 

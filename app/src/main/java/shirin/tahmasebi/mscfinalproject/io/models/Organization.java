@@ -18,6 +18,7 @@ public class Organization {
     private Boolean isFavorite;
     private String siteUrl;
     private String phoneNumber;
+    private String smsNumber;
     private String emailAddress;
     private Double lan;
     private Double lat;
@@ -30,7 +31,7 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite, String siteUrl, String phoneNumber, String emailAddress, Double lan, Double lat, String title) {
+    public Organization(Long id, String name, String description, String website, String image, Boolean isFavorite, String siteUrl, String phoneNumber, String smsNumber, String emailAddress, Double lan, Double lat, String title) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -39,6 +40,7 @@ public class Organization {
         this.isFavorite = isFavorite;
         this.siteUrl = siteUrl;
         this.phoneNumber = phoneNumber;
+        this.smsNumber = smsNumber;
         this.emailAddress = emailAddress;
         this.lan = lan;
         this.lat = lat;
@@ -115,6 +117,14 @@ public class Organization {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getSmsNumber() {
+        return smsNumber;
+    }
+
+    public void setSmsNumber(String smsNumber) {
+        this.smsNumber = smsNumber;
     }
 
     public String getEmailAddress() {

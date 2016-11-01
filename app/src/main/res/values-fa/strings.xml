@@ -146,5 +146,6 @@
     <string name="lable_setting_useInAppGPS">برای نمایش نقشه از خود برنامه استفاده شود:</string>
     <string name="lable_setting_useInAppBrowser">از مرورگر خود برنامه استفاده شود:</string>
     <string name="error_reminder_organizationNotSelected">سازمان برای ایجاد یادآور باید انتخاب شود.</string>
+    <string name="toast_sms_sent">پیام شما با موفقیت ارسال شد.</string>
 
 </resources>

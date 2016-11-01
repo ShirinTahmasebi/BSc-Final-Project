@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Dangerous Permission -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Dangerous Permission -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -55,7 +57,7 @@
         <activity android:name=".profile.ProfileActivity" />
         <activity android:name=".reminder.ReminderActivity" />
         <activity android:name=".setting.SettingActivity" />
-        <activity android:name=".organization.WriteEmailActivity" />
+        <activity android:name=".organization.WriteSmsEmailActivity" />
         <activity android:name=".inlineBrowser.InlineBrowserActivity" />
         <activity android:name=".history.EmailDetailActivity" />
         <activity android:name=".reminder.ReminderAddActivity" />

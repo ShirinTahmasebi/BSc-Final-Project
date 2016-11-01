@@ -42,7 +42,6 @@ public class OrganizationActivity extends MainActivity
     private static final int PERMISION_REQUEST_PHONECALL = 1234;
     OrganizationPresenter mPresenter;
     private OrganizationAdapter organizationAdapter;
-    private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,10 +85,11 @@ public class OrganizationActivity extends MainActivity
 
     @Override
     public void init() {
-
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        CollapsingToolbarLayout mCollapsingToolbarLayout =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         mCollapsingToolbarLayout.setTitle(getString(R.string.title_activity_organizationDetail));
-        mCollapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+        mCollapsingToolbarLayout.setExpandedTitleColor(
+                getResources().getColor(android.R.color.transparent));
         final Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/IRAN-Sans-Bold.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(tf);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(tf);
@@ -229,6 +229,8 @@ public class OrganizationActivity extends MainActivity
             } catch (ActivityNotFoundException ex) {
                 Helper.showToast(this, R.string.error_writeEmail_noCallApplication);
             }
+        } else if (type == WriteOptionEnum.SMS.getIntValue()) {
+            mPresenter.messageSelected(dialog, org);
         } else if (type == WriteOptionEnum.WEBSITE.getIntValue()) {
             if (SharedData.getInstance().getBoolean("defaultBrowser", true)) {
                 String url = org.getSiteUrl();
@@ -258,9 +260,23 @@ public class OrganizationActivity extends MainActivity
     public void openEmailActivity(SelectWriteModeDialog dialog, Organization org) {
         Helper.startActivityWithExtraString(
                 this,
-                WriteEmailActivity.class,
+                WriteSmsEmailActivity.class,
                 org.getId().toString(),
-                "ORGANIZATION_ID");
+                "ORGANIZATION_ID",
+                WriteOptionEnum.EMAIL.getStringValue(),
+                "TYPE");
+        dialog.dismiss();
+    }
+
+    @Override
+    public void openSmsActivity(SelectWriteModeDialog dialog, Organization org) {
+        Helper.startActivityWithExtraString(
+                this,
+                WriteSmsEmailActivity.class,
+                org.getId().toString(),
+                "ORGANIZATION_ID",
+                WriteOptionEnum.SMS.getStringValue(),
+                "TYPE");
         dialog.dismiss();
     }
 

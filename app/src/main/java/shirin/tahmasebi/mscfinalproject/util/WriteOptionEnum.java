@@ -3,7 +3,8 @@ package shirin.tahmasebi.mscfinalproject.util;
 public enum WriteOptionEnum {
     EMAIL("EMAIL", 1),
     WEBSITE("WEBSITE", 2),
-    CALL("CALL", 3);
+    CALL("CALL", 3),
+    SMS("SMS", 4);
 
     private String stringValue;
     private int intValue;

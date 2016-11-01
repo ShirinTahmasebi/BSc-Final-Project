@@ -16,15 +16,16 @@ public class WriteEmailInteractor {
     }
 
 
-    public void retrieveOrganization(long id, Context context, String subject, String text) {
+    public void retrieveOrganization(long id, Context context, String subject,
+                                     String text, String type) {
         Organization org = ((BaseApplication) context.getApplicationContext())
                 .daoSession.getOrganizationDao().load(id);
-        mListener.onRetrieveOrganizationFinished(org, subject, text);
+        mListener.onRetrieveOrganizationFinished(org, subject, text, type);
     }
 
-    public void saveSentMail(Context context, Organization org, String text) {
+    void saveSentMail(Context context, Organization org, String text, String type) {
         History history = new History();
-        history.setType(WriteOptionEnum.EMAIL.getIntValue());
+        history.setType(WriteOptionEnum.valueOf(type).getIntValue());
         history.setEmailText(text);
         history.setOrganizationName(org.getName());
         history.setDate(ShamsiConverter.getCurrentShamsiDate());
@@ -32,7 +33,8 @@ public class WriteEmailInteractor {
                 .getHistoryDao().insert(history);
     }
 
-    public interface WriteEmailListener {
-        void onRetrieveOrganizationFinished(Organization org, String subject, String text);
+     interface WriteEmailListener {
+        void onRetrieveOrganizationFinished(Organization org, String subject,
+                                            String text, String type);
     }
 }
