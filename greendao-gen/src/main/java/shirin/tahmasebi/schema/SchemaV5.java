@@ -27,6 +27,7 @@ public class SchemaV5 extends Schema {
         organization.addBooleanProperty("isFavorite");
         organization.addStringProperty("siteUrl");
         organization.addStringProperty("phoneNumber");
+        organization.addStringProperty("smsNumber");
         organization.addStringProperty("emailAddress");
         organization.addDoubleProperty("lan");
         organization.addDoubleProperty("lat");

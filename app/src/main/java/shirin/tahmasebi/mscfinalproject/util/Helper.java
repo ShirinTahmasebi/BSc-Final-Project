@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.telephony.SmsManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,9 +33,11 @@ public class Helper {
     }
 
     public static void startActivityWithExtraString(Activity activity, Class aClass,
-                                                    String data, String dataName) {
+                                                    String data1, String dataName1,
+                                                    String data2, String dataName2) {
         Intent intent = new Intent(activity, aClass);
-        intent.putExtra(dataName, data);
+        intent.putExtra(dataName1, data1);
+        intent.putExtra(dataName2, data2);
         activity.startActivity(intent);
     }
 
@@ -167,5 +170,10 @@ public class Helper {
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, contentType);
         ((BaseApplication) context.getApplicationContext()).firebaseAnalytics.
                 logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    }
+
+    public static void sendSms(String smsNumber, String text) {
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(smsNumber, null, text, null, null);
     }
 }

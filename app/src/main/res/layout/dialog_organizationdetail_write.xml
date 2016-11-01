@@ -119,10 +119,39 @@
             app:customFont="IRAN-Sans-Bold.ttf"/>
 
         <ImageView android:layout_width="30dp"
-                   android:layout_height="match_parent"
-                   android:gravity="center_vertical"
-                   android:src="@drawable/write_call_primarydark_icon"
-                   tools:ignore="ContentDescription"/>
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:src="@drawable/write_call_primarydark_icon"
+            tools:ignore="ContentDescription"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/organizationDetail_writeSms_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:padding="10dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp"
+        android:tag="4">
+
+        <shirin.tahmasebi.mscfinalproject.view.FontableTextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/organizationDetail_writeSmsOption_text"
+            android:textColor="#000"
+            app:customFont="IRAN-Sans-Bold.ttf"/>
+
+        <ImageView android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:src="@drawable/write_sms_icon"
+            tools:ignore="ContentDescription"/>
     </LinearLayout>
 
 </LinearLayout>

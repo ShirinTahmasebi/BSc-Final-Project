@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.List;
 
-import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 
@@ -13,7 +12,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
     private OrganizationView mView;
     private OrganizationInteractor mInteractor;
     private static final int RETRIEVE_TO_OPEN_WRITE = 1;
-    private static final int RETRIEVE_TO_TOGGLE_FAV = 2;
 
     OrganizationPresenter(OrganizationView view) {
         mView = view;
@@ -34,8 +32,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         if (retrieveReason == RETRIEVE_TO_OPEN_WRITE) {
             // اینجا باید دیالوگ مربوط به نوشتن پیام این سازمان خاص را نمایش داد
             mView.showWriteOptionDialog(this, org);
-        } else if (retrieveReason == RETRIEVE_TO_TOGGLE_FAV) {
-
         }
     }
 
@@ -92,6 +88,10 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mView.cancelDialog(dialog);
     }
 
+    void messageSelected(SelectWriteModeDialog dialog, Organization org) {
+        mView.openSmsActivity(dialog, org);
+    }
+
     interface OrganizationView {
         void showOrganizationsList(List<Organization> list);
 
@@ -111,5 +111,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
 
         void showOrganizationFavorite(Organization org, int adapterPosition);
 
+        void openSmsActivity(SelectWriteModeDialog dialog, Organization org);
     }
 }

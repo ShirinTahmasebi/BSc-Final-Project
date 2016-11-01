@@ -36,9 +36,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_history_call, parent, false);
         } else if (viewType == WriteOptionEnum.EMAIL.getIntValue()) {
-
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_history_mail, parent, false);
+        } else if (viewType == WriteOptionEnum.SMS.getIntValue()) {
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_history_sms, parent, false);
         }
         return new HistoryViewHolder(view, viewType);
     }
@@ -55,6 +57,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
                             mList.get(holder.getAdapterPosition()).getDate()
                     ));
         } else if (holder.viewType == WriteOptionEnum.EMAIL.getIntValue()) {
+            holder.historyEmailMoreDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mPresenter.openEmailDetail(mList.get(holder.getAdapterPosition()).getDate(),
+                            mList.get(holder.getAdapterPosition()).getEmailText());
+                }
+            });
+        } else if (holder.viewType == WriteOptionEnum.SMS.getIntValue()) {
             holder.historyEmailMoreDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -86,7 +96,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             if (viewType == WriteOptionEnum.CALL.getIntValue()) {
                 historyWriteDate = (FontableTextView) itemView.findViewById(
                         R.id.history_writeDate_textView);
-            } else if (viewType == WriteOptionEnum.EMAIL.getIntValue()) {
+            } else if (viewType == WriteOptionEnum.EMAIL.getIntValue()
+                    || viewType == WriteOptionEnum.SMS.getIntValue()) {
                 historyEmailMoreDetail = (LinearLayout) itemView.findViewById(
                         R.id.history_moreDetails_linearLayout);
             }
