@@ -37,6 +37,44 @@ public class SettingActivity extends MainActivity implements SettingPresenter.Se
 
     @Override
     public void init() {
+        initLanguage();
+        initMap();
+        initBrowser();
+    }
+
+    private void initBrowser() {
+        if (SharedData.getInstance().getBoolean("defaultBrowser", true)) {
+            ((Switch) findViewById(R.id.setting_useInAppBroweser_switch)).setChecked(true);
+        } else {
+            ((Switch) findViewById(R.id.setting_useInAppBroweser_switch)).setChecked(false);
+        }
+        ((Switch) findViewById(R.id.setting_useInAppBroweser_switch)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                        mPresenter.useDefaultBrowserSwitchStateChanged(isChecked);
+                    }
+                }
+        );
+    }
+
+    private void initMap() {
+        if (SharedData.getInstance().getBoolean("defaultGps", true)) {
+            ((Switch) findViewById(R.id.setting_useInAppGPS_switch)).setChecked(true);
+        } else {
+            ((Switch) findViewById(R.id.setting_useInAppGPS_switch)).setChecked(false);
+        }
+        ((Switch) findViewById(R.id.setting_useInAppGPS_switch)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                        mPresenter.useDefaultGpsSwitchStateChanged(isChecked);
+                    }
+                }
+        );
+    }
+
+    private void initLanguage() {
         if (SharedData.getInstance().getString("locale", "fa").equals("fa")) {
             ((Switch) findViewById(R.id.setting_selectLanguage_switch)).setChecked(true);
         } else {

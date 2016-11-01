@@ -53,9 +53,10 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/organization_filter_linearLayout"
         android:layout_margin="@dimen/component_default_margin"
-        android:elevation="4dp"
+        android:layout_marginLeft="@dimen/component_default_margin"
+        android:layout_marginStart="@dimen/component_default_margin"
+        android:background="@drawable/bg_filter_stroke_rounded"
         android:gravity="center_vertical|end"
-        android:layoutDirection="rtl"
         android:orientation="horizontal"
         android:paddingEnd="@dimen/component_comfort_padding"
         android:paddingLeft="@dimen/component_comfort_padding"
@@ -64,31 +65,25 @@
         tools:ignore="DisableBaselineAlignment"
         tools:targetApi="lollipop">
 
-
-        <LinearLayout
+        <shirin.tahmasebi.mscfinalproject.view.FontableEditText
+            android:id="@+id/organization_search_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/component_default_margin"
-            android:layout_marginStart="@dimen/component_default_margin"
-            android:background="@drawable/bg_filter_stroke_rounded">
-
-            <shirin.tahmasebi.mscfinalproject.view.FontableEditText
-                android:id="@+id/organization_search_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:gravity="end"
-                android:hint="@string/lable_organization_searchHint"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:padding="@dimen/component_default_padding"
-                android:paddingEnd="@dimen/component_comfort_padding"
-                android:paddingRight="@dimen/component_comfort_padding"
-                android:singleLine="true"
-                android:textColorHint="@color/primaryDark"
-                android:textSize="@dimen/txt_small"
-                app:customFont="IRAN-Sans-Bold.ttf" />
-        </LinearLayout>
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/organization_search_icon"
+            android:drawableRight="@drawable/organization_search_icon"
+            android:gravity="right"
+            android:hint="@string/lable_organization_searchHint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="@dimen/component_default_padding"
+            android:paddingEnd="@dimen/component_comfort_padding"
+            android:paddingRight="@dimen/component_comfort_padding"
+            android:paddingStart="@dimen/component_comfort_padding"
+            android:singleLine="true"
+            android:textColorHint="@color/primaryDark"
+            android:textSize="@dimen/txt_small"
+            app:customFont="IRAN-Sans-Bold.ttf" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -98,5 +93,5 @@
         android:layout_below="@+id/organization_search_linearLayout"
         android:scrollbars="vertical"
         tools:ignore="UnknownIdInLayout" />
-
 </android.support.percent.PercentRelativeLayout>
+

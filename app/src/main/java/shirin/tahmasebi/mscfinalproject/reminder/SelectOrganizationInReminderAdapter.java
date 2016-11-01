@@ -1,6 +1,8 @@
 package shirin.tahmasebi.mscfinalproject.reminder;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,8 +52,13 @@ class SelectOrganizationInReminderAdapter extends RecyclerView.Adapter
                     context.getResources().getColor(R.color.white));
         }
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
+
+        Uri uri = Uri.parse(
+                ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
+                        context.getPackageName() + "/mipmap/org" + (position + 1));
+
         Picasso.with(context)
-                .load(list.get(holder.getAdapterPosition()).getImage())
+                .load(uri)
                 .noFade()
                 .into(holder.organizationImageView, new Callback() {
                             @Override
