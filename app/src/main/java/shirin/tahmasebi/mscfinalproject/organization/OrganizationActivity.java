@@ -5,10 +5,12 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -40,6 +42,7 @@ public class OrganizationActivity extends MainActivity
     private static final int PERMISION_REQUEST_PHONECALL = 1234;
     OrganizationPresenter mPresenter;
     private OrganizationAdapter organizationAdapter;
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,6 +86,13 @@ public class OrganizationActivity extends MainActivity
 
     @Override
     public void init() {
+
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        mCollapsingToolbarLayout.setTitle(getString(R.string.title_activity_organizationDetail));
+        mCollapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+        final Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/IRAN-Sans-Bold.ttf");
+        mCollapsingToolbarLayout.setCollapsedTitleTypeface(tf);
+        mCollapsingToolbarLayout.setExpandedTitleTypeface(tf);
         initSpinner();
         initSearchLayout();
     }

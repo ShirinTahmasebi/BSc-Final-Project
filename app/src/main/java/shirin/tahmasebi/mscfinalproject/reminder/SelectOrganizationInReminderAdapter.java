@@ -55,7 +55,8 @@ class SelectOrganizationInReminderAdapter extends RecyclerView.Adapter
 
         Uri uri = Uri.parse(
                 ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
-                        context.getPackageName() + "/mipmap/org" + (position + 1));
+                        context.getPackageName() + "/mipmap/"
+                        + list.get(holder.getAdapterPosition()).getImage());
 
         Picasso.with(context)
                 .load(uri)
