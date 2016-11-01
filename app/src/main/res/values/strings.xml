@@ -92,6 +92,8 @@
     <string name="lable_reminder_timeDivider">:</string>
     <string name="error_reminder_timeNotSelected">You should select time to create a reminder.
     </string>
+    <string name="error_reminder_organizationNotSelected">You should select organization to
+        create a reminder.</string>
     <string name="error_reminder_dateNotSelected">You should select date to create a reminder.
     </string>
     <string name="error_reminder_timeMoreThanWeek">زمانی که برای یادآور انتخاب میکنید باید از یک

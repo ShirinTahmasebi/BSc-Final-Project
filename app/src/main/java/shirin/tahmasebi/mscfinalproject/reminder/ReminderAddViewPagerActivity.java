@@ -26,7 +26,6 @@ import java.util.List;
 import shirin.tahmasebi.mscfinalproject.MainFragmentActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
-import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.view.FontableButton;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
@@ -107,7 +106,7 @@ public class ReminderAddViewPagerActivity extends MainFragmentActivity implement
                             reminderTimeHourTextView.getText().toString(),
                             reminderTimeMinTextView.getText().toString(),
                             reminderDateYearTextView.getText().toString(),
-                            (Integer.parseInt(reminderDateMonthTextView.getText().toString())) + "",
+                            reminderDateMonthTextView.getText().toString(),
                             reminderDateDayTextView.getText().toString(),
                             reminderEditText.getText().toString(),
                             mPresenter.getOrganizationName(),
