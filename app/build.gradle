@@ -11,6 +11,7 @@ android {
         targetSdkVersion 21
         versionCode 4
         versionName "1.4"
+        multiDexEnabled true
     }
     buildTypes {
         release {
