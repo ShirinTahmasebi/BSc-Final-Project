@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.text.ParseException;
@@ -176,4 +178,18 @@ public class Helper {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(smsNumber, null, text, null, null);
     }
+
+//    public static Tracker getTracker() {
+//        Tracker tracker;
+//        if (false == isGooglePlayServicesAvailable()) {
+//            return null;
+//        }
+//
+//        if (tracker == null) {
+//            GoogleAnalytics analytics = GoogleAnalytics.getInstance(BaseApplication.mInstance);
+//            tracker = analytics.newTracker(R.xml.app_tracker);
+//        }
+//        return tracker;
+//    }
+
 }

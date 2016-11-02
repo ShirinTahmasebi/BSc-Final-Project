@@ -4,12 +4,18 @@ import android.os.Bundle;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 public class EmailDetailActivity extends MainActivity
         implements EmailDetailPresenter.EmailDetailView {
     EmailDetailPresenter mPresenter;
+
+    @Override
+    protected String getScreenName() {
+        return EmailDetailActivity.class.getSimpleName();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

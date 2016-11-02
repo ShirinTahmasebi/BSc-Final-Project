@@ -26,6 +26,11 @@ public class SettingActivity extends MainActivity implements SettingPresenter.Se
     }
 
     @Override
+    protected String getScreenName() {
+        return SettingActivity.class.getSimpleName();
+    }
+
+    @Override
     protected int getActivityHelpHint() {
         return R.string.helpHint_activity_setting;
     }

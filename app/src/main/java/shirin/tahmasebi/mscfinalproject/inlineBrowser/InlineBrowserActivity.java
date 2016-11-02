@@ -11,10 +11,16 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 
 public class InlineBrowserActivity extends MainActivity
         implements InlineBrowserPresenter.InlineBrowserView {
     private WebView mWebView;
+
+    @Override
+    protected String getScreenName() {
+        return InlineBrowserActivity.class.getSimpleName();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

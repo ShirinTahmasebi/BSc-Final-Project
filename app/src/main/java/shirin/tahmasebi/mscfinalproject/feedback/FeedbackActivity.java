@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 
@@ -25,6 +26,12 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
 
     @BindView(R.id.writeEmail_emailText_attractiveTextInputLayout)
     TextInputLayout mMailTextTextInputLayout;
+
+
+    @Override
+    protected String getScreenName() {
+        return FeedbackActivity.class.getSimpleName();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

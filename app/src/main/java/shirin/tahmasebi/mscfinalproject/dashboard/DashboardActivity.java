@@ -16,6 +16,11 @@ import shirin.tahmasebi.mscfinalproject.util.Helper;
 public class DashboardActivity extends MainActivity implements DashboardPresenter.DashboardView {
 
     @Override
+    protected String getScreenName() {
+        return DashboardActivity.class.getSimpleName();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
     }

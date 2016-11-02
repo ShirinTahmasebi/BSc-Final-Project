@@ -44,6 +44,11 @@ public class WriteSmsEmailActivity extends MainActivity implements WriteEmailPre
     }
 
     @Override
+    protected String getScreenName() {
+        return WriteSmsEmailActivity.class.getSimpleName();
+    }
+
+    @Override
     protected int getActivityHelpHint() {
         return R.string.helpHint_activity_writeEmail;
     }
