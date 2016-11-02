@@ -165,31 +165,10 @@ public class Helper {
         }
     }
 
-    public static void logEvent(Context context, String contentType, String name) {
-        Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1234");
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, contentType);
-        ((BaseApplication) context.getApplicationContext()).firebaseAnalytics.
-                logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-    }
 
     public static void sendSms(String smsNumber, String text) {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(smsNumber, null, text, null, null);
     }
-
-//    public static Tracker getTracker() {
-//        Tracker tracker;
-//        if (false == isGooglePlayServicesAvailable()) {
-//            return null;
-//        }
-//
-//        if (tracker == null) {
-//            GoogleAnalytics analytics = GoogleAnalytics.getInstance(BaseApplication.mInstance);
-//            tracker = analytics.newTracker(R.xml.app_tracker);
-//        }
-//        return tracker;
-//    }
 
 }

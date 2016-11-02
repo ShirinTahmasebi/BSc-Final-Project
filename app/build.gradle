@@ -9,8 +9,8 @@ android {
         applicationId "shirin.tahmasebi.mscfinalproject"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 4
-        versionName "1.4"
+        versionCode 5
+        versionName "1.5"
         multiDexEnabled true
     }
     buildTypes {

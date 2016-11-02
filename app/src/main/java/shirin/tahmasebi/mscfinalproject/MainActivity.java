@@ -18,7 +18,6 @@ public abstract class MainActivity extends LocalizationActivity {
         if (getLayoutId() != -1) {
             setContentView(getLayoutId());
         }
-        Helper.logEvent(this, "Activity Visited", MainActivity.class.getName());
         setLanguage(SharedData.getInstance().getString("locale", "fa"));
         setupToolbar();
         ButterKnife.bind(this);

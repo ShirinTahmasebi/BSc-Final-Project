@@ -52,7 +52,6 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mInteractor.searchOrganizationByName(context, searchText);
         if (closeKeyboard) {
             mView.closeKeyboard();
-            Helper.logEvent(context, "search", searchText);
         }
     }
 
