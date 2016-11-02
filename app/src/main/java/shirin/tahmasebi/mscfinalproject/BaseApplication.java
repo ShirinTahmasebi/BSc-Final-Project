@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.StandardExceptionParser;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -40,10 +41,21 @@ public class BaseApplication extends Application {
         params.putString("image_name", "testName");
         params.putString("full_text", "testText");
         firebaseAnalytics.logEvent("share_image", params);
-
+        initGoogleAnalytics();
         AnalyticsTrackers.initialize(this);
 
         AnalyticsTrackers.getInstance().get(AnalyticsTrackers.Target.APP);
+    }
+
+    private void initGoogleAnalytics() {
+        GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+
+        // True to prevent sending reports to server (for debugging)
+        analytics.setDryRun(false);
+        analytics.setLocalDispatchPeriod(10); // In seconds, default 1800
+        analytics.getLogger().setLogLevel(Logger.LogLevel.VERBOSE);
+        // Enable automatic activity tracking
+        analytics.enableAutoActivityReports(this);
     }
 
     private void initialDaoSession() {

@@ -22,9 +22,16 @@ public abstract class MainActivity extends LocalizationActivity {
         setLanguage(SharedData.getInstance().getString("locale", "fa"));
         setupToolbar();
         ButterKnife.bind(this);
+        reportScreen(getScreenName());
+    }
+
+    private void reportScreen(String screenName) {
+        ((BaseApplication) getApplicationContext()).trackScreenView(screenName);
     }
 
     protected abstract int getLayoutId();
+
+    protected abstract String getScreenName();
 
     private void setupToolbar() {
         if (getSupportActionBar() != null) {

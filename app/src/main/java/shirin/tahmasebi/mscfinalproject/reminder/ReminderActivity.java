@@ -39,6 +39,11 @@ public class ReminderActivity extends MainActivity implements ReminderPresenter.
     }
 
     @Override
+    protected String getScreenName() {
+        return ReminderActivity.class.getSimpleName();
+    }
+
+    @Override
     protected int getActivityHelpHint() {
         return R.string.helpHint_activity_reminder;
     }

@@ -15,11 +15,11 @@ import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
+class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
     private List<History> mList = new ArrayList<>();
     private HistoryPresenter mPresenter;
 
-    public HistoryAdapter(HistoryPresenter presenter, List<History> list) {
+    HistoryAdapter(HistoryPresenter presenter, List<History> list) {
         mPresenter = presenter;
         mList = list;
     }
@@ -80,13 +80,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         return mList.size();
     }
 
-    public static class HistoryViewHolder extends RecyclerView.ViewHolder {
+    static class HistoryViewHolder extends RecyclerView.ViewHolder {
         FontableTextView historyOrganizationName;
         FontableTextView historyWriteDate;
         LinearLayout historyEmailMoreDetail;
         int viewType;
 
-        public HistoryViewHolder(View itemView, int viewType) {
+        HistoryViewHolder(View itemView, int viewType) {
             super(itemView);
             this.viewType = viewType;
 

@@ -63,6 +63,11 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
+    protected String getScreenName() {
+        return OrganizationActivity.class.getSimpleName();
+    }
+
+    @Override
     protected int getActivityHelpHint() {
         return R.string.helpHint_activity_organization;
     }

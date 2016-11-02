@@ -29,7 +29,7 @@ public class MapsActivity extends MainFragmentActivity implements OnMapReadyCall
 
     @Override
     protected int getActivityHelpHint() {
-        return 0;
+        return R.string.helpHint_activity_map;
     }
 
     @Override

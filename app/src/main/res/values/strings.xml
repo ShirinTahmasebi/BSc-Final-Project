@@ -58,6 +58,8 @@
     </string>
     <string name="helpHint_activity_setting">You can manage general settings in this section.
     </string>
+    <string name="helpHint_activity_map">You can see the organization location here.</string>
+
     <string name="error_writeEmail_shouldCompleteProfile">
         Complete your profile through profile section to send email.
     </string>
