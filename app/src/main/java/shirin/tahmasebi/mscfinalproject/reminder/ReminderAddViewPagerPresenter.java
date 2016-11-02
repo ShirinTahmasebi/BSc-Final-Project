@@ -120,7 +120,6 @@ class ReminderAddViewPagerPresenter implements
         mInteractor.searchOrganizationByName(context, searchText);
         if (closeKeyboard) {
             mView.closeKeyboard();
-            Helper.logEvent(context, "search", searchText);
         }
     }
 
