@@ -29,8 +29,8 @@ public class ProfilePresenter implements ProfileInteractor.ProfileListener {
         mView.init(pos);
     }
 
-    public void accountTypeSelected(Activity context, int position) {
-        mInteractor.saveAccountTypeSelected(context, position, mAuthPreferences);
+    public void accountTypeSelected(int position) {
+        mInteractor.saveAccountTypeSelected(position, mAuthPreferences);
     }
 
     public void googleAccountSelected(Intent data) {

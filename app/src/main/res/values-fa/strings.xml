@@ -147,6 +147,6 @@
     <string name="lable_setting_useInAppBrowser">از مرورگر خود برنامه استفاده شود:</string>
     <string name="error_reminder_organizationNotSelected">سازمان برای ایجاد یادآور باید انتخاب شود.</string>
     <string name="toast_sms_sent">پیام شما با موفقیت ارسال شد.</string>
-    <string name="helpHint_activity_map">در این صفحه موقعیت سازمان مورد نظر را مشاهده میفرمایید.</string>
+    <string name="helpHint_activity_map">در این صفحه موقعیت سازمان مورد نظر را مشاهده میکنید.</string>
 
 </resources>

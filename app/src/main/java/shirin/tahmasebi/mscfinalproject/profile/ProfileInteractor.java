@@ -1,23 +1,22 @@
 package shirin.tahmasebi.mscfinalproject.profile;
 
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.content.Intent;
 
 import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
 import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
 
-public class ProfileInteractor {
+class ProfileInteractor {
 
     private static final int ACCOUNT_CODE = 1601;
     private ProfileListener mListener;
 
-    public ProfileInteractor(ProfileListener listener) {
+    ProfileInteractor(ProfileListener listener) {
         mListener = listener;
     }
 
-    public void saveAccountTypeSelected(Activity activity, int position,
-                                        AuthPreferences mAuthPreferences) {
+    void saveAccountTypeSelected(int position,
+                                 AuthPreferences mAuthPreferences) {
         if (position == AccountTypeEnum.Google.getIntValue()
                 && mAuthPreferences.getKeyAccountType() != null
                 && AccountTypeEnum.Google.toString().equals(
@@ -43,13 +42,13 @@ public class ProfileInteractor {
         }
     }
 
-    public void saveUser(Intent data, AuthPreferences mAuthPreferences) {
+    void saveUser(Intent data, AuthPreferences mAuthPreferences) {
         String accountName = data
                 .getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
         mAuthPreferences.setUser(accountName);
     }
 
-    public interface ProfileListener {
+    interface ProfileListener {
 
         void onGoogleAccountSelected();
     }

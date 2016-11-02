@@ -42,7 +42,7 @@
             android:paddingEnd="@dimen/component_default_padding"
             android:paddingLeft="@dimen/component_default_padding"
             android:paddingRight="@dimen/component_default_padding"
-            android:paddingStart="@dimen/component_default_padding"/>
+            android:paddingStart="@dimen/component_default_padding" />
 
 
     </LinearLayout>
