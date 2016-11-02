@@ -101,7 +101,7 @@ public class ProfileActivity extends MainFragmentActivity implements ProfilePres
             @Override
             public void onItemSelected(AdapterView<?> adapterView,
                                        View view, int position, long id) {
-                mPresenter.accountTypeSelected(ProfileActivity.this, position);
+                mPresenter.accountTypeSelected(position);
             }
 
             @Override
