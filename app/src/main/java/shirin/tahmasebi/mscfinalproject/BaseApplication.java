@@ -1,6 +1,5 @@
 package shirin.tahmasebi.mscfinalproject;
 
-import android.app.Application;
 import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.StandardExceptionParser;
 import com.google.android.gms.analytics.Tracker;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import shirin.tahmasebi.mscfinalproject.io.models.DaoMaster;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
@@ -24,7 +22,6 @@ import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
 public class BaseApplication extends MultiDexApplication {
     public DaoSession daoSession;
-    public FirebaseAnalytics firebaseAnalytics;
     public static final String TAG = BaseApplication.class.getSimpleName();
     public static BaseApplication mInstance;
 
@@ -38,12 +35,9 @@ public class BaseApplication extends MultiDexApplication {
         SharedData.getInstance().put("locale", "fa");
         initialDaoSession();
         initialOrganizationDatabase();
-        // Obtain the FirebaseAnalytics instance.
-        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle params = new Bundle();
         params.putString("image_name", "testName");
         params.putString("full_text", "testText");
-        firebaseAnalytics.logEvent("share_image", params);
         initGoogleAnalytics();
         AnalyticsTrackers.initialize(this);
 
