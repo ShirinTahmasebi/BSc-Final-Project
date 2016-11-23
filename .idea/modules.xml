@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/MSc-Final-Project.iml" filepath="$PROJECT_DIR$/MSc-Final-Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendao-gen/greendao-gen.iml" filepath="$PROJECT_DIR$/greendao-gen/greendao-gen.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MSc-Final-Project/msc-final-project.iml" filepath="$PROJECT_DIR$/MSc-Final-Project/msc-final-project.iml" />
     </modules>
   </component>
 </project>

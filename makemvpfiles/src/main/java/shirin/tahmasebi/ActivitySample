@@ -1,0 +1,35 @@
+package shirin.tahmasebi.mscfinalproject.<PackageName>;
+
+import android.os.Bundle;
+
+import shirin.tahmasebi.mscfinalproject.MainActivity;
+
+public class <ActivityName> extends MainActivity
+        implements <PresenterName>.<ViewName> {
+
+    @Override
+    protected String getScreenName() {
+        return <ActivityName>.class.getSimpleName();
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        <PresenterName> mPresenter = new <PresenterName> (this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected int getActivityHelpHint() {
+        return 0;
+    }
+
+    @Override
+    protected int getActivityTitleResourceId() {
+        return 0;
+    }
+}

@@ -1,0 +1,16 @@
+package shirin.tahmasebi.mscfinalproject.<PackageName>;
+
+class <PresenterName> implements <InteractorName>.<ListenerName> {
+
+    private <ViewName> mView;
+    private <InteractorName> mInteractor;
+
+    <PresenterName>(<ViewName> view) {
+        mView = view;
+        mInteractor = new <InteractorName>(this);
+    }
+
+    interface <ViewName> {
+    }
+}
+
