@@ -1,0 +1,13 @@
+package shirin.tahmasebi.mscfinalproject.<PackageName>;
+
+class <InteractorName> {
+
+    <ListenerName> mListener;
+
+     <InteractorName>(<ListenerName> listener) {
+        mListener = listener;
+    }
+
+    interface <ListenerName> {
+    }
+}
