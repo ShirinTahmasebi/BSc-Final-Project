@@ -1,1 +1,1 @@
-include ':app', ':greendao-gen'
+include ':app', ':greendao-gen', ':msc-final-project'
