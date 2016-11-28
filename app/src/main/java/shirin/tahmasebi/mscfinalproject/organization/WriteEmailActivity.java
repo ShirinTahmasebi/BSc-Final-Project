@@ -8,7 +8,7 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.EditText;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
@@ -19,10 +19,10 @@ public class WriteEmailActivity extends MainActivity implements WriteEmailPresen
 
     WriteEmailPresenter mPresenter;
 
-    @Bind(R.id.writeEmail_emailSubject_attractiveTextInputLayout)
+    @BindView(R.id.writeEmail_emailSubject_attractiveTextInputLayout)
     TextInputLayout mSubjectTextInputLayout;
 
-    @Bind(R.id.writeEmail_emailText_attractiveTextInputLayout)
+    @BindView(R.id.writeEmail_emailText_attractiveTextInputLayout)
     TextInputLayout mMailTextTextInputLayout;
 
     @Override

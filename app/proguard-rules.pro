@@ -60,17 +60,18 @@
 -dontwarn com.sun.**
 -dontwarn javax.activation.**
 -dontwarn org.apache.harmony.awt.**
-
--optimizationpasses 3
--overloadaggressively
--repackageclasses ''
--allowaccessmodification
-
--optimizationpasses 5
--dontusemixedcaseclassnames
--dontskipnonpubliclibraryclasses
--dontpreverify
--verbose
--optimizations !code/simplification/arithmetic,!field
+#
+#-optimizationpasses 3
+#-overloadaggressively
+#-repackageclasses ''
+#-allowaccessmodification
+#
+#-optimizationpasses 5
+#-dontusemixedcaseclassnames
+#-dontskipnonpubliclibraryclasses
+#-dontpreverify
+#-verbose
+#-optimizations !code/simplification/arithmetic,!field
 
 -keepattributes InnerClasses
+-dontoptimize

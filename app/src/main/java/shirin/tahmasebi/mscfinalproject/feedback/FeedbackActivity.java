@@ -8,7 +8,7 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.EditText;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
@@ -20,10 +20,10 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
 
     private final static String DEVELOPER_EMAIL = "tahmasebi_shirin@yahoo.com";
 
-    @Bind(R.id.writeEmail_emailSubject_attractiveTextInputLayout)
+    @BindView(R.id.writeEmail_emailSubject_attractiveTextInputLayout)
     TextInputLayout mSubjectTextInputLayout;
 
-    @Bind(R.id.writeEmail_emailText_attractiveTextInputLayout)
+    @BindView(R.id.writeEmail_emailText_attractiveTextInputLayout)
     TextInputLayout mMailTextTextInputLayout;
 
     @Override
