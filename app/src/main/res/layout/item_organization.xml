@@ -74,8 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:padding="@dimen/component_comfort_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:padding="@dimen/component_comfort_padding"/>
                 </RelativeLayout>
             </LinearLayout>
 

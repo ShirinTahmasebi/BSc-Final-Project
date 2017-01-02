@@ -57,6 +57,8 @@ class OrganizationAdapter extends RecyclerView.Adapter
                         context.getPackageName() + "/mipmap/org" + (position + 1));
         Picasso.with(context)
                 .load(uri)
+                .resize(100, 100)
+                .centerCrop()
                 .noFade()
                 .into(holder.organizationImageView, new Callback() {
                             @Override
@@ -83,12 +85,6 @@ class OrganizationAdapter extends RecyclerView.Adapter
                 mPresenter.toggleFavorite(context,
                         list.get(holder.getAdapterPosition()).getId(),
                         holder.getAdapterPosition());
-            }
-        });
-        holder.organizationGPSRelativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.showMapActivity(list.get(holder.getAdapterPosition()));
             }
         });
     }

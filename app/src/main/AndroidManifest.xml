@@ -12,14 +12,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE"
+        tools:node="remove" />
+    <uses-permission
+        android:name="com.somepackage.permission.C2D_MESSAGE"
+        tools:node="remove" />
     <!-- Avoid processor from sleeping -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".BaseApplication"
@@ -29,9 +29,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -63,7 +60,6 @@
 
         <receiver android:name=".reminder.Alarm" />
 
-        <activity android:name=".organization.MapsActivity" />
 
         <!-- Enable background dispatching to improve delivery on non-Google Play devices -->
         <receiver
@@ -90,6 +86,17 @@
         <service
             android:name="com.google.android.gms.analytics.CampaignTrackingService"
             android:enabled="true" />
+        <activity android:name=".history.HistoryActivity" />
+        <activity android:name=".feedback.FeedbackActivity"></activity>
+        <activity android:name=".organization.OrganizationActivity"></activity>
+        <activity android:name=".profile.ProfileActivity"></activity>
+        <activity android:name=".reminder.ReminderActivity"></activity>
+        <activity android:name=".setting.SettingActivity"></activity>
+        <activity android:name=".organization.OrganizationDetailActivity"></activity>
+        <activity android:name=".BaseApplication"></activity>
+        <activity android:name=".organization.WriteEmailActivity"></activity>
+        <activity android:name=".inlineBrowser.InlineBrowserActivity"></activity>
+        <activity android:name=".history.EmailDetailActivity"></activity>
     </application>
 
 </manifest>
