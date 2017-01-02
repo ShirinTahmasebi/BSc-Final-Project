@@ -2,39 +2,30 @@ package shirin.tahmasebi.mscfinalproject.feedback;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
+import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.util.AccountTypeEnum;
 import shirin.tahmasebi.mscfinalproject.util.AuthPreferences;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.mail.gmail.MailPresenter;
 
-public class FeedbackPresenter extends MailPresenter
+class FeedbackPresenter extends MailPresenter
         implements FeedbackInteractor.FeedbackListener {
     FeedbackView mView;
+    FeedbackInteractor mInteractor;
 
-
-    public FeedbackPresenter(FeedbackView view, Activity activity) {
+    FeedbackPresenter(FeedbackView view, Activity activity) {
         super(view, activity);
         mView = view;
+        mInteractor = new FeedbackInteractor(this);
     }
 
-    public void onStart(Context context) {
-        AuthPreferences authPreferences = new AuthPreferences(context);
-        if (authPreferences.getKeyAccountType() == null ||
-                authPreferences.getKeyAccountType().equals(
-                        AccountTypeEnum.NothingSelected.toString())) {
-            mView.showCompleteProfileDialog();
-        } else if (((authPreferences.getKeyAccountType().equals(
-                AccountTypeEnum.Google.toString()))
-                && (authPreferences.getUser() == null))
-                ) {
-            mView.showChooseAccountDialog();
-        } else {
-            mView.init();
-        }
+    public void onStart() {
+        mView.init();
     }
 
-    public void sendEmail(String subject, String text, String developerEmail, Context context) {
+    void sendEmail(String subject, String text, String developerEmail, Context context) {
         boolean validatedMailData = true;
         if ("".equals(subject)) {
             mView.showInputEmailSubjectError();
@@ -53,19 +44,26 @@ public class FeedbackPresenter extends MailPresenter
             if (!Helper.isNetworkAvailable(context)) {
                 mView.showNetworkProblemMessage();
             } else {
-                if (isGoogleType()) {
-                    super.sendEmail(subject, text, developerEmail);
-                } else {
-                    mView.openSendingMailIntent(
-                            subject,
-                            text
-                    );
-                }
+                mInteractor.sendEmail(subject, text, developerEmail);
+                mInteractor.sendFeedBackToServer(subject, text);
             }
         }
     }
 
-    public interface FeedbackView extends MailView {
+    @Override
+    public void onFeedBackSendingFinished(Boolean result) {
+        if (result) {
+            Log.w("mscFinalProject",
+                    "پیام با موفقیت ارسال شد ");
+            mView.showEmailSendingResult(R.string.toast_mail_success);
+        } else {
+            Log.w("mscFinalProject",
+                    "ارسال پیام با شکست مواجه شد ");
+            mView.showEmailSendingResult(R.string.toast_mail_error);
+        }
+    }
+
+    interface FeedbackView extends MailView {
         void init();
 
         void showInputEmailSubjectError();
@@ -75,12 +73,6 @@ public class FeedbackPresenter extends MailPresenter
         void showInputEmailTextError();
 
         void clearInputEmailTextError();
-
-        void openSendingMailIntent(String subject, String text);
-
-        void showCompleteProfileDialog();
-
-        void showChooseAccountDialog();
 
         void showNetworkProblemMessage();
     }

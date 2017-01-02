@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import shirin.tahmasebi.mscfinalproject.R;
-import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 import shirin.tahmasebi.mscfinalproject.profile.ProfileActivity;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 
@@ -37,7 +36,7 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new FeedbackPresenter(this, this);
-        mPresenter.onStart(this);
+        mPresenter.onStart();
     }
 
     @Override
@@ -106,36 +105,6 @@ public class FeedbackActivity extends shirin.tahmasebi.mscfinalproject.MainActiv
     public void clearInputEmailTextError() {
         mMailTextTextInputLayout.setErrorEnabled(false);
         mMailTextTextInputLayout.setError(null);
-    }
-
-    @Override
-    public void openSendingMailIntent(String subject, String text) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setData(Uri.parse("mailto:" + DEVELOPER_EMAIL));
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{DEVELOPER_EMAIL});
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, text);
-
-        try {
-            startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Helper.showToast(this, R.string.error_writeEmail_noEmailApplication);
-        }
-    }
-
-    @Override
-    public void showCompleteProfileDialog() {
-        Helper.makeConfirmDialog(FeedbackActivity.this,
-                getString(R.string.error_writeEmail_shouldCompleteProfile),
-                ProfileActivity.class);
-    }
-
-    @Override
-    public void showChooseAccountDialog() {
-        Helper.makeConfirmDialog(FeedbackActivity.this,
-                getString(R.string.error_writeEmail_shouldChooseAccount),
-                ProfileActivity.class);
     }
 
     @Override
