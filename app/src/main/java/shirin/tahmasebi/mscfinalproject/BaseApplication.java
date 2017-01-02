@@ -8,9 +8,12 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.backendless.BackendlessCollection;
 import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.BackendlessDataQuery;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Logger;
@@ -22,9 +25,14 @@ import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.AnalyticsTrackers;
+import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
 import com.backendless.Backendless;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class BaseApplication extends Application {
     public DaoSession daoSession;
@@ -44,6 +52,8 @@ public class BaseApplication extends Application {
 
         SharedData.getInstance().put("locale", "fa");
 
+        Backendless.initApp(this, APPLICATION_ID, SECRET_KEY, BACKENDLESS_VERSION);
+
         initialDaoSession();
         initialOrganizationDatabase();
 
@@ -55,7 +65,6 @@ public class BaseApplication extends Application {
         AnalyticsTrackers.initialize(this);
         AnalyticsTrackers.getInstance().get(AnalyticsTrackers.Target.APP);
 
-        Backendless.initApp(this, APPLICATION_ID, SECRET_KEY, BACKENDLESS_VERSION);
     }
 
     private void initGoogleAnalytics() {
@@ -77,56 +86,42 @@ public class BaseApplication extends Application {
     }
 
     private void initialOrganizationDatabase() {
-        TypedArray typedArray =
-                getResources().obtainTypedArray(R.array.organizations);
-        int count = typedArray.length();
-        for (int counter = 0; counter < count; counter++) {
-            String[] org = getResources().getStringArray(
-                    typedArray.getResourceId(counter, 0)
-            );
+        String lastModifiedTime = SharedData.getInstance().getString("updated", "01/01/2000 00:00:00");
+        String whereClause = "updated after '" + lastModifiedTime + "'";
 
-            if (daoSession.getOrganizationDao()
-                    .queryBuilder()
-                    .where(
-                            OrganizationDao.Properties.Name.eq(org[0])
-                    ).list().size() == 0) {
-                Organization organization = new Organization();
+        // Update last modified date.
+        String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
+        SharedData.getInstance().put("updated", currentDateAndTime);
 
-                organization.setName(org[0]);
-                organization.setTitle(org[0]);
-                organization.setWebsite(org[1]);
-                organization.setImage(org[2]);
-                organization.setDescription(org[3]);
-                organization.setIsFavorite(false);
-                if ("NULL".equals(org[4])) {
-                    organization.setSiteUrl(null);
-                } else {
-                    organization.setSiteUrl(org[4]);
-                }
-                if ("NULL".equals(org[5])) {
-                    organization.setPhoneNumber(null);
-                } else {
-                    organization.setPhoneNumber(org[5]);
-                }
-                if ("NULL".equals(org[6])) {
-                    organization.setSmsNumber(null);
-                } else {
-                    organization.setSmsNumber(org[6]);
-                }
-                if ("NULL".equals(org[7])) {
-                    organization.setEmailAddress(null);
-                } else {
-                    organization.setEmailAddress(org[7]);
-                }
-                double lan = Double.parseDouble(org[8]);
-                double lat = Double.parseDouble(org[9]);
-                organization.setLan(lan);
-                organization.setLat(lat);
+        BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+        dataQuery.setWhereClause(whereClause);
+        dataQuery.setPageSize(100);
 
-                daoSession.getOrganizationDao().insert(organization);
-            }
-        }
-        typedArray.recycle();
+        Backendless.Persistence.of(Organization.class).find(dataQuery,
+                new AsyncCallback<BackendlessCollection<Organization>>() {
+                    @Override
+                    public void handleResponse(BackendlessCollection<Organization> foundOrganizations) {
+                        // the "foundContact" collection now contains instances of the Contact class.
+                        // each instance represents an object stored on the server.
+                        for (Organization org : foundOrganizations.getCurrentPage()) {
+                            if ((daoSession.getOrganizationDao().queryBuilder().where(
+                                    OrganizationDao.Properties.No.eq(org.getNo()))).count() == 0) {
+                                daoSession.getOrganizationDao().insert(org);
+                            } else {
+                                daoSession.getOrganizationDao().queryBuilder().where(
+                                        OrganizationDao.Properties.No.eq(org.getNo()))
+                                        .buildDelete().executeDeleteWithoutDetachingEntities();
+                                daoSession.getOrganizationDao().insert(org);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+                        // an error has occurred, the error code can be retrieved with fault.getCode()
+                        Log.d("MSc final project", fault.getMessage());
+                    }
+                });
     }
 
     public static synchronized BaseApplication getInstance() {

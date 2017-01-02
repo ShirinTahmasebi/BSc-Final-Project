@@ -53,18 +53,12 @@ class SelectOrganizationInReminderAdapter extends RecyclerView.Adapter
         }
         holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
 
-        Uri uri = Uri.parse(
-                ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
-                        context.getPackageName() + "/mipmap/"
-                        + list.get(holder.getAdapterPosition()).getImage());
-
         Picasso.with(context)
-                .load(uri)
+                .load(list.get(holder.getAdapterPosition()).getLogo())
                 .noFade()
                 .into(holder.organizationImageView, new Callback() {
                             @Override
                             public void onSuccess() {
-
                             }
 
                             @Override
@@ -93,7 +87,6 @@ class SelectOrganizationInReminderAdapter extends RecyclerView.Adapter
             organizationImageView = (ImageView) itemView.findViewById(
                     R.id.organization_item_imageView);
             organizationCardView = (CardView) itemView.findViewById(R.id.orgaization_item_cardView);
-
             organizationCardView.setOnClickListener(cardSelected);
             organizationImageView.setOnClickListener(cardSelected);
             organizationTextView.setOnClickListener(cardSelected);

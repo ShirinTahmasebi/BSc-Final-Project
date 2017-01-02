@@ -104,7 +104,7 @@ public class SelectWriteModeDialog extends DialogFragment {
                     .setVisibility(View.GONE);
         }
 
-        if (mOrganization.getSiteUrl() != null) {
+        if (mOrganization.getWebsite() != null) {
             view.findViewById(R.id.organizationDetail_visitSite_linearLayout).setOnClickListener(
                     new View.OnClickListener() {
                         @Override

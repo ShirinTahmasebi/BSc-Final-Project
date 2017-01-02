@@ -238,13 +238,13 @@ public class OrganizationActivity extends MainActivity
             mPresenter.messageSelected(dialog, org);
         } else if (type == WriteOptionEnum.WEBSITE.getIntValue()) {
             if (SharedData.getInstance().getBoolean("defaultBrowser", true)) {
-                String url = org.getSiteUrl();
+                String url = org.getWebsite();
                 final String EXTRA_URL = "customurl";
                 Intent intent = new Intent(this, InlineBrowserActivity.class);
                 intent.putExtra(EXTRA_URL, url);
                 startActivity(intent);
             } else {
-                String url = org.getSiteUrl();
+                String url = org.getWebsite();
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 try {

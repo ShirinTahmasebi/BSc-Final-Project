@@ -165,6 +165,13 @@ public class Helper {
         }
     }
 
+    public static String currentGregorianTimeDateFormat(String format) {
+        Calendar currentDate = Calendar.getInstance();
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(currentDate.getTime());
+    }
+
 
     public static void sendSms(String smsNumber, String text) {
         SmsManager smsManager = SmsManager.getDefault();
