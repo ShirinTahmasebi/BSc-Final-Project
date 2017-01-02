@@ -4,12 +4,12 @@ import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
 
-public class SchemaV5 extends Schema {
+public class SchemaV6 extends Schema {
 
-    private static final int VERSION = 5;
+    private static final int VERSION = 6;
     private static final String PACKAGE = "shirin.tahmasebi.mscfinalproject.io.models";
 
-    public SchemaV5() {
+    public SchemaV6() {
         super(VERSION, PACKAGE);
         createOrganization(this);
         createHistory(this);
@@ -21,17 +21,15 @@ public class SchemaV5 extends Schema {
         organization = schema.addEntity("Organization");
         organization.addIdProperty();
         organization.addStringProperty("name").notNull();
-        organization.addStringProperty("description").notNull();
-        organization.addStringProperty("website").notNull().unique();
-        organization.addStringProperty("image").notNull();
-        organization.addBooleanProperty("isFavorite");
-        organization.addStringProperty("siteUrl");
+        organization.addStringProperty("no");
+        organization.addStringProperty("website").notNull();
         organization.addStringProperty("phoneNumber");
         organization.addStringProperty("smsNumber");
+        organization.addStringProperty("created");
+        organization.addStringProperty("updated");
+        organization.addStringProperty("logo").notNull();
+        organization.addBooleanProperty("isFavorite");
         organization.addStringProperty("emailAddress");
-        organization.addDoubleProperty("lan");
-        organization.addDoubleProperty("lat");
-        organization.addStringProperty("title");
         return organization;
     }
 
