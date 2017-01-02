@@ -20,12 +20,6 @@
         tools:node="remove" />
     <!-- Avoid processor from sleeping -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".BaseApplication"
@@ -35,9 +29,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -69,7 +60,6 @@
 
         <receiver android:name=".reminder.Alarm" />
 
-        <activity android:name=".organization.MapsActivity" />
 
         <!-- Enable background dispatching to improve delivery on non-Google Play devices -->
         <receiver
