@@ -1,10 +1,11 @@
 package shirin.tahmasebi.mscfinalproject;
 
-import android.app.Application;
 import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -19,7 +20,7 @@ import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.AnalyticsTrackers;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
     public DaoSession daoSession;
     public static final String TAG = BaseApplication.class.getSimpleName();
     public static BaseApplication mInstance;
@@ -30,6 +31,7 @@ public class BaseApplication extends Application {
         // ماژول SharedData را تعریف کن
         SharedData.init(PreferenceManager.getDefaultSharedPreferences(this));
         super.onCreate();
+        MultiDex.install(this);
         SharedData.getInstance().put("locale", "fa");
         initialDaoSession();
         initialOrganizationDatabase();
