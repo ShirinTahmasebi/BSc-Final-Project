@@ -5,7 +5,12 @@ import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.BackendlessCallback;
+import com.backendless.exceptions.BackendlessFault;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Logger;
@@ -19,9 +24,14 @@ import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.AnalyticsTrackers;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
+import com.backendless.Backendless;
+
 public class BaseApplication extends Application {
     public DaoSession daoSession;
     public static final String TAG = BaseApplication.class.getSimpleName();
+    private static final String SECRET_KEY = "678D7606-F274-5759-FF60-6F089C9CA200";
+    private static final String APPLICATION_ID = "22E74F57-FD44-EE76-FF1D-0AEB59AF8C00";
+    private static final String BACKENDLESS_VERSION = "v1";
     public static BaseApplication mInstance;
 
     @Override
@@ -29,17 +39,23 @@ public class BaseApplication extends Application {
         mInstance = this;
         // ماژول SharedData را تعریف کن
         SharedData.init(PreferenceManager.getDefaultSharedPreferences(this));
+
         super.onCreate();
+
         SharedData.getInstance().put("locale", "fa");
+
         initialDaoSession();
         initialOrganizationDatabase();
+
         Bundle params = new Bundle();
         params.putString("image_name", "testName");
         params.putString("full_text", "testText");
+
         initGoogleAnalytics();
         AnalyticsTrackers.initialize(this);
-
         AnalyticsTrackers.getInstance().get(AnalyticsTrackers.Target.APP);
+
+        Backendless.initApp(this, APPLICATION_ID, SECRET_KEY, BACKENDLESS_VERSION);
     }
 
     private void initGoogleAnalytics() {
