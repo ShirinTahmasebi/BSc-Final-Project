@@ -7,6 +7,8 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
 
+import shirin.tahmasebi.mscfinalproject.io.models.Feedback;
+
 class FeedbackInteractor {
     FeedbackListener mListener;
 
@@ -33,10 +35,10 @@ class FeedbackInteractor {
 
     void sendFeedBackToServer(String subject, String text) {
         Backendless.Persistence.save(
-                new FeedbackPOJO(subject, text),
-                new BackendlessCallback<FeedbackPOJO>() {
+                new Feedback(subject, text),
+                new BackendlessCallback<Feedback>() {
                     @Override
-                    public void handleResponse(FeedbackPOJO feedbackPOJO) {
+                    public void handleResponse(Feedback feedback) {
                         mListener.onFeedBackSendingFinished(true);
                     }
 

@@ -287,6 +287,11 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
+    public void showServerProblemMessage() {
+            Helper.showToast(this, R.string.error_server);
+    }
+
+    @Override
     public void showNetworkProblemMessage() {
         Helper.showToast(this, R.string.error_connection);
     }

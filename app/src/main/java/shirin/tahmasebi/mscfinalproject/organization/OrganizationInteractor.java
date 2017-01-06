@@ -1,6 +1,11 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
 import android.content.Context;
+import android.util.Log;
+
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 import java.util.List;
 
@@ -53,13 +58,28 @@ class OrganizationInteractor {
         mListener.onRetrieveOrganizationFinished(org, retrieveReason);
     }
 
-    void toggleFavoriteOrganization(long id, Context context, int adapterPosition) {
-        Organization org = ((BaseApplication) context.getApplicationContext())
+    void toggleFavoriteOrganization(long id, final Context context, final int adapterPosition) {
+        final Organization org = ((BaseApplication) context.getApplicationContext())
                 .daoSession.getOrganizationDao().load(id);
         org.setIsFavorite(!org.getIsFavorite());
         ((BaseApplication) context.getApplicationContext())
                 .daoSession.getOrganizationDao().insertOrReplace(org);
         mListener.onToggleFavoriteOrganizationFinished(org, adapterPosition);
+        Backendless.Persistence.save(org, new AsyncCallback<Organization>() {
+            @Override
+            public void handleResponse(Organization organization) {
+                Log.d("MScFinalProject", organization.getName() + " is favorite: " +
+                        organization.getIsFavorite());
+            }
+
+            @Override
+            public void handleFault(BackendlessFault backendlessFault) {
+                org.setIsFavorite(!org.getIsFavorite());
+                ((BaseApplication) context.getApplicationContext())
+                        .daoSession.getOrganizationDao().insertOrReplace(org);
+                mListener.onToggleFavoriteOrganizationError(backendlessFault, context);
+            }
+        });
     }
 
     void saveDialedNumber(Context context, Organization org) {
@@ -77,6 +97,8 @@ class OrganizationInteractor {
         void onRetrieveOrganizationFinished(Organization org, int retrieveReason);
 
         void onToggleFavoriteOrganizationFinished(Organization org, int adapterPosition);
+
+        void onToggleFavoriteOrganizationError(BackendlessFault backendlessFault, Context context);
     }
 }
 

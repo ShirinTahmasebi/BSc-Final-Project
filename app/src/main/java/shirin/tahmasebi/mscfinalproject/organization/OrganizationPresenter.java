@@ -2,6 +2,8 @@ package shirin.tahmasebi.mscfinalproject.organization;
 
 import android.content.Context;
 
+import com.backendless.exceptions.BackendlessFault;
+
 import java.util.List;
 
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
@@ -38,6 +40,16 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
     @Override
     public void onToggleFavoriteOrganizationFinished(Organization org, int adapterPosition) {
         mView.showOrganizationFavorite(org, adapterPosition);
+    }
+
+    @Override
+    public void onToggleFavoriteOrganizationError(
+            BackendlessFault backendlessFault, Context context) {
+        if (!Helper.isNetworkAvailable(context)) {
+            mView.showNetworkProblemMessage();
+        } else {
+            mView.showServerProblemMessage();
+        }
     }
 
     public void onStart() {
@@ -111,5 +123,7 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         void showOrganizationFavorite(Organization org, int adapterPosition);
 
         void openSmsActivity(SelectWriteModeDialog dialog, Organization org);
+
+        void showServerProblemMessage();
     }
 }

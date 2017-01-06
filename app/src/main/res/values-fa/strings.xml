@@ -149,4 +149,6 @@
     <string name="toast_sms_sent">پیام شما با موفقیت ارسال شد.</string>
     <string name="helpHint_activity_map">در این صفحه موقعیت سازمان مورد نظر را مشاهده میکنید.</string>
 
+    <string name="error_server">مشکلی در سمت سرور رخ داده است.</string>
+
 </resources>

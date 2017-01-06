@@ -1,13 +1,13 @@
-package shirin.tahmasebi.mscfinalproject.feedback;
+package shirin.tahmasebi.mscfinalproject.io.models;
 
-public class FeedbackPOJO {
+public class Feedback {
     private String message;
     private String subject;
 
-    public FeedbackPOJO() {
+    public Feedback() {
     }
 
-    public FeedbackPOJO(String message, String subject) {
+    public Feedback(String message, String subject) {
         this.message = message;
         this.subject = subject;
     }

@@ -119,4 +119,5 @@
     <string name="prev">previous</string>
     <string name="lable_setting_useInAppGPS">Use in app Map:</string>
     <string name="lable_setting_useInAppBrowser">Use in app Browser:</string>
+    <string name="error_server">Internal Server Error Occured</string>
 </resources>
