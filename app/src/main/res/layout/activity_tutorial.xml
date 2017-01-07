@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryDark">
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/image_container"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/phone"
+        android:layout_width="@dimen/frame_width"
+        android:layout_height="@dimen/frame_height"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/phone"
+        android:orientation="vertical"
+        android:layout_above="@+id/positionIndicator">
+
+        <RelativeLayout
+            android:id="@+id/origin_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/positionIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"/>
+
+    <FrameLayout
+        android:id="@+id/frameTitles"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/phone"
+        android:paddingBottom="12dp">
+
+        <LinearLayout
+            android:id="@+id/title_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <shirin.tahmasebi.mscfinalproject.phonetutorial.views.ButtonFloat
+        android:id="@+id/buttonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:background="@color/accent" />
+
+</RelativeLayout>

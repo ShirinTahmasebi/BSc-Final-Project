@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.backendless.BackendlessCollection;
 import com.backendless.async.callback.AsyncCallback;
@@ -58,7 +59,6 @@ public class BaseApplication extends Application {
         initGoogleAnalytics();
         AnalyticsTrackers.initialize(this);
         AnalyticsTrackers.getInstance().get(AnalyticsTrackers.Target.APP);
-
     }
 
     private void initGoogleAnalytics() {
@@ -83,9 +83,12 @@ public class BaseApplication extends Application {
         String lastModifiedTime = SharedData.getInstance().getString("updated", "01/01/2000 00:00:00");
         String whereClause = "updated after '" + lastModifiedTime + "'";
 
-        // Update last modified date.
-        String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
-        SharedData.getInstance().put("updated", currentDateAndTime);
+        if (Helper.isNetworkAvailable(this)) {// Update last modified date.
+            String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
+            SharedData.getInstance().put("updated", currentDateAndTime);
+        } else {
+            Helper.showToast(this, R.string.error_connection);
+        }
 
         BackendlessDataQuery dataQuery = new BackendlessDataQuery();
         dataQuery.setWhereClause(whereClause);
@@ -108,6 +111,7 @@ public class BaseApplication extends Application {
                                                 OrganizationDao.Properties.No.eq(org.getNo()));
                                 existedOrgs.buildDelete().executeDeleteWithoutDetachingEntities();
                             }
+
                             daoSession.getOrganizationDao().insert(org);
                         }
                     }
@@ -115,7 +119,7 @@ public class BaseApplication extends Application {
                     @Override
                     public void handleFault(BackendlessFault fault) {
                         // an error has occurred, the error code can be retrieved with fault.getCode()
-                        Log.d("MSc final project", fault.getMessage());
+                        Log.e("MSc final project", fault.getMessage());
                     }
                 });
     }

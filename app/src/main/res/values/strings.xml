@@ -120,4 +120,14 @@
     <string name="lable_setting_useInAppGPS">Use in app Map:</string>
     <string name="lable_setting_useInAppBrowser">Use in app Browser:</string>
     <string name="error_server">Internal Server Error Occured</string>
+
+    <string-array name="titles">
+        <item>به برنامه عریضه‌نویس خوش‌آمدید. در صفحه اول این برنامهُ، داشبورد کاربر را مشاهده میکنید.</item>
+        <item>با انتخاب قسمت سازمانها از صفحه داشبورد، میتوانید لیست سازمانها را مشاهده کنید.</item>
+        <item>با هر سازمان میتوانید از طریق یکی از راه‌های ارتباطی که سازمان فراهم آورده است، در تماس باشید.</item>
+        <item>از قسمت تنظیمات میتوانید ویژگیهای مورد نظر خود را به برنامه اعمال کنید و یا زبان برنامه را تغییر دهید.</item>
+        <item>با انتخاب یادآور از قسمت داشبورد، به صفحه ساخت یادآور هدایت میشوید.</item>
+        <item>هر گونه پیشنهاد یا گزارشی از باگهای احتمالی برنامه را میتوانید از طریق صفحه بازخورد با ما به اشتراک بگذارید.</item>
+    </string-array>
+
 </resources>
