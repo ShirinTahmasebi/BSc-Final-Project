@@ -27,23 +27,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.backendless.Backendless;
-import com.backendless.BackendlessCollection;
-import com.backendless.async.callback.AsyncCallback;
-import com.backendless.exceptions.BackendlessFault;
-import com.backendless.persistence.BackendlessDataQuery;
-
 import java.util.Arrays;
 import java.util.List;
 
-import de.greenrobot.dao.query.QueryBuilder;
-import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.inlineBrowser.InlineBrowserActivity;
-import shirin.tahmasebi.mscfinalproject.io.models.OrgFav;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
-import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
@@ -113,7 +103,7 @@ public class OrganizationActivity extends MainActivity
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                initialOrganizationDatabase(swipeRefreshLayout);
+                mPresenter.refreshOrganizations(OrganizationActivity.this, swipeRefreshLayout);
             }
         });
     }
@@ -321,6 +311,16 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
+    public void updateAdapter(boolean b,
+                              List<Organization> organizations,
+                              SwipeRefreshLayout swipeRefreshLayout) {
+        swipeRefreshLayout.setRefreshing(false);
+        if (!b) return;
+        organizationAdapter.clear();
+        organizationAdapter.addAll(organizations);
+    }
+
+    @Override
     public void showNetworkProblemMessage() {
         Helper.showToast(this, R.string.error_connection);
     }
@@ -339,73 +339,6 @@ public class OrganizationActivity extends MainActivity
                 // ...
             }
         }
-    }
-
-    public void initialOrganizationDatabase(final SwipeRefreshLayout swipeRefreshLayout) {
-        String lastModifiedTime = SharedData.getInstance().getString("updated", "01/01/2000 00:00:00");
-        String whereClause = "updated after '" + lastModifiedTime
-                + "' or created after '" + lastModifiedTime + "'";
-
-        if (Helper.isNetworkAvailable(this)) {// Update last modified date.
-            String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
-            SharedData.getInstance().put("updated", currentDateAndTime);
-        } else {
-            Helper.showToast(this, R.string.error_connection);
-        }
-
-        BackendlessDataQuery dataQuery = new BackendlessDataQuery();
-        dataQuery.setWhereClause(whereClause);
-        dataQuery.setPageSize(100);
-
-        Backendless.Persistence.of(Organization.class).find(dataQuery,
-                new AsyncCallback<BackendlessCollection<Organization>>() {
-                    @Override
-                    public void handleResponse(BackendlessCollection<Organization> foundOrganizations) {
-                        for (Organization org : foundOrganizations.getCurrentPage()) {
-                            if ((((BaseApplication) context.getApplicationContext())
-                                    .daoSession.getOrganizationDao()
-                                    .queryBuilder()
-                                    .where(
-                                            OrganizationDao.Properties.No.eq(
-                                                    org.getNo()))).count() == 0
-                                    ) {
-                                OrgFav orgFav = new OrgFav();
-                                orgFav.setNo(org.getNo());
-                                orgFav.setIsFavorite(false);
-                                ((BaseApplication) context.getApplicationContext())
-                                        .daoSession.getOrgFavDao().insert(orgFav);
-                            } else {
-                                QueryBuilder<Organization> existedOrgs =
-                                        ((BaseApplication) context.getApplicationContext())
-                                                .daoSession.getOrganizationDao()
-                                                .queryBuilder()
-                                                .where(
-                                                        OrganizationDao.Properties.No.eq(
-                                                                org.getNo()
-                                                        )
-                                                );
-                                existedOrgs.buildDelete().executeDeleteWithoutDetachingEntities();
-                            }
-                            ((BaseApplication) context.getApplicationContext())
-                                    .daoSession.getOrganizationDao().insert(org);
-                        }
-                        organizationAdapter.clear();
-                        organizationAdapter.addAll(
-                                ((BaseApplication) context.getApplicationContext())
-                                        .daoSession
-                                        .getOrganizationDao()
-                                        .loadAll()
-                        );
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
-
-                    @Override
-                    public void handleFault(BackendlessFault fault) {
-                        // An error has occurred
-                        Log.e("MSc final project", fault.getMessage());
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
-                });
     }
 }
 

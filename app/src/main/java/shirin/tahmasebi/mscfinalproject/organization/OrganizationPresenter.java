@@ -1,6 +1,7 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import java.util.List;
 
@@ -38,6 +39,12 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
     @Override
     public void onToggleFavoriteOrganizationFinished(int adapterPosition) {
         mView.showOrganizationFavorite(adapterPosition);
+    }
+
+    @Override
+    public void onOrganizationListRefreshed(boolean b, List<Organization> organizations,
+                                            SwipeRefreshLayout swipeRefreshLayout) {
+        mView.updateAdapter(b, organizations, swipeRefreshLayout);
     }
 
     public void onStart() {
@@ -91,6 +98,14 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         mView.openSmsActivity(dialog, org);
     }
 
+    public void refreshOrganizations(Context context, SwipeRefreshLayout swipeRefreshLayout) {
+        if (!Helper.isNetworkAvailable(context)) {
+            mView.showNetworkProblemMessage();
+        } else {
+            mInteractor.refreshOrganizations(context, swipeRefreshLayout);
+        }
+    }
+
     interface OrganizationView {
         void showOrganizationsList(List<Organization> list);
 
@@ -113,5 +128,9 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         void openSmsActivity(SelectWriteModeDialog dialog, Organization org);
 
         void showServerProblemMessage();
+
+        void updateAdapter(boolean b,
+                           List<Organization> organizations,
+                           SwipeRefreshLayout swipeRefreshLayout);
     }
 }
