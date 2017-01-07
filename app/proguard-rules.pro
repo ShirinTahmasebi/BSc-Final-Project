@@ -15,7 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
 -printmapping mapping.txt
 
 # support library
@@ -60,6 +61,12 @@
 -dontwarn com.sun.**
 -dontwarn javax.activation.**
 -dontwarn org.apache.harmony.awt.**
+
+-dontwarn com.backendless.**
+-dontwarn weborb.**
+-keep class weborb.** {*;}
+-keep class com.backendless.** {*;}
+-keep class shirin.tahmasebi.mscfinalproject.io.models.** {*;}
 #
 #-optimizationpasses 3
 #-overloadaggressively
@@ -73,5 +80,6 @@
 #-verbose
 #-optimizations !code/simplification/arithmetic,!field
 
--keepattributes InnerClasses
+# Preserve some attributes that may be required for reflection.
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod
 -dontoptimize
