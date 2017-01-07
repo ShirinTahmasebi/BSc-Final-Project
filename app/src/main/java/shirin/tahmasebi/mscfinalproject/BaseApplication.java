@@ -81,7 +81,8 @@ public class BaseApplication extends Application {
 
     private void initialOrganizationDatabase() {
         String lastModifiedTime = SharedData.getInstance().getString("updated", "01/01/2000 00:00:00");
-        String whereClause = "updated after '" + lastModifiedTime + "'";
+        String whereClause = "updated after '" + lastModifiedTime
+                + "' or created after '" + lastModifiedTime + "'";
 
         if (Helper.isNetworkAvailable(this)) {// Update last modified date.
             String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
