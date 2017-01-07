@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:gravity="start">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:gravity="start">
 
     <RelativeLayout
         android:id="@+id/dashboard_companyPagesItem_RelativeLayout"
@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
             android:background="@drawable/dashboard_business_icon"
-            android:contentDescription="@string/lable_dashboard_imageDescription"/>
+            android:contentDescription="@string/lable_dashboard_imageDescription" />
 
         <shirin.tahmasebi.mscfinalproject.view.FontableTextView
             android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_centerInParent="true"
             android:text="@string/title_activity_organizations"
             android:textColor="#FFF"
-            app:customFont="IRAN-Sans-Bold.ttf"/>
+            app:customFont="IRAN-Sans-Bold.ttf" />
 
     </RelativeLayout>
 

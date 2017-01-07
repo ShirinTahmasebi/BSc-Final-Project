@@ -9,6 +9,7 @@ import de.greenrobot.dao.AbstractDaoMaster;
 import de.greenrobot.dao.identityscope.IdentityScopeType;
 
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFavDao;
 import shirin.tahmasebi.mscfinalproject.io.models.HistoryDao;
 import shirin.tahmasebi.mscfinalproject.io.models.ReminderDao;
 
@@ -22,6 +23,7 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(SQLiteDatabase db, boolean ifNotExists) {
         OrganizationDao.createTable(db, ifNotExists);
+        OrgFavDao.createTable(db, ifNotExists);
         HistoryDao.createTable(db, ifNotExists);
         ReminderDao.createTable(db, ifNotExists);
     }
@@ -29,6 +31,7 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(SQLiteDatabase db, boolean ifExists) {
         OrganizationDao.dropTable(db, ifExists);
+        OrgFavDao.dropTable(db, ifExists);
         HistoryDao.dropTable(db, ifExists);
         ReminderDao.dropTable(db, ifExists);
     }
@@ -63,6 +66,7 @@ public class DaoMaster extends AbstractDaoMaster {
     public DaoMaster(SQLiteDatabase db) {
         super(db, SCHEMA_VERSION);
         registerDaoClass(OrganizationDao.class);
+        registerDaoClass(OrgFavDao.class);
         registerDaoClass(HistoryDao.class);
         registerDaoClass(ReminderDao.class);
     }

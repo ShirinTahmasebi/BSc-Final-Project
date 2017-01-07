@@ -1,16 +1,14 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
 import android.content.Context;
-import android.util.Log;
-
-import com.backendless.Backendless;
-import com.backendless.async.callback.AsyncCallback;
-import com.backendless.exceptions.BackendlessFault;
 
 import java.util.List;
 
+import de.greenrobot.dao.query.WhereCondition;
 import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.io.models.History;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFav;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFavDao;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.ShamsiConverter;
@@ -30,14 +28,23 @@ class OrganizationInteractor {
         mListener.onOrganizationListRetrieved(list);
     }
 
-    void retrieveOrganizationsListByFavoriteProperty(Context context, Boolean isFavorited) {
-        List<Organization> list =
-                ((BaseApplication) context.getApplicationContext())
-                        .daoSession
-                        .getOrganizationDao()
-                        .queryBuilder()
-                        .where(OrganizationDao.Properties.IsFavorite.eq(isFavorited))
-                        .list();
+    void retrieveOrganizationsListByFavoriteProperty(Context context, Boolean isFavored) {
+        List<Organization> list;
+        int favored = (isFavored) ? 1 : 0;
+        list = ((BaseApplication) context.getApplicationContext())
+                .daoSession
+                .getOrganizationDao()
+                .queryBuilder()
+                .where(
+                        new WhereCondition.StringCondition(
+                                "T.\"NO\" IN (" +
+                                        "SELECT \"NO\" " +
+                                        "FROM \"ORG_FAV\" " +
+                                        "WHERE  \"IS_FAVORITE\" = " +
+                                        favored + ")"
+                        )
+                )
+                .list();
         mListener.onOrganizationListRetrieved(list);
     }
 
@@ -59,27 +66,16 @@ class OrganizationInteractor {
     }
 
     void toggleFavoriteOrganization(long id, final Context context, final int adapterPosition) {
-        final Organization org = ((BaseApplication) context.getApplicationContext())
-                .daoSession.getOrganizationDao().load(id);
+        final OrgFav org = ((BaseApplication) context.getApplicationContext())
+                .daoSession.getOrgFavDao().queryBuilder().where(
+                        OrgFavDao.Properties.No.eq(id)
+                ).list().get(0);
+        ((BaseApplication) context.getApplicationContext())
+                .daoSession.getOrgFavDao().delete(org);
         org.setIsFavorite(!org.getIsFavorite());
         ((BaseApplication) context.getApplicationContext())
-                .daoSession.getOrganizationDao().insertOrReplace(org);
-        mListener.onToggleFavoriteOrganizationFinished(org, adapterPosition);
-        Backendless.Persistence.save(org, new AsyncCallback<Organization>() {
-            @Override
-            public void handleResponse(Organization organization) {
-                Log.d("MScFinalProject", organization.getName() + " is favorite: " +
-                        organization.getIsFavorite());
-            }
-
-            @Override
-            public void handleFault(BackendlessFault backendlessFault) {
-                org.setIsFavorite(!org.getIsFavorite());
-                ((BaseApplication) context.getApplicationContext())
-                        .daoSession.getOrganizationDao().insertOrReplace(org);
-                mListener.onToggleFavoriteOrganizationError(backendlessFault, context);
-            }
-        });
+                .daoSession.getOrgFavDao().insert(org);
+        mListener.onToggleFavoriteOrganizationFinished(adapterPosition);
     }
 
     void saveDialedNumber(Context context, Organization org) {
@@ -96,9 +92,7 @@ class OrganizationInteractor {
 
         void onRetrieveOrganizationFinished(Organization org, int retrieveReason);
 
-        void onToggleFavoriteOrganizationFinished(Organization org, int adapterPosition);
-
-        void onToggleFavoriteOrganizationError(BackendlessFault backendlessFault, Context context);
+        void onToggleFavoriteOrganizationFinished(int adapterPosition);
     }
 }
 

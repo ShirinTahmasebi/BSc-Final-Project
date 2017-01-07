@@ -3,7 +3,6 @@ package shirin.tahmasebi.mscfinalproject.reminder;
 import android.content.Context;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

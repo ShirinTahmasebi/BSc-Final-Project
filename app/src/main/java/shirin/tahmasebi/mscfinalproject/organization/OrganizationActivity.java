@@ -13,7 +13,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -297,7 +296,7 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
-    public void showOrganizationFavorite(Organization org, int adapterPosition) {
+    public void showOrganizationFavorite(int adapterPosition) {
         organizationAdapter.notifyItemChanged(adapterPosition);
 
     }

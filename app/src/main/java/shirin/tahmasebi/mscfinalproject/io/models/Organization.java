@@ -9,7 +9,7 @@ public class Organization {
     private Long id;
     /** Not-null value. */
     private String name;
-    private String no;
+    private Long no;
     /** Not-null value. */
     private String website;
     private String phoneNumber;
@@ -18,7 +18,6 @@ public class Organization {
     private String updated;
     /** Not-null value. */
     private String logo;
-    private Boolean isFavorite;
     private String emailAddress;
 
     public Organization() {
@@ -28,7 +27,7 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, String no, String website, String phoneNumber, String smsNumber, String created, String updated, String logo, Boolean isFavorite, String emailAddress) {
+    public Organization(Long id, String name, Long no, String website, String phoneNumber, String smsNumber, String created, String updated, String logo, String emailAddress) {
         this.id = id;
         this.name = name;
         this.no = no;
@@ -38,7 +37,6 @@ public class Organization {
         this.created = created;
         this.updated = updated;
         this.logo = logo;
-        this.isFavorite = isFavorite;
         this.emailAddress = emailAddress;
     }
 
@@ -60,11 +58,11 @@ public class Organization {
         this.name = name;
     }
 
-    public String getNo() {
+    public Long getNo() {
         return no;
     }
 
-    public void setNo(String no) {
+    public void setNo(Long no) {
         this.no = no;
     }
 
@@ -118,14 +116,6 @@ public class Organization {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setLogo(String logo) {
         this.logo = logo;
-    }
-
-    public Boolean getIsFavorite() {
-        return isFavorite;
-    }
-
-    public void setIsFavorite(Boolean isFavorite) {
-        this.isFavorite = isFavorite;
     }
 
     public String getEmailAddress() {

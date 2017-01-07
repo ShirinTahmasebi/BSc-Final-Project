@@ -25,15 +25,14 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
-        public final static Property No = new Property(2, String.class, "no", false, "NO");
+        public final static Property No = new Property(2, Long.class, "no", false, "NO");
         public final static Property Website = new Property(3, String.class, "website", false, "WEBSITE");
         public final static Property PhoneNumber = new Property(4, String.class, "phoneNumber", false, "PHONE_NUMBER");
         public final static Property SmsNumber = new Property(5, String.class, "smsNumber", false, "SMS_NUMBER");
         public final static Property Created = new Property(6, String.class, "created", false, "CREATED");
         public final static Property Updated = new Property(7, String.class, "updated", false, "UPDATED");
         public final static Property Logo = new Property(8, String.class, "logo", false, "LOGO");
-        public final static Property IsFavorite = new Property(9, Boolean.class, "isFavorite", false, "IS_FAVORITE");
-        public final static Property EmailAddress = new Property(10, String.class, "emailAddress", false, "EMAIL_ADDRESS");
+        public final static Property EmailAddress = new Property(9, String.class, "emailAddress", false, "EMAIL_ADDRESS");
     };
 
 
@@ -51,15 +50,14 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"ORGANIZATION\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
                 "\"NAME\" TEXT NOT NULL ," + // 1: name
-                "\"NO\" TEXT," + // 2: no
+                "\"NO\" INTEGER," + // 2: no
                 "\"WEBSITE\" TEXT NOT NULL ," + // 3: website
                 "\"PHONE_NUMBER\" TEXT," + // 4: phoneNumber
                 "\"SMS_NUMBER\" TEXT," + // 5: smsNumber
                 "\"CREATED\" TEXT," + // 6: created
                 "\"UPDATED\" TEXT," + // 7: updated
                 "\"LOGO\" TEXT NOT NULL ," + // 8: logo
-                "\"IS_FAVORITE\" INTEGER," + // 9: isFavorite
-                "\"EMAIL_ADDRESS\" TEXT);"); // 10: emailAddress
+                "\"EMAIL_ADDRESS\" TEXT);"); // 9: emailAddress
     }
 
     /** Drops the underlying database table. */
@@ -79,9 +77,9 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         }
         stmt.bindString(2, entity.getName());
  
-        String no = entity.getNo();
+        Long no = entity.getNo();
         if (no != null) {
-            stmt.bindString(3, no);
+            stmt.bindLong(3, no);
         }
         stmt.bindString(4, entity.getWebsite());
  
@@ -106,14 +104,9 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         }
         stmt.bindString(9, entity.getLogo());
  
-        Boolean isFavorite = entity.getIsFavorite();
-        if (isFavorite != null) {
-            stmt.bindLong(10, isFavorite ? 1L: 0L);
-        }
- 
         String emailAddress = entity.getEmailAddress();
         if (emailAddress != null) {
-            stmt.bindString(11, emailAddress);
+            stmt.bindString(10, emailAddress);
         }
     }
 
@@ -129,15 +122,14 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         Organization entity = new Organization( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // name
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // no
+            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2), // no
             cursor.getString(offset + 3), // website
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // phoneNumber
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // smsNumber
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // created
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // updated
             cursor.getString(offset + 8), // logo
-            cursor.isNull(offset + 9) ? null : cursor.getShort(offset + 9) != 0, // isFavorite
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10) // emailAddress
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // emailAddress
         );
         return entity;
     }
@@ -147,15 +139,14 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
     public void readEntity(Cursor cursor, Organization entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setName(cursor.getString(offset + 1));
-        entity.setNo(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setNo(cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2));
         entity.setWebsite(cursor.getString(offset + 3));
         entity.setPhoneNumber(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setSmsNumber(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setCreated(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setUpdated(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setLogo(cursor.getString(offset + 8));
-        entity.setIsFavorite(cursor.isNull(offset + 9) ? null : cursor.getShort(offset + 9) != 0);
-        entity.setEmailAddress(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setEmailAddress(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
      }
     
     /** @inheritdoc */

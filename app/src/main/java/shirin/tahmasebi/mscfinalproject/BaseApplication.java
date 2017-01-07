@@ -1,17 +1,13 @@
 package shirin.tahmasebi.mscfinalproject;
 
 import android.app.Application;
-import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.backendless.BackendlessCollection;
-import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
-import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -20,8 +16,10 @@ import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.StandardExceptionParser;
 import com.google.android.gms.analytics.Tracker;
 
+import de.greenrobot.dao.query.QueryBuilder;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoMaster;
 import shirin.tahmasebi.mscfinalproject.io.models.DaoSession;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFav;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.AnalyticsTrackers;
@@ -29,10 +27,6 @@ import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 
 import com.backendless.Backendless;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 public class BaseApplication extends Application {
     public DaoSession daoSession;
@@ -101,18 +95,20 @@ public class BaseApplication extends Application {
                 new AsyncCallback<BackendlessCollection<Organization>>() {
                     @Override
                     public void handleResponse(BackendlessCollection<Organization> foundOrganizations) {
-                        // the "foundContact" collection now contains instances of the Contact class.
-                        // each instance represents an object stored on the server.
                         for (Organization org : foundOrganizations.getCurrentPage()) {
                             if ((daoSession.getOrganizationDao().queryBuilder().where(
                                     OrganizationDao.Properties.No.eq(org.getNo()))).count() == 0) {
-                                daoSession.getOrganizationDao().insert(org);
+                                OrgFav orgFav = new OrgFav();
+                                orgFav.setNo(org.getNo());
+                                orgFav.setIsFavorite(false);
+                                daoSession.getOrgFavDao().insert(orgFav);
                             } else {
-                                daoSession.getOrganizationDao().queryBuilder().where(
-                                        OrganizationDao.Properties.No.eq(org.getNo()))
-                                        .buildDelete().executeDeleteWithoutDetachingEntities();
-                                daoSession.getOrganizationDao().insert(org);
+                                QueryBuilder<Organization> existedOrgs =
+                                        daoSession.getOrganizationDao().queryBuilder().where(
+                                                OrganizationDao.Properties.No.eq(org.getNo()));
+                                existedOrgs.buildDelete().executeDeleteWithoutDetachingEntities();
                             }
+                            daoSession.getOrganizationDao().insert(org);
                         }
                     }
 

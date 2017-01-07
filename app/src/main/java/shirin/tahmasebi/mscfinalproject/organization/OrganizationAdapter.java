@@ -1,8 +1,6 @@
 package shirin.tahmasebi.mscfinalproject.organization;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +14,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.R;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFav;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFavDao;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
@@ -42,7 +43,15 @@ class OrganizationAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(final OrganizationViewHolder holder, final int position) {
-        if (list.get(holder.getAdapterPosition()).getIsFavorite()) {
+        OrgFav orgFav =
+                ((BaseApplication) context.getApplicationContext()).daoSession.getOrgFavDao()
+                        .queryBuilder()
+                        .where(
+                                OrgFavDao.Properties.No.eq(
+                                        this.list.get(holder.getAdapterPosition()).getNo()
+                                )
+                        ).list().get(0);
+        if (orgFav.getIsFavorite()) {
             holder.organizationFavoriteImageView.setImageDrawable(
                     context.getResources().getDrawable(R.drawable.favorite_enable_icon_primarydark)
             );
@@ -51,10 +60,10 @@ class OrganizationAdapter extends RecyclerView.Adapter
                     context.getResources().getDrawable(R.drawable.favorite_disable_icon_primarydark)
             );
         }
-        holder.organizationTextView.setText(list.get(holder.getAdapterPosition()).getName());
+        holder.organizationTextView.setText(this.list.get(holder.getAdapterPosition()).getName());
 
         Picasso.with(context)
-                .load(list.get(holder.getAdapterPosition()).getLogo())
+                .load(this.list.get(holder.getAdapterPosition()).getLogo())
                 .resize(100, 100)
                 .centerCrop()
                 .noFade()
@@ -74,14 +83,14 @@ class OrganizationAdapter extends RecyclerView.Adapter
         holder.organizationWriteRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.showWriteOptions(context, list.get(holder.getAdapterPosition()).getId());
+                mPresenter.showWriteOptions(context, OrganizationAdapter.this.list.get(holder.getAdapterPosition()).getId());
             }
         });
-        holder.organizationFavoriteRelativeLayout.setOnClickListener(new View.OnClickListener() {
+        holder.organizationFavoriteImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.toggleFavorite(context,
-                        list.get(holder.getAdapterPosition()).getId(),
+                        OrganizationAdapter.this.list.get(holder.getAdapterPosition()).getNo(),
                         holder.getAdapterPosition());
             }
         });

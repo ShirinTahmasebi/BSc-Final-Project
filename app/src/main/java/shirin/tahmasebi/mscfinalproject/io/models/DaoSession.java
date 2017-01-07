@@ -10,10 +10,12 @@ import de.greenrobot.dao.identityscope.IdentityScopeType;
 import de.greenrobot.dao.internal.DaoConfig;
 
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFav;
 import shirin.tahmasebi.mscfinalproject.io.models.History;
 import shirin.tahmasebi.mscfinalproject.io.models.Reminder;
 
 import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFavDao;
 import shirin.tahmasebi.mscfinalproject.io.models.HistoryDao;
 import shirin.tahmasebi.mscfinalproject.io.models.ReminderDao;
 
@@ -27,10 +29,12 @@ import shirin.tahmasebi.mscfinalproject.io.models.ReminderDao;
 public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig organizationDaoConfig;
+    private final DaoConfig orgFavDaoConfig;
     private final DaoConfig historyDaoConfig;
     private final DaoConfig reminderDaoConfig;
 
     private final OrganizationDao organizationDao;
+    private final OrgFavDao orgFavDao;
     private final HistoryDao historyDao;
     private final ReminderDao reminderDao;
 
@@ -41,6 +45,9 @@ public class DaoSession extends AbstractDaoSession {
         organizationDaoConfig = daoConfigMap.get(OrganizationDao.class).clone();
         organizationDaoConfig.initIdentityScope(type);
 
+        orgFavDaoConfig = daoConfigMap.get(OrgFavDao.class).clone();
+        orgFavDaoConfig.initIdentityScope(type);
+
         historyDaoConfig = daoConfigMap.get(HistoryDao.class).clone();
         historyDaoConfig.initIdentityScope(type);
 
@@ -48,22 +55,29 @@ public class DaoSession extends AbstractDaoSession {
         reminderDaoConfig.initIdentityScope(type);
 
         organizationDao = new OrganizationDao(organizationDaoConfig, this);
+        orgFavDao = new OrgFavDao(orgFavDaoConfig, this);
         historyDao = new HistoryDao(historyDaoConfig, this);
         reminderDao = new ReminderDao(reminderDaoConfig, this);
 
         registerDao(Organization.class, organizationDao);
+        registerDao(OrgFav.class, orgFavDao);
         registerDao(History.class, historyDao);
         registerDao(Reminder.class, reminderDao);
     }
     
     public void clear() {
         organizationDaoConfig.getIdentityScope().clear();
+        orgFavDaoConfig.getIdentityScope().clear();
         historyDaoConfig.getIdentityScope().clear();
         reminderDaoConfig.getIdentityScope().clear();
     }
 
     public OrganizationDao getOrganizationDao() {
         return organizationDao;
+    }
+
+    public OrgFavDao getOrgFavDao() {
+        return orgFavDao;
     }
 
     public HistoryDao getHistoryDao() {

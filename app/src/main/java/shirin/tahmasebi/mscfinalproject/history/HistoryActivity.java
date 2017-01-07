@@ -10,7 +10,6 @@ import java.util.List;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.io.models.History;
-import shirin.tahmasebi.mscfinalproject.organization.OrganizationActivity;
 
 
 public class HistoryActivity extends MainActivity implements HistoryPresenter.HistoryView {

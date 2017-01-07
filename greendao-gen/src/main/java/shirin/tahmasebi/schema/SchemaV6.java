@@ -14,23 +14,31 @@ public class SchemaV6 extends Schema {
         createOrganization(this);
         createHistory(this);
         createReminder(this);
+        createOrgFav(this);
     }
 
     private Entity createOrganization(Schema schema) {
-        Entity organization;
-        organization = schema.addEntity("Organization");
+
+        Entity organization = schema.addEntity("Organization");
         organization.addIdProperty();
         organization.addStringProperty("name").notNull();
-        organization.addStringProperty("no");
+        organization.addLongProperty("no");
         organization.addStringProperty("website").notNull();
         organization.addStringProperty("phoneNumber");
         organization.addStringProperty("smsNumber");
         organization.addStringProperty("created");
         organization.addStringProperty("updated");
         organization.addStringProperty("logo").notNull();
-        organization.addBooleanProperty("isFavorite");
         organization.addStringProperty("emailAddress");
         return organization;
+    }
+
+    private Entity createOrgFav(Schema schema) {
+        Entity orgFav = schema.addEntity("OrgFav");
+        orgFav.addIdProperty();
+        orgFav.addBooleanProperty("isFavorite");
+        orgFav.addLongProperty("no");
+        return orgFav;
     }
 
 
