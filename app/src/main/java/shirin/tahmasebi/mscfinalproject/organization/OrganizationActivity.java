@@ -11,10 +11,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -25,13 +27,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessCollection;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.BackendlessDataQuery;
+
 import java.util.Arrays;
 import java.util.List;
 
+import de.greenrobot.dao.query.QueryBuilder;
+import shirin.tahmasebi.mscfinalproject.BaseApplication;
 import shirin.tahmasebi.mscfinalproject.MainActivity;
 import shirin.tahmasebi.mscfinalproject.R;
 import shirin.tahmasebi.mscfinalproject.inlineBrowser.InlineBrowserActivity;
+import shirin.tahmasebi.mscfinalproject.io.models.OrgFav;
 import shirin.tahmasebi.mscfinalproject.io.models.Organization;
+import shirin.tahmasebi.mscfinalproject.io.models.OrganizationDao;
 import shirin.tahmasebi.mscfinalproject.util.Helper;
 import shirin.tahmasebi.mscfinalproject.util.SharedData;
 import shirin.tahmasebi.mscfinalproject.util.WriteOptionEnum;
@@ -42,11 +54,13 @@ public class OrganizationActivity extends MainActivity
     private static final int PERMISION_REQUEST_PHONECALL = 1234;
     OrganizationPresenter mPresenter;
     private OrganizationAdapter organizationAdapter;
+    Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.context = this.getBaseContext();
         mPresenter = new OrganizationPresenter(this);
         mPresenter.getOrganizationsList(this);
     }
@@ -81,11 +95,27 @@ public class OrganizationActivity extends MainActivity
     public void showOrganizationsList(List<Organization> list) {
         RecyclerView recyclerView = (RecyclerView)
                 findViewById(R.id.organization_organizationList_recyclerView);
+        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)
+                findViewById(R.id.organization_organizationList_swipeRefreshLayout);
+        swipeRefreshLayout.setColorSchemeResources(
+                R.color.refresh_progress_1,
+                R.color.refresh_progress_2,
+                R.color.refresh_progress_3,
+                R.color.refresh_progress_4,
+                R.color.refresh_progress_5,
+                R.color.refresh_progress_6
+        );
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         organizationAdapter = new OrganizationAdapter(mPresenter, list, this);
         recyclerView.setAdapter(organizationAdapter);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initialOrganizationDatabase(swipeRefreshLayout);
+            }
+        });
     }
 
     @Override
@@ -287,7 +317,7 @@ public class OrganizationActivity extends MainActivity
 
     @Override
     public void showServerProblemMessage() {
-            Helper.showToast(this, R.string.error_server);
+        Helper.showToast(this, R.string.error_server);
     }
 
     @Override
@@ -309,6 +339,73 @@ public class OrganizationActivity extends MainActivity
                 // ...
             }
         }
+    }
+
+    public void initialOrganizationDatabase(final SwipeRefreshLayout swipeRefreshLayout) {
+        String lastModifiedTime = SharedData.getInstance().getString("updated", "01/01/2000 00:00:00");
+        String whereClause = "updated after '" + lastModifiedTime
+                + "' or created after '" + lastModifiedTime + "'";
+
+        if (Helper.isNetworkAvailable(this)) {// Update last modified date.
+            String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
+            SharedData.getInstance().put("updated", currentDateAndTime);
+        } else {
+            Helper.showToast(this, R.string.error_connection);
+        }
+
+        BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+        dataQuery.setWhereClause(whereClause);
+        dataQuery.setPageSize(100);
+
+        Backendless.Persistence.of(Organization.class).find(dataQuery,
+                new AsyncCallback<BackendlessCollection<Organization>>() {
+                    @Override
+                    public void handleResponse(BackendlessCollection<Organization> foundOrganizations) {
+                        for (Organization org : foundOrganizations.getCurrentPage()) {
+                            if ((((BaseApplication) context.getApplicationContext())
+                                    .daoSession.getOrganizationDao()
+                                    .queryBuilder()
+                                    .where(
+                                            OrganizationDao.Properties.No.eq(
+                                                    org.getNo()))).count() == 0
+                                    ) {
+                                OrgFav orgFav = new OrgFav();
+                                orgFav.setNo(org.getNo());
+                                orgFav.setIsFavorite(false);
+                                ((BaseApplication) context.getApplicationContext())
+                                        .daoSession.getOrgFavDao().insert(orgFav);
+                            } else {
+                                QueryBuilder<Organization> existedOrgs =
+                                        ((BaseApplication) context.getApplicationContext())
+                                                .daoSession.getOrganizationDao()
+                                                .queryBuilder()
+                                                .where(
+                                                        OrganizationDao.Properties.No.eq(
+                                                                org.getNo()
+                                                        )
+                                                );
+                                existedOrgs.buildDelete().executeDeleteWithoutDetachingEntities();
+                            }
+                            ((BaseApplication) context.getApplicationContext())
+                                    .daoSession.getOrganizationDao().insert(org);
+                        }
+                        organizationAdapter.clear();
+                        organizationAdapter.addAll(
+                                ((BaseApplication) context.getApplicationContext())
+                                        .daoSession
+                                        .getOrganizationDao()
+                                        .loadAll()
+                        );
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+                        // An error has occurred
+                        Log.e("MSc final project", fault.getMessage());
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                });
     }
 }
 

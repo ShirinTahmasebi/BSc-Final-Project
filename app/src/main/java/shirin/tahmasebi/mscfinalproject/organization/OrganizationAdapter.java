@@ -41,6 +41,18 @@ class OrganizationAdapter extends RecyclerView.Adapter
         return new OrganizationViewHolder(view);
     }
 
+    // Clean all elements of the recycler
+    public void clear() {
+        list.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items
+    public void addAll(List<Organization> list) {
+        this.list.addAll(list);
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(final OrganizationViewHolder holder, final int position) {
         OrgFav orgFav =

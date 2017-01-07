@@ -5,6 +5,13 @@
     <color name="secondary">#7b24aa</color>
     <color name="accent">#FF4081</color>
 
+    <color name="refresh_progress_1">#4851a8</color>
+    <color name="refresh_progress_2">#9730a7</color>
+    <color name="refresh_progress_3">#ff335b</color>
+    <color name="refresh_progress_4">#00a35c</color>
+    <color name="refresh_progress_5">#ff7a00</color>
+    <color name="refresh_progress_6">#0096df</color>
+
     <color name="hint">#999999</color>
     <color name="black_semi_transparent">#B2000000</color>
 
