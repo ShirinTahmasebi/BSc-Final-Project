@@ -321,6 +321,15 @@ public class OrganizationActivity extends MainActivity
     }
 
     @Override
+    public void showMapActivity(Organization organization) {
+        String url = "http://maps.google.com/maps?daddr=" +
+                organization.getLat() + "," + organization.getLan();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
+    @Override
     public void showNetworkProblemMessage() {
         Helper.showToast(this, R.string.error_connection);
     }

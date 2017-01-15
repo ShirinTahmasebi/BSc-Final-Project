@@ -88,7 +88,12 @@ public class BaseApplication extends Application {
             String currentDateAndTime = Helper.currentGregorianTimeDateFormat("MM/dd/yyyy hh:mm:ss");
             SharedData.getInstance().put("updated", currentDateAndTime);
         } else {
-            Helper.showToast(this, R.string.error_connection);
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.error_connection_fa,
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
         }
 
         BackendlessDataQuery dataQuery = new BackendlessDataQuery();

@@ -106,6 +106,13 @@ class OrganizationAdapter extends RecyclerView.Adapter
                         holder.getAdapterPosition());
             }
         });
+        holder.organizationGPSRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.showMapActivity(list.get(holder.getAdapterPosition()));
+
+            }
+        });
     }
 
     @Override

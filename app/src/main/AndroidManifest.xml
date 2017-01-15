@@ -65,7 +65,7 @@
         <activity android:name=".history.EmailDetailActivity" />
         <activity android:name=".reminder.ReminderAddActivity" />
         <activity android:name="BaseApplication" />
-        <activity android:name=".phonetutorial.activities.TutorialActivity" />
+        <activity android:name=".phonetutorial.TutorialActivity" />
         <activity android:name=".DemoActivity" />
 
         <receiver android:name=".reminder.Alarm" />

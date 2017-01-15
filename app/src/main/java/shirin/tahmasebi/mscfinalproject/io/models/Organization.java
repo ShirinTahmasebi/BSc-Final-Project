@@ -19,6 +19,8 @@ public class Organization {
     /** Not-null value. */
     private String logo;
     private String emailAddress;
+    private String lan;
+    private String lat;
 
     public Organization() {
     }
@@ -27,7 +29,7 @@ public class Organization {
         this.id = id;
     }
 
-    public Organization(Long id, String name, Long no, String website, String phoneNumber, String smsNumber, String created, String updated, String logo, String emailAddress) {
+    public Organization(Long id, String name, Long no, String website, String phoneNumber, String smsNumber, String created, String updated, String logo, String emailAddress, String lan, String lat) {
         this.id = id;
         this.name = name;
         this.no = no;
@@ -38,6 +40,8 @@ public class Organization {
         this.updated = updated;
         this.logo = logo;
         this.emailAddress = emailAddress;
+        this.lan = lan;
+        this.lat = lat;
     }
 
     public Long getId() {
@@ -124,6 +128,22 @@ public class Organization {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getLan() {
+        return lan;
+    }
+
+    public void setLan(String lan) {
+        this.lan = lan;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
 }

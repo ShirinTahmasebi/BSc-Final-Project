@@ -33,6 +33,8 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         public final static Property Updated = new Property(7, String.class, "updated", false, "UPDATED");
         public final static Property Logo = new Property(8, String.class, "logo", false, "LOGO");
         public final static Property EmailAddress = new Property(9, String.class, "emailAddress", false, "EMAIL_ADDRESS");
+        public final static Property Lan = new Property(10, String.class, "lan", false, "LAN");
+        public final static Property Lat = new Property(11, String.class, "lat", false, "LAT");
     };
 
 
@@ -57,7 +59,9 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
                 "\"CREATED\" TEXT," + // 6: created
                 "\"UPDATED\" TEXT," + // 7: updated
                 "\"LOGO\" TEXT NOT NULL ," + // 8: logo
-                "\"EMAIL_ADDRESS\" TEXT);"); // 9: emailAddress
+                "\"EMAIL_ADDRESS\" TEXT," + // 9: emailAddress
+                "\"LAN\" TEXT," + // 10: lan
+                "\"LAT\" TEXT);"); // 11: lat
     }
 
     /** Drops the underlying database table. */
@@ -108,6 +112,16 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         if (emailAddress != null) {
             stmt.bindString(10, emailAddress);
         }
+ 
+        String lan = entity.getLan();
+        if (lan != null) {
+            stmt.bindString(11, lan);
+        }
+ 
+        String lat = entity.getLat();
+        if (lat != null) {
+            stmt.bindString(12, lat);
+        }
     }
 
     /** @inheritdoc */
@@ -129,7 +143,9 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // created
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // updated
             cursor.getString(offset + 8), // logo
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // emailAddress
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // emailAddress
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // lan
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11) // lat
         );
         return entity;
     }
@@ -147,6 +163,8 @@ public class OrganizationDao extends AbstractDao<Organization, Long> {
         entity.setUpdated(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setLogo(cursor.getString(offset + 8));
         entity.setEmailAddress(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setLan(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setLat(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
      }
     
     /** @inheritdoc */

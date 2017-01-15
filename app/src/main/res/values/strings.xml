@@ -69,6 +69,7 @@
     <string name="toast_mail_error">Error occurred while sending email</string>
     <string name="toast_mail_queueToSend">Your message will be sent.</string>
     <string name="error_connection">Error in internet connection</string>
+    <string name="error_connection_fa">خطا در اتصال به اینترنت</string>
     <string name="error_writeEmail_shouldChooseAccount">
         For sending email via your google account, you should choose one.\n
         Please complete your profile information.د.

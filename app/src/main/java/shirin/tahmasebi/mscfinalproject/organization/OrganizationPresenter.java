@@ -106,6 +106,10 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         }
     }
 
+    public void showMapActivity(Organization organization) {
+        mView.showMapActivity(organization);
+    }
+
     interface OrganizationView {
         void showOrganizationsList(List<Organization> list);
 
@@ -132,5 +136,7 @@ class OrganizationPresenter implements OrganizationInteractor.OrganizationListen
         void updateAdapter(boolean b,
                            List<Organization> organizations,
                            SwipeRefreshLayout swipeRefreshLayout);
+
+        void showMapActivity(Organization organization);
     }
 }
