@@ -30,6 +30,8 @@ public class SchemaV6 extends Schema {
         organization.addStringProperty("updated");
         organization.addStringProperty("logo").notNull();
         organization.addStringProperty("emailAddress");
+        organization.addStringProperty("lan");
+        organization.addStringProperty("lat");
         return organization;
     }
 

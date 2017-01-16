@@ -22,7 +22,7 @@ public class MakeMVPFiles {
         // If directory exists?
         if (!Files.exists(Paths.get(directory))) {
             try {
-                createPackageirectory(directory);
+                createPackageDirectory(directory);
                 createJavaFile(directory, "Activity", packageName, functionality);
                 createJavaFile(directory, "Presenter", packageName, functionality);
                 createJavaFile(directory, "Interactor", packageName, functionality);
@@ -84,7 +84,7 @@ public class MakeMVPFiles {
         return content;
     }
 
-    private static void createPackageirectory(String directory) throws IOException {
+    private static void createPackageDirectory(String directory) throws IOException {
         Path path;
         path = Paths.get(directory);
         Files.createDirectory(path);

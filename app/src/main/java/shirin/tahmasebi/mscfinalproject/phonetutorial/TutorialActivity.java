@@ -1,4 +1,4 @@
-package shirin.tahmasebi.mscfinalproject.phonetutorial.activities;
+package shirin.tahmasebi.mscfinalproject.phonetutorial;
 
 
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -27,11 +27,8 @@ import android.widget.ImageView.ScaleType;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import shirin.tahmasebi.mscfinalproject.R;
-import shirin.tahmasebi.mscfinalproject.phonetutorial.utils.Utils;
-import shirin.tahmasebi.mscfinalproject.phonetutorial.views.ButtonFloat;
 import shirin.tahmasebi.mscfinalproject.view.FontableTextView;
 
 

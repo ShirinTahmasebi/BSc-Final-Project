@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import shirin.tahmasebi.mscfinalproject.dashboard.DashboardActivity;
-import shirin.tahmasebi.mscfinalproject.phonetutorial.activities.TutorialActivity;
+import shirin.tahmasebi.mscfinalproject.phonetutorial.TutorialActivity;
 
 public class DemoActivity extends Activity {
     @Override

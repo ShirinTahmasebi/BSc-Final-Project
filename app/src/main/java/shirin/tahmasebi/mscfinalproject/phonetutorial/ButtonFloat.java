@@ -1,4 +1,4 @@
-package shirin.tahmasebi.mscfinalproject.phonetutorial.views;
+package shirin.tahmasebi.mscfinalproject.phonetutorial;
 
 
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -23,7 +23,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import shirin.tahmasebi.mscfinalproject.R;
-import shirin.tahmasebi.mscfinalproject.phonetutorial.utils.Utils;
 
 
 public class ButtonFloat extends RelativeLayout {

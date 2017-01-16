@@ -1,4 +1,4 @@
-package shirin.tahmasebi.mscfinalproject.phonetutorial.utils;
+package shirin.tahmasebi.mscfinalproject.phonetutorial;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

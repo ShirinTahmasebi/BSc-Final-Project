@@ -105,6 +105,8 @@ public class Helper {
         toast.show();
     }
 
+
+
     public static void showToast(Context context, String toastText) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View layout = inflater.inflate(

@@ -63,7 +63,7 @@
 
     </FrameLayout>
 
-    <shirin.tahmasebi.mscfinalproject.phonetutorial.views.ButtonFloat
+    <shirin.tahmasebi.mscfinalproject.phonetutorial.ButtonFloat
         android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
